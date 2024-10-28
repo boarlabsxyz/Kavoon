@@ -1,0 +1,32 @@
+.container {
+  max-width: 1204px;
+  margin: 80px auto 0;
+  padding: 0 20px;
+}
+
+.postTitle {
+  text-align: center;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  text-transform: uppercase;
+}
+
+.noArticle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .container {
+    margin-top: 40px;
+  }
+
+  .postTitle {
+    margin: auto;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

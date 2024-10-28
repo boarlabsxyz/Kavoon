@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.22;
+
+  column-gap: 8px;
+  color: var(--primary-color);
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  transition: opacity 250ms ease;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

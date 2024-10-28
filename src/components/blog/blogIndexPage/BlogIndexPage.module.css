@@ -1,0 +1,29 @@
+.content {
+  padding-top: 80px;
+  margin-bottom: auto;
+
+  .indexTitle {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 34px;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .content {
+    padding-top: 40px;
+    position: inherit;
+
+    .indexTitle {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+  }
+}

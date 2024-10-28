@@ -1,0 +1,14 @@
+.list {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  list-style-type: disc;
+}
+
+.item {
+  margin-left: 24px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 5px;
+}

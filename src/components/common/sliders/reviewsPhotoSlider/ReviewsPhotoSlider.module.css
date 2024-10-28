@@ -1,0 +1,49 @@
+.container {
+  position: relative;
+  width: 300px;
+  padding: 0 40px;
+}
+
+.wrapper {
+  padding-bottom: 20px;
+}
+
+.img {
+  object-fit: scale-down;
+}
+
+.container :global(.swiper-button-next):after,
+.container :global(.swiper-button-prev):after {
+  font-size: 0;
+  height: 27px;
+  width: 16px;
+  background: url(/icons/next-icon-thin.svg);
+}
+
+.container :global(.swiper-button-prev):after {
+  transform: rotate(180deg);
+}
+
+.container :global(.swiper-pagination) {
+  display: flex;
+  justify-content: flex-end;
+  top: 224px;
+  color: #c0c6d0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.prevReviewPhotoArrow,
+.nextReviewPhotoArrow {
+  top: 122px;
+  top: 110px;
+}
+
+.prevReviewPhotoArrow {
+  left: 6px;
+}
+
+.nextReviewPhotoArrow {
+  right: 6px;
+}

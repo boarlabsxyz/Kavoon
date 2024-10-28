@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-content: flex-start;
+  height: 340px;
+}
+
+.listItem {
+  display: flex;
+  height: 100px;
+  width: 100px;
+
+  cursor: pointer;
+}
+
+@media (width <= 1023px) {
+  .list {
+    gap: 10px;
+    height: 311px;
+  }
+
+  .listItem,
+  .img {
+    width: 97px;
+    height: 97px;
+  }
+}

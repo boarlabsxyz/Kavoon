@@ -1,0 +1,21 @@
+.hero {
+  height: 518px;
+  display: flex;
+  align-items: flex-end;
+  background-image: url('/img/design-imgs-main-page/main-bg-desktop@3x.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 102px;
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
+    padding-bottom: 87px;
+  }
+
+  .wrapper {
+    gap: 0px;
+  }
+}

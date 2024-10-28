@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 23px;
+  order: 1;
+  width: 100%;
+}
+
+.cardWrapper {
+  display: flex;
+}
+
+@media (1024px <= width <= 1380px) {
+  .wrapper > *:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    justify-content: center;
+    gap: 16px;
+    order: 0;
+  }
+
+  .cardWrapper {
+    width: 100%;
+  }
+}

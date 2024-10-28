@@ -1,0 +1,52 @@
+.sendMessageBtn,
+.sendContactsBtn {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  color: var(--white);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.sendMessageBtn:disabled,
+.sendContactsBtn:disabled {
+  background-color: #ced6e2;
+}
+
+.sendMessageBtn {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.sendContactsBtn {
+  display: block;
+  max-width: 223px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 30px;
+  margin-bottom: 50px;
+}
+
+.chatForm {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+  .sendMessageBtn {
+    bottom: 14px;
+  }
+}

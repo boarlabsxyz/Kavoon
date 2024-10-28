@@ -1,0 +1,44 @@
+.title {
+  margin-bottom: 17px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.62;
+  text-align: center;
+  margin-right: 20px;
+  letter-spacing: 0.5px;
+}
+
+.content {
+  display: flex;
+  width: 764px;
+  gap: 38px;
+}
+
+.fabricsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.additionalFabricsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 1023px) {
+  .title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 2.1;
+  }
+
+  .content {
+    display: block;
+    width: 311px;
+  }
+
+  .fabricsWrapper {
+    min-height: 313px;
+    padding: 0;
+  }
+}

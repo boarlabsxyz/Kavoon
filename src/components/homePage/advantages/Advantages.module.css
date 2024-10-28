@@ -1,0 +1,23 @@
+.section {
+  padding-bottom: 20px;
+}
+
+.advantages {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  top: -62px;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .advantages {
+    flex-direction: column;
+  }
+}

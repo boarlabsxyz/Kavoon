@@ -1,0 +1,69 @@
+.wrapper {
+  margin-bottom: 16px;
+}
+
+.content {
+  display: flex;
+  padding-left: 2px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.label:not(:last-child) {
+  margin-right: 24px;
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  overflow: hidden;
+}
+
+.mark {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #c0c6d0;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-sizing: border-box;
+  padding: 0.2em;
+}
+
+.mark::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.input:checked + .mark {
+  border: 5px solid #11a0a9;
+}
+
+.text {
+  color: var(--main-text-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.22;
+}
+
+@media (width <= 1023px) {
+  .content {
+    justify-content: space-between;
+  }
+  .label:not(:last-child) {
+    margin-right: 0;
+  }
+}

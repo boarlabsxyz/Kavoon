@@ -1,0 +1,36 @@
+.chat {
+  flex-grow: 1;
+  padding: 20px 15px;
+}
+
+.greeting {
+  max-width: 284px;
+  margin-top: 0;
+  padding: 12px;
+  line-height: 1.62;
+  white-space: pre-line;
+  background-color: rgba(206, 214, 226, 0.3);
+  border-radius: 15px;
+}
+
+.input {
+  box-sizing: border-box;
+  padding: 18px 72px 18px 15px;
+  font-size: inherit;
+  line-height: 1.62;
+  color: inherit;
+  border: none;
+  border-top: 1px solid #b9c8e2;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+.input::placeholder {
+  color: #b9c6dc;
+}
+
+@media (max-width: 480px) {
+  .input {
+    height: 70px;
+  }
+}

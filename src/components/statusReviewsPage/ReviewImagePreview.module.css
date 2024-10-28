@@ -1,0 +1,22 @@
+.wrapper {
+  /* Sviper */
+  --swiper-theme-color: var(--primary-color);
+
+  position: relative;
+  width: 510px;
+}
+
+.wrapper :global(.swiper-button-prev),
+.wrapper :global(.swiper-button-next) {
+  font-weight: bold;
+}
+
+.wrapper img {
+  object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    width: 275px;
+  }
+}

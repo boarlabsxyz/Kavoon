@@ -1,0 +1,64 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.textContentWide {
+  width: 552px;
+}
+
+.textContentNarrow {
+  width: 450px;
+}
+
+.userName {
+  overflow: hidden;
+  word-break: break-all;
+
+  margin-bottom: 16px;
+
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24.38px;
+}
+
+.commentWrapper {
+  max-height: 293px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.commentText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .textContentWide,
+  .textContentNarrow {
+    width: 311px;
+  }
+
+  .mainContent {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .userName {
+    margin-bottom: 4px;
+  }
+
+  .commentWrapper {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    overflow: hidden;
+  }
+}

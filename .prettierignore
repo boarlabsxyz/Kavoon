@@ -1,0 +1,6 @@
+node_modules/
+.vscode/
+.next/
+.serverless/
+*.md
+cypress.config.ts

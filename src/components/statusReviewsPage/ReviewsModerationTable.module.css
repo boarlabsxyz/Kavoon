@@ -1,0 +1,105 @@
+.table {
+  font-size: 16px;
+  line-height: 1.1;
+  text-align: center;
+  word-break: break-word;
+  border-collapse: collapse;
+  color: var(--main-text-color);
+}
+
+.table > caption {
+  padding: 20px 0 5px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  background-color: var(--white);
+}
+
+.table > thead {
+  top: 46px;
+}
+
+.table th {
+  font-weight: 600;
+  color: var(--white);
+  background: var(--primary-color);
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid var(--second-text-color);
+}
+
+.product,
+.userName,
+.photos {
+  width: 10vw;
+}
+
+.rating,
+.show,
+.delete {
+  width: 7vw;
+}
+
+.comment {
+  width: 36vw;
+}
+
+.language {
+  width: 17vw;
+}
+
+.productName,
+.reviewComment {
+  text-align: start;
+}
+
+.reviewLanguage form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reviewLanguage label:not(:last-child) {
+  margin-right: 15px;
+}
+
+.reviewLanguage input {
+  margin-right: 5px;
+}
+
+.showReview,
+.deleteReview {
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  font-weight: 400;
+  font-size: inherit;
+  line-height: 1.1;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+}
+
+.showReview {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.deleteReview {
+  color: red;
+  border: 1px solid red;
+}
+
+@media (max-width: 1023px) {
+  .table {
+    font-size: 14px;
+  }
+
+  .table > caption {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,42 @@
+.section {
+  margin: 80px auto 115px;
+  width: 1160px;
+}
+
+.title {
+  margin: 0 auto 25px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 1.05px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+@media (max-width: 1259px) {
+  .section {
+    width: 960px;
+  }
+
+  .wrapper {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .section {
+    margin: 50px auto 50px;
+    width: 335px;
+  }
+
+  .wrapper {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,74 @@
+.modalContent {
+  width: 603px;
+}
+
+.title {
+  margin-bottom: 10px;
+
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.priceInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.price,
+.priceText {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.price {
+  color: var(--primary-color);
+}
+
+.priceText {
+  margin-right: 10px;
+}
+
+.button {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--white);
+
+  width: 200px;
+  height: 50px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 25px;
+  box-shadow: 0 10px 32px 0 rgba(8, 66, 75, 0.2);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+@media (width <= 1024px) {
+  .modalContent {
+    width: 311px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .priceInfo {
+    flex-direction: column;
+  }
+
+  .priceWrapper {
+    margin-bottom: 10px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,44 @@
+.wrapper {
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.customRadio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.customRadioLabel {
+  display: block;
+  user-select: none;
+}
+
+.customRadioLabel::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #9a9fab;
+  border-radius: 50%;
+}
+
+.customRadio:not(:disabled):not(:checked) + .customRadioLabel:hover::before {
+  border-color: #11a0a9;
+}
+
+.customRadio:checked + .customRadioLabel::before {
+  border: 5px solid #11a0a9;
+}
+
+.customRadio:disabled + .customRadioLabel::before {
+  background-color: #e9ecef;
+}
+
+.imageContainer {
+  margin-left: 28px;
+  position: relative;
+  display: block;
+  width: calc(100% - 25px);
+}

@@ -1,0 +1,14 @@
+.section {
+  padding-bottom: 40px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

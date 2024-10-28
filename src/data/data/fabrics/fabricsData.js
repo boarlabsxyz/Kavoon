@@ -1,0 +1,76 @@
+const corduraColors = [
+  'CorduraBlack',
+  'CorduraElectricBlue',
+  'CorduraPinkNeon',
+  'CorduraYellowNeon',
+  'CorduraYellow',
+  'CorduraGrey',
+  'CorduraNavyBlue',
+  'CorduraLightBlue',
+  'CorduraOrangeNeon',
+  'CorduraOrange',
+  'CorduraRed',
+  'CorduraCoyote',
+  'CorduraOlive',
+  'CorduraDarkGreen',
+  'CorduraTurquoise',
+];
+
+const xPacColors = [
+  'XpacBlack',
+  'XpacNavyBlue',
+  'XpacElectricBlue',
+  'XpacTurquoise',
+  'XpacOrangeNeon',
+  'XpacCoyote',
+  'XpacOlive',
+  'XpacLilac',
+  'XpacRed',
+  'XpacSangria',
+  'XpacCoral',
+  'XpacViolet',
+];
+
+const fabricPrints = [
+  'without_print',
+  'vikings',
+  'alpacas',
+  // 'dinosaurs',
+  'starry_sky',
+  'sloths',
+  'pugs',
+  // 'scarlet_ibis',
+  // 'star_flowers',
+  'tigers',
+  'rock',
+  'blue_pixel',
+  'monstera',
+  'rhombus',
+  'pixel',
+  'watermelons',
+  'dreamcatcher',
+  'foxes',
+  'flamingo',
+  'leaf_on_white',
+  'daisies',
+  'comics',
+  'creative',
+  // 'parrots',
+  // 'leaf_on_black', // should not be available on the site temporarily.
+  'ornament',
+  // 'jungle',
+  'feathers',
+  'raccoons',
+  'cats',
+  'forest',
+  'green_rhombus',
+  'lilies',
+];
+
+const fabricColors = {
+  corduraColors,
+  xPacColors,
+  fabricPrints,
+};
+
+export default fabricColors;
