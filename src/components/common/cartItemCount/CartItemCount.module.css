@@ -1,0 +1,35 @@
+.cartLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  color: var(--primary-color);
+  stroke: var(--primary-color);
+}
+
+.totalItems {
+  position: absolute;
+  top: -1px;
+  right: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.21;
+  letter-spacing: 0.65px;
+
+  color: var(--white);
+  background-color: var(--primary-color);
+}

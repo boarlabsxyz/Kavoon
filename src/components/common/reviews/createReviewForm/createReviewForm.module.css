@@ -1,0 +1,181 @@
+.fieldset {
+  border: none;
+  padding: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.reviewForm {
+  font-weight: 500;
+  letter-spacing: 0.84px;
+  width: 552px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.22;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--main-text-color);
+}
+
+.labelText,
+.labelAddImage {
+  display: block;
+  cursor: pointer;
+}
+
+.labelText {
+  margin-top: 26px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.63px;
+}
+
+.labelAddImage {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+  background-color: var(--white);
+  color: var(--primary-color);
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 0;
+}
+
+.labelAddImage::before {
+  content: '';
+  display: block;
+  width: 19px;
+  height: 19px;
+  margin-left: 2px;
+  margin-right: 7px;
+  background-image: var(--add-image-url);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.uploadedImagesWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.addImageWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 24px;
+  margin-right: 15px;
+  margin-bottom: 12px;
+}
+
+.addImageField {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.nameField,
+.textReviewField {
+  display: block;
+  padding: 15px 16px;
+  font-weight: inherit;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 1.15px;
+  color: var(--second-text-color);
+  border: 1px solid var(--border);
+  outline: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.nameField:hover,
+.nameField:focus,
+.textReviewField:hover,
+.textReviewField:focus {
+  border-color: var(--primary-color);
+}
+
+.nameField::placeholder,
+.textReviewField::placeholder {
+  font-size: 14px;
+  line-height: 1.21;
+  color: var(--border);
+}
+
+.nameField {
+  width: 100%;
+  margin-bottom: 26px;
+  height: 50px;
+}
+
+.textReviewField {
+  max-width: 664px;
+  width: 100%;
+  height: 100px;
+  resize: none;
+  margin-bottom: 26px;
+}
+
+.inputFeedbackUserName,
+.inputFeedbackMark,
+.inputFeedbackComment,
+.inputFeedbackAddImage {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.63px;
+  color: #d21818;
+  height: 15px;
+}
+
+.inputFeedbackUserName {
+  top: 146px;
+}
+
+.inputFeedbackMark {
+  top: 207px;
+}
+
+.inputFeedbackComment {
+  top: 354px;
+}
+
+.inputFeedbackAddImage {
+  position: static;
+  margin-top: 4px;
+}
+
+@media (width <= 1023px) {
+  .reviewForm {
+    width: 311px;
+  }
+
+  .inputFeedbackUserName {
+    top: 138px;
+  }
+
+  .inputFeedbackMark {
+    top: 200px;
+  }
+
+  .inputFeedbackComment {
+    top: 346px;
+  }
+
+  .uploadedImagesWrapper {
+    align-items: start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,80 @@
+.postWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+
+.postPanelImage {
+  position: relative;
+  width: 100%;
+  height: 255px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.postPanelImage img {
+  object-fit: cover;
+  object-position: 0 90%;
+}
+
+.postPanelTitle,
+.postPanelAuthor,
+.postPanelText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.postPanelTitle {
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--main-text-color);
+  text-decoration: none;
+  margin: 22px 0 23px;
+}
+
+.postPanelAuthor {
+  -webkit-line-clamp: 1;
+  margin-bottom: 11px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.postPanelAuthorThin {
+  font-weight: 500;
+}
+
+.postPanelText {
+  overflow: hidden;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 13px;
+}
+
+.postPanelLink {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--primary-color);
+}
+
+@media (max-width: 1259px) {
+  .postWrapper {
+    width: 300px;
+  }
+
+  .postPanelImage {
+    height: 212px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .postWrapper {
+    width: 335px;
+  }
+}

@@ -1,0 +1,47 @@
+.section {
+  padding-bottom: 80px;
+  padding-top: 40px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.title {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.05px;
+  text-align: center;
+  margin-bottom: 51px;
+}
+
+.cardWrapper {
+  display: flex;
+}
+
+@media (1024px <= width <= 1380px) {
+  .wrapper > *:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .cardWrapper {
+    width: 100%;
+  }
+}

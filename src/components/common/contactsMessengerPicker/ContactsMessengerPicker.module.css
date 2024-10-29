@@ -1,0 +1,137 @@
+.fieldTitle {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--second-text-color);
+  margin-bottom: 5px;
+}
+.fieldTitle::after {
+  content: '*';
+  color: var(--primary-color);
+}
+
+.statusWrapper {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: solid 1px var(--border-color);
+  z-index: 1;
+  background-color: var(--white);
+}
+
+.statusWrapper:focus-within {
+  border-color: var(--primary-color);
+}
+
+.openedStatusWrapper {
+  height: 210px;
+}
+
+.errorStatusWrapper {
+  border-color: var(--alert-color);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.field {
+  width: 100%;
+  padding: 0 7px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+}
+
+.field::placeholder {
+  color: var(--border-color);
+}
+
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.initialText {
+  padding: 15px 0;
+  color: var(--border-color);
+}
+
+.moreBtn {
+  flex-shrink: 0;
+  border-width: 0;
+  width: 25px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  padding: 24px 5px;
+}
+
+.moreBtn:before {
+  content: '';
+  position: absolute;
+  height: 9px;
+  width: 15px;
+  background-image: url('/img/icons/more-icon.svg');
+  margin-left: 0px;
+  margin: -4.5px 0 0 -8px;
+  transition: 0.5s ease;
+}
+
+.lessBtn:before {
+  transform: rotate(180deg);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  border-top: 1px solid var(--border-color);
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0px;
+  padding: 13px 15px;
+}
+
+.hiddenList {
+  visibility: hidden;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.item:hover {
+  color: var(--primary-color);
+}
+
+.itemName {
+  margin-left: 15px;
+}
+
+.remarkText {
+  position: absolute;
+  top: 74px;
+  font-size: 12px;
+  transition: opacity 2s;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.openedRemarkText {
+  opacity: 0;
+}

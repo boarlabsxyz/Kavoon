@@ -1,0 +1,137 @@
+.wrapper {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.21;
+  margin-bottom: 56px;
+}
+
+.status {
+  position: absolute;
+  top: 25px;
+  height: 48px;
+  width: 300px;
+
+  border-radius: 24px;
+  box-shadow: 0px 6px 32px -6px rgba(12, 32, 60, 0.12);
+  background-color: var(--white);
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+
+.statusOpened {
+  height: 220px;
+}
+
+.hintBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.questionMark {
+  height: 23px;
+  width: 13px;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: url('/img/icons/question-mark-without-background.svg');
+}
+
+.statusMain {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0px 20px;
+}
+
+.activeItem {
+  color: var(--primary-color);
+}
+
+.text {
+  margin-right: auto;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+
+.chooseBtn {
+  padding: 0;
+  border-width: 0;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+}
+
+.chooseBtn:before {
+  content: '';
+  position: absolute;
+  height: 9px;
+  width: 16px;
+  background-image: url('/img/icons/more-icon.svg');
+  margin-left: 0px;
+  margin: -4.5px 0 0 -8px;
+  transition: 0.5s ease;
+}
+
+.chooseBtnOpened:before {
+  transform: rotate(180deg);
+}
+
+.list {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 20px;
+  margin-bottom: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.item {
+  height: 40px;
+  padding-right: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hintContent {
+  padding-top: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.modalContent {
+  width: 407px;
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    width: 335px;
+  }
+
+  .status {
+    width: 335px;
+  }
+
+  .modalContent {
+    width: 311px;
+  }
+}

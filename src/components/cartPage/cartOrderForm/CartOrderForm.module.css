@@ -1,0 +1,156 @@
+.wrapper {
+  width: 488px;
+}
+
+.fieldset {
+  border: none;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.42;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.22;
+  margin-bottom: 20px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.row label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-left: 1px;
+  margin-bottom: 1px;
+}
+
+.requiredFieldLabel::after {
+  content: '*';
+  color: var(--primary-color);
+}
+
+.countryRow {
+  margin-top: 50px;
+}
+
+.field {
+  position: relative;
+  height: 50px;
+  border-radius: 12px;
+  border: solid 1px var(--border-color);
+  padding: 0 15px 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--primary-color);
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.field::placeholder {
+  color: var(--border-color);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.commentField {
+  height: 100px;
+  padding-top: 15px;
+  resize: none;
+}
+
+.errorField {
+  border-color: var(--alert-color);
+}
+
+.errorFeedback {
+  position: absolute;
+  top: 70px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--alert-color);
+  margin-left: 1px;
+  margin-bottom: 5px;
+  height: 15px;
+}
+
+.submitButton {
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 32px 0 rgba(8, 66, 75, 0.2);
+  background-color: var(--primary-color);
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+  text-transform: uppercase;
+  outline: none;
+  margin-top: 70px;
+}
+
+.submitButton:disabled {
+  background-color: #ced6e2;
+  box-shadow: none;
+}
+
+@media (width <= 1259px) {
+  .wrapper {
+    margin: 40px 0;
+  }
+
+  .legend {
+    width: 100%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .text {
+    margin-top: 15px;
+    text-align: center;
+    padding: 0 35px;
+  }
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .fields {
+    padding: 0px;
+  }
+}

@@ -1,0 +1,144 @@
+.link {
+  width: 284px;
+  border-radius: 12px;
+  box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.15),
+    3px 0px 20px rgba(12, 32, 60, 0.06);
+
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition:
+    transform 0.2s ease-out,
+    box-shadow 0.2s ease-out;
+  z-index: 1;
+  color: var(--main-text-color);
+  font-size: 17px;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  left: 16px;
+  top: 16px;
+}
+
+.color {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: none;
+}
+
+.customBlue {
+  background: #2534a9;
+}
+
+.customRed {
+  background: #cd0348;
+}
+
+.customGreen {
+  background: #86c305;
+}
+
+.customYellow {
+  background: #f3c919;
+}
+
+.customViolet {
+  background: #d205b1;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.title,
+.description {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.22;
+}
+
+.title {
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.description {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.propertyName {
+  font-weight: 500;
+}
+
+.price {
+  text-align: left;
+  flex-grow: 1;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.link:hover {
+  transform: matrix(1.028, 0, 0, 1.028, 0, 0);
+  box-shadow:
+    0px 4.11268px 10.2817px rgba(0, 0, 0, 0.15),
+    3.08451px 0px 20.5634px rgba(12, 32, 60, 0.06);
+
+  z-index: 1;
+  .colors {
+    visibility: visible;
+  }
+}
+
+.imgWrapper {
+  display: block;
+  text-align: center;
+  background: #f4f7f7;
+  border-bottom: 1px solid #dcdfe4;
+}
+
+.imgWrapper img {
+  object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+  .link {
+    margin: 0px;
+    width: 100%;
+    min-height: 312px;
+  }
+
+  .title {
+    width: 80%;
+  }
+
+  .colors {
+    visibility: visible;
+  }
+
+  .link:hover {
+    transform: none;
+    box-shadow: 2px 2px 25px -2px rgba(12, 32, 60, 0.12);
+  }
+
+  .imgWrapper img {
+    width: 343px;
+  }
+}

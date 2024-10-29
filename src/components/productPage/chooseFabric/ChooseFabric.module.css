@@ -1,0 +1,73 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.22;
+
+  color: var(--main-text-color);
+}
+
+.hintBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.popupContent {
+  padding: 0;
+  white-space: pre-wrap;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--main-text-color);
+  width: 640px;
+}
+
+.corduraWrapper {
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(154, 159, 171, 0.5);
+}
+
+.xpacWrapper {
+  padding-top: 16px;
+}
+
+.fabricName {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    margin-bottom: 11px;
+  }
+
+  .popupContent {
+    width: 311px;
+  }
+
+  .corduraWrapper {
+    padding: 32px 28px 20px 28px;
+  }
+
+  .xpacWrapper {
+    padding: 20px 28px 32px 28px;
+  }
+
+  .choose-fabric-popup-content {
+    width: 350px;
+  }
+}

@@ -1,0 +1,120 @@
+.footer {
+  padding: 24px 0;
+  background-color: var(--footer-back);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.footerBottom {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.madeIn {
+  width: 30%;
+}
+
+.social {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.findUsHere {
+  margin-right: 16px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 183px;
+  height: 56px;
+  background-color: var(--white);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.copyright {
+  color: #ffffff99;
+}
+
+.menuAndAddressContainer {
+  width: 934px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (width <= 1259px) {
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .footerBottom {
+    padding-top: 16px;
+  }
+
+  .menuAndAddressContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .social {
+    margin: 16px 0;
+    line-height: 1.2;
+  }
+
+  .footerBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .madeIn {
+    text-align: center;
+    width: 100%;
+  }
+
+  .findUsHere {
+    font-size: 16px;
+  }
+
+  .menuAndAddressContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footerBottom {
+    align-items: flex-start;
+  }
+
+  .madeIn {
+    text-align: left;
+  }
+}

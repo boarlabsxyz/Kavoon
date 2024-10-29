@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 152px;
+}
+
+.svgFill {
+  fill: currentColor;
+}
+
+.svgStroke {
+  fill: none;
+  stroke-width: 3px;
+  stroke: currentColor;
+}

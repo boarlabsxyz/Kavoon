@@ -1,0 +1,17 @@
+.wrapper {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+}
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+@media (width <= 1023px) {
+  .video-wrapper {
+    margin-bottom: 48px;
+  }
+}

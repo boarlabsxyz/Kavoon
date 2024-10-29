@@ -1,0 +1,72 @@
+.mainTitle {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.21;
+}
+
+.status {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  width: 300px;
+  height: 48px;
+  padding: 8px 16px 8px 8px;
+
+  border-radius: 25px;
+  background-color: var(--white);
+  overflow: hidden;
+  box-shadow: 0px 6px 32px -6px rgba(12, 32, 60, 0.12);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.disabledStatus {
+  box-shadow: none;
+  border: 1px solid #c0c6d0;
+  cursor: auto;
+}
+
+p.disabled,
+div.disabledMore {
+  color: #c0c6d0;
+}
+
+.img {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: #ececec;
+  overflow: hidden;
+}
+
+.statusTitle {
+  margin-right: auto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--main-text-color);
+}
+
+.statusMore {
+  display: block;
+  height: 16px;
+  width: 16px;
+  padding: 0;
+  background-color: transparent;
+  background-image: url('/img/icons/choose-print.svg');
+}
+
+.statusMoreDisabled {
+  background-image: url('/img/icons/choose-print-disabled.svg');
+}
+
+@media (width <= 1023px) {
+  .status {
+    width: 335px;
+  }
+}

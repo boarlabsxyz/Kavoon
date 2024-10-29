@@ -1,0 +1,32 @@
+.notificationText {
+  display: flex;
+  align-items: center;
+  padding: 6px 20px;
+  margin-right: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+  border-radius: 19px;
+  color: var(--main-text-color);
+  background-color: var(--white);
+  box-shadow:
+    0px 16px 24px rgba(0, 0, 0, 0.06),
+    0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+.notificationText::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  background-image: url('/img/icons/hand.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 480px) {
+  .notificationText {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: 0;
+  height: auto;
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

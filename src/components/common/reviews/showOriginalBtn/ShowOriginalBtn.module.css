@@ -1,0 +1,10 @@
+.wrapper {
+  height: 17px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--primary-color);
+}

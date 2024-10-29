@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.content {
+  width: 694px;
+}
+
+@media (width <= 1259px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (width <= 1023px) {
+  .content {
+    width: 100%;
+  }
+}

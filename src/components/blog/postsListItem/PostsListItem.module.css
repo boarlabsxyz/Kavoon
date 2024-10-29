@@ -1,0 +1,132 @@
+.postContainer {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.postWrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1140px;
+  margin: 0 40px 80px;
+}
+
+.postPanelImage {
+  position: relative;
+  min-width: 500px;
+  min-height: 350px;
+  margin-right: 60px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.postPanelImage img {
+  object-fit: cover;
+  object-position: 0 90%;
+}
+
+.postPanelInfo {
+  display: flex;
+  flex-direction: column;
+  max-height: 350px;
+}
+
+.postPanelTitle,
+.postPanelAuthor,
+.postPanelText {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-style: normal;
+}
+
+.postPanelTitle {
+  -webkit-line-clamp: 3;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 155%;
+  letter-spacing: 1.30909px;
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+
+.postPanelAuthor {
+  -webkit-line-clamp: 1;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 1.3px;
+  text-align: left;
+}
+
+.postPanelAuthorThin {
+  font-weight: 500;
+}
+
+.postPanelText {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 153%;
+  letter-spacing: 0.7948051691055298px;
+  text-align: left;
+  color: var(--main-text-color);
+  max-height: 128px;
+  -webkit-line-clamp: 5;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.postPanelLink {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.7948051691055298px;
+  text-align: left;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+@media (max-width: 1259px) {
+  .postPanelImage {
+    margin-right: 30px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .postWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 16px 50px;
+  }
+
+  .postPanelImage {
+    min-width: 343px;
+    min-height: 250px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  .postPanelLink {
+    font-size: 17px;
+    line-height: 153%;
+  }
+
+  .postPanelText {
+    font-size: 17px;
+    line-height: 153%;
+    margin-top: 20px;
+  }
+
+  .postPanelAuthor {
+    font-size: 17px;
+    line-height: 100%;
+    margin-top: 20px;
+  }
+
+  .postPanelTitle {
+    font-size: 20px;
+    line-height: 160%;
+    margin-top: 30px;
+  }
+}
