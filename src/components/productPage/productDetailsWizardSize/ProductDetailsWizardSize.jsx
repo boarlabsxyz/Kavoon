@@ -79,7 +79,7 @@ function ProductDetailsWizardSize({ vm, language }) {
                     }}
                   >
                     <CustomImage
-                      src="/img/icons/question-mark.svg"
+                      src="/icons/question-mark.svg"
                       alt="question-mark"
                       width={16}
                       height={16}

@@ -20,7 +20,7 @@
   width: 30px;
   height: 30px;
   margin-left: 10px;
-  background-image: url('/img/icons/hand.svg');
+  background-image: url('/icons/hand.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }

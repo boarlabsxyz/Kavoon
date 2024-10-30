@@ -16,7 +16,7 @@ function Advantage({ name, language }: AdvantageProps) {
     <li className={st.content}>
       <div className={st.icon}>
         <CustomImage
-          src={`/img/icons/${name}.svg`}
+          src={`/icons/${name}.svg`}
           sizes="100% 100%"
           alt={description}
           width="32"

@@ -29,7 +29,7 @@ function ShowComplect() {
       >
         {text}
         <CustomImage
-          src="/img/icons/showAllArrow.svg"
+          src="/icons/showAllArrow.svg"
           alt={text}
           width={24}
           height={24}

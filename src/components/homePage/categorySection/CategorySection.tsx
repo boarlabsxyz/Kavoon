@@ -23,7 +23,7 @@ const CategorySection = ({ category, language, vm }: Props) => {
   const productTypeLink = `shop/${toKebabCase(category)}`;
   const content = (
     <CustomImage
-      src="/img/icons/showAllArrow.svg"
+      src="/icons/showAllArrow.svg"
       alt="arrow"
       width={24}
       height={24}

@@ -23,7 +23,7 @@ const props = [
 
 describe.each(props)('<LocaleListItem />', ({ locale, langCode, name }) => {
   const defaultProps = {
-    src: `/img/icons/country-flag-${locale}.svg`,
+    src: `/icons/country-flag-${locale}.svg`,
     name,
     langCode,
     locale,

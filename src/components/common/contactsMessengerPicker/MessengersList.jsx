@@ -4,17 +4,17 @@ function MessengersList(language) {
   return [
     {
       name: 'Telegram',
-      src: '/img/icons/telegram-icon.svg',
+      src: '/icons/telegram-icon.svg',
       placeholder: lang('UsernameOrPhoneNumber', language),
     },
     {
       name: 'Viber',
-      src: '/img/icons/viber-icon.svg',
+      src: '/icons/viber-icon.svg',
       placeholder: lang('UsernameOrPhoneNumber', language),
     },
     {
       name: 'Whatsapp',
-      src: '/img/icons/whatsapp-icon.svg',
+      src: '/icons/whatsapp-icon.svg',
       placeholder: lang('PhoneNumber', language),
     },
   ];

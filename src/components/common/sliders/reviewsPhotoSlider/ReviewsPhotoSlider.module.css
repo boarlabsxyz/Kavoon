@@ -17,7 +17,7 @@
   font-size: 0;
   height: 27px;
   width: 16px;
-  background: url(/img/icons/next-icon-thin.svg);
+  background: url(/icons/next-icon-thin.svg);
 }
 
 .container :global(.swiper-button-prev):after {

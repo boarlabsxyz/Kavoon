@@ -18,7 +18,7 @@ function Greeting({ lang }: GreetingProps) {
         height={30}
       />
       <CustomImage
-        src="/img/icons/flag.svg"
+        src="/icons/flag.svg"
         alt="Ukrainian flag"
         width={24}
         height={30}

@@ -209,7 +209,7 @@ function HowDiscoverPicker({
             position: absolute;
             height: 9px;
             width: 15px;
-            background-image: url('/img/icons/more-icon.svg');
+            background-image: url('/icons/more-icon.svg');
             margin-left: 0px;
             margin: -4.5px 0 0 -8px;
             transition: 0.5s ease;

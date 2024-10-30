@@ -27,7 +27,7 @@ async function TopPostItem({ pageName, language }: Props) {
 
       <Link href={`${pageRef}`} className={st.link}>
         <CustomImage
-          src="/img/icons/blog-index-button.svg"
+          src="/icons/blog-index-button.svg"
           alt="Read more"
           width={28}
           height={18}

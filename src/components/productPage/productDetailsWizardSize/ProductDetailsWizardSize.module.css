@@ -42,7 +42,7 @@
   width: 13px;
   margin-right: auto;
   margin-left: auto;
-  background-image: url('/img/icons/question-mark-without-background.svg');
+  background-image: url('/icons/question-mark-without-background.svg');
 }
 
 .statusMain {
@@ -78,7 +78,7 @@
   position: absolute;
   height: 9px;
   width: 16px;
-  background-image: url('/img/icons/more-icon.svg');
+  background-image: url('/icons/more-icon.svg');
   margin-left: 0px;
   margin: -4.5px 0 0 -8px;
   transition: 0.5s ease;

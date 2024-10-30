@@ -4,7 +4,7 @@ import getActiveLocale from './getActiveLocale';
 describe('getActiveLocale()', () => {
   it('should return the correct language object when the locale exists', () => {
     const locale = {
-      src: '/img/icons/country-flag-ua.svg',
+      src: '/icons/country-flag-ua.svg',
       name: 'Українська',
       langCode: 'UA',
       locale: 'uk',

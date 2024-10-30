@@ -1,6 +1,6 @@
 const Language = {
   LanguageName: 'Українська',
-  LanguageImg: '/img/icons/country-flag-ua.svg',
+  LanguageImg: '/icons/country-flag-ua.svg',
   EquipForLightTravel: 'Спорядження для легких подорожей',
   SiteName: 'Kavoon',
   SiteNameExtended: 'Kavoon. Країна очима велосипедистів',

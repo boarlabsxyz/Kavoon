@@ -1,6 +1,6 @@
 const Language = {
   LanguageName: 'English',
-  LanguageImg: '/img/icons/country-flag-en.svg',
+  LanguageImg: '/icons/country-flag-en.svg',
   EquipForLightTravel: 'Equipment for light journey',
   SiteName: 'Kavoon',
   SiteNameExtended: "Kavoon. The world by bicyclists' eyes",

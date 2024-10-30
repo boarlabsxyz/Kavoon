@@ -52,7 +52,7 @@
 .preview > :global(.swiper-button-prev),
 .preview > :global(.swiper-button-next) {
   height: 22px;
-  background-image: url(/img/icons/next-icon-thin.svg);
+  background-image: url(/icons/next-icon-thin.svg);
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -66,7 +66,7 @@
 }
 
 .preview > :global(.swiper-button-disabled) {
-  background: url(/img/icons/next-icon-thin-disabled.svg);
+  background: url(/icons/next-icon-thin-disabled.svg);
   background-repeat: no-repeat;
 }
 

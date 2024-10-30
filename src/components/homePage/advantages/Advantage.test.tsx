@@ -25,7 +25,7 @@ describe.each(props)('<Advantage />', ({ locale, token, text }) => {
     render(<Advantage name={token} language={locale} />);
 
     const image = screen.getByRole('img');
-    const src = `/img/icons/${token}.svg`;
+    const src = `/icons/${token}.svg`;
 
     expect(image).toHaveAttribute('alt', text);
     expect(image).toHaveAttribute('src', src);

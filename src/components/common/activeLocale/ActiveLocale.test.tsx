@@ -17,19 +17,19 @@ type MockLanguages = {
 
 const mockLanguages: MockLanguages = {
   en: {
-    src: '/img/icons/country-flag-en.svg',
+    src: '/icons/country-flag-en.svg',
     name: 'English',
     langCode: 'EN',
     locale: 'en',
   },
   uk: {
-    src: '/img/icons/country-flag-ua.svg',
+    src: '/icons/country-flag-ua.svg',
     name: 'Українська',
     langCode: 'UA',
     locale: 'uk',
   },
   pl: {
-    src: '/img/icons/country-flag-pl.svg',
+    src: '/icons/country-flag-pl.svg',
     name: 'Polski',
     langCode: 'PL',
     locale: 'pl',
@@ -47,7 +47,7 @@ describe('ActiveLocale', () => {
 
   it('should render the correct locale data for "en"', () => {
     const { name, langCode } = mockLanguages.en;
-    const src = `${mockLanguages.en.src}`
+    const src = `${mockLanguages.en.src}`;
 
     mockGetActiveLocale.mockReturnValue(mockLanguages.en);
 
@@ -60,7 +60,7 @@ describe('ActiveLocale', () => {
 
   it('should render the correct locale data for "pl"', () => {
     const { name, langCode } = mockLanguages.pl;
-    const src = `${mockLanguages.pl.src}`
+    const src = `${mockLanguages.pl.src}`;
 
     mockGetActiveLocale.mockReturnValue(mockLanguages.pl);
 
@@ -73,7 +73,7 @@ describe('ActiveLocale', () => {
 
   it('should render the correct locale data for "uk"', () => {
     const { name, langCode } = mockLanguages.uk;
-    const src = `${mockLanguages.uk.src}`
+    const src = `${mockLanguages.uk.src}`;
 
     mockGetActiveLocale.mockReturnValue(mockLanguages.uk);
 
