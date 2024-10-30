@@ -8,7 +8,8 @@ const getDictionary = async (
   pageName: string
 ): Promise<I18N | metaI18N> => {
   try {
-    const i18n = (await import(`i18n/server/${language}/${pageName}`)).default;
+    const i18n = (await import(`src/i18n/server/${language}/${pageName}`))
+      .default;
     return i18n;
   } catch (error) {
     // eslint-disable-next-line no-console
