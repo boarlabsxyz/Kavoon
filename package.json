@@ -1,6 +1,6 @@
 {
-  "name": "flowers-way",
-  "version": "0.1.0",
+  "name": "kavoon",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
