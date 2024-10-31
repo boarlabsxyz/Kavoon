@@ -78,7 +78,7 @@ function productDetailsWizardVM(productId: string, products: Product[] = []) {
       ? product.customSizeParameters
       : null;
 
-  const dimensions = new BehaviorSubject<unknown | string>(CUSTOMER_PARAMETERS);
+  const dimensions = new BehaviorSubject<object | string>(CUSTOMER_PARAMETERS);
 
   const takeDimensions = (value) => {
     dimensions.next(value);
