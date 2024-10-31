@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 0 22px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.6;
+  text-align: center;
+  white-space: pre-line;
+  color: var(--main-text-color);
+}

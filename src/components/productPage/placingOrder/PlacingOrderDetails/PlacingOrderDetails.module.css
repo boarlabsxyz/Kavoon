@@ -1,0 +1,14 @@
+.detailsList {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  list-style-type: decimal;
+}
+
+.detailsListItem {
+  margin-left: 24px;
+}
+
+.detailsListItem:not(:last-child) {
+  margin-bottom: 12px;
+}

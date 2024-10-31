@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.addedText {
+  margin-right: 12px;
+}
+
+@media (width <= 1023px) {
+  .addedText {
+    display: none;
+  }
+}

@@ -1,0 +1,24 @@
+.section {
+  padding-block: 40px;
+
+  font-size: 16px;
+  line-height: 1.22;
+}
+
+.title {
+  margin-bottom: 24px;
+
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+}
+
+@media (width < 1024px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

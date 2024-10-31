@@ -1,0 +1,39 @@
+.wrapper {
+  width: 764px;
+}
+
+.title {
+  margin-bottom: 17px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.62;
+  text-align: center;
+  margin-right: 20px;
+  letter-spacing: 0.5px;
+}
+
+.printsDetails {
+  display: flex;
+  gap: 38px;
+}
+
+.additionalPrintsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    width: 311px;
+  }
+
+  .title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 2.1;
+  }
+
+  .printsDetails {
+    display: block;
+  }
+}

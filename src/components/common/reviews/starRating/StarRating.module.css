@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 106px;
+  height: 18px;
+}
+
+.star {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.unselected {
+  color: var(--border);
+}
+
+.selected {
+  color: #ffe146;
+}

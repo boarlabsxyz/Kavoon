@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  width: 256px;
+}
+
+.photo {
+  border-radius: 6px;
+  box-shadow: 1.6436363458633423px 1.6436363458633423px 34.51636505126953px -1.6436363458633423px
+    rgba(12, 32, 60, 0.12);
+  object-fit: cover;
+}

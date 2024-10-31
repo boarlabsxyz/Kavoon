@@ -1,0 +1,20 @@
+.chatBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  color: var(--white);
+  stroke: none;
+  background-color: var(--primary-color);
+  box-shadow: 6px 4px 15px -2px rgba(12, 32, 60, 0.2);
+  cursor: pointer;
+}
+
+.openedChatBtn {
+  stroke: var(--white);
+}

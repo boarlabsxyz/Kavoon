@@ -1,0 +1,22 @@
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  transition: color 250ms var(--transition-function);
+}
+
+.link:hover {
+  color: var(--primary-color);
+}
+
+.light {
+  color: var(--main-text-color);
+}
+
+.dark {
+  color: var(--white);
+}

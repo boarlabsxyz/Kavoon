@@ -1,0 +1,28 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -2px;
+  width: 100%;
+
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #87e2e8;
+  letter-spacing: 4px;
+}
+
+.color {
+  color: #f99657;
+}
+
+@media (max-width: 1023px) {
+  .title {
+    margin-bottom: 7px;
+
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+}

@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    gap: 10px;
+  }
+}

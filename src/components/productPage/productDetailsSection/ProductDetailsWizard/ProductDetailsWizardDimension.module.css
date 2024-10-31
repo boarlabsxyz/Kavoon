@@ -1,0 +1,58 @@
+.schemeImagesContainer {
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text,
+.hintText {
+  font-style: normal;
+  color: var(--main-text-color);
+}
+
+.text {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.hintText {
+  display: flex;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.hintText::before {
+  display: inline-block;
+  flex-shrink: 0;
+  content: '';
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+  background-image: url('/icons/question-mark.svg');
+}
+
+.frameDimensionsWrapper {
+  width: 363px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+@media (width <= 1023px) {
+  .schemeImagesContainer {
+    max-width: 100%;
+  }
+
+  .hintText::before {
+    margin-right: 10px;
+  }
+
+  .frameDimensionsWrapper {
+    display: block;
+  }
+}

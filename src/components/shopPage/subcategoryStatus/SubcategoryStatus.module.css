@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  font-weight: 600;
+}
+
+.quantity {
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -1,0 +1,127 @@
+.wrapper {
+  --swiper-theme-color: #11a0a9;
+
+  --swiper-pagination-bottom: -30px;
+  --swiper-pagination-bullet-inactive-color: #11a0a9;
+  --swiper-pagination-bullet-inactive-opacity: 0.25;
+
+  --swiper-navigation-size: 20px;
+  --swiper-navigation-sides-offset: 15px;
+
+  position: relative;
+
+  width: 591px;
+  margin-bottom: 0;
+}
+
+.previewWrapper {
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: 55px;
+  padding-right: 34px;
+}
+
+.previewWrapper > :global(.swiper) {
+  position: static;
+}
+
+.previewImg,
+.preview {
+  width: 460px;
+  height: 580px;
+}
+
+.previewImg {
+  object-fit: scale-down;
+}
+
+.preview > :global(.swiper-pagination) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.preview > :global(.swiper-button-prev):after,
+.preview > :global(.swiper-button-next):after {
+  content: none;
+}
+
+.preview > :global(.swiper-button-prev),
+.preview > :global(.swiper-button-next) {
+  height: 22px;
+  background-image: url(/icons/next-icon-thin.svg);
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.preview > :global(.swiper-button-prev) {
+  transform: rotate(180deg);
+}
+
+.preview > :global(.swiper-button-next) {
+  right: 48px;
+}
+
+.preview > :global(.swiper-button-disabled) {
+  background: url(/icons/next-icon-thin-disabled.svg);
+  background-repeat: no-repeat;
+}
+
+.preview :global(.swiper-pagination-bullet-active) {
+  width: 15px;
+  height: 15px;
+}
+
+.thumbs {
+  width: 100%;
+}
+
+@media (width <= 1259px) {
+  .wrapper {
+    width: 470px;
+  }
+
+  .previewWrapper {
+    padding-right: 0;
+  }
+
+  .previewImg,
+  .preview {
+    width: 400px;
+    height: 520px;
+  }
+
+  .preview > :global(.swiper-button-prev) {
+    left: 5px;
+  }
+  .preview > :global(.swiper-button-next) {
+    right: 5px;
+  }
+
+  .img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (width <= 1023px) {
+  .wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .previewImg,
+  .preview {
+    width: 335px;
+    height: 400px;
+  }
+
+  .preview > :global(.swiper-button-prev),
+  .preview > :global(.swiper-button-next) {
+    display: none;
+  }
+}

@@ -1,0 +1,42 @@
+.subcategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  font-weight: 500;
+}
+
+.subcategories li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 8px 16px;
+  border: 1px solid #caeaec;
+  background-color: var(--light-cyan);
+  border-radius: 40px;
+}
+
+.uncheckButton {
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.uncheckButton div,
+.uncheckButton div::after {
+  height: 1.5px;
+  width: 18px;
+  border-radius: 1.5px;
+  background-color: var(--primary-color);
+  transform: rotate(45deg);
+}
+
+.uncheckButton div::after {
+  display: block;
+  content: '';
+  transform: rotate(90deg);
+}

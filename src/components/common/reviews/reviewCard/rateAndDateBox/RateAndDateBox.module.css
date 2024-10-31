@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.createdAt {
+  max-width: 165px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #98a1b1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

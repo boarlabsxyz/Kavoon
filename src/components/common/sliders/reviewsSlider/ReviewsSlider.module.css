@@ -1,0 +1,94 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.wrapper {
+  width: 1106px;
+  padding: 16px 10px 49px;
+}
+
+.container :global(.swiper-button-next):after,
+.container :global(.swiper-button-prev):after {
+  font-size: 0;
+  height: 22px;
+  width: 12px;
+  background: url(/icons/next-icon-thin.svg);
+}
+
+.container :global(.swiper-button-prev):after {
+  transform: rotate(180deg);
+}
+
+.container :global(.swiper-button-disabled):after {
+  background: url(/icons/next-icon-thin-disabled.svg);
+}
+
+.prevReviewArrow,
+.nextReviewArrow {
+  top: 160px;
+  z-index: 0;
+}
+
+.prevReviewArrow {
+  left: 5px;
+}
+.nextReviewArrow {
+  right: 5px;
+}
+
+.container :global(.swiper-pagination) {
+  bottom: 10px;
+  z-index: 0;
+}
+
+.container :global(.swiper-pagination-bullet) {
+  width: 15px;
+  height: 15px;
+  opacity: 0.25;
+  background: var(--primary-color);
+}
+
+.container :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+}
+
+@media (max-width: 1259px) {
+  .wrapper {
+    width: 850px;
+  }
+  .prevReviewArrow {
+    left: 20px;
+  }
+  .nextReviewArrow {
+    right: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .container {
+    margin-left: -16px;
+  }
+
+  .wrapper {
+    width: 369px;
+    padding: 26px 13px 49px;
+  }
+
+  .prevReviewArrow,
+  .nextReviewArrow {
+    top: -12px;
+  }
+
+  .prevReviewArrow {
+    left: 275px;
+  }
+
+  .nextReviewArrow {
+    right: -10px;
+  }
+
+  .wrapper :global(.swiper-pagination) {
+    display: none;
+  }
+}

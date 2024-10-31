@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-right: 116px;
+}
+
+.img {
+  margin-bottom: 24px;
+  object-fit: fill;
+}
+
+.title {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+@media (1024px <= width <= 1366px) {
+  .wrapper {
+    margin-right: 20px;
+  }
+}
+
+@media (width < 1024px) {
+  .wrapper {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .img {
+    width: 335px;
+    height: auto;
+  }
+}

@@ -1,0 +1,51 @@
+.specificationWrapper {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  white-space: pre-wrap;
+  width: 591px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.specificationTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.specificationParameter {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.specificationParameter:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.parameterValue {
+  font-weight: 500;
+}
+
+.conclusion {
+  margin-top: 24px;
+}
+
+@media (width <= 1259px) {
+  .specificationWrapper {
+    width: 470px;
+  }
+}
+
+@media (width <= 1023px) {
+  .specificationWrapper {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .specificationTitle {
+    margin-bottom: 17px;
+  }
+}

@@ -1,0 +1,26 @@
+.section {
+  padding-block: 40px;
+}
+
+.title,
+.subTitle {
+  line-height: 1.22;
+  text-align: center;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+
+  margin-bottom: 16px;
+}
+
+.subTitle {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #11a0a9;
+
+  margin-bottom: 24px;
+}

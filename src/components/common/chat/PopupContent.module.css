@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #b9c6dc;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    border: none;
+  }
+}

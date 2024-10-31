@@ -1,0 +1,27 @@
+.wrapper {
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 32px -6px rgba(12, 32, 60, 0.12);
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 32px;
+  letter-spacing: 0.84px;
+  text-align: center;
+  white-space: pre-wrap;
+  background-color: white;
+  z-index: 2;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.colReverse {
+  flex-direction: column-reverse;
+}

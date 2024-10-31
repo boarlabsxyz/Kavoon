@@ -1,0 +1,17 @@
+.subtitle {
+  position: relative;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: pre-line;
+  color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+  .subtitle {
+    white-space: normal;
+  }
+}

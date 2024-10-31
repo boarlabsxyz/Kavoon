@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  overflow-y: scroll;
+  background-color: rgba(67, 75, 95, 0.5);
+  z-index: 4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.modal {
+  position: relative;
+  margin: auto;
+  pointer-events: auto;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: var(--white);
+  color: var(--main-text-color);
+  width: fit-content;
+}
+
+.closeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.pseudo,
+.pseudo::after {
+  height: 2px;
+  width: 18px;
+  border-radius: 1px;
+  background-color: var(--primary-color);
+  transform: rotate(45deg);
+}
+
+.pseudo::after {
+  display: block;
+  content: '';
+  transform: rotate(90deg);
+}
+
+@media (max-width: 1023px) {
+  .modal {
+    padding: 16px;
+  }
+
+  .closeButton {
+    right: 12px;
+    top: 12px;
+  }
+}

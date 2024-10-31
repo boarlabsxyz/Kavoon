@@ -1,0 +1,57 @@
+.section {
+  padding-top: 17px;
+  padding-bottom: 40px;
+}
+
+.specificationAndPlacingOrderWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accessoryVideoWrapper {
+  width: 591px;
+  height: 333px;
+}
+
+.equipmentVideoWrapper {
+  width: 786px;
+  height: 439px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (width <= 1259px) {
+  .accessoryVideoWrapper {
+    width: 470px;
+    height: 265px;
+  }
+
+  .equipmentVideoWrapper {
+    width: 646px;
+    height: 361px;
+  }
+}
+
+@media (width <= 1023px) {
+  .section {
+    padding-top: 63px;
+    padding-bottom: 16px;
+  }
+
+  .specificationAndPlacingOrderWrapper {
+    flex-direction: column;
+  }
+
+  .accessoryVideoWrapper,
+  .equipmentVideoWrapper {
+    width: 100%;
+    height: 189px;
+    margin-bottom: 125px;
+  }
+
+  .equipmentVideoWrapper {
+    margin-top: 56px;
+    margin-bottom: 70px;
+  }
+}

@@ -1,0 +1,10 @@
+.section {
+  padding-block: 40px;
+}
+
+@media (width <= 1023px) {
+  .section {
+    padding-top: 21px;
+    padding-bottom: 30px;
+  }
+}

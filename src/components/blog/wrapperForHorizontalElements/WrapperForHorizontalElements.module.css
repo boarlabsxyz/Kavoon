@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.wrapper img {
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+  min-width: 0;
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    gap: 10px;
+    margin: 20px 0;
+  }
+}
