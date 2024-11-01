@@ -1,0 +1,45 @@
+const viewPorts = [
+  { name: 'iphone-8', dimensions: [375, 667] },
+  { name: 'desktop', dimensions: [1920, 1080] },
+];
+
+describe('Product Page Tests', () => {
+  viewPorts.forEach(({ name, dimensions }) => {
+    const [width, height] = dimensions;
+
+    it(`Should display correctly on ${name} viewport`, () => {
+      cy.viewport(width, height);
+
+      cy.visit('/');
+
+      cy.scrollTo(0, 600, { duration: 1000 });
+      cy.get('[data-cy="product-title"]')
+        .contains('Сумка на кермо для снеків "Хом\'як"')
+        .click();
+      cy.url().should('include', '/shop/bicycle-equipment/hamster');
+      cy.get('[data-cy="product-page"]').should('be.visible');
+
+      cy.scrollTo(0, 2000, { duration: 1000 });
+      cy.get('[data-cy="add-to-cart-btn"]').should('be.visible');
+
+      cy.get('[data-cy="add-to-cart-btn"]').invoke('css', 'position', 'static');
+
+      cy.scrollTo('bottom', { duration: 3000 });
+      cy.waitForNetworkIdle(5000);
+
+      cy.get('[data-cy="product-card"]').then(($el) => {
+        const elWidth = $el.width();
+        const elHeight = $el.height();
+
+        cy.get('[data-cy="product-card"]').invoke(
+          'html',
+          `<div style="width: ${elWidth}px; height: ${elHeight}px; background: lightgrey;"></div>`
+        );
+      });
+
+      cy.matchImageSnapshot(`product-page-${name}`);
+
+      cy.get('[data-cy="add-to-cart-btn"]').invoke('css', 'position', 'fixed');
+    });
+  });
+});

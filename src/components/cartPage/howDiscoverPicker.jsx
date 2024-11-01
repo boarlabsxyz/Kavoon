@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
 import { Field } from 'formik';
-// import FocusWithin from 'react-focus-within';
 
 import useOutsideClick from 'src/hooks/useOutsideClick';
 import lang from 'src/i18n/lang';
@@ -58,79 +57,72 @@ function HowDiscoverPicker({
         <label className="param__general-title">
           {lang('HowDiscover', language)}
         </label>
-        {/* <FocusWithin> */}
-        {({ focusProps, isFocused }) => (
-          <div
-            {...focusProps}
-            style={{
-              border: isFocused && '1px solid var(--primary-color)',
-            }}
-            className={
-              error && touched
-                ? 'picker-param__status error'
-                : 'picker-param__status'
-            }
-            ref={ref}
-          >
-            <div className="picker-param__status-main">
-              {pickedItem?.name === 'Other' && (
-                <>
-                  <Field
-                    name="howDiscover"
-                    id="howDiscover"
-                    type="text"
-                    value={value}
-                    onChange={handleChange}
-                    className="how-discover-option"
-                    placeholder={lang('EnterYourOwnOption', language)}
-                  />
-                </>
-              )}
-              {pickedItem && pickedItem.name !== 'Other' && (
-                <>
-                  <Field
-                    name="howDiscover"
-                    id="howDiscover"
-                    type="text"
-                    value={lang(pickedItem.name, language)}
-                    className="how-discover-option"
-                  />
-                </>
-              )}
-              {!pickedItem && (
-                <>
-                  <span className="param__status-choose__title">
-                    {lang('SelectFromList', language)}
-                  </span>
-                </>
-              )}
-              <button
-                id="picker-param__status-more"
-                type="button"
-                aria-label="Mute volume"
-                onClick={() => {
-                  setOpened(!isOpened);
-                }}
-                data-cy="howDiscover-picker"
-              />
-            </div>
-            <div className="line" />
-            <ul className="picker-param__status-list">
-              {networksList.map((item) => (
-                <li
-                  onClick={handleSelect.bind(null, item)}
-                  key={item.name}
-                  className="list-elem"
-                >
-                  <span className="param__status-list__title">
-                    {lang(item.name, language)}
-                  </span>
-                </li>
-              ))}
-            </ul>
+
+        <div
+          className={
+            error && touched
+              ? 'picker-param__status error'
+              : 'picker-param__status'
+          }
+          ref={ref}
+        >
+          <div className="picker-param__status-main">
+            {pickedItem?.name === 'Other' && (
+              <>
+                <Field
+                  name="howDiscover"
+                  id="howDiscover"
+                  type="text"
+                  value={value}
+                  onChange={handleChange}
+                  className="how-discover-option"
+                  placeholder={lang('EnterYourOwnOption', language)}
+                />
+              </>
+            )}
+            {pickedItem && pickedItem.name !== 'Other' && (
+              <>
+                <Field
+                  name="howDiscover"
+                  id="howDiscover"
+                  type="text"
+                  value={lang(pickedItem.name, language)}
+                  className="how-discover-option"
+                />
+              </>
+            )}
+            {!pickedItem && (
+              <>
+                <span className="param__status-choose__title">
+                  {lang('SelectFromList', language)}
+                </span>
+              </>
+            )}
+            <button
+              id="picker-param__status-more"
+              type="button"
+              aria-label="Mute volume"
+              onClick={() => {
+                setOpened(!isOpened);
+              }}
+              data-cy="howDiscover-picker"
+            />
           </div>
-        )}
-        {/* </FocusWithin> */}
+          <div className="line" />
+          <ul className="picker-param__status-list">
+            {networksList.map((item) => (
+              <li
+                onClick={handleSelect.bind(null, item)}
+                key={item.name}
+                className="list-elem"
+              >
+                <span className="param__status-list__title">
+                  {lang(item.name, language)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <style jsx>
         {`
