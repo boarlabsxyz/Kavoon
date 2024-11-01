@@ -2,7 +2,7 @@ import { Language } from 'src/types/language';
 import getDictionary from './getDictionary';
 
 jest.mock(
-  'i18n/server/en/meta',
+  'src/i18n/server/en/meta',
   () => ({
     default: { title: 'Title' },
   }),
@@ -10,7 +10,7 @@ jest.mock(
 );
 
 jest.mock(
-  'i18n/server/uk/meta',
+  'src/i18n/server/uk/meta',
   () => ({
     default: { title: 'Заголовок' },
   }),
