@@ -2,12 +2,15 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import SubcategoryFilter from 'src/components/categoryPage/subcategoryFilter';
 
-import { SUBCATEGORIES_BICYCLE_EQUIPMENT, Subcategory } from 'src/data/constants';
+import {
+  SUBCATEGORIES_BICYCLE_EQUIPMENT,
+  Subcategory,
+} from 'src/data/constants';
 import { Language } from 'src/types/language';
 import translate from 'src/i18n/lang';
 
-jest.mock('hooks/useOutsideClick', () => jest.fn());
-jest.mock('src/icons/FilterIcon', () => (props: any) => (
+jest.mock('src/hooks/useOutsideClick', () => jest.fn());
+jest.mock('src/icons/filterIcon', () => (props: any) => (
   <svg {...props}>FilterIcon</svg>
 ));
 
