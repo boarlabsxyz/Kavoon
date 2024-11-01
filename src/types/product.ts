@@ -13,17 +13,17 @@ export interface IVideo {
 }
 
 type ProductSmallDesc = {
-  init: Object;
+  init: object;
   id: string;
   name: string;
   subcategory?: string;
   volume?: string;
   priceEURO: number;
   priceUAH: number;
-  productDetailsWizardVM?: Object;
-  productDetailsThingsTookVM?: Object;
-  productDetailsImgGalleryVM?: Object;
-  productDetailsSeeMoreVM: Object;
+  productDetailsWizardVM?: object;
+  productDetailsThingsTookVM?: object;
+  productDetailsImgGalleryVM?: object;
+  productDetailsSeeMoreVM: object;
   metaImgPath: string;
   embedVideoId?: string;
   productDetailsVideoVM?: IVideo;

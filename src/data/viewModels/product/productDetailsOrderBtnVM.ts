@@ -14,7 +14,7 @@ const productDetailsOrderBtnVM = (
   products: Product[],
   fabric: BehaviorSubject<IMappedFabric>,
   materialPrint: BehaviorSubject<FabricColorPrint>,
-  dimensions: BehaviorSubject<{}>,
+  dimensions: BehaviorSubject<object | string>,
   addSize: BehaviorSubject<string>,
   fixing: BehaviorSubject<string>,
   choosenZip: BehaviorSubject<string>,
