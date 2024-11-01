@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import ServiceConditions from './ServiceConditions';
 import lang from 'src/i18n/lang';
 
-jest.mock('i18n/lang', () => ({
+jest.mock('src/i18n/lang', () => ({
   __esModule: true,
   default: jest.fn(),
 }));
