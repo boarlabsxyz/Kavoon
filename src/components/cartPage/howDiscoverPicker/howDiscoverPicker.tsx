@@ -77,15 +77,13 @@ function HowDiscoverPicker({
             />
           )}
           {!pickedItem && (
-            <>
-              <span className={st.initialText}>
-                {lang('SelectFromList', language)}
-              </span>
-            </>
+            <span className={st.initialText}>
+              {lang('SelectFromList', language)}
+            </span>
           )}
           <button
             type="button"
-            aria-label="Mute volume"
+            aria-label="discovery options"
             onClick={() => {
               setOpened(!isOpened);
             }}
