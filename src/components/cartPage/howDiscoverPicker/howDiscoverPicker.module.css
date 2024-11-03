@@ -1,0 +1,130 @@
+.wrapper .fieldTitle {
+  display: block;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+  color: var(--second-text-color);
+  margin-bottom: 5px;
+}
+
+.statusWrapper {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  border: solid 1px var(--border-color);
+  z-index: 1;
+  background-color: var(--white);
+}
+
+.statusWrapper:focus-within {
+  border-color: var(--primary-color);
+}
+
+.openedStatusWrapper {
+  height: 251px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.field {
+  width: 100%;
+  padding: 0 7px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+}
+
+.field::placeholder {
+  color: var(--border-color);
+}
+
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.initialText {
+  padding: 15px 0;
+  color: var(--border-color);
+  line-height: 20px;
+}
+
+.moreBtn {
+  flex-shrink: 0;
+  border-width: 0;
+  width: 25px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  padding: 24px 5px;
+}
+
+.moreBtn:before {
+  content: '';
+  position: absolute;
+  height: 9px;
+  width: 15px;
+  background-image: url('/icons/more-icon.svg');
+  margin-left: 0px;
+  margin: -4.5px 0 0 -8px;
+  transition: 0.5s ease;
+}
+
+.lessBtn:before {
+  transform: rotate(180deg);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  border-top: 1px solid var(--border-color);
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0px;
+  padding: 17px 15px;
+}
+
+.hiddenList {
+  visibility: hidden;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.item:hover {
+  color: var(--primary-color);
+}
+
+.itemName {
+  margin-left: 5px;
+  display: flex;
+  line-height: 20px;
+}
+
+.itemName:before {
+  content: '';
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid #93a1b9;
+}
