@@ -1,12 +1,14 @@
-import { expect, describe } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+
+import { Language } from 'src/types/language';
 
 import CartPage from './page';
 
-describe.skip('Cart page components:', () => {
+const mockParams = { lang: 'en' as Language };
+
+describe('Cart page components:', () => {
   test('StatusSection should render correctly', () => {
-    render(<CartPage />);
+    render(<CartPage params={mockParams} />);
 
     const yourShoppingBagTitle = screen.getByRole('heading', {
       name: 'Your shopping bag',
@@ -15,7 +17,7 @@ describe.skip('Cart page components:', () => {
   });
 
   test('OrderDetailsSection should render correctly', () => {
-    render(<CartPage />);
+    render(<CartPage params={mockParams} />);
 
     const deliveryTitle = screen.getByRole('heading', {
       name: 'Delivery',

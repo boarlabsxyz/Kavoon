@@ -9,6 +9,7 @@ type Props = {
 
 function CartPage({ params }: Props) {
   const { lang } = params;
+
   return (
     <>
       <StatusSection language={lang} />
