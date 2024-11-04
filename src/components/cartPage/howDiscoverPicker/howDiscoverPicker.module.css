@@ -97,10 +97,6 @@
   padding: 17px 15px;
 }
 
-.hiddenList {
-  visibility: hidden;
-}
-
 .item {
   display: flex;
   align-items: center;
