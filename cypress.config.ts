@@ -1,5 +1,5 @@
-import { defineConfig } from 'cypress'
-import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin'
+import { defineConfig } from 'cypress';
+import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin';
 
 export default defineConfig({
   viewportWidth: 1920,
@@ -15,7 +15,7 @@ export default defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      addMatchImageSnapshotPlugin(on)
+      addMatchImageSnapshotPlugin(on);
 
       on('before:browser:launch', (browser, launchOptions) => {
         if (browser.name === 'electron' && browser.isHeadless) {
@@ -26,7 +26,7 @@ export default defineConfig({
         return launchOptions;
       });
     },
-    baseUrl: 'http://localhost:3000/uk',
+    baseUrl: `http://localhost:3000/${process.env.CYPRESS_LOCALE || 'uk'}`,
     video: false,
   },
-})
+});
