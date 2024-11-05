@@ -43,5 +43,3 @@ describe('Blog Page Tests', () => {
     });
   });
 });
-
-export {};

@@ -17,5 +17,3 @@ describe('Home Page Tests', () => {
     });
   });
 });
-
-export {};

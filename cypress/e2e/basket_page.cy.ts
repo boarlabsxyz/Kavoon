@@ -49,5 +49,3 @@ describe('Cart Page Tests', () => {
     });
   });
 });
-
-export {};
