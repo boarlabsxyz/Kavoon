@@ -15,6 +15,8 @@ function ContactsMessengerPicker({
   language,
   remarkText,
 }) {
+  console.log('remarkText: ', remarkText);
+
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
@@ -70,30 +72,32 @@ function ContactsMessengerPicker({
           <button
             className={isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn}
             type="button"
-            aria-label="Mute volume"
+            aria-label="Messenger picker"
             onClick={() => {
               setOpened(!isOpened);
             }}
             data-cy="massager-picker"
           />
         </div>
-        <ul className={isOpened ? st.list : st.hiddenList}>
-          {messengersList.map((item) => (
-            <li
-              onClick={handleSelect.bind(null, item)}
-              key={item.name}
-              className={st.item}
-            >
-              <CustomImage
-                src={item.src}
-                alt="messenger icon"
-                width={35}
-                height={35}
-              />
-              <span className={st.itemName}>{item.name}</span>
-            </li>
-          ))}
-        </ul>
+        {isOpened && (
+          <ul className={isOpened ? st.list : st.hiddenList}>
+            {messengersList.map((item) => (
+              <li
+                onClick={handleSelect.bind(null, item)}
+                key={item.name}
+                className={st.item}
+              >
+                <CustomImage
+                  src={item.src}
+                  alt="messenger icon"
+                  width={35}
+                  height={35}
+                />
+                <span className={st.itemName}>{item.name}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       {remarkText && (
         <p
