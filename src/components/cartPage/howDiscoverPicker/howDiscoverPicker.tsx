@@ -21,7 +21,7 @@ type Props = {
 function HowDiscoverPicker({
   input: { error = null, touched = null, setHowDiscover },
   language,
-}) {
+}: Props) {
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
@@ -46,8 +46,6 @@ function HowDiscoverPicker({
   const statusWrapperClassName = isOpened
     ? `${st.statusWrapper} ${st.openedStatusWrapper}`
     : st.statusWrapper;
-
-  const listClassName = isOpened ? st.list : st.hiddenList;
 
   const btnClassName = isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn;
 
@@ -91,17 +89,27 @@ function HowDiscoverPicker({
             className={btnClassName}
           />
         </div>
-        <ul className={listClassName}>
-          {networksList.map((item) => (
-            <li
-              onClick={handleSelect.bind(null, item)}
-              key={item.name}
-              className={st.item}
-            >
-              <span className={st.itemName}>{lang(item.name, language)}</span>
-            </li>
-          ))}
-        </ul>
+        {isOpened && (
+          <ul className={st.list} role="listbox" aria-label="Discovery options">
+            {networksList.map((item) => (
+              <li
+                onClick={() => handleSelect(item)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleSelect(item);
+                  }
+                }}
+                key={item.name}
+                className={st.item}
+                role="option"
+                tabIndex={0}
+                aria-selected={pickedItem?.name === item.name}
+              >
+                <span className={st.itemName}>{lang(item.name, language)}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
