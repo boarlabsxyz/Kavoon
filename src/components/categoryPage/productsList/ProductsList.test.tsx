@@ -12,11 +12,11 @@ import {
 } from 'src/data/constants';
 import { Price } from 'src/types/product';
 
-jest.mock('src/components/shopPage/ProductSubCategory', () => () => (
+jest.mock('src/components/categoryPage/productSubCategory', () => () => (
   <div>Mocked ProductSubCategory</div>
 ));
 
-jest.mock('hooks/useRx');
+jest.mock('src/hooks/useRx');
 
 describe('ProductsList Component', () => {
   const mockData: ProductListItemVm[] = [

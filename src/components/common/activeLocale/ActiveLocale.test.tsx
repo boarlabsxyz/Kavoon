@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react';
 
 import ActiveLocale from './ActiveLocale';
 
-import getActiveLocale from 'helpers/utils/getActiveLocale';
-import { LanguageSwitcherType, Language } from 'types/language';
+import getActiveLocale from 'src/helpers/getActiveLocale';
+import { LanguageSwitcherType, Language } from 'src/types/language';
 
-jest.mock('helpers/utils/getActiveLocale');
+jest.mock('src/helpers/getActiveLocale');
 
 const mockGetActiveLocale = getActiveLocale as jest.MockedFunction<
   typeof getActiveLocale
