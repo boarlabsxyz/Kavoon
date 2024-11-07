@@ -1,6 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, Dispatch } from 'react';
 
-import { Field } from 'formik';
+import { Field, FormikErrors, FormikTouched } from 'formik';
 
 import CustomImage from 'src/components/common/customImage';
 
@@ -9,14 +9,23 @@ import useOutsideClick from 'src/hooks/useOutsideClick';
 import lang from 'src/i18n/lang';
 
 import st from './ContactsMessengerPicker.module.css';
+import { Language } from 'src/types/language';
+
+type Props = {
+  input: {
+    error: FormikErrors<string>;
+    touched: FormikTouched<string>;
+    onMessengerChange: Dispatch<string>;
+  };
+  language: Language;
+  remarkText: string;
+};
 
 function ContactsMessengerPicker({
   input: { error = null, touched = null, onMessengerChange },
   language,
   remarkText,
-}) {
-  console.log('remarkText: ', remarkText);
-
+}: Props) {
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
@@ -35,9 +44,6 @@ function ContactsMessengerPicker({
   let statusWrapperClassNames = st.statusWrapper;
   if (error && touched) {
     statusWrapperClassNames += ` ${st.errorStatusWrapper}`;
-  }
-  if (isOpened) {
-    statusWrapperClassNames += ` ${st.openedStatusWrapper}`;
   }
 
   return (
@@ -80,10 +86,10 @@ function ContactsMessengerPicker({
           />
         </div>
         {isOpened && (
-          <ul className={isOpened ? st.list : st.hiddenList}>
+          <ul className={st.list} role="listbox">
             {messengersList.map((item) => (
               <li
-                onClick={handleSelect.bind(null, item)}
+                onClick={() => handleSelect(item)}
                 key={item.name}
                 className={st.item}
               >
