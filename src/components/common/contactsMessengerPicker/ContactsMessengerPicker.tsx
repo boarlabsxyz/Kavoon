@@ -90,8 +90,14 @@ function ContactsMessengerPicker({
             {messengersList.map((item) => (
               <li
                 onClick={() => handleSelect(item)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleSelect(item);
+                  }
+                }}
                 key={item.name}
                 className={st.item}
+                tabIndex={0}
               >
                 <CustomImage
                   src={item.src}
