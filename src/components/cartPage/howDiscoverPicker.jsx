@@ -101,7 +101,7 @@ function HowDiscoverPicker({
             <button
               id="picker-param__status-more"
               type="button"
-              aria-label="Mute volume"
+              aria-label="Toggle options list"
               onClick={() => {
                 setOpened(!isOpened);
               }}
