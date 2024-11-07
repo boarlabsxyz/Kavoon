@@ -1,13 +1,14 @@
 import { screen, render } from '@testing-library/react';
+
 import BreadcrumbsNav from './Breadcrumbs';
 
-jest.mock('i18n/lang', () => ({
+jest.mock('src/i18n/lang', () => ({
   __esModule: true,
   default: jest.fn(),
 }));
 
 describe('<BreadcrumbsNav />', () => {
-  const mockLang = require('i18n/lang').default;
+  const mockLang = require('src/i18n/lang').default;
 
   const mockVM = {
     breadcrumbs: [

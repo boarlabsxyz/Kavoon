@@ -2,11 +2,11 @@ import { render, screen } from '@testing-library/react';
 
 import Hero from './Hero';
 
-jest.mock('src/components/common/Container', () => ({ children }) => (
+jest.mock('src/components/common/container', () => ({ children }) => (
   <div>{children}</div>
 ));
-jest.mock('src/components/common/Title', () => () => <h1>title</h1>);
-jest.mock('src/components/common/Subtitle', () => ({ language }) => (
+jest.mock('src/components/homePage/title', () => () => <h1>title</h1>);
+jest.mock('src/components/homePage/subtitle', () => ({ language }) => (
   <h2>subtitle {language}</h2>
 ));
 

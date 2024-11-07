@@ -14,7 +14,7 @@ jest.mock('next/navigation', () => ({
 
 const mockedUsePathname = require('next/navigation').usePathname;
 
-jest.mock('data/viewModels/shopListVM', () =>
+jest.mock('src/data/viewModels/shopListVM', () =>
   jest.fn(() => ({
     shopPageStatusVM: {
       cartStatusVM: { count: new BehaviorSubject(0), href: '' },

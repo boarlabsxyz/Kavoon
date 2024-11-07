@@ -9,7 +9,7 @@ import { BICYCLE_EQUIPMENT, Category } from 'src/data/constants';
 import translate from 'src/i18n/lang';
 import toKebabCase from 'src/helpers/toKebabCase';
 
-jest.mock('data/viewModels/shopListVM');
+jest.mock('src/data/viewModels/shopListVM');
 
 const mockProductsListVM = {
   filterByCategoryAndSubcategory: jest.fn().mockReturnValue(of([])),

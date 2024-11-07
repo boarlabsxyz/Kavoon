@@ -3,16 +3,13 @@ import CategoryProductsSection from 'src/components/categoryPage/categoryProduct
 import { Category } from 'src/data/constants';
 import { Language } from 'src/types/language';
 
-jest.mock('src/components/shopPage/ProductState/ProductsState', () => () => (
+jest.mock('src/components/categoryPage/productState', () => () => (
   <div data-testid="ProductsState">Mocked ProductsState</div>
 ));
-jest.mock(
-  'src/components/shopPage/PureProductCategories/PureProductCategories',
-  () => () => (
-    <div data-testid="PureProductCategories">Mocked PureProductCategories</div>
-  )
-);
-jest.mock('src/components/categoryPage/FilterSubsection', () => () => (
+jest.mock('src/components/categoryPage/pureProductCategories', () => () => (
+  <div data-testid="PureProductCategories">Mocked PureProductCategories</div>
+));
+jest.mock('src/components/categoryPage/filterSubsection', () => () => (
   <div data-testid="FilterSubsection">Mocked FilterSubsection</div>
 ));
 

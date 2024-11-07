@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CheckedSubcategories from './checkedSubcategories';
-import { Subcategory } from 'src/constants';
-import translate from 'i18n/lang';
-import { Language } from 'types/language';
+import { Subcategory } from 'src/data/constants';
+import translate from 'src/i18n/lang';
+import { Language } from 'src/types/language';
 
-jest.mock('i18n/lang', () => ({
+jest.mock('src/i18n/lang', () => ({
   __esModule: true,
   default: jest.fn(),
 }));
