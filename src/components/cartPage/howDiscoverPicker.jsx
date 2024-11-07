@@ -103,12 +103,24 @@ function HowDiscoverPicker({
             />
           </div>
           <div className="line" />
-          <ul className="picker-param__status-list">
+          <ul
+            className="picker-param__status-list"
+            role="listbox"
+            aria-label={lang('SelectFromList', language)}
+          >
             {networksList.map((item) => (
               <li
-                onClick={handleSelect.bind(null, item)}
+                onClick={() => handleSelect(item)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    handleSelect(item);
+                  }
+                }}
                 key={item.name}
                 className="list-elem"
+                role="option"
+                aria-selected={pickedItem?.name === item.name}
+                tabIndex={isOpened ? 0 : -1}
               >
                 <span className="param__status-list__title">
                   {lang(item.name, language)}
