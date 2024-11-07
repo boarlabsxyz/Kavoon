@@ -68,35 +68,29 @@ function HowDiscoverPicker({
         >
           <div className="picker-param__status-main">
             {pickedItem?.name === 'Other' && (
-              <>
-                <Field
-                  name="howDiscover"
-                  id="howDiscover"
-                  type="text"
-                  value={value}
-                  onChange={handleChange}
-                  className="how-discover-option"
-                  placeholder={lang('EnterYourOwnOption', language)}
-                />
-              </>
+              <Field
+                name="howDiscover"
+                id="howDiscover"
+                type="text"
+                value={value}
+                onChange={handleChange}
+                className="how-discover-option"
+                placeholder={lang('EnterYourOwnOption', language)}
+              />
             )}
             {pickedItem && pickedItem.name !== 'Other' && (
-              <>
-                <Field
-                  name="howDiscover"
-                  id="howDiscover"
-                  type="text"
-                  value={lang(pickedItem.name, language)}
-                  className="how-discover-option"
-                />
-              </>
+              <Field
+                name="howDiscover"
+                id="howDiscover"
+                type="text"
+                value={lang(pickedItem.name, language)}
+                className="how-discover-option"
+              />
             )}
             {!pickedItem && (
-              <>
-                <span className="param__status-choose__title">
-                  {lang('SelectFromList', language)}
-                </span>
-              </>
+              <span className="param__status-choose__title">
+                {lang('SelectFromList', language)}
+              </span>
             )}
             <button
               id="picker-param__status-more"
