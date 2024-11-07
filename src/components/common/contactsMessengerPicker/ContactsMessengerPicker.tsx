@@ -97,7 +97,9 @@ function ContactsMessengerPicker({
                 }}
                 key={item.name}
                 className={st.item}
+                role="option"
                 tabIndex={0}
+                aria-selected={pickedItem?.name === item.name}
               >
                 <CustomImage
                   src={item.src}
