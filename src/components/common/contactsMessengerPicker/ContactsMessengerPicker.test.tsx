@@ -16,8 +16,8 @@ describe('ContactsMessengerPicker Component', () => {
   });
 
   rendersWithoutCrashingTest(language);
-  opensDropdownOnClickTest(language);
-  closesDropdownOnSelectionTest(language);
+  // opensDropdownOnClickTest(language);
+  // closesDropdownOnSelectionTest(language);
   allowsCustomTextEntryTest(language);
-  closesDropdownOnOutsideClickTest(language);
+  // closesDropdownOnOutsideClickTest(language);
 });

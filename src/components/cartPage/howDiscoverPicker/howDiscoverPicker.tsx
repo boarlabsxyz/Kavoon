@@ -90,7 +90,7 @@ function HowDiscoverPicker({
           />
         </div>
         {isOpened && (
-          <ul className={st.list} role="listbox" aria-label="Discovery options">
+          <ul className={st.list} role="listbox">
             {networksList.map((item) => (
               <li
                 onClick={() => handleSelect(item)}

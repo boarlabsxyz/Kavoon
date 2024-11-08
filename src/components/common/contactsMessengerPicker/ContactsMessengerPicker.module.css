@@ -86,7 +86,7 @@
   transform: rotate(180deg);
 }
 
-.list {
+/* .list {
   display: flex;
   flex-direction: column;
   gap: 13px;
@@ -111,7 +111,7 @@
 
 .itemName {
   margin-left: 15px;
-}
+} */
 
 .remarkText {
   position: absolute;

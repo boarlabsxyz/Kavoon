@@ -3,8 +3,9 @@ import { useState, useRef, Dispatch } from 'react';
 import { Field, FormikErrors, FormikTouched } from 'formik';
 
 import CustomImage from 'src/components/common/customImage';
+import DropdownList from 'src/components/common/dropdownList';
+import makeMessengersList from 'src/helpers/makeMessengersList';
 
-import MessengersList from './MessengersList';
 import useOutsideClick from 'src/hooks/useOutsideClick';
 import lang from 'src/i18n/lang';
 
@@ -30,8 +31,6 @@ function ContactsMessengerPicker({
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
 
-  const messengersList = MessengersList(language);
-
   useOutsideClick(ref, () => {
     setOpened(false);
   });
@@ -46,6 +45,7 @@ function ContactsMessengerPicker({
     statusWrapperClassNames += ` ${st.errorStatusWrapper}`;
   }
 
+  const messengersList = makeMessengersList(language);
   return (
     <div ref={ref}>
       <label className={st.fieldTitle}>{lang('Contacts', language)}</label>
@@ -86,31 +86,12 @@ function ContactsMessengerPicker({
           />
         </div>
         {isOpened && (
-          <ul className={st.list} role="listbox">
-            {messengersList.map((item) => (
-              <li
-                onClick={() => handleSelect(item)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    handleSelect(item);
-                  }
-                }}
-                key={item.name}
-                className={st.item}
-                role="option"
-                tabIndex={0}
-                aria-selected={pickedItem?.name === item.name}
-              >
-                <CustomImage
-                  src={item.src}
-                  alt="messenger icon"
-                  width={35}
-                  height={35}
-                />
-                <span className={st.itemName}>{item.name}</span>
-              </li>
-            ))}
-          </ul>
+          <DropdownList
+            optionsList={messengersList}
+            handleSelect={handleSelect}
+            pickedItem={pickedItem}
+            language={language}
+          />
         )}
       </div>
       {remarkText && (
