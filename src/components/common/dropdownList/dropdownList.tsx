@@ -1,6 +1,6 @@
 import CustomImage from 'src/components/common/customImage';
 
-import st from './dropDawnList.module.css';
+import st from './dropdownList.module.css';
 
 function DropdownList({ optionsList, handleSelect, pickedItem, language }) {
   return (
