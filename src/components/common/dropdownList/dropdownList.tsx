@@ -1,11 +1,8 @@
 import CustomImage from 'src/components/common/customImage';
-// import List from 'src/data/messengersList';
 
 import st from './dropDawnList.module.css';
 
 function DropdownList({ optionsList, handleSelect, pickedItem, language }) {
-  // const messengersList = MessengersList(language);
-
   return (
     <ul className={st.list} role="listbox">
       {optionsList.map((item) => (
