@@ -1,6 +1,13 @@
 import lang from 'src/i18n/lang';
+import { Language } from 'src/types/language';
 
-function MessengersList(language) {
+interface Messenger {
+  name: string;
+  src: string;
+  placeholder: string;
+}
+
+function MakeMessengersList(language: Language): Messenger[] {
   return [
     {
       name: 'Telegram',
@@ -20,4 +27,4 @@ function MessengersList(language) {
   ];
 }
 
-export default MessengersList;
+export default MakeMessengersList;
