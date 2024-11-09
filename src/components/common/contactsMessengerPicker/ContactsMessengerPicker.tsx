@@ -40,9 +40,12 @@ function ContactsMessengerPicker({
     onMessengerChange(item.name);
   };
 
-  let statusWrapperClassNames = st.statusWrapper;
+  let statusWrapperClassName = isOpened
+    ? `${st.statusWrapper} ${st.openedStatusWrapper}`
+    : st.statusWrapper;
+
   if (error && touched) {
-    statusWrapperClassNames += ` ${st.errorStatusWrapper}`;
+    statusWrapperClassName += ` ${st.errorStatusWrapper}`;
   }
 
   const messengersList = makeMessengersList(language);
@@ -50,7 +53,7 @@ function ContactsMessengerPicker({
     <div ref={ref}>
       <label className={st.fieldTitle}>{lang('Contacts', language)}</label>
 
-      <div className={statusWrapperClassNames}>
+      <div className={statusWrapperClassName}>
         <div className={st.status}>
           {pickedItem ? (
             <>
@@ -90,7 +93,6 @@ function ContactsMessengerPicker({
             optionsList={messengersList}
             handleSelect={handleSelect}
             pickedItem={pickedItem}
-            language={language}
           />
         )}
       </div>

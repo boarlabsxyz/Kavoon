@@ -8,6 +8,7 @@ import networksList from './networksList';
 
 import st from './howDiscoverPicker.module.css';
 import { Language } from 'src/types/language';
+import DropdownList from 'src/components/common/dropdownList';
 
 type Props = {
   input: {
@@ -90,25 +91,11 @@ function HowDiscoverPicker({
           />
         </div>
         {isOpened && (
-          <ul className={st.list} role="listbox">
-            {networksList.map((item) => (
-              <li
-                onClick={() => handleSelect(item)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    handleSelect(item);
-                  }
-                }}
-                key={item.name}
-                className={st.item}
-                role="option"
-                tabIndex={0}
-                aria-selected={pickedItem?.name === item.name}
-              >
-                <span className={st.itemName}>{lang(item.name, language)}</span>
-              </li>
-            ))}
-          </ul>
+          <DropdownList
+            optionsList={networksList}
+            handleSelect={handleSelect}
+            pickedItem={pickedItem}
+          />
         )}
       </div>
     </div>

@@ -1,7 +1,6 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 13px;
   border-top: 1px solid var(--border-color);
   list-style: none;
   margin-block-start: 0;
@@ -16,12 +15,29 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+  margin-bottom: 13px;
 }
 
 .item:hover {
   color: var(--primary-color);
 }
 
-.itemName {
+.itemWithIconName {
   margin-left: 15px;
+}
+.itemName {
+  margin-left: 5px;
+  margin-top: 4px;
+  display: flex;
+  line-height: 20px;
+}
+
+.itemName:before {
+  content: '';
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid #93a1b9;
 }
