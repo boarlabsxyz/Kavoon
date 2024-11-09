@@ -1,11 +1,6 @@
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
-
-interface Messenger {
-  name: string;
-  src: string;
-  placeholder: string;
-}
+import { Messenger } from 'src/types/pickersProps';
 
 function MakeMessengersList(language: Language): Messenger[] {
   return [

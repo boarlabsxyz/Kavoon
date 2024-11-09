@@ -11,12 +11,12 @@ import { Language } from 'src/types/language';
 import DropdownList from 'src/components/common/dropdownList';
 
 type Props = {
-  input: {
-    error: FormikErrors<string>;
-    touched: FormikTouched<string>;
-    setHowDiscover: Dispatch<string>;
+  readonly input: {
+    readonly error: FormikErrors<string>;
+    readonly touched: FormikTouched<string>;
+    readonly setHowDiscover: Dispatch<string>;
   };
-  language: Language;
+  readonly language: Language;
 };
 
 function HowDiscoverPicker({

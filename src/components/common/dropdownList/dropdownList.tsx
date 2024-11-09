@@ -1,8 +1,19 @@
 import CustomImage from 'src/components/common/customImage';
 
 import st from './dropdownList.module.css';
+import { Messenger, Network } from 'src/types/pickersProps';
 
-function DropdownList({ optionsList, handleSelect, pickedItem }) {
+type Props = {
+  readonly optionsList: ReadonlyArray<Messenger | Network>;
+  readonly handleSelect: (item: Messenger | Network) => void;
+  readonly pickedItem: Messenger | Network;
+};
+
+function isMessenger(item: Messenger | Network): item is Messenger {
+  return (item as Messenger).src !== undefined;
+}
+
+function DropdownList({ optionsList, handleSelect, pickedItem }: Props) {
   return (
     <ul className={st.list} role="listbox" id="options-list">
       {optionsList.map((item) => (
@@ -19,7 +30,7 @@ function DropdownList({ optionsList, handleSelect, pickedItem }) {
           tabIndex={0}
           aria-selected={pickedItem?.name === item.name}
         >
-          {item.src ? (
+          {isMessenger(item) ? (
             <>
               <CustomImage
                 src={item.src}
