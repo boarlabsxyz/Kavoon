@@ -82,12 +82,14 @@ function HowDiscoverPicker({
           )}
           <button
             type="button"
-            aria-label="discovery options"
+            className={btnClassName}
             onClick={() => {
               setOpened(!isOpened);
             }}
+            aria-label="discovery options"
+            aria-expanded={isOpened}
+            aria-controls="options-list"
             data-cy="howDiscover-picker"
-            className={btnClassName}
           />
         </div>
         {isOpened && (

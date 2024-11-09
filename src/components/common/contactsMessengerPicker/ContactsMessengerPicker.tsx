@@ -79,12 +79,14 @@ function ContactsMessengerPicker({
             </span>
           )}
           <button
-            className={isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn}
             type="button"
-            aria-label="Messenger picker"
+            className={isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn}
             onClick={() => {
               setOpened(!isOpened);
             }}
+            aria-label="Messenger picker"
+            aria-expanded={isOpened}
+            aria-controls="options-list"
             data-cy="massager-picker"
           />
         </div>

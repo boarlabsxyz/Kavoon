@@ -4,7 +4,7 @@ import st from './dropdownList.module.css';
 
 function DropdownList({ optionsList, handleSelect, pickedItem }) {
   return (
-    <ul className={st.list} role="listbox">
+    <ul className={st.list} role="listbox" id="options-list">
       {optionsList.map((item) => (
         <li
           onClick={() => handleSelect(item)}
