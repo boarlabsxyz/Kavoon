@@ -22,6 +22,14 @@ function DropdownList({ optionsList, handleSelect, pickedItem }: Props) {
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               handleSelect(item);
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const next = e.currentTarget.nextElementSibling;
+              if (next) (next as HTMLElement).focus();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              const prev = e.currentTarget.previousElementSibling;
+              if (prev) (prev as HTMLElement).focus();
             }
           }}
           key={item.name}
