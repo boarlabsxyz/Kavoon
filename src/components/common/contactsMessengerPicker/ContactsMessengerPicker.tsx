@@ -17,13 +17,14 @@ type Props = {
     readonly error: FormikErrors<string>;
     readonly touched: FormikTouched<string>;
     readonly onMessengerChange: Dispatch<string>;
+    readonly value: string;
   };
   readonly language: Language;
   readonly remarkText: string;
 };
 
 function ContactsMessengerPicker({
-  input: { error = null, touched = null, onMessengerChange },
+  input: { error = null, touched = null, onMessengerChange, value },
   language,
   remarkText,
 }: Props) {
@@ -71,6 +72,7 @@ function ContactsMessengerPicker({
                 autoFocus
                 className={st.field}
                 data-cy="numTel"
+                value={value}
               />
             </>
           ) : (

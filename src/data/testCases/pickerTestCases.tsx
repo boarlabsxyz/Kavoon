@@ -1,4 +1,4 @@
-import { screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { Language } from 'src/types/language';
@@ -31,7 +31,7 @@ export function opensDropdownOnClickTest(buttonName) {
 }
 
 export function closesDropdownOnSelectionTest(buttonName, optionName) {
-  test('closes dropdown when an item is selected', () => {
+  test('closes dropdown when an item is selected', async () => {
     const button = screen.getByRole('button', { name: buttonName });
     fireEvent.click(button);
 
@@ -39,8 +39,9 @@ export function closesDropdownOnSelectionTest(buttonName, optionName) {
     expect(openedList).toBeInTheDocument();
 
     const listItem = screen.getByText(optionName);
-    fireEvent.click(listItem);
-
+    await act(async () => {
+      fireEvent.click(listItem);
+    });
     const closedList = screen.queryByRole('listbox');
     expect(closedList).not.toBeInTheDocument();
   });
@@ -61,7 +62,9 @@ export function allowsCustomTextEntryTest(
     const inputField = screen.getByPlaceholderText(placeholderText);
     expect(inputField).toBeInTheDocument();
 
-    await fireEvent.change(inputField, { target: { value: 'Custom Option' } });
+    await act(async () => {
+      fireEvent.change(inputField, { target: { value: 'Custom Option' } });
+    });
 
     expect(inputField).toHaveValue('Custom Option');
   });

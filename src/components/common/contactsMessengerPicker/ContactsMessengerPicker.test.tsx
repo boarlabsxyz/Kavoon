@@ -14,29 +14,36 @@ import {
 
 describe('ContactsMessengerPicker Component', () => {
   const mockOnMessengerChange = jest.fn();
-  const initialValues = { contactsMessenger: '' };
+  const initialValues = { numTel: '' };
   const language = 'en' as Language;
   const buttonName = 'Messenger picker';
 
-  const renderComponent = (language: Language): RenderResult =>
+  const renderComponent = (): RenderResult =>
     render(
       <>
         <Formik initialValues={initialValues} onSubmit={jest.fn()}>
-          <ContactsMessengerPicker
-            input={{
-              error: null,
-              touched: null,
-              onMessengerChange: mockOnMessengerChange,
-            }}
-            language={language}
-            remarkText=""
-          />
+          {({ setFieldValue, values }) => (
+            <ContactsMessengerPicker
+              input={{
+                error: null,
+                touched: null,
+                onMessengerChange: (value) => {
+                  setFieldValue('numTel', value);
+                  mockOnMessengerChange(value);
+                },
+                value: values.numTel,
+              }}
+              language={language}
+              remarkText=""
+            />
+          )}
         </Formik>
         <div data-testid="outside-element">Outside</div>
       </>
     );
+
   beforeEach(() => {
-    renderComponent(language);
+    renderComponent();
     mockOnMessengerChange.mockClear();
   });
 
