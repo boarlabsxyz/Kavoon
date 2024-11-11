@@ -40,7 +40,9 @@ function ContactsMessengerPicker({
 
   return (
     <div ref={ref}>
-      <label className={st.fieldTitle}>{lang('Contacts', language)}</label>
+      <label htmlFor="contacts" className={st.fieldTitle}>
+        {lang('Contacts', language)}
+      </label>
 
       <div className={statusWrapperClassNames}>
         <div className={st.status}>
@@ -74,7 +76,7 @@ function ContactsMessengerPicker({
             onClick={() => {
               setOpened(!isOpened);
             }}
-            data-cy="massager-picker"
+            data-cy="messager-picker"
           />
         </div>
         <ul className={isOpened ? st.list : st.hiddenList}>
