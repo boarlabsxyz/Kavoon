@@ -50,7 +50,12 @@ function SubcategoryFilter({
   const noCheckedSubcategories = !subcategories.length;
 
   return (
-    <div ref={ref} className={st.wrapper} onClick={handleClick}>
+    <div
+      ref={ref}
+      className={st.wrapper}
+      onClick={handleClick}
+      data-cy="subcategory-filter"
+    >
       <div
         className={isShowList ? `${st.title} ${st.titleOfShowList}` : st.title}
         onClick={() => {
