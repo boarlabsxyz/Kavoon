@@ -3,20 +3,22 @@
   justify-content: center;
   align-items: center;
 
-  width: 40px;
-  height: 40px;
-
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--white);
   transition: color 250ms var(--transition-function);
 }
 
 .link:hover {
-  color: var(--primary-color);
+  color: var(--white);
+  background-color: var(--main-text-color);
 }
 
 .light {
-  color: var(--main-text-color);
+  color: var(--white);
 }
 
 .dark {
-  color: var(--white);
+  color: var(--main-text-color);
 }

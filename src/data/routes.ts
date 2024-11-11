@@ -30,24 +30,24 @@ export const languages: LanguageSwitcherType[] = [
 
 export const socialsNetworks = [
   {
-    url: BrandingConst.siteFacebook,
-    label: 'facebook-link',
-    component: FacebookIcon,
-    width: '16',
-    height: '26',
-  },
-  {
     url: BrandingConst.siteInstagram,
     label: 'instagram-link',
     component: InstagramIcon,
-    width: '22',
-    height: '22',
+    width: '14',
+    height: '14',
+  },
+  {
+    url: BrandingConst.siteFacebook,
+    label: 'facebook-link',
+    component: FacebookIcon,
+    width: '10',
+    height: '18',
   },
   {
     url: BrandingConst.siteTikTok,
     label: 'tiktok-link',
     component: TikTokIcon,
-    width: '24',
-    height: '25',
+    width: '14',
+    height: '16',
   },
 ];
