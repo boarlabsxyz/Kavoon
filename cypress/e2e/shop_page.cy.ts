@@ -1,7 +1,4 @@
-const viewPorts = [
-  { name: 'iphone-8', dimensions: [375, 667] },
-  { name: 'desktop', dimensions: [1920, 1080] },
-];
+import viewPorts from '../support/viewPorts';
 
 describe('Shop Page Tests', () => {
   viewPorts.forEach(({ name, dimensions }) => {
@@ -10,7 +7,7 @@ describe('Shop Page Tests', () => {
     it(`Should display correctly bicycle equipment category on ${name} viewport`, () => {
       cy.viewport(width, height);
       cy.visit('/');
-      cy.get('[data-cy="BicycleEquipment"]').click();
+      cy.get('[data-cy="bicycle-equipment-category-link"]').click();
 
       cy.url().should('include', '/shop/bicycle-equipment');
       cy.get('[data-cy="subcategory-filter"]').should('be.visible');
@@ -22,7 +19,7 @@ describe('Shop Page Tests', () => {
     it(`Should display correctly bag accessories category on ${name} viewport`, () => {
       cy.viewport(width, height);
       cy.visit('/');
-      cy.get('[data-cy="BagAccessories"]').click();
+      cy.get('[data-cy="bag-accessories-category-link"]').click();
 
       cy.url().should('include', '/shop/bag-accessories');
       cy.get('[data-cy="subcategory-filter"]').should('not.exist');
