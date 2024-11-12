@@ -33,15 +33,15 @@ export const socialsNetworks = [
     url: BrandingConst.siteInstagram,
     label: 'instagram-link',
     component: InstagramIcon,
-    width: '14',
-    height: '14',
+    width: '22',
+    height: '22',
   },
   {
     url: BrandingConst.siteFacebook,
     label: 'facebook-link',
     component: FacebookIcon,
     width: '10',
-    height: '18',
+    height: '22',
   },
   {
     url: BrandingConst.siteTikTok,

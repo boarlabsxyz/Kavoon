@@ -14,30 +14,46 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: var(--white);
   position: absolute;
   z-index: 0;
   transition: background-color 250ms var(--transition-function);
 }
 
+/* Child elements within link */
 .link > * {
   position: relative;
   z-index: 1;
   color: inherit;
 }
 
-.link:hover::before {
-  background-color: var(--main-text-color);
-}
-
-.link:hover {
-  color: var(--white);
-}
-
 .light {
   color: var(--white);
 }
 
+.light::before {
+  background-color: var(--main-text-color);
+}
+
+.light:hover {
+  color: var(--main-text-color);
+}
+
+.light:hover::before {
+  background-color: var(--white);
+}
+
 .dark {
   color: var(--main-text-color);
+}
+
+.dark::before {
+  background-color: var(--white);
+}
+
+.dark:hover {
+  color: var(--white);
+}
+
+.dark:hover::before {
+  background-color: var(--main-text-color);
 }
