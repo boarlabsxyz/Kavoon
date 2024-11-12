@@ -40,7 +40,7 @@ function ContactsMessengerPicker({
 
   return (
     <div ref={ref}>
-      <label htmlFor="contacts" className={st.fieldTitle}>
+      <label htmlFor="numTel" className={st.fieldTitle}>
         {lang('Contacts', language)}
       </label>
 
@@ -76,7 +76,7 @@ function ContactsMessengerPicker({
             onClick={() => {
               setOpened(!isOpened);
             }}
-            data-cy="messager-picker"
+            data-cy="messenger-picker"
           />
         </div>
         <ul className={isOpened ? st.list : st.hiddenList}>
