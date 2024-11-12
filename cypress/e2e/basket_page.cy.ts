@@ -29,24 +29,20 @@ viewPorts.forEach(({ name, dimensions }) => {
     it('Should fill in the order form with valid data', () => {
       cy.scrollTo('bottom', { duration: 3000 });
 
-      cy.get('[data-cy="username"]')
-        .type('Test name')
-        .should('have.value', 'Test name')
-        .get('[data-cy="messenger-picker"]');
+      cy.get('[data-cy="username"]').type('Test name');
+      cy.get('[data-cy="username"]').should('have.value', 'Test name');
+
       cy.get('[data-cy="messenger-picker"]').click();
-
       cy.contains('Telegram').click();
-      cy.get('[data-cy="numTel"]')
-        .type('+380501234567')
-        .should('have.value', '+380501234567');
 
-      cy.get('[data-cy="country"]')
-        .type('Україна')
-        .should('have.value', 'Україна');
+      cy.get('[data-cy="numTel"]').type('+380501234567');
+      cy.get('[data-cy="numTel"]').should('have.value', '+380501234567');
 
-      cy.get('[data-cy="comment"]')
-        .type('Test comment')
-        .should('have.value', 'Test comment');
+      cy.get('[data-cy="country"]').type('Україна');
+      cy.get('[data-cy="country"]').should('have.value', 'Україна');
+
+      cy.get('[data-cy="comment"]').type('Test comment');
+      cy.get('[data-cy="comment"]').should('have.value', 'Test comment');
 
       cy.get('[data-cy="howDiscover-picker"]').click();
       cy.contains('Фейсбук').click();
