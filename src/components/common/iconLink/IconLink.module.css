@@ -2,17 +2,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transition: color 250ms var(--transition-function);
+  color: inherit;
+}
 
+.link::before {
+  content: '';
   width: 22px;
   height: 22px;
   border-radius: 50%;
   background-color: var(--white);
-  transition: color 250ms var(--transition-function);
+  position: absolute;
+  z-index: 0;
+  transition: background-color 250ms var(--transition-function);
+}
+
+.link > * {
+  position: relative;
+  z-index: 1;
+  color: inherit;
+}
+
+.link:hover::before {
+  background-color: var(--main-text-color);
 }
 
 .link:hover {
   color: var(--white);
-  background-color: var(--main-text-color);
 }
 
 .light {
