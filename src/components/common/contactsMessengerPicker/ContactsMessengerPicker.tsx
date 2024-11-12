@@ -52,7 +52,9 @@ function ContactsMessengerPicker({
   const messengersList = makeMessengersList(language);
   return (
     <div ref={ref}>
-      <label className={st.fieldTitle}>{lang('Contacts', language)}</label>
+      <label htmlFor="numTel" className={st.fieldTitle}>
+        {lang('Contacts', language)}
+      </label>
 
       <div className={statusWrapperClassName}>
         <div className={st.status}>
@@ -89,7 +91,7 @@ function ContactsMessengerPicker({
             aria-label="Messenger picker"
             aria-expanded={isOpened}
             aria-controls="options-list"
-            data-cy="massager-picker"
+            data-cy="messenger-picker"
           />
         </div>
         {isOpened && (
