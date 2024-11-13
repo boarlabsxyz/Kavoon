@@ -8,20 +8,21 @@ import networksList from './networksList';
 
 import st from './howDiscoverPicker.module.css';
 import { Language } from 'src/types/language';
+import DropdownList from 'src/components/common/dropdownList';
 
 type Props = {
-  input: {
-    error: FormikErrors<string>;
-    touched: FormikTouched<string>;
-    setHowDiscover: Dispatch<string>;
+  readonly input: {
+    readonly error: FormikErrors<string>;
+    readonly touched: FormikTouched<string>;
+    readonly setHowDiscover: Dispatch<string>;
   };
-  language: Language;
+  readonly language: Language;
 };
 
 function HowDiscoverPicker({
   input: { error = null, touched = null, setHowDiscover },
   language,
-}) {
+}: Props) {
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
@@ -46,8 +47,6 @@ function HowDiscoverPicker({
   const statusWrapperClassName = isOpened
     ? `${st.statusWrapper} ${st.openedStatusWrapper}`
     : st.statusWrapper;
-
-  const listClassName = isOpened ? st.list : st.hiddenList;
 
   const btnClassName = isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn;
 
@@ -83,25 +82,23 @@ function HowDiscoverPicker({
           )}
           <button
             type="button"
-            aria-label="discovery options"
+            className={btnClassName}
             onClick={() => {
               setOpened(!isOpened);
             }}
+            aria-label="discovery options"
+            aria-expanded={isOpened}
+            aria-controls="options-list"
             data-cy="howDiscover-picker"
-            className={btnClassName}
           />
         </div>
-        <ul className={listClassName}>
-          {networksList.map((item) => (
-            <li
-              onClick={handleSelect.bind(null, item)}
-              key={item.name}
-              className={st.item}
-            >
-              <span className={st.itemName}>{lang(item.name, language)}</span>
-            </li>
-          ))}
-        </ul>
+        {isOpened && (
+          <DropdownList
+            optionsList={networksList}
+            handleSelect={handleSelect}
+            pickedItem={pickedItem}
+          />
+        )}
       </div>
     </div>
   );

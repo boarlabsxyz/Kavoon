@@ -1,25 +1,36 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, Dispatch } from 'react';
 
-import { Field } from 'formik';
+import { Field, FormikErrors, FormikTouched } from 'formik';
 
 import CustomImage from 'src/components/common/customImage';
+import DropdownList from 'src/components/common/dropdownList';
+import makeMessengersList from 'src/helpers/makeMessengersList';
 
-import MessengersList from './MessengersList';
 import useOutsideClick from 'src/hooks/useOutsideClick';
 import lang from 'src/i18n/lang';
 
 import st from './ContactsMessengerPicker.module.css';
+import { Language } from 'src/types/language';
+
+type Props = {
+  readonly input: {
+    readonly error: FormikErrors<string>;
+    readonly touched: FormikTouched<string>;
+    readonly onMessengerChange: Dispatch<string>;
+    readonly value: string;
+  };
+  readonly language: Language;
+  readonly remarkText: string;
+};
 
 function ContactsMessengerPicker({
-  input: { error = null, touched = null, onMessengerChange },
+  input: { error = null, touched = null, onMessengerChange, value },
   language,
   remarkText,
-}) {
+}: Props) {
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
-
-  const messengersList = MessengersList(language);
 
   useOutsideClick(ref, () => {
     setOpened(false);
@@ -30,21 +41,22 @@ function ContactsMessengerPicker({
     onMessengerChange(item.name);
   };
 
-  let statusWrapperClassNames = st.statusWrapper;
+  let statusWrapperClassName = isOpened
+    ? `${st.statusWrapper} ${st.openedStatusWrapper}`
+    : st.statusWrapper;
+
   if (error && touched) {
-    statusWrapperClassNames += ` ${st.errorStatusWrapper}`;
-  }
-  if (isOpened) {
-    statusWrapperClassNames += ` ${st.openedStatusWrapper}`;
+    statusWrapperClassName += ` ${st.errorStatusWrapper}`;
   }
 
+  const messengersList = makeMessengersList(language);
   return (
     <div ref={ref}>
       <label htmlFor="numTel" className={st.fieldTitle}>
         {lang('Contacts', language)}
       </label>
 
-      <div className={statusWrapperClassNames}>
+      <div className={statusWrapperClassName}>
         <div className={st.status}>
           {pickedItem ? (
             <>
@@ -62,6 +74,7 @@ function ContactsMessengerPicker({
                 autoFocus
                 className={st.field}
                 data-cy="numTel"
+                value={value}
               />
             </>
           ) : (
@@ -70,32 +83,24 @@ function ContactsMessengerPicker({
             </span>
           )}
           <button
-            className={isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn}
             type="button"
-            aria-label="Mute volume"
+            className={isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn}
             onClick={() => {
               setOpened(!isOpened);
             }}
+            aria-label="Messenger picker"
+            aria-expanded={isOpened}
+            aria-controls="options-list"
             data-cy="messenger-picker"
           />
         </div>
-        <ul className={isOpened ? st.list : st.hiddenList}>
-          {messengersList.map((item) => (
-            <li
-              onClick={handleSelect.bind(null, item)}
-              key={item.name}
-              className={st.item}
-            >
-              <CustomImage
-                src={item.src}
-                alt="messenger icon"
-                width={35}
-                height={35}
-              />
-              <span className={st.itemName}>{item.name}</span>
-            </li>
-          ))}
-        </ul>
+        {isOpened && (
+          <DropdownList
+            optionsList={messengersList}
+            handleSelect={handleSelect}
+            pickedItem={pickedItem}
+          />
+        )}
       </div>
       {remarkText && (
         <p

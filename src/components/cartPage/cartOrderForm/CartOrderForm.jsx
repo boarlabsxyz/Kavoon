@@ -131,6 +131,7 @@ function CartOrderForm({ vm, language }) {
                           error: errors.numTel,
                           touched: touched.numTel,
                           onMessengerChange,
+                          value: values.numTel,
                         }}
                       />
                       {isNumTelError && (
