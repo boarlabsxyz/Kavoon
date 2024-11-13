@@ -33,9 +33,11 @@ function ContactsScreen({ onMessengerChange, language }: Props) {
         <div className={st.row}>
           <ContactsMessengerPicker
             language={language}
+            // @ts-ignore
             input={{
               onMessengerChange,
             }}
+            // @ts-ignore
             remarkText
           />
         </div>
