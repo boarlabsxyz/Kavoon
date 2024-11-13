@@ -1,7 +1,4 @@
-type Network = {
-  name: string;
-  value: string;
-};
+import { Network } from 'src/types/pickersProps';
 
 const networksList: Network[] = [
   {
