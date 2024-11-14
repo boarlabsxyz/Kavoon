@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Both `node.js` and `npm` should be installed globbally. You can find the instructions https://nodejs.org/en/download/
+- Both `node.js` and `npm` should be installed globally. You can find the instructions https://nodejs.org/en/download/
 
 ## Database
 
@@ -28,14 +28,14 @@
 2. **Create a new branch:**
 
    ```sh
-   git checkout -b feature/issue-<issue-number>-<short-description>
+   git checkout -b <issue-number>-<short-description>
    ```
 
 3. **Implement the changes:**
 
    - Implement issue.
    - Keep PR as small as possible.
-   - Create several PRs if issue requires significan changes.
+   - Create several PRs if issue requires significant changes.
    - Ensure your code adheres to the project's coding standards and guidelines.
 
 4. **Create a Pull Request (PR):**
@@ -56,5 +56,9 @@ docker compose run app npm run lint
    - Request a review from the project maintainers.
    - Address any feedback or requested changes.
    - Once approved, merge the PR into the `main` branch.
+
+### **FAQ**
+   1. After fulfilling steps in Database section I still get error messages about environment variables
+      - Try to restart VSCode or your PC (either on Linux or Windows) 
 
 For more detailed instructions, refer to the [documentation](./docs).
