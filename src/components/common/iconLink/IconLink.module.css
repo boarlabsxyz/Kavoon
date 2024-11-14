@@ -2,21 +2,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 40px;
   height: 40px;
-
+  position: relative;
   transition: color 250ms var(--transition-function);
+  color: inherit;
 }
 
-.link:hover {
-  color: var(--primary-color);
+.link::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+  transition: background-color 250ms var(--transition-function);
+}
+
+/* Child elements within link */
+.link > * {
+  position: relative;
+  z-index: 1;
+  color: inherit;
 }
 
 .light {
+  color: var(--white);
+}
+
+.light::before {
+  background-color: var(--main-text-color);
+}
+
+.light:hover {
   color: var(--main-text-color);
 }
 
+.light:hover::before {
+  background-color: var(--white);
+}
+
 .dark {
+  color: var(--main-text-color);
+}
+
+.dark::before {
+  background-color: var(--white);
+}
+
+.dark:hover {
   color: var(--white);
+}
+
+.dark:hover::before {
+  background-color: var(--main-text-color);
 }
