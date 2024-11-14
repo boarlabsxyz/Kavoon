@@ -11,12 +11,10 @@ function SocialLinksList({ background = 'light' }: Props) {
   return (
     <ul className={st.list}>
       {socialsNetworks.map(({ component: Icon, label, url, width, height }) => {
-        const className = label === 'tiktok-link' ? st.svgStroke : st.svgFill;
-
         return (
           <li key={label} className={st.listItem}>
             <IconLink href={url} ariaLabel={label} background={background}>
-              <Icon width={width} height={height} className={className} />
+              <Icon width={width} height={height} className={''} />
             </IconLink>
           </li>
         );
