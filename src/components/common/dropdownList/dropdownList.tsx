@@ -49,7 +49,7 @@ function DropdownList({ optionsList, handleSelect, pickedItem }: Props) {
               <span className={st.itemWithIconName}>{item.name}</span>
             </>
           ) : (
-            <span className={st.itemName}>{item.name}</span>
+            <span className={st.itemName}>{item.value}</span>
           )}
         </li>
       ))}
