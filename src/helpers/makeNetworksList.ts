@@ -2,7 +2,7 @@ import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 import { Network } from 'src/types/pickersProps';
 
-function MakeNetworksList(language: Language): Network[] {
+function makeNetworksList(language: Language): Network[] {
   return [
     {
       name: 'Tiktok',
@@ -27,4 +27,4 @@ function MakeNetworksList(language: Language): Network[] {
   ];
 }
 
-export default MakeNetworksList;
+export default makeNetworksList;
