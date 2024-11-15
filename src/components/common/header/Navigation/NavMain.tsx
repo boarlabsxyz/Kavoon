@@ -22,7 +22,21 @@ const pages = [
 function NavMain({ language }: NavMainProps) {
   const pathname = usePathname();
   const pathWithoutLocale = pathname.substring(4);
-  const pathSegments = pathWithoutLocale.split('/');
+
+  const isActivePath = (target: string) => {
+    if (target === 'shop') {
+      if (
+        pathWithoutLocale === 'shop/bicycle-equipment' ||
+        pathWithoutLocale === 'shop/bag-accessories' ||
+        pathWithoutLocale === 'shop/city-collection' ||
+        pathWithoutLocale === 'shop/in-stock'
+      ) {
+        return true;
+      }
+      return false;
+    }
+    return pathWithoutLocale === target;
+  };
 
   return (
     <nav className={styles.navMain}>
@@ -31,7 +45,7 @@ function NavMain({ language }: NavMainProps) {
           <li key={target} data-cy={`${target}-header-link`}>
             <Link
               className={
-                pathSegments.includes(target.split('/')[0])
+                isActivePath(target)
                   ? `${styles.link} ${styles.active}`
                   : styles.link
               }
