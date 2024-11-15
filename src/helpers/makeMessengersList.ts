@@ -2,7 +2,7 @@ import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 import { Messenger } from 'src/types/pickersProps';
 
-function MakeMessengersList(language: Language): Messenger[] {
+function makeMessengersList(language: Language): Messenger[] {
   return [
     {
       name: 'Telegram',
@@ -22,4 +22,4 @@ function MakeMessengersList(language: Language): Messenger[] {
   ];
 }
 
-export default MakeMessengersList;
+export default makeMessengersList;
