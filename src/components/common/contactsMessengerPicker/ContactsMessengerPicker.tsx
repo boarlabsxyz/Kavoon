@@ -14,13 +14,13 @@ import { Language } from 'src/types/language';
 
 type Props = {
   readonly input: {
-    readonly error: FormikErrors<string>;
-    readonly touched: FormikTouched<string>;
+    readonly error?: FormikErrors<string>;
+    readonly touched?: FormikTouched<string>;
     readonly onMessengerChange: Dispatch<string>;
-    readonly value: string;
+    readonly value?: string;
   };
   readonly language: Language;
-  readonly remarkText: string;
+  readonly remarkText?: boolean;
 };
 
 function ContactsMessengerPicker({
