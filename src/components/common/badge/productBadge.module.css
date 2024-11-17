@@ -1,0 +1,25 @@
+.productBadge {
+    max-width: 250px;
+    display: flex;
+    visibility: visible;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    padding: 8px;
+    border-radius: 12px;
+    background-color: var(--white);
+  }
+
+.svgWrapper {
+    padding-right: 8px;
+    height: 23px;
+    width: 23px;
+  }
+
+.badgeText {
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--main-text-color);
+}
