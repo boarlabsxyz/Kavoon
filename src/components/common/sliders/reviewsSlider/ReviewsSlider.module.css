@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.wrapper {
+.container .wrapper {
   width: 1106px;
   padding: 16px 10px 49px;
 }
