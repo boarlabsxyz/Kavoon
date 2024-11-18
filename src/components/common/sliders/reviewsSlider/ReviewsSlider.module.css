@@ -1,11 +1,11 @@
 .container {
   position: relative;
   width: 100%;
-}
 
-.container .wrapper {
-  width: 1106px;
-  padding: 16px 10px 49px;
+  .wrapper {
+    width: 1106px;
+    padding: 16px 10px 49px;
+  }
 }
 
 .container :global(.swiper-button-next):after,
@@ -54,9 +54,12 @@
 }
 
 @media (max-width: 1259px) {
-  .wrapper {
-    width: 850px;
+  .container {
+    .wrapper {
+      width: 850px;
+    }
   }
+
   .prevReviewArrow {
     left: 20px;
   }
@@ -68,11 +71,11 @@
 @media (max-width: 1023px) {
   .container {
     margin-left: -16px;
-  }
 
-  .wrapper {
-    width: 369px;
-    padding: 26px 13px 49px;
+    .wrapper {
+      width: 369px;
+      padding: 26px 13px 49px;
+    }
   }
 
   .prevReviewArrow,
