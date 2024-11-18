@@ -30,6 +30,12 @@ const customJestConfig = {
   coverageReporters: ['html', 'text', 'text-summary', 'cobertura'],
   testMatch: ['**/*.test.{js,jsx,ts,tsx}'],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
+
+  preset: 'ts-jest',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  moduleNameMapper: {
+    '^src/(.*)$': '<rootDir>/src/$1',
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);
