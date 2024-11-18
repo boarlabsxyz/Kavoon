@@ -9,7 +9,7 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 jobs:
-  Lint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,7 +27,7 @@ jobs:
       - name: Run Eslint
         run: npm run lint
 
-  Unit-tests:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -63,7 +63,7 @@ jobs:
       - name: Run Cypress
         run: npm run cy:test
 
-  Preview-Deployment:
+  preview-deployment:
     runs-on: ubuntu-latest
     environment:
       name: preview
