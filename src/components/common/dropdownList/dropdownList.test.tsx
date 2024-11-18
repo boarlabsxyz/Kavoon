@@ -15,7 +15,7 @@ const messengerItem: Messenger = {
 
 const networkItem: Network = {
   name: 'Network Item',
-  value: '',
+  value: 'Network Item Value',
 };
 
 const messengersList = [messengerItem];
@@ -56,7 +56,7 @@ describe('DropdownList Component', () => {
       />
     );
 
-    const network = screen.getByText(networkItem.name);
+    const network = screen.getByText(networkItem.value);
     expect(network).toBeInTheDocument();
     const image = screen.queryByRole('img');
     expect(image).not.toBeInTheDocument();
@@ -74,7 +74,7 @@ describe('DropdownList Component', () => {
     fireEvent.click(screen.getByText(messengerItem.name));
     expect(mockHandleSelect).toHaveBeenCalledWith(messengerItem);
 
-    fireEvent.click(screen.getByText(networkItem.name));
+    fireEvent.click(screen.getByText(networkItem.value));
     expect(mockHandleSelect).toHaveBeenCalledWith(networkItem);
   });
 
@@ -106,7 +106,7 @@ describe('DropdownList Component', () => {
     );
 
     const firstItem = screen.getByText(messengerItem.name);
-    const secondItem = screen.getByText(networkItem.name);
+    const secondItem = screen.getByText(networkItem.value);
 
     firstItem.focus();
     fireEvent.keyDown(firstItem, { key: 'ArrowDown' });
@@ -131,7 +131,7 @@ describe('DropdownList Component', () => {
       />
     );
 
-    const selectedItem = screen.getByText(networkItem.name).closest('li');
+    const selectedItem = screen.getByText(networkItem.value).closest('li');
     expect(selectedItem).toHaveAttribute('aria-selected', 'true');
 
     const unselectedItem = screen.getByText(messengerItem.name).closest('li');
