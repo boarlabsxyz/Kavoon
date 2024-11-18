@@ -1,6 +1,7 @@
 name: Vercel Preview Deployment
 
 on:
+  pull_request:
   workflow_dispatch:
 
 env:
