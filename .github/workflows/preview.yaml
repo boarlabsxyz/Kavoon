@@ -69,8 +69,8 @@ jobs:
       name: preview
       url: ${{ steps.deploy.outputs.url }}
     needs:
-      - Lint
-      - Unit-tests
+      - lint
+      - unit-tests
       - e2e-tests
     steps:
       - name: Checkout code
