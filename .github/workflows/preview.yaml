@@ -27,6 +27,24 @@ jobs:
       - name: Run Eslint
         run: npm run lint
 
+  Unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Jest
+        run: npm run jest
+
   Preview-Deployment:
     runs-on: ubuntu-latest
     environment:
@@ -34,6 +52,7 @@ jobs:
       url: ${{ steps.deploy.outputs.url }}
     needs:
       - Lint
+      - Unit-tests
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
