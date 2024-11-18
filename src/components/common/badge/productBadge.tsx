@@ -13,8 +13,8 @@ function ProductBadge({ badgeContent }: Props) {
                 className={st.svgWrapper}
                 src='/img/top-sales-badge/topSalesBadge.svg'
                 alt='TopBadge'
-                width={0}
-                height={0}
+                width="0"
+                height="0"
             />
             <p className={st.badgeText}>{badgeContent}</p>
         </div>

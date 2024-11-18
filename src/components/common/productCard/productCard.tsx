@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import translate from 'src/i18n/lang';
-
 import CustomImage from 'src/components/common/customImage';
 import shimmerUrl from 'src/helpers/shimmerUrl';
 import {
@@ -27,7 +25,7 @@ function ProductCard({ vm }: Props) {
   const { priceEURO, priceUAH } = vm;
   const currentPrice = getLocalPrice({ priceEURO, priceUAH }, language);
   const formattedCurrentPrice = getFormattedPrice(currentPrice, language);
-  const badgeContent = translate('BadgeContent', language);
+  const badgeContent = lang('BadgeContent', language);
   //--- 11/16/2024 --- issue #22
   //added the flag manually until there is a condition to draw the badge
   const drawBadge = false;
