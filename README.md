@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Both `node.js` and `npm` should be installed globally. You can find the instructions https://nodejs.org/en/download/
+- Make sure to use the LTS (Long-Term Support) version of Node.js for better stability and compatibility
 
 ## Database
 

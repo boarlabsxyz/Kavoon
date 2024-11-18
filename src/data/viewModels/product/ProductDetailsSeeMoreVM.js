@@ -3,9 +3,6 @@ import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
 
 const productDetailsSeeMoreVM = () => {
   const products = getAllProduct();
-  const isRunningInCypress = !!(
-    typeof window !== 'undefined' && window.Cypress
-  );
 
   const productsList = products.map((productData) => {
     const mainPropertyName = 'Volume';
@@ -27,9 +24,7 @@ const productDetailsSeeMoreVM = () => {
   const generateRandomProducts = (productList) =>
     [...productList].sort(() => 0.5 - Math.random());
 
-  const limitedList = (
-    isRunningInCypress ? productsList : generateRandomProducts(productsList)
-  ).slice(0, 4);
+  const limitedList = generateRandomProducts(productsList).slice(0, 4);
 
   return limitedList;
 };
