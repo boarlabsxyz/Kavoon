@@ -13,14 +13,14 @@ import st from './ContactsMessengerPicker.module.css';
 import { Language } from 'src/types/language';
 
 type Props = {
-  readonly input: {
-    readonly error?: FormikErrors<string>;
-    readonly touched?: FormikTouched<string>;
-    readonly onMessengerChange: Dispatch<string>;
-    readonly value?: string;
+  input: {
+    error?: FormikErrors<string>;
+    touched?: FormikTouched<string>;
+    onMessengerChange: Dispatch<string>;
+    value?: string;
   };
-  readonly language: Language;
-  readonly remarkText?: boolean;
+  language: Language;
+  remarkText?: boolean;
 };
 
 function ContactsMessengerPicker({
