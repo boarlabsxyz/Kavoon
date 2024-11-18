@@ -27,7 +27,7 @@ function ContactsMessengerPicker({
   input: { error = null, touched = null, onMessengerChange, value },
   language,
   remarkText,
-}: Props) {
+}: Readonly<Props>) {
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
