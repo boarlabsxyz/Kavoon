@@ -12,7 +12,7 @@ function ProductBadge({ badgeContent }: Props) {
             <CustomImage
                 className={st.svgWrapper}
                 src='/img/top-sales-badge/topSalesBadge.svg'
-                alt='TopBadge'
+                alt='TopSalesBadge'
                 width="0"
                 height="0"
             />
