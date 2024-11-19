@@ -1,7 +1,4 @@
-const viewPorts = [
-  { name: 'iphone-8', dimensions: [375, 667] },
-  { name: 'desktop', dimensions: [1920, 1080] },
-];
+import viewPorts from '../support/viewPorts';
 
 viewPorts.forEach(({ name, dimensions }) => {
   const [width, height] = dimensions;
