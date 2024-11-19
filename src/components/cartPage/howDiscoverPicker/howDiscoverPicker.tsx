@@ -4,7 +4,7 @@ import { Field, FormikErrors, FormikTouched } from 'formik';
 
 import useOutsideClick from 'src/hooks/useOutsideClick';
 import lang from 'src/i18n/lang';
-import networksList from './networksList';
+import makeNetworksList from 'src/helpers/makeNetworksList';
 
 import st from './howDiscoverPicker.module.css';
 import { Language } from 'src/types/language';
@@ -50,6 +50,8 @@ function HowDiscoverPicker({
 
   const btnClassName = isOpened ? `${st.moreBtn} ${st.lessBtn}` : st.moreBtn;
 
+  const networksList = makeNetworksList(language);
+
   return (
     <div ref={ref} className={st.wrapper}>
       <label className={st.fieldTitle}>{lang('HowDiscover', language)}</label>
@@ -71,7 +73,7 @@ function HowDiscoverPicker({
               name="howDiscover"
               id="howDiscover"
               type="text"
-              value={lang(pickedItem.name, language)}
+              value={pickedItem.value}
               className={st.field}
             />
           )}
