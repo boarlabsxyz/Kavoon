@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Both `node.js` and `npm` should be installed globally. You can find the instructions <https://nodejs.org/en/download/>
+- Both `node.js` and `npm` should be installed globally. You can find the instructions <https://nodejs.org/en/download/package-manager>
 - Make sure to use the LTS (Long-Term Support) version of Node.js for better stability and compatibility
 
 ## Database
@@ -61,7 +61,7 @@
    - Open a PR against the `main` branch.
    - Provide a clear and concise description of the changes made.
 
-5. **Pass Continuous Integration (CI):** 5. **Pass Continuous Integration (CI):** - Ensure that all CI checks pass successfully. - Fix any issues reported by the CI pipeline.
+5. **Pass Continuous Integration (CI):** - Ensure that all CI checks pass successfully. - Fix any issues reported by the CI pipeline.
    `sh
 docker compose run app npm run lint
 ` - Fix any linting issues reported.
