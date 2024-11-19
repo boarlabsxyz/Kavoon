@@ -27,21 +27,26 @@ function NavMain({ language }: NavMainProps) {
   return (
     <nav className={styles.navMain}>
       <ul className={styles.list}>
-        {pages.map(({ target, label }) => (
-          <li key={target} data-cy={`${target}-header-link`}>
-            <Link
-              className={
-                pathSegments.includes(target.split('/')[0])
-                  ? `${styles.link} ${styles.active}`
-                  : styles.link
-              }
-              href={`/${language}/${target}`}
-              prefetch={false}
-            >
-              {lang(label, language)}
-            </Link>
-          </li>
-        ))}
+        {pages.map(({ target, label }) => {
+          const isTargetActive =
+            pathSegments[0] === target && pathWithoutLocale !== 'shop/cart';
+
+          return (
+            <li key={target} data-cy={`${target}-header-link`}>
+              <Link
+                className={
+                  isTargetActive
+                    ? `${styles.link} ${styles.active}`
+                    : styles.link
+                }
+                href={`/${language}/${target}`}
+                prefetch={false}
+              >
+                {lang(label, language)}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <InformationBlock lang={language} />
     </nav>
