@@ -14,7 +14,10 @@ function Notification({ messageArray, delay, className }: Props) {
   };
 
   return (
-    <div className={className ? `${st.wrapper} ${className}` : st.wrapper} style={style}>
+    <div
+      className={className ? `${st.wrapper} ${className}` : st.wrapper}
+      style={style}
+    >
       {messageArray.map((message, index) => (
         <p key={index}>{message}</p>
       ))}
