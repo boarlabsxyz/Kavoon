@@ -1,7 +1,10 @@
 import CartProduct from 'src/components/cartPage/cartProduct';
 
 import CancelIcon from 'src/icons/cancelIcon';
-import { getLocalPrice, getFormattedPrice } from 'src/helpers/priceLocalization';
+import {
+  getLocalPrice,
+  getFormattedPrice,
+} from 'src/helpers/priceLocalization';
 import lang from 'src/i18n/lang';
 import useRx from 'src/hooks/useRx';
 
