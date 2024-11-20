@@ -12,6 +12,9 @@
     "start": "next start",
     "jest": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"**/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format:staged": "prettier --write $(git diff --cached --name-only --diff-filter=ACMR | grep -E \"\\.(js|jsx|ts|tsx|json|css|md)$\" || true)",
     "build": "next build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
@@ -81,7 +84,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-junit": "^16.0.0",
     "next-aws-cloudfront": "^1.3.1-alpha.1",
-    "prettier": "^3.2.5",
+    "prettier": "3.3.3",
     "start-server-and-test": "^2.0.5",
     "typescript": "^5.4.5",
     "typescript-plugin-css-modules": "^5.1.0"
