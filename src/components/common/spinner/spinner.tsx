@@ -16,7 +16,12 @@ const override: CSSProperties = {
 };
 
 const Spinner: FC<IProps> = ({ loading = true, color = '#11a0a9' }) => (
-  <div className={st.wrapper}>
+  <div
+    className={st.wrapper}
+    role="status"
+    aria-live="polite"
+    aria-label="Loading"
+  >
     <BeatLoader
       color={color}
       loading={loading}
