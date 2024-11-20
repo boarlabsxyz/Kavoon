@@ -54,10 +54,24 @@ describe('productDetailsSeeMoreVM', () => {
     resultIds.forEach((id) => expect(mockProductIds).toContain(id));
   });
 
-  it('should randomize the product order', () => {
-    const result1 = JSON.stringify(productDetailsSeeMoreVM());
-    const result2 = JSON.stringify(productDetailsSeeMoreVM());
+  it('should handle getAllProducts failure', () => {
+    (getAllProducts as jest.Mock).mockImplementation(() => {
+      throw new Error('Failed to fetch products');
+    });
+    expect(() => productDetailsSeeMoreVM()).toThrow('Failed to fetch products');
+  });
 
-    expect(result1).not.toEqual(result2);
+  it('should return unique products', () => {
+    const result = productDetailsSeeMoreVM();
+    const uniqueIds = new Set(result.map((item) => item.id));
+    expect(uniqueIds.size).toBe(result.length);
+  });
+
+  it('should consistently randomize products', () => {
+    const results = new Set();
+    for (let i = 0; i < 10; i++) {
+      results.add(JSON.stringify(productDetailsSeeMoreVM()));
+    }
+    expect(results.size).toBeGreaterThan(2);
   });
 });
