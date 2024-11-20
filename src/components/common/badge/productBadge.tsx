@@ -1,4 +1,5 @@
 import CustomImage from 'src/components/common/customImage';
+import TopSalesBadgeIcon from 'src/icons/topSalesBadgeIcon';
 
 import st from './productBadge.module.css'
 
@@ -9,13 +10,7 @@ type Props = {
 function ProductBadge({ badgeContent }: Props) {
     return (
         <div className={st.productBadge}>
-            <CustomImage
-                className={st.svgWrapper}
-                src='/img/top-sales-badge/topSalesBadge.svg'
-                alt='TopSalesBadge'
-                width="0"
-                height="0"
-            />
+            <TopSalesBadgeIcon width='23' height='23' className={st.svgWrapper}/>
             <p className={st.badgeText}>{badgeContent}</p>
         </div>
     )
