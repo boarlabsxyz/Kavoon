@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Both `node.js` and `npm` should be installed globally. You can find the instructions https://nodejs.org/en/download/
+- Both `node.js` and `npm` should be installed globally. You can find the instructions <https://nodejs.org/en/download/package-manager>
 - Make sure to use the LTS (Long-Term Support) version of Node.js for better stability and compatibility
 
 ## Database
@@ -16,8 +16,19 @@
 ## Development process
 
 - run `npm run dev` on the root of the project and this will start dev server.
-- open http://localhost:3000 in any available browser (Opera, Chrome, Firefox, Safari).
+- open <http://localhost:3000> in any available browser (Opera, Chrome, Firefox, Safari).
 - Make change and save file. All changes will be reflected in browser immediately.
+
+### IDE Setup for Consistent Code Formatting
+
+1. **Install `.editorconfig` plugin**: Ensure your editor has the [EditorConfig plugin](https://editorconfig.org/) installed to follow consistent formatting rules.
+2. **For VSCode users**:
+   - Ensure the `.vscode/settings.json` file is present for auto-format on save, 2-space indentation, and ESLint integration.
+   - Install the recommended extensions by opening VSCode and accepting the suggestions from the `.vscode/extensions.json` file. This includes:
+     - Prettier
+     - ESLint
+     - EditorConfig
+     - MDX support (if applicable)
 
 ### Development Flow
 
@@ -42,13 +53,15 @@
 4. **Create a Pull Request (PR):**
 
    - Push your branch to the remote repository:
+
      ```sh
      git push origin feature/issue-<issue-number>
      ```
+
    - Open a PR against the `main` branch.
    - Provide a clear and concise description of the changes made.
 
-5. **Pass Continuous Integration (CI):** 5. **Pass Continuous Integration (CI):** - Ensure that all CI checks pass successfully. - Fix any issues reported by the CI pipeline.
+5. **Pass Continuous Integration (CI):** - Ensure that all CI checks pass successfully. - Fix any issues reported by the CI pipeline.
    `sh
 docker compose run app npm run lint
 ` - Fix any linting issues reported.
@@ -59,7 +72,8 @@ docker compose run app npm run lint
    - Once approved, merge the PR into the `main` branch.
 
 ### **FAQ**
+
    1. After fulfilling steps in Database section I still get error messages about environment variables
-      - Try to restart VSCode or your PC (either on Linux or Windows) 
+      - Try to restart VSCode or your PC (either on Linux or Windows)
 
 For more detailed instructions, refer to the [documentation](./docs).
