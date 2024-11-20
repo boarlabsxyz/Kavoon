@@ -9,6 +9,8 @@ const TopSalesBadgeIcon: FC<IconWithClassName> = ({ width, height, className }) 
     height={height}
     viewBox="0 0 23 23"
     xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-labelledby="top sales badge"
   >
     <path
       fillRule="evenodd"
