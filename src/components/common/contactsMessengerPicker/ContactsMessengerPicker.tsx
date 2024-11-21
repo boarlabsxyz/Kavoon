@@ -13,21 +13,21 @@ import st from './ContactsMessengerPicker.module.css';
 import { Language } from 'src/types/language';
 
 type Props = {
-  readonly input: {
-    readonly error: FormikErrors<string>;
-    readonly touched: FormikTouched<string>;
-    readonly onMessengerChange: Dispatch<string>;
-    readonly value: string;
+  input: {
+    error?: FormikErrors<string>;
+    touched?: FormikTouched<string>;
+    onMessengerChange: Dispatch<string>;
+    value?: string;
   };
-  readonly language: Language;
-  readonly remarkText: string;
+  language: Language;
+  remarkText?: boolean;
 };
 
 function ContactsMessengerPicker({
   input: { error = null, touched = null, onMessengerChange, value },
   language,
   remarkText,
-}: Props) {
+}: Readonly<Props>) {
   const [isOpened, setOpened] = useState(false);
   const ref = useRef();
   const [pickedItem, setPickedItem] = useState(null);
