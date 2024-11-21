@@ -34,7 +34,6 @@ describe('ContactsMessengerPicker Component', () => {
                 value: values.numTel,
               }}
               language={language}
-              remarkText=""
             />
           )}
         </Formik>
