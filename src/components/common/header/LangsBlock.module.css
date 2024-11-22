@@ -13,7 +13,6 @@
 
 .selectedLang {
   display: flex;
-  justify-content: center;
   width: 80px;
   height: 40px;
   border-radius: 6px;
@@ -49,6 +48,22 @@
   font-weight: 600;
 }
 
+.langName:after {
+  content: '';
+  position: absolute;
+  height: 7px;
+  width: 12px;
+  background-image: url('/icons/arrow-up-black.svg');
+  top: 18px;
+  right: 10px;
+  transition: transform 0.5s ease;
+  transform: rotate(180deg);
+}
+
+.wrapper:hover .langName:after {
+  transform: rotate(0deg);
+}
+
 .selectedLang,
 .availableLangs .link:focus {
   outline: none;
@@ -70,6 +85,10 @@
     border-radius: 0 0 6px 6px;
   }
 
+  .item:not(:last-child) {
+    border-bottom: 1px solid #dcdfe4;
+  }
+
   .item:hover {
     background-color: #e4f2f4;
   }
@@ -79,10 +98,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-  }
-
-  .wrapper:hover .selectedLang {
-    border: 1px #11a0a9 solid;
   }
 
   .langCode {
