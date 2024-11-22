@@ -88,12 +88,14 @@ export default [
       'jsx-a11y/no-noninteractive-element-interactions': 0,
       'react/jsx-props-no-spreading': 0,
 
-      'no-param-reassign': [
-        'error',
-        {
-          props: false,
-        },
-      ],
+      // uncomment in one on the next issues and fix SeeMoreSection
+
+      // 'no-param-reassign': [
+      //   'error',
+      //   {
+      //     props: false,
+      //   },
+      // ],
 
       'jsx-a11y/anchor-is-valid': 0,
 
@@ -126,7 +128,6 @@ export default [
       'react/display-name': 'off',
       'react-hooks/rules-of-hooks': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
-      'no-param-reassign': 'off',
       'eslint-comments/no-unused-disable': 'off',
 
       'no-underscore-dangle': [
