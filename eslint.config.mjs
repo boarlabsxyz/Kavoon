@@ -26,12 +26,10 @@ export default [
       '**/.serverless/',
       '**/*.md',
       '**/coverage/',
-      '**/components',
     ],
   },
   ...compat.extends(
     'plugin:react/recommended',
-    'airbnb',
     'next',
     'next/core-web-vitals',
     'plugin:cypress/recommended',
@@ -122,7 +120,14 @@ export default [
       'import/no-extraneous-dependencies': 'off',
       'global-require': 'off',
       '@typescript-eslint/no-empty-function': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
       'react/no-unstable-nested-components': 'off',
+      'react/display-name': 'off',
+      'react-hooks/rules-of-hooks': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      'no-param-reassign': 'off',
+      'eslint-comments/no-unused-disable': 'off',
 
       'no-underscore-dangle': [
         'error',
