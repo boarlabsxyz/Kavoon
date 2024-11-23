@@ -129,6 +129,7 @@ export default [
       'react-hooks/rules-of-hooks': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
       'eslint-comments/no-unused-disable': 'off',
+      'react/no-unescaped-entities': 'off',
 
       'no-underscore-dangle': [
         'error',
