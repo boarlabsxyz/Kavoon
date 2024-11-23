@@ -2,7 +2,12 @@ import { FC } from 'react';
 
 import { IconWithClassName } from 'src/types/iconProps';
 
-const TopSalesBadgeIcon: FC<IconWithClassName> = ({ width, height, className }) => (
+const TopSalesBadgeIcon: FC<IconWithClassName> = ({
+  width,
+  height,
+  className,
+  ariaLabelContent,
+}) => (
   <svg
     className={className}
     width={width}
@@ -10,7 +15,7 @@ const TopSalesBadgeIcon: FC<IconWithClassName> = ({ width, height, className }) 
     viewBox="0 0 23 23"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    aria-labelledby="top sales badge"
+    aria-labelledby={ariaLabelContent}
   >
     <path
       fillRule="evenodd"
