@@ -14,7 +14,7 @@ function SocialLinksList({ background = 'light' }: Props) {
         return (
           <li key={url} className={st.listItem}>
             <IconLink href={url} ariaLabel={ariaLabelContent} background={background}>
-              <Icon width={width} height={height} className={''} ariaLabelContent={ariaLabelContent} />
+              <Icon width={width} height={height} />
             </IconLink>
           </li>
         );
