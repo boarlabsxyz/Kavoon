@@ -146,6 +146,11 @@ function SubcategoryFilter({
           width="18"
           height="12"
           className={subcategories.length === 0 ? st.svg : `${st.activeSvg}`}
+          ariaLabelContent={
+            isShowList
+              ? 'Close subcategory filter'
+              : 'Filter subcategory by type'
+          }
         />
       </div>
       {isShowList && (
