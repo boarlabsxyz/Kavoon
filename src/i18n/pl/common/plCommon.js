@@ -241,6 +241,8 @@ const Language = {
 
   FilterByType: 'Filtruj według typu',
 
+  BadgeContent: 'Najlepsza sprzedaż',
+
   EndingOfWord: (value, name) => {
     if ([2, 3, 4].includes(value)) {
       return `${name}y`;
