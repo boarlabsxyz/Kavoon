@@ -12,6 +12,7 @@ import {
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
+import ProductBadge from '../badge';
 
 import st from './productCard.module.css';
 
@@ -24,6 +25,10 @@ function ProductCard({ vm }: Props) {
   const { priceEURO, priceUAH } = vm;
   const currentPrice = getLocalPrice({ priceEURO, priceUAH }, language);
   const formattedCurrentPrice = getFormattedPrice(currentPrice, language);
+  const badgeContent = lang('BadgeContent', language);
+  //--- 11/16/2024 --- issue #22
+  //added the flag manually until there is a condition to draw the badge
+  const drawBadge = false;
 
   return (
     <Link
@@ -41,6 +46,7 @@ function ProductCard({ vm }: Props) {
           <span className={`${st.color} ${st.customViolet}`} />
         </div>
       )}
+      {drawBadge && <ProductBadge badgeContent={badgeContent} />}
       <div className={st.imgWrapper}>
         <CustomImage
           src={vm.mainImgPath}
