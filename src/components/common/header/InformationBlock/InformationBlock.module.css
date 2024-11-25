@@ -43,7 +43,7 @@
     transform: rotate(180deg);
   }
 
-  .wrapper:hover .title:after {
+  .wrapper.open .title:after {
     transform: rotate(0deg);
   }
 
@@ -64,7 +64,7 @@
     border-radius: 12px;
   }
 
-  .wrapper:hover .list {
+  .wrapper.open .list {
     opacity: 1;
     height: 125px;
     animation: height 300ms alternate ease-in-out;
@@ -107,7 +107,7 @@
     border-radius: 0 0 12px 12px;
   }
 
-  .wrapper:hover .item {
+  .wrapper.open .item {
     height: 41px;
     display: flex;
     justify-content: center;

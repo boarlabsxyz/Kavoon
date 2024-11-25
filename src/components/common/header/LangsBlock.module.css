@@ -60,7 +60,7 @@
   transform: rotate(180deg);
 }
 
-.wrapper:hover .langName:after {
+.wrapper.open .langName:after {
   transform: rotate(0deg);
 }
 
@@ -93,7 +93,7 @@
     background-color: #e4f2f4;
   }
 
-  .wrapper:hover li {
+  .wrapper.open li {
     animation: opacity 300ms ease-in-out;
     width: 100%;
     display: flex;
@@ -104,7 +104,7 @@
     display: none;
   }
 
-  .wrapper:hover > .availableLangs {
+  .wrapper.open > .availableLangs {
     animation: display 300ms ease-in-out;
     height: 120px;
     border: 1px #11a0a9 solid;
