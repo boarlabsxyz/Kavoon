@@ -5,9 +5,16 @@ import getImageQuality from 'src/helpers/getImageQuality';
 interface CustomImageProps extends Omit<ImageProps, 'quality'> {}
 
 const CustomImage = (props: CustomImageProps): JSX.Element => {
-  const { src, ...rest } = props;
+  const { src, alt, ...rest } = props;
 
-  return <Image src={src} quality={getImageQuality(src as string)} {...rest} />;
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      quality={getImageQuality(src as string)}
+      {...rest}
+    />
+  );
 };
 
 export default CustomImage;
