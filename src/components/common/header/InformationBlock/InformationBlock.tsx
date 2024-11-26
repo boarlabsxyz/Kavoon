@@ -39,6 +39,15 @@ function InformationBlock({ lang }: Props) {
     setIsShowList((prev) => !prev);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleDropdown();
+    } else if (event.key === 'Escape' && isShowList) {
+      setIsShowList(false);
+    }
+  };
+
   const widthScreen = useWindowWidth();
   const isMobile = widthScreen <= RespScreenWidth.screenWidthMobile;
 
@@ -47,6 +56,11 @@ function InformationBlock({ lang }: Props) {
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
       onClick={toggleDropdown}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isShowList}
+      aria-haspopup="true"
+      onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Information', lang)}</p>
       <ul className={isShowList || isMobile ? st.list : st.listDisabled}>

@@ -19,6 +19,15 @@ function LangsBlock({ lang }: LangsBlockProps) {
 
   const toggleDropdown = () => setIsShowList((prev) => !prev);
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleDropdown();
+    } else if (event.key === 'Escape' && isShowList) {
+      setIsShowList(false);
+    }
+  };
+
   useOutsideClick(wrapperRef, () => setIsShowList(false));
 
   return (
@@ -26,6 +35,11 @@ function LangsBlock({ lang }: LangsBlockProps) {
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
       onClick={toggleDropdown}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isShowList}
+      aria-haspopup="true"
+      onKeyDown={handleKeyDown}
     >
       <ActiveLocale lang={lang} />
       <LocaleList />
