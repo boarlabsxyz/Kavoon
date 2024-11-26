@@ -42,7 +42,11 @@ function Navigation({ children, lang }: Props) {
 
   return (
     <div ref={menuRef} className={st.wrapper}>
-      <button ref={buttonRef} className={st.mobileMenuButton}>
+      <button
+        ref={buttonRef}
+        className={st.mobileMenuButton}
+        aria-label="mobile-menu-button"
+      >
         <span></span>
         <span></span>
         <span></span>
