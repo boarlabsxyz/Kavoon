@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import translate from 'src/i18n/lang';
 import Tgfancy from 'tgfancy';
 

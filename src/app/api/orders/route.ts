@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import Tgfancy from 'tgfancy';
 
 import { makeFieldsForOrder } from 'src/helpers/makeFields';

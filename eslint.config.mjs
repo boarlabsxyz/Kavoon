@@ -62,6 +62,7 @@ export default [
     },
 
     rules: {
+      'no-console': 'warn',
       'click-events-have-key-events': 'off',
       'prettier/prettier': 'error',
 
