@@ -2,6 +2,7 @@ import nextJest from 'next/jest.js';
 
 const createJestConfig = nextJest({
   dir: './',
+  type: 'CommanJS',
 });
 
 const customJestConfig = {
