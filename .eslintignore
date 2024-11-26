@@ -1,7 +1,0 @@
-node_modules/
-.vscode/
-.next/
-.serverless/
-*.md
-coverage/
-components

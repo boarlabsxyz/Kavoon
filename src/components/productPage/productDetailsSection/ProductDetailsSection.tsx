@@ -3,7 +3,7 @@ import ProductPreviewSlider from 'src/components/productPage/productDetailsSecti
 import ProductDetailsWizard from './ProductDetailsWizard';
 
 import productDetailsPrevSliderVM from 'src/data/viewModels/product/productDetailsPrevSliderVM';
-import { getAllProduct, getProductById } from 'src/helpers/getProducts';
+import { getAllProducts, getProductById } from 'src/helpers/getProducts';
 
 import st from './ProductDetailsSection.module.css';
 
@@ -13,7 +13,7 @@ type ProductPreviewSliderProps = {
 
 function ProductDetailsSection({ productId }: ProductPreviewSliderProps) {
   const product = getProductById(productId);
-  const products = getAllProduct();
+  const products = getAllProducts();
   const vm = productDetailsPrevSliderVM(product);
 
   return (

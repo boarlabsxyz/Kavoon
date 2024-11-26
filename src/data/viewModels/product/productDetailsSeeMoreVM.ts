@@ -1,8 +1,9 @@
-import { getAllProduct } from 'src/helpers/getProducts';
+import { getAllProducts } from 'src/helpers/getProducts';
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
+import Product from 'src/types/product';
 
-const productDetailsSeeMoreVM = () => {
-  const products = getAllProduct();
+const productDetailsSeeMoreVM = (): ProductListItemVM[] => {
+  const products: Product[] = getAllProducts();
 
   const productsList = products.map((productData) => {
     const mainPropertyName = 'Volume';
