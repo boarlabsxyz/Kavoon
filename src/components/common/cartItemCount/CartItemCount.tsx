@@ -1,8 +1,7 @@
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { Observable } from 'rxjs';
-
-import CartTotalItems from 'src/components/common/cartItemCount/CartTotalItems';
 
 import ShopIcon from 'src/icons/shopIcon';
 import { Language } from 'src/types/language';
@@ -18,6 +17,13 @@ type Props = {
 };
 
 function CartItemCount({ vm: { count, href }, language }: Props) {
+  const CartTotalItems = dynamic(
+    () => import('src/components/common/cartItemCount/CartTotalItems'),
+    {
+      ssr: false,
+    }
+  );
+
   return (
     <Link
       href={`/${language}${href}`}
