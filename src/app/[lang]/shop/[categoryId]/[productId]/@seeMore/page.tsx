@@ -1,6 +1,6 @@
 import SeeMoreSection from 'src/components/productPage/seeMoreSection';
 
-import productDetailsSeeMoreVM from 'src/data/viewModels/product/ProductDetailsSeeMoreVM';
+import productDetailsSeeMoreVM from 'src/data/viewModels/product/productDetailsSeeMoreVM';
 
 import type { Language } from 'src/types/language';
 import { Category } from 'src/data/constants';

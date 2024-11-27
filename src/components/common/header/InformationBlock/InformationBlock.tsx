@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,7 @@ import useWindowWidth from 'src/hooks/useWindowWidth';
 import RespScreenWidth from 'src/data/mediaConst';
 
 import st from './InformationBlock.module.css';
+import useOutsideClick from 'src/hooks/useOutsideClick';
 
 type Props = {
   lang: Language;
@@ -16,7 +17,8 @@ type Props = {
 
 function InformationBlock({ lang }: Props) {
   const [currentPath, setCurrentPath] = useState('');
-  const [isShowList, setIsShowList] = useState(true);
+  const [isShowList, setIsShowList] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const pages = [
     { target: 'about-us', label: 'MenuItemAboutUs' },
@@ -29,13 +31,19 @@ function InformationBlock({ lang }: Props) {
   useEffect(() => {
     const pathWithoutLocale = pathname.substring(4);
     setCurrentPath(pathWithoutLocale);
-    setIsShowList(true);
   }, [pathname]);
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    const target = e.target as HTMLElement;
-    const isLink = target instanceof HTMLAnchorElement;
-    if (isLink) {
+  useOutsideClick(wrapperRef, () => setIsShowList(false));
+
+  const toggleDropdown = () => {
+    setIsShowList((prev) => !prev);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggleDropdown();
+    } else if (event.key === 'Escape' && isShowList) {
       setIsShowList(false);
     }
   };
@@ -44,7 +52,16 @@ function InformationBlock({ lang }: Props) {
   const isMobile = widthScreen <= RespScreenWidth.screenWidthMobile;
 
   return (
-    <div className={st.wrapper} onClick={(e) => handleClick(e)}>
+    <div
+      ref={wrapperRef}
+      className={`${st.wrapper} ${isShowList ? st.open : ''}`}
+      onClick={toggleDropdown}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isShowList}
+      aria-haspopup="true"
+      onKeyDown={handleKeyDown}
+    >
       <p className={st.title}>{translate('Information', lang)}</p>
       <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
         {pages.map(({ target, label }) => (

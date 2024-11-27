@@ -1,4 +1,3 @@
-/* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-underscore-dangle */
 import { MongoClient } from 'mongodb';
 

@@ -4,6 +4,7 @@ import { Messenger, Network } from 'src/types/pickersProps';
 
 jest.mock('next/image', () => ({
   __esModule: true,
+  // eslint-disable-next-line @next/next/no-img-element
   default: ({ src, alt, ...props }) => <img src={src} alt={alt} {...props} />,
 }));
 

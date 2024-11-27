@@ -6,5 +6,5 @@ export interface Icon {
 
 export interface IconWithClassName extends Icon {
   className: string;
-  ariaLabelContent?:string;
+  ariaLabelContent?: string;
 }

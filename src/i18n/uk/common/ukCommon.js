@@ -254,6 +254,8 @@ const Language = {
 
   FilterByType: 'Фільтрація по типу',
 
+  BadgeContent: 'Топ продажів',
+
   EndingOfWord: (value, name) => {
     const lastNumOfAmount = value % 10;
     const twoLastNumOfAmount = value % 100;
