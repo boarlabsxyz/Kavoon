@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import 'server-only';
 import { I18N, metaI18N } from 'src/types/i18n.type';
 import { Language } from 'src/types/language';

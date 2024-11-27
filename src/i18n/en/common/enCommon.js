@@ -238,6 +238,8 @@ const Language = {
 
   FilterByType: 'Filter by type',
 
+  BadgeContent: 'Top sales',
+
   EndingOfWord: (value, name) => {
     if (value > 1) {
       return `${name}s`;

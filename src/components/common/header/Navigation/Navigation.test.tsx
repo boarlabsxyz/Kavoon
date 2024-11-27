@@ -38,7 +38,9 @@ describe('Navigation component', () => {
     await act(async () => {
       renderComponent();
     });
-    expect(screen.getByRole('button')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'mobile-menu-button' })
+    ).toBeInTheDocument();
     expect(screen.getByText('Child Content')).toBeInTheDocument();
   });
 
@@ -46,7 +48,7 @@ describe('Navigation component', () => {
     await act(async () => {
       renderComponent();
     });
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('button', { name: 'mobile-menu-button' });
     await userEvent.click(button);
     expect(document.body.classList).toContain('no-scroll');
     expect(button.parentElement).toHaveClass('mobileMenuIsOpen');
@@ -57,7 +59,7 @@ describe('Navigation component', () => {
 
   it('removes open class on pathname change', async () => {
     const { rerender } = renderComponent();
-    const button = screen.getByRole('button');
+    const button = screen.getByRole('button', { name: 'mobile-menu-button' });
     await userEvent.click(button);
     expect(button.parentElement).toHaveClass('mobileMenuIsOpen');
 
