@@ -13,7 +13,6 @@ type Props = {
 };
 
 function EquipmentPreview({ imageSrc, language }: Props) {
-  console.log('imageSrc: ', imageSrc);
   return (
     <div className={st.wrapper}>
       <CustomImage
@@ -25,7 +24,6 @@ function EquipmentPreview({ imageSrc, language }: Props) {
         placeholder="blur"
         blurDataURL={shimmerUrl}
       />
-
       <p className={st.title}>{lang('HowAbout', language)}</p>
       <ShowComplect />
     </div>
