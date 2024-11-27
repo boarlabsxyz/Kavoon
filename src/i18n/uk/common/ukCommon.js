@@ -101,7 +101,6 @@ const Language = {
   AddToCart: 'Додати у кошик',
   Product: 'товар',
   YourEmptyCart: 'Твій кошик порожній',
-  ThouEmptyCart: 'Ваш кошик порожній',
   PleaseFill: 'Будь ласка заповніть поле',
   WrongNumberFormat: 'Неправильний формат номеру телефону',
   PlaceOrder: 'Оформити замовлення',

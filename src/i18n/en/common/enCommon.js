@@ -99,7 +99,6 @@ const Language = {
   AddToCart: 'Add to the shopping bag',
   Product: 'product',
   YourEmptyCart: 'Your shopping bag is empty',
-  ThouEmptyCart: 'Your shopping bag is currently empty',
   PleaseFill: 'Please fill in the field',
   WrongNumberFormat: 'The phone format is invalid',
   PlaceOrder: 'To make an order',

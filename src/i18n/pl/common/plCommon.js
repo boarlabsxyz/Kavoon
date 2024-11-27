@@ -98,7 +98,6 @@ const Language = {
   AddToCart: 'Dodać do koszyka',
   Product: 'towar',
   YourEmptyCart: 'Twój koszyk jest pusty',
-  ThouEmptyCart: 'Twój koszyk jest pusty',
   PleaseFill: 'Prosimy wypełnić pole',
   WrongNumberFormat: 'Nieprawidłowy format numeru telefonu',
   PlaceOrder: 'Zamów',
