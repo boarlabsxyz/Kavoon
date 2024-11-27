@@ -10,7 +10,7 @@
     "new-mark-paid": "babel-node scripts/newMarkPaid.js",
     "clean": "rm -rf .next",
     "start": "next start",
-    "jest": "jest --config ./jest.config.js --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
+    "jest": "jest --config ./jest.config.cjs --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false",
     "lint": "eslint .",
     "format": "prettier --write \"**/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"**/**/*.{js,jsx,ts,tsx,json,css,md}\"",
