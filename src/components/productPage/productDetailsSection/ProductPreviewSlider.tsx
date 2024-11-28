@@ -15,7 +15,7 @@ import 'swiper/css/thumbs';
 import st from './ProductPreviewSlider.module.css';
 
 function ProductDetailsPrevSlider({ vm, name }) {
-  const [slider2, setSlider2] = useState<SwiperClass>(null);
+  const [slider2, setSlider2] = useState<SwiperClass | null>(null);
 
   return (
     <div className={st.wrapper}>
@@ -23,9 +23,9 @@ function ProductDetailsPrevSlider({ vm, name }) {
         <Swiper
           className={st.preview}
           modules={[Navigation, Pagination, Thumbs]}
-          thumbs={{ swiper: slider2 }}
-          navigation={{ enabled: true }}
-          pagination={{ enabled: true, clickable: true }}
+          thumbs={{ swiper: slider2 && !slider2.destroyed ? slider2 : null }}
+          navigation
+          pagination={{ clickable: true }}
         >
           {vm.gallery.map(({ largeImgSrc }, index: number) => (
             <SwiperSlide key={largeImgSrc}>
@@ -69,4 +69,5 @@ function ProductDetailsPrevSlider({ vm, name }) {
     </div>
   );
 }
+
 export default ProductDetailsPrevSlider;
