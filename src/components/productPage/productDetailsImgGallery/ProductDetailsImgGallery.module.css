@@ -46,7 +46,8 @@
 
 @media (max-width: 1259px) {
   .photo {
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
