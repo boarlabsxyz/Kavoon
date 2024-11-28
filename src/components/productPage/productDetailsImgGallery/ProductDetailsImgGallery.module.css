@@ -44,6 +44,12 @@
   width: 100%;
 }
 
+@media (max-width: 1259px) {
+  .photo {
+    height: auto;
+  }
+}
+
 .galleryContainer :global(.swiper-button-prev),
 .galleryContainer :global(.swiper-button-next) {
   width: 40px;
