@@ -1,4 +1,3 @@
-import CartNotificationsVM from './cartNotificationsVM';
 import BreadcrumbsVM from './breadcrumbsVM';
 
 const productDetailsStatusVM = (name) => ({
@@ -6,6 +5,5 @@ const productDetailsStatusVM = (name) => ({
     .set('BreadcrumbList', '/')
     .set(name, '#')
     .build(),
-  cartNotificationsVM: CartNotificationsVM(),
 });
 export default productDetailsStatusVM;
