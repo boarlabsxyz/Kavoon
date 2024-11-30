@@ -5,6 +5,7 @@ import {
 } from 'src/data/constants';
 import { Price, FabricPrice, Currencies } from 'src/types/product';
 import toKebabCase from 'src/helpers/toKebabCase';
+import productIDCollectionForTopSalesBadge from 'src/data/data/productsIDsArrayForTopSaleBadge';
 
 interface IProductListItemVM {
   name: string;
@@ -42,6 +43,8 @@ export default class ProductListItemVM {
 
   subcategory: Subcategory;
 
+  hasTopBadge: boolean;
+
   constructor({
     name,
     mainPropertyName,
@@ -64,6 +67,7 @@ export default class ProductListItemVM {
       category !== 'InStock';
     this.category = category;
     this.subcategory = subcategory;
+    this.hasTopBadge = productIDCollectionForTopSalesBadge.includes(id);
 
     if (ProductListItemVM.isFabricPrice(price)) {
       this.setFabricPrice(price);
