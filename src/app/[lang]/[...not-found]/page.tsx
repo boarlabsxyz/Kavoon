@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: translate('Page404', lang),
     description: translate('PageNotFound', lang),
     openGraph: {
-      images: '/404/oops.svg',
+      images: '/img/404/oops.svg',
       url: `${brandingConst.siteUrl}/${lang}`,
       type: 'website',
       siteName: `${translate('EquipForLightTravel', lang)}`,
