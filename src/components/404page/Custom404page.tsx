@@ -35,7 +35,7 @@ export default function Custom404() {
       <div className={st.main}>
         <CustomImage
           className={st.picture}
-          src="/404/oops.svg"
+          src="/img/404/oops.svg"
           alt="Oops!"
           width={500}
           height={180}
