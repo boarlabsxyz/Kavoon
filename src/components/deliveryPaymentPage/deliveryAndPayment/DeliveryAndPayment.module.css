@@ -52,9 +52,6 @@
 }
 
 @media (max-width: 1023px) {
-  .paymentOption img {
-    max-width: 100%;
-  }
   .section {
     margin: 40px auto;
   }
@@ -81,6 +78,12 @@
   }
 
   .paymentOption:last-child {
+    flex: 0 0 100%;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .paymentOption {
     flex: 0 0 100%;
   }
 }

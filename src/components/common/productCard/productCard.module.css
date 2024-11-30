@@ -139,7 +139,7 @@
   }
 
   .imgWrapper img {
-    width: 100%;
+    min-width: 343px;
     height: auto;
   }
 }
