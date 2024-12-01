@@ -1,5 +1,5 @@
 import React from 'react';
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import type { Metadata } from 'next';
 
@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description =
     productMeta?.description || 'This product does not exist.';
 
-  if (!data[productId]) {
-    redirect(`${productId}/not-found`);
+  if (!productMeta) {
+    notFound();
   }
 
   return {
