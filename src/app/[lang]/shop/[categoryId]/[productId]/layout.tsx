@@ -28,15 +28,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { siteUrl } = brandingConst;
 
   const data = (await getDictionary(lang, 'meta')) as metaI18N;
+  if (!data[productId]) {
+    notFound();
+  }
   const productMeta = data[productId];
 
   const title = productMeta?.title || 'Product Not Found';
   const description =
     productMeta?.description || 'This product does not exist.';
-
-  if (!productMeta) {
-    notFound();
-  }
 
   return {
     title,
