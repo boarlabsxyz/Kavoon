@@ -19,7 +19,7 @@
 }
 
 .description {
-  width: 64%;
+  width: 65%;
   text-align: center;
 
   font-weight: 500;
@@ -34,11 +34,10 @@
 
 @media (max-width: 1023px) {
   .title {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   .description {
-    font-size: 12px;
-    width: 96%;
+    width: 100%;
   }
 }

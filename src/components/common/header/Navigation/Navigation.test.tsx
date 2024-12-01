@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BehaviorSubject } from 'rxjs';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Navigation from './Navigation';
@@ -58,18 +58,28 @@ describe('Navigation component', () => {
   });
 
   it('removes open class on pathname change', async () => {
+    // Mock the pathname initially
+    mockedUsePathname.mockReturnValue('/initial-path');
+
     const { rerender } = renderComponent();
+
     const button = screen.getByRole('button', { name: 'mobile-menu-button' });
+
     await userEvent.click(button);
     expect(button.parentElement).toHaveClass('mobileMenuIsOpen');
 
     mockedUsePathname.mockReturnValue('/new-path');
-    rerender(
-      <Navigation lang={testLang}>
-        <div>Child Content</div>
-      </Navigation>
-    );
 
-    expect(button.parentElement).not.toHaveClass('mobileMenuIsOpen');
+    await act(async () => {
+      rerender(
+        <Navigation lang={testLang}>
+          <div>Child Content</div>
+        </Navigation>
+      );
+    });
+
+    await waitFor(() => {
+      expect(button.parentElement).not.toHaveClass('mobileMenuIsOpen');
+    });
   });
 });
