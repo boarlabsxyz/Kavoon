@@ -17,10 +17,6 @@ type ProductPageLayoutProps = {
   reviews: React.ReactNode;
   seeMore: React.ReactNode;
   gallery: React.ReactNode;
-  params: {
-    lang: Language;
-    productId: string;
-  };
 };
 
 type Props = {
