@@ -1,4 +1,5 @@
 import React from 'react';
+import { redirect } from 'next/navigation';
 
 import type { Metadata } from 'next';
 
@@ -16,6 +17,10 @@ type ProductPageLayoutProps = {
   reviews: React.ReactNode;
   seeMore: React.ReactNode;
   gallery: React.ReactNode;
+  params: {
+    lang: Language;
+    productId: string;
+  };
 };
 
 type Props = {
@@ -27,13 +32,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { siteUrl } = brandingConst;
 
   const data = (await getDictionary(lang, 'meta')) as metaI18N;
-  const { title, description } = data[productId];
+  const productMeta = data[productId];
+
+  const title = productMeta?.title || 'Product Not Found';
+  const description =
+    productMeta?.description || 'This product does not exist.';
+
+  if (!data[productId]) {
+    redirect(`${productId}/not-found`);
+  }
 
   return {
     title,
     description,
     openGraph: {
-      images: `${siteUrl}/products/${productId}/${productId}_1080x1080@1x.png`,
+      images: productMeta
+        ? `${siteUrl}/products/${productId}/${productId}_1080x1080@1x.png`
+        : null,
       url: `${siteUrl}/${lang}`,
       type: 'website',
       siteName: `${translate('EquipForLightTravel', lang)}`,
