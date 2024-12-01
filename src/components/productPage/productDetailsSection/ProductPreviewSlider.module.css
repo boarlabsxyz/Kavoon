@@ -35,6 +35,7 @@
 
 .previewImg {
   object-fit: scale-down;
+  user-select: none;
 }
 
 .preview > :global(.swiper-pagination) {
