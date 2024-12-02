@@ -27,15 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, productId } = params;
   const { siteUrl } = brandingConst;
 
-  const data = (await getDictionary(lang, 'meta')) as metaI18N;
-  if (!data[productId]) {
+  let data: metaI18N;
+  try {
+    data = (await getDictionary(lang, 'meta')) as metaI18N;
+  } catch (error) {
+    console.error('Error fetching dictionary:', error);
     notFound();
   }
-  const productMeta = data[productId];
 
-  const title = productMeta?.title || 'Product Not Found';
-  const description =
-    productMeta?.description || 'This product does not exist.';
+  const productMeta = data?.[productId];
+
+  if (!productMeta) {
+    console.error(`Product metadata not found for ID: ${productId}`);
+    notFound();
+  }
+
+  const title = productMeta.title || 'Product Not Found';
+  const description = productMeta.description || 'This product does not exist.';
 
   return {
     title,
