@@ -1,5 +1,5 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 import type { Metadata } from 'next';
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title = productMeta.title;
     description = productMeta.description;
   } catch (error) {
-    notFound();
+    redirect(`${siteUrl}/not-found`);
   }
 
   return {
