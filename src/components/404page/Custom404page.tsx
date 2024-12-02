@@ -22,7 +22,7 @@ export default function Custom404() {
   ];
 
   function goBack() {
-    window.window.history.go(-2);
+    window.history.back();
   }
 
   function isLanguage(value: string): value is Language {
