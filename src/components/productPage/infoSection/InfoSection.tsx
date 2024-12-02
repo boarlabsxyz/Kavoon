@@ -17,7 +17,9 @@ type Props = {
 
 function InfoSection({ productId, language }: Props) {
   const product = getProductById(productId);
-  const { embedVideo } = product;
+  if (!product) return null;
+
+  const embedVideo = product.embedVideo;
 
   const vm = new InfoSectionVM(product);
 

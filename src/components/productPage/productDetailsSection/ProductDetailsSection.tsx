@@ -13,6 +13,9 @@ type ProductPreviewSliderProps = {
 
 function ProductDetailsSection({ productId }: ProductPreviewSliderProps) {
   const product = getProductById(productId);
+
+  if (!product) return null;
+
   const products = getAllProducts();
   const vm = productDetailsPrevSliderVM(product);
 
