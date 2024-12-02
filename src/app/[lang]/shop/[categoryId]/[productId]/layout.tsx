@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title = productMeta.title;
     description = productMeta.description;
   } catch (error) {
-    redirect(`${siteUrl}/not-found`);
+    redirect(`${productId}/not-found`);
   }
 
   return {
