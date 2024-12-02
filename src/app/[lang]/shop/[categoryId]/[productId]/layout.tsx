@@ -8,7 +8,7 @@ import Products from 'src/data/data/products';
 import translate from 'src/i18n/lang';
 import getDictionary from 'src/i18n/getDictionary';
 import { Language } from 'src/types/language';
-import { metaI18N } from 'src/types/i18n.type';
+import { I18N, metaI18N } from 'src/types/i18n.type';
 
 type ProductPageLayoutProps = {
   children: React.ReactNode;
@@ -27,23 +27,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, productId } = params;
   const { siteUrl } = brandingConst;
 
-  let data: metaI18N;
+  let productMeta: I18N;
+  let title = 'Product Not Found';
+  let description = 'This product does not exist.';
   try {
-    data = (await getDictionary(lang, 'meta')) as metaI18N;
+    const data = (await getDictionary(lang, 'meta')) as metaI18N;
+    productMeta = data?.[productId];
+    title = productMeta.title;
+    description = productMeta.description;
   } catch (error) {
-    console.error('Error fetching dictionary:', error);
     notFound();
   }
-
-  const productMeta = data?.[productId];
-
-  if (!productMeta) {
-    console.error(`Product metadata not found for ID: ${productId}`);
-    notFound();
-  }
-
-  const title = productMeta.title || 'Product Not Found';
-  const description = productMeta.description || 'This product does not exist.';
 
   return {
     title,
