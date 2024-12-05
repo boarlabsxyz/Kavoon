@@ -116,6 +116,7 @@ function CartOrderForm({ vm, language }) {
                             : st.field
                         }
                         data-cy="username"
+                        autoComplete="on"
                       />
                       {isUserNameError && (
                         <div className={st.errorFeedback}>
@@ -158,6 +159,7 @@ function CartOrderForm({ vm, language }) {
                             : st.field
                         }
                         data-cy="country"
+                        autoComplete="on"
                       />
                       {isCountryError && (
                         <div className={st.errorFeedback}>{errors.country}</div>
