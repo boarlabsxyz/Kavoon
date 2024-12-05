@@ -46,8 +46,7 @@ function PopupContent({ language }: Props) {
 
   return (
     <div className={st.wrapper}>
-      <Spinner loading={isLoading} />
-      {!isLoading && renderComponent()}
+      {isLoading ? <Spinner loading={true} /> : renderComponent()}
     </div>
   );
 }
