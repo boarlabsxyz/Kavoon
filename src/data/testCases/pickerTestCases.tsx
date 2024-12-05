@@ -1,4 +1,4 @@
-import { screen, fireEvent, act } from '@testing-library/react';
+import { screen, fireEvent, act, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { Language } from 'src/types/language';
@@ -42,8 +42,10 @@ export function closesDropdownOnSelectionTest(buttonName, optionName) {
     await act(async () => {
       fireEvent.click(listItem);
     });
-    const closedList = screen.queryByRole('listbox');
-    expect(closedList).not.toBeInTheDocument();
+    await waitFor(() => {
+      const closedList = screen.queryByRole('listbox');
+      expect(closedList).not.toBeInTheDocument();
+    });
   });
 }
 
