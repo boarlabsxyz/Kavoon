@@ -27,6 +27,8 @@ function ProductDetailsWizardPicker({ vm, language }: Props) {
     vm;
   const selectedItem = useRx(colorForSmallPreview$);
 
+  const [showModal, toggleModal] = useToggle();
+
   if (isOnlyOneFabricColor) {
     return (
       <div>
@@ -55,8 +57,6 @@ function ProductDetailsWizardPicker({ vm, language }: Props) {
       </div>
     );
   }
-
-  const [showModal, toggleModal] = useToggle();
 
   return (
     <div>
