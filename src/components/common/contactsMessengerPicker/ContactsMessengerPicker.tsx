@@ -36,9 +36,11 @@ function ContactsMessengerPicker({
     setOpened(false);
   });
   const handleSelect = (item) => {
-    setOpened(false);
     setPickedItem(item);
     onMessengerChange(item.name);
+    setTimeout(() => {
+      setOpened(false);
+    }, 50);
   };
 
   let statusWrapperClassName = isOpened
