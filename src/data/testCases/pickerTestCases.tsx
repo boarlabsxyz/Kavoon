@@ -9,7 +9,7 @@ const language = 'en' as Language;
 export function rendersWithoutCrashingTest(buttonName) {
   test('renders without crashing and shows initial text', () => {
     expect(
-      screen.getByText(translate('SelectFromList', language))
+      screen.getByPlaceholderText(translate('SelectFromList', language))
     ).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: buttonName })
