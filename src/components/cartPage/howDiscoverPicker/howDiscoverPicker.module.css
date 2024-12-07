@@ -56,8 +56,12 @@
 
 .initialText {
   padding: 15px 0;
+  background-color: inherit;
+  border: none;
+}
+.initialText::placeholder {
+  font-weight: 500;
   color: var(--border-color);
-  line-height: 20px;
 }
 
 .moreBtn {

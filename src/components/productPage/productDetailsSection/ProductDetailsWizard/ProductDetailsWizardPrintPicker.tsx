@@ -26,6 +26,8 @@ function ProductDetailsWizardPrintPicker({ vm, language }: Props) {
   const prints = useRx(vm.colorForSmallPreview$);
   const selectedPrint = useRx(vm.selected);
 
+  const [showModal, toggleModal] = useToggle(false);
+
   if (vm.isOnlyOneFabricPrint) {
     return (
       <div>
@@ -54,8 +56,6 @@ function ProductDetailsWizardPrintPicker({ vm, language }: Props) {
       </div>
     );
   }
-
-  const [showModal, toggleModal] = useToggle(false);
 
   return (
     <div>

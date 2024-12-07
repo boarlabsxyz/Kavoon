@@ -81,7 +81,6 @@ const ProductDetailsImgGallery = ({ images }) => {
               data-pswp-height={600}
               data-cropped="true"
               target="_blank"
-              rel="noreferrer"
               prefetch={false}
             >
               <CustomImage

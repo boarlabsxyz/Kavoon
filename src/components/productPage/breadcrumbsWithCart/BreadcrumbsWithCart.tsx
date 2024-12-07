@@ -10,7 +10,11 @@ type BreadcrumbsWithCartProps = {
 };
 
 function BreadcrumbsWithCart({ productId }: BreadcrumbsWithCartProps) {
-  const { name } = getProductById(productId);
+  const product = getProductById(productId);
+
+  if (!product) return null;
+
+  const { name } = product;
 
   return (
     <section className={st.section}>

@@ -127,7 +127,6 @@ export default [
       '@typescript-eslint/no-unused-expressions': 'off',
       'react/no-unstable-nested-components': 'off',
       'react/display-name': 'off',
-      'react-hooks/rules-of-hooks': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
       'eslint-comments/no-unused-disable': 'off',
       'react/no-unescaped-entities': 'off',

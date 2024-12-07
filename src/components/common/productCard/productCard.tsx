@@ -32,7 +32,6 @@ function ProductCard({ vm }: Props) {
     <Link
       href={`/${language}${vm.href}`}
       className={st.link}
-      rel="noreferrer"
       data-cy="product-card"
     >
       {vm.allowColorOptionBlock && (

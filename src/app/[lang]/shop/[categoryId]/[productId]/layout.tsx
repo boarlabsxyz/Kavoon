@@ -1,4 +1,5 @@
 import React from 'react';
+import { redirect } from 'next/navigation';
 
 import type { Metadata } from 'next';
 
@@ -7,7 +8,7 @@ import Products from 'src/data/data/products';
 import translate from 'src/i18n/lang';
 import getDictionary from 'src/i18n/getDictionary';
 import { Language } from 'src/types/language';
-import { metaI18N } from 'src/types/i18n.type';
+import { I18N, metaI18N } from 'src/types/i18n.type';
 
 type ProductPageLayoutProps = {
   children: React.ReactNode;
@@ -26,14 +27,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, productId } = params;
   const { siteUrl } = brandingConst;
 
-  const data = (await getDictionary(lang, 'meta')) as metaI18N;
-  const { title, description } = data[productId];
+  let productMeta: I18N;
+  let title = 'Product Not Found';
+  let description = 'This product does not exist.';
+  try {
+    const data = (await getDictionary(lang, 'meta')) as metaI18N;
+    productMeta = data?.[productId];
+    title = productMeta.title;
+    description = productMeta.description;
+  } catch (error) {
+    redirect(`${productId}/not-found`);
+  }
 
   return {
     title,
     description,
     openGraph: {
-      images: `${siteUrl}/products/${productId}/${productId}_1080x1080@1x.png`,
+      images: productMeta
+        ? `${siteUrl}/products/${productId}/${productId}_1080x1080@1x.png`
+        : null,
       url: `${siteUrl}/${lang}`,
       type: 'website',
       siteName: `${translate('EquipForLightTravel', lang)}`,

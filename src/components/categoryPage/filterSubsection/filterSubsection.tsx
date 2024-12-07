@@ -31,7 +31,7 @@ function FilterSubsection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
 
   const vm = vmFactory();
-  const filteredVm = (vm.productsListVM as any).filterByCategoryAndSubcategory(
+  const filteredVm = vm.productsListVM.filterByCategoryAndSubcategory(
     categoryId,
     subcategories.length > 0 ? subcategories : null
   ) as Observable<ProductListItemVm[]>;

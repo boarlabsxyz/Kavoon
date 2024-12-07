@@ -83,6 +83,7 @@
 
   .picture {
     max-width: 288px;
+    height: auto;
   }
 
   .title {

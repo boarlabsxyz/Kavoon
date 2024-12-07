@@ -77,6 +77,7 @@ function SubcategoryFilter({
                 checked={subcategories.includes(value)}
                 className={st.input}
                 type="checkbox"
+                name="subcategory"
                 value={value}
                 onChange={handleCheckboxChange}
               />

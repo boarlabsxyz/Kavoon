@@ -6,6 +6,8 @@ function generateImagePath(dirname, id, num = 1) {
 }
 
 const generateGalleryForProduct = (product) => {
+  if (!product) return null;
+
   const { gallery, id, productKit } = product;
   const productsDir = 'products';
   const images = Array.from({ length: gallery }, (_, idx) => {
