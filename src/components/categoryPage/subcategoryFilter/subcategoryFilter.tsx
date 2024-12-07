@@ -16,6 +16,7 @@ type Props = {
   setSubcategories: Dispatch<SetStateAction<Subcategory[]>>;
   language: Language;
 };
+
 function SubcategoryFilter({
   subcategories,
   setSubcategories,
@@ -67,6 +68,7 @@ function SubcategoryFilter({
           width="18"
           height="12"
           className={noCheckedSubcategories ? st.svg : `${st.activeSvg}`}
+          ariaLabelContent={isShowList ? "Close subcategory filter" : "Filter subcategory by type"}
         />
       </div>
       <ul className={isShowList ? st.list : st.hiddenList}>
@@ -91,3 +93,4 @@ function SubcategoryFilter({
 }
 
 export default SubcategoryFilter;
+
