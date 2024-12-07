@@ -46,8 +46,8 @@ export const SUBCATEGORIES_BICYCLE_EQUIPMENT: Record<string, Subcategory> = {
 };
 
 export const PRODUCT_CATEGORIES: Category[] = [
-  BICYCLE_EQUIPMENT,
   BAG_ACCESSORIES,
+  BICYCLE_EQUIPMENT,
   CITY_COLLECTION,
   IN_STOCK,
 ];
