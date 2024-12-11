@@ -1,3 +1,4 @@
+import { usePathname } from 'next/navigation';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Custom404 from 'src/components/404page';
 import translate from 'src/i18n/lang';
@@ -39,8 +40,13 @@ describe('Custom404 Component', () => {
     expect(title).toBeInTheDocument();
   });
 
-  it('should display the go back button and handle click', () => {
-    const goBackSpy = jest.spyOn(window.history, 'go');
+  it('calls window.history.back when "Go Back" button is clicked', () => {
+    (usePathname as jest.Mock).mockReturnValue(`/${locale}/test-page`);
+    const mockBack = jest.fn();
+    Object.defineProperty(window, 'history', {
+      value: { back: mockBack },
+      writable: true,
+    });
 
     render(<Custom404 />);
 
@@ -51,7 +57,7 @@ describe('Custom404 Component', () => {
 
     fireEvent.click(button);
 
-    expect(goBackSpy).toHaveBeenCalledWith(-2);
+    expect(mockBack).toHaveBeenCalledTimes(1);
   });
 
   it('should render all links with correct href and text', () => {

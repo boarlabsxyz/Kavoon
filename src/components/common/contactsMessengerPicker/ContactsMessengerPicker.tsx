@@ -80,9 +80,12 @@ function ContactsMessengerPicker({
               />
             </>
           ) : (
-            <span className={st.initialText}>
-              {lang('SelectFromList', language)}
-            </span>
+            <input
+              id="numTel"
+              className={st.initialText}
+              placeholder={lang('SelectFromList', language)}
+              disabled
+            />
           )}
           <button
             type="button"
