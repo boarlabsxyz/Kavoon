@@ -3,6 +3,9 @@ name: Quality Check
 on:
   workflow_call:
 
+env:
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+
 jobs:
   lint:
     runs-on: ubuntu-latest
