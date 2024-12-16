@@ -707,32 +707,32 @@ const handlebarMount = () => ({
   productKit: null,
 });
 
-const hamsterXpacWithoutPockets = () => ({
-  id: 'hamster-xpac-without-pockets',
-  name: 'Hamster',
-  volume: '1',
-  size: `22/9/10`,
-  weight: [
-    {
-      fabric: 'Xpac',
-      weight: 95,
-    },
-  ],
-  material: null,
-  description: {
-    short: 'HamsterXpacWithoutPocketsShortDescription',
-    main: 'HamsterXWithoutPocketsDescription',
-    conclusion: 'HamsterConclusion',
-  },
-  gallery: 5,
-  price: { UAH: 950, EUR: 28 },
-  fabrics: { name: 'Xpac', color: 'XpacBlack' },
-  print: 'without_print',
-  embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
-  category: IN_STOCK,
-  subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
-  productKit: null,
-});
+// const hamsterXpacWithoutPockets = () => ({
+//   id: 'hamster-xpac-without-pockets',
+//   name: 'Hamster',
+//   volume: '1',
+//   size: `22/9/10`,
+//   weight: [
+//     {
+//       fabric: 'Xpac',
+//       weight: 95,
+//     },
+//   ],
+//   material: null,
+//   description: {
+//     short: 'HamsterXpacWithoutPocketsShortDescription',
+//     main: 'HamsterXWithoutPocketsDescription',
+//     conclusion: 'HamsterConclusion',
+//   },
+//   gallery: 5,
+//   price: { UAH: 950, EUR: 28 },
+//   fabrics: { name: 'Xpac', color: 'XpacBlack' },
+//   print: 'without_print',
+//   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
+//   category: IN_STOCK,
+//   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
+//   productKit: null,
+// });
 
 const hamsterCorduraNavyBlueFoxes = () => ({
   id: 'hamster-cordura-navyblue-foxes',
@@ -842,32 +842,32 @@ const halfFrameBagXpacYellowBlue = () => ({
   productKit: null,
 });
 
-const barrelBagWithEmbroideryBlue = () => ({
-  id: 'barrel-bag-with-embroidery-blue',
-  name: 'BarrelBagWithEmbroidery',
-  volume: '3',
-  size: `14/25`,
-  weight: [
-    {
-      fabric: 'Cordura',
-      weight: 320,
-    },
-  ],
-  material: null,
-  description: {
-    short: 'BarrelBagWithEmbroideryBlueShortDescription',
-    main: 'BarrelBagWithEmbroideryBlueDescription',
-    conclusion: 'BarrelBagWithEmbroideryConclusion',
-  },
-  gallery: 8,
-  price: { UAH: 2200, EUR: 60 },
-  fabrics: { name: 'Cordura', color: 'CorduraNavyBlue' },
-  print: 'ornament',
-  embedVideo: null,
-  category: IN_STOCK,
-  subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
-  productKit: PRODUCT_KIT,
-});
+// const barrelBagWithEmbroideryBlue = () => ({
+//   id: 'barrel-bag-with-embroidery-blue',
+//   name: 'BarrelBagWithEmbroidery',
+//   volume: '3',
+//   size: `14/25`,
+//   weight: [
+//     {
+//       fabric: 'Cordura',
+//       weight: 320,
+//     },
+//   ],
+//   material: null,
+//   description: {
+//     short: 'BarrelBagWithEmbroideryBlueShortDescription',
+//     main: 'BarrelBagWithEmbroideryBlueDescription',
+//     conclusion: 'BarrelBagWithEmbroideryConclusion',
+//   },
+//   gallery: 8,
+//   price: { UAH: 2200, EUR: 60 },
+//   fabrics: { name: 'Cordura', color: 'CorduraNavyBlue' },
+//   print: 'ornament',
+//   embedVideo: null,
+//   category: IN_STOCK,
+//   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
+//   productKit: PRODUCT_KIT,
+// });
 
 const barrelBagWithEmbroideryYellow = () => ({
   id: 'barrel-bag-with-embroidery-yellow',
@@ -920,12 +920,12 @@ const Products: () => Product[] = () => [
   phonePouch(),
   universalBagForCity(),
   handlebarMount(),
-  hamsterXpacWithoutPockets(),
+  // hamsterXpacWithoutPockets(),
   hamsterCorduraNavyBlueFoxes(),
   hamsterCorduraBlackEmbroidery(),
   halfFrameBagXpacOrange(),
   halfFrameBagXpacYellowBlue(),
-  barrelBagWithEmbroideryBlue(),
+  // barrelBagWithEmbroideryBlue(),
   barrelBagWithEmbroideryYellow(),
 ];
 
@@ -953,12 +953,12 @@ export {
   phonePouch,
   universalBagForCity,
   handlebarMount,
-  hamsterXpacWithoutPockets,
+  // hamsterXpacWithoutPockets,
   hamsterCorduraNavyBlueFoxes,
   hamsterCorduraBlackEmbroidery,
   halfFrameBagXpacOrange,
   halfFrameBagXpacYellowBlue,
-  barrelBagWithEmbroideryBlue,
+  // barrelBagWithEmbroideryBlue,
   barrelBagWithEmbroideryYellow,
 };
 
