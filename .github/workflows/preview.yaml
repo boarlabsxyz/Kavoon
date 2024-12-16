@@ -1,7 +1,11 @@
 name: Vercel Preview Deployment
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
