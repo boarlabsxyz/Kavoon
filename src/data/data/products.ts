@@ -25,8 +25,8 @@ const bikeWallet = () => ({
   },
   gallery: 4,
   price: {
-    cordura: { UAH: 500, EUR: 13 },
-    xpac: { UAH: 500, EUR: 13 },
+    cordura: { UAH: 500, EUR: 14 },
+    xpac: { UAH: 500, EUR: 14 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: {
@@ -52,8 +52,8 @@ const organizer = () => ({
   },
   gallery: 3,
   price: {
-    cordura: { UAH: 600, EUR: 15 },
-    xpac: { UAH: 700, EUR: 18 },
+    cordura: { UAH: 600, EUR: 17 },
+    xpac: { UAH: 700, EUR: 20 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -110,8 +110,8 @@ const hamster = () => ({
   },
   gallery: 10,
   price: {
-    cordura: { UAH: 950, EUR: 28 },
-    xpac: { UAH: 1050, EUR: 30 },
+    cordura: { UAH: 1100, EUR: 30 },
+    xpac: { UAH: 1250, EUR: 35 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
@@ -143,8 +143,8 @@ const barrelBagWithoutValve = () => ({
   },
   gallery: 7,
   price: {
-    cordura: { UAH: 1550, EUR: 42 },
-    xpac: { UAH: 1800, EUR: 50 },
+    cordura: { UAH: 1900, EUR: 52 },
+    xpac: { UAH: 2100, EUR: 58 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -176,8 +176,8 @@ const seatBag3L = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 1650, EUR: 45 },
-    xpac: { UAH: 1850, EUR: 51 },
+    cordura: { UAH: 1850, EUR: 50 },
+    xpac: { UAH: 2100, EUR: 58 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -201,8 +201,8 @@ const halfFrameBag = () => ({
 
   gallery: 5,
   price: {
-    cordura: { UAH: 1700, EUR: 47 },
-    xpac: { UAH: 1950, EUR: 55 },
+    cordura: { UAH: 2000, EUR: 55 },
+    xpac: { UAH: 2300, EUR: 64 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   customSizeParameters: [
@@ -248,8 +248,8 @@ const triangularBicycleFirstAidKitFrame = () => ({
   },
   gallery: 8,
   price: {
-    cordura: { UAH: 750, EUR: 21 },
-    xpac: { UAH: 850, EUR: 24 },
+    cordura: { UAH: 1050, EUR: 28 },
+    xpac: { UAH: 1200, EUR: 33 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -281,8 +281,8 @@ const smallBagTubeOnBar = () => ({
   },
   gallery: 9,
   price: {
-    cordura: { UAH: 1900, EUR: 54 },
-    xpac: { UAH: 2200, EUR: 60 },
+    cordura: { UAH: 2200, EUR: 61 },
+    xpac: { UAH: 2500, EUR: 70 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -314,8 +314,8 @@ const bananaOnBar = () => ({
   },
   gallery: 8,
   price: {
-    cordura: { UAH: 2400, EUR: 65 },
-    xpac: { UAH: 2600, EUR: 71 },
+    cordura: { UAH: 2400, EUR: 67 },
+    xpac: { UAH: 2600, EUR: 73 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -347,7 +347,7 @@ const seatBag5L = () => ({
   },
   gallery: 11,
   price: {
-    cordura: { UAH: 2500, EUR: 68 },
+    cordura: { UAH: 2500, EUR: 70 },
     xpac: { UAH: 2950, EUR: 80 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
@@ -372,8 +372,8 @@ const innerFrameBag = () => ({
   },
   gallery: 3,
   price: {
-    cordura: { UAH: 2400, EUR: 65 },
-    xpac: { UAH: 2850, EUR: 78 },
+    cordura: { UAH: 2700, EUR: 76 },
+    xpac: { UAH: 3200, EUR: 85 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   customSizeParameters: [
@@ -413,8 +413,8 @@ const barrelBagWithValve = () => ({
   },
   gallery: 6,
   price: {
-    cordura: { UAH: 2000, EUR: 55 },
-    xpac: { UAH: 2400, EUR: 65 },
+    cordura: { UAH: 2300, EUR: 64 },
+    xpac: { UAH: 2600, EUR: 73 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -448,8 +448,8 @@ const fuelBag = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 1050, EUR: 30 },
-    xpac: { UAH: 1150, EUR: 32 },
+    cordura: { UAH: 1200, EUR: 33 },
+    xpac: { UAH: 1350, EUR: 38 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -481,8 +481,8 @@ const ovalBarrelbag = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 1650, EUR: 45 },
-    xpac: { UAH: 1850, EUR: 52 },
+    cordura: { UAH: 2100, EUR: 58 },
+    xpac: { UAH: 2400, EUR: 67 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -505,8 +505,8 @@ const smallToolSeatbag = () => ({
   },
   gallery: 4,
   price: {
-    cordura: { UAH: 1050, EUR: 30 },
-    xpac: { UAH: 1350, EUR: 35 },
+    cordura: { UAH: 1250, EUR: 35 },
+    xpac: { UAH: 1550, EUR: 44 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -538,8 +538,8 @@ const barrelBagMini = () => ({
   },
   gallery: 3,
   price: {
-    cordura: { UAH: 750, EUR: 20 },
-    xpac: { UAH: 850, EUR: 23 },
+    cordura: { UAH: 1150, EUR: 32 },
+    xpac: { UAH: 1300, EUR: 37 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -570,8 +570,8 @@ const tacticalStembag = () => ({
     conclusion: 'TacticalStembagConclusion',
   },
   price: {
-    cordura: { UAH: 1050, EUR: 30 },
-    xpac: { UAH: 1150, EUR: 35 },
+    cordura: { UAH: 1400, EUR: 40 },
+    xpac: { UAH: 1600, EUR: 45 },
   },
   gallery: 6,
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
@@ -595,8 +595,8 @@ const loopHandlebarBag = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 2000, EUR: 55 },
-    xpac: { UAH: 2200, EUR: 60 },
+    cordura: { UAH: 2300, EUR: 64 },
+    xpac: { UAH: 2600, EUR: 73 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -628,8 +628,8 @@ const barrelbagWithVelcro = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 1800, EUR: 50 },
-    xpac: { UAH: 1900, EUR: 54 },
+    cordura: { UAH: 2000, EUR: 55 },
+    xpac: { UAH: 2300, EUR: 64 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -653,7 +653,7 @@ const phonePouch = () => ({
   gallery: 6,
   price: {
     cordura: { UAH: 500, EUR: 14 },
-    xpac: { UAH: 550, EUR: 15 },
+    xpac: { UAH: 550, EUR: 17 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -676,8 +676,8 @@ const universalBagForCity = () => ({
   },
   gallery: 6,
   price: {
-    cordura: { UAH: 2100, EUR: 57 },
-    xpac: { UAH: 2400, EUR: 65 },
+    cordura: { UAH: 2200, EUR: 61 },
+    xpac: { UAH: 2500, EUR: 70 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -699,7 +699,7 @@ const handlebarMount = () => ({
     conclusion: null,
   },
   gallery: 5,
-  price: { UAH: 650, EUR: 20 },
+  price: { UAH: 800, EUR: 25 },
   fabrics: null,
   embedVideo: { id: 'ylSSGONW8Hc', title: 'HandlebarMountVideoTitle' },
   category: BICYCLE_EQUIPMENT,
@@ -707,32 +707,32 @@ const handlebarMount = () => ({
   productKit: null,
 });
 
-const hamsterXpacWithoutPockets = () => ({
-  id: 'hamster-xpac-without-pockets',
-  name: 'Hamster',
-  volume: '1',
-  size: `22/9/10`,
-  weight: [
-    {
-      fabric: 'Xpac',
-      weight: 95,
-    },
-  ],
-  material: null,
-  description: {
-    short: 'HamsterXpacWithoutPocketsShortDescription',
-    main: 'HamsterXWithoutPocketsDescription',
-    conclusion: 'HamsterConclusion',
-  },
-  gallery: 5,
-  price: { UAH: 950, EUR: 28 },
-  fabrics: { name: 'Xpac', color: 'XpacBlack' },
-  print: 'without_print',
-  embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
-  category: IN_STOCK,
-  subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
-  productKit: null,
-});
+// const hamsterXpacWithoutPockets = () => ({
+//   id: 'hamster-xpac-without-pockets',
+//   name: 'Hamster',
+//   volume: '1',
+//   size: `22/9/10`,
+//   weight: [
+//     {
+//       fabric: 'Xpac',
+//       weight: 95,
+//     },
+//   ],
+//   material: null,
+//   description: {
+//     short: 'HamsterXpacWithoutPocketsShortDescription',
+//     main: 'HamsterXWithoutPocketsDescription',
+//     conclusion: 'HamsterConclusion',
+//   },
+//   gallery: 5,
+//   price: { UAH: 950, EUR: 28 },
+//   fabrics: { name: 'Xpac', color: 'XpacBlack' },
+//   print: 'without_print',
+//   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
+//   category: IN_STOCK,
+//   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
+//   productKit: null,
+// });
 
 const hamsterCorduraNavyBlueFoxes = () => ({
   id: 'hamster-cordura-navyblue-foxes',
@@ -752,7 +752,7 @@ const hamsterCorduraNavyBlueFoxes = () => ({
     conclusion: 'HamsterConclusion',
   },
   gallery: 3,
-  price: { UAH: 950, EUR: 28 },
+  price: { UAH: 1100, EUR: 30 },
   fabrics: { name: 'Cordura', color: 'CorduraNavyBlue' },
   print: 'foxes',
   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
@@ -779,7 +779,7 @@ const hamsterCorduraBlackEmbroidery = () => ({
     conclusion: 'HamsterConclusion',
   },
   gallery: 4,
-  price: { UAH: 1100, EUR: 31 },
+  price: { UAH: 1250, EUR: 35 },
   fabrics: { name: 'Cordura', color: 'CorduraBlack' },
   print: 'ornament',
   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
@@ -806,7 +806,7 @@ const halfFrameBagXpacOrange = () => ({
     conclusion: 'HalfFrameBagXpacConclusion',
   },
   gallery: 7,
-  price: { UAH: 2100, EUR: 58 },
+  price: { UAH: 2300, EUR: 64 },
   fabrics: { name: 'Xpac', color: 'XpacOrangeNeon' },
   print: 'without_print',
   embedVideo: null,
@@ -842,32 +842,32 @@ const halfFrameBagXpacYellowBlue = () => ({
   productKit: null,
 });
 
-const barrelBagWithEmbroideryBlue = () => ({
-  id: 'barrel-bag-with-embroidery-blue',
-  name: 'BarrelBagWithEmbroidery',
-  volume: '3',
-  size: `14/25`,
-  weight: [
-    {
-      fabric: 'Cordura',
-      weight: 320,
-    },
-  ],
-  material: null,
-  description: {
-    short: 'BarrelBagWithEmbroideryBlueShortDescription',
-    main: 'BarrelBagWithEmbroideryBlueDescription',
-    conclusion: 'BarrelBagWithEmbroideryConclusion',
-  },
-  gallery: 8,
-  price: { UAH: 2200, EUR: 60 },
-  fabrics: { name: 'Cordura', color: 'CorduraNavyBlue' },
-  print: 'ornament',
-  embedVideo: null,
-  category: IN_STOCK,
-  subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
-  productKit: PRODUCT_KIT,
-});
+// const barrelBagWithEmbroideryBlue = () => ({
+//   id: 'barrel-bag-with-embroidery-blue',
+//   name: 'BarrelBagWithEmbroidery',
+//   volume: '3',
+//   size: `14/25`,
+//   weight: [
+//     {
+//       fabric: 'Cordura',
+//       weight: 320,
+//     },
+//   ],
+//   material: null,
+//   description: {
+//     short: 'BarrelBagWithEmbroideryBlueShortDescription',
+//     main: 'BarrelBagWithEmbroideryBlueDescription',
+//     conclusion: 'BarrelBagWithEmbroideryConclusion',
+//   },
+//   gallery: 8,
+//   price: { UAH: 2200, EUR: 60 },
+//   fabrics: { name: 'Cordura', color: 'CorduraNavyBlue' },
+//   print: 'ornament',
+//   embedVideo: null,
+//   category: IN_STOCK,
+//   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
+//   productKit: PRODUCT_KIT,
+// });
 
 const barrelBagWithEmbroideryYellow = () => ({
   id: 'barrel-bag-with-embroidery-yellow',
@@ -887,7 +887,7 @@ const barrelBagWithEmbroideryYellow = () => ({
     conclusion: 'BarrelBagWithEmbroideryConclusion',
   },
   gallery: 7,
-  price: { UAH: 2200, EUR: 60 },
+  price: { UAH: 2400, EUR: 67 },
   fabrics: { name: 'Cordura', color: 'CorduraYellow' },
   print: 'ornament',
   embedVideo: null,
@@ -920,12 +920,12 @@ const Products: () => Product[] = () => [
   phonePouch(),
   universalBagForCity(),
   handlebarMount(),
-  hamsterXpacWithoutPockets(),
+  // hamsterXpacWithoutPockets(),
   hamsterCorduraNavyBlueFoxes(),
   hamsterCorduraBlackEmbroidery(),
   halfFrameBagXpacOrange(),
   halfFrameBagXpacYellowBlue(),
-  barrelBagWithEmbroideryBlue(),
+  // barrelBagWithEmbroideryBlue(),
   barrelBagWithEmbroideryYellow(),
 ];
 
@@ -953,12 +953,12 @@ export {
   phonePouch,
   universalBagForCity,
   handlebarMount,
-  hamsterXpacWithoutPockets,
+  // hamsterXpacWithoutPockets,
   hamsterCorduraNavyBlueFoxes,
   hamsterCorduraBlackEmbroidery,
   halfFrameBagXpacOrange,
   halfFrameBagXpacYellowBlue,
-  barrelBagWithEmbroideryBlue,
+  // barrelBagWithEmbroideryBlue,
   barrelBagWithEmbroideryYellow,
 };
 
