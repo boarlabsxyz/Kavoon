@@ -1,11 +1,7 @@
-name: Vercel Preview Deployment
+name: Vercel Production Deployment
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  workflow_dispatch:
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -70,12 +66,12 @@ jobs:
       - name: Run Cypress
         run: npm run cy:test
 
-  preview-deployment:
+  production-deployment:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.url }}
+      name: production
+      url: https://www.kavoon.com.ua
     needs:
       - lint
       - unit-tests
@@ -97,14 +93,10 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
-        id: deploy
-        run: |
-          DEPLOY_URL=$(vercel deploy --prebuilt --token='${{ secrets.VERCEL_TOKEN }}')
-          echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-          echo "Preview URL: $DEPLOY_URL"
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
