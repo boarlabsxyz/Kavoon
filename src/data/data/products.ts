@@ -833,7 +833,7 @@ const halfFrameBagXpacYellowBlue = () => ({
     conclusion: 'HalfFrameBagXpacConclusion',
   },
   gallery: 8,
-  price: { UAH: 2100, EUR: 58 },
+  price: { UAH: 2300, EUR: 64 },
   fabrics: { name: 'Xpac', color: 'XpacNavyBlue' },
   print: 'without_print',
   embedVideo: null,
