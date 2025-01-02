@@ -14,7 +14,7 @@
     font-weight: 500;
     line-height: 1.2;
     position: relative;
-    padding-right: 24px;
+    /* padding-right: 24px; */
     cursor: pointer;
     z-index: 2;
   }
@@ -29,6 +29,7 @@
 
   .title {
     position: relative;
+    user-select: none;
   }
 
   .wrapper .list:hover ~ .title,
@@ -41,8 +42,10 @@
     display: flex;
     flex-direction: column;
     width: 190px;
+    /* height: 100%; */
+    /* object-fit: cover; */
     top: 36px;
-    left: -34px;
+    left: -60px;
     position: absolute;
     opacity: 0;
     height: 0;
@@ -54,7 +57,7 @@
 
   .wrapper.open .list {
     opacity: 1;
-    height: 125px;
+    height: 165px;
     animation: height 300ms alternate ease-in-out;
   }
 
@@ -117,6 +120,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
+    margin-bottom: 70px;
   }
 
   .title {
@@ -124,13 +128,20 @@
   }
 
   .list {
-    gap: 32px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
+    /* display: block; */
     height: 125px;
     opacity: 1;
-    transition: 3000ms;
+    transition: 3s;
+    padding-left: 20px;
+  }
+
+  .item {
+    padding: 7px;
   }
 
   .item:hover {

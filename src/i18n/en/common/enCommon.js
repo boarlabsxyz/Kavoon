@@ -214,10 +214,11 @@ const Language = {
   Durable: 'durable',
   WaterRepellent: 'water repellent',
 
-  BicycleEquipment: 'bicycle equipment',
-  CityCollection: 'city collection',
-  BagAccessories: 'bag accessories',
-  InStock: 'in stock',
+  AllProducts: 'All goods',
+  BicycleEquipment: 'Bicycle equipment',
+  CityCollection: 'City collection',
+  BagAccessories: 'Bag accessories',
+  InStock: 'In stock',
 
   HandlebarBags: 'Handlebar bags',
   SeatBags: 'Seat Bags',
