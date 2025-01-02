@@ -36,21 +36,27 @@ const productInStockDetailsOrderBtnVM = (
       isProductKitChecked instanceof BehaviorSubject &&
       isProductKitChecked.getValue()
     ) {
-      const mount = products.find(
-        (productItem) => productItem.id === productItem.productKit.id
-      );
-      const { price } = mount as { price: Currencies };
-      isProductKitChecked.next(false);
-      cartModel.addProduct({
-        name: mount.name,
-        id: mount.id,
-        priceEURO: price.EUR,
-        priceUAH: price.UAH,
-        dimensions: '',
-        count: 1,
-        cartId: uuidv4(),
-        picture: `/products/${mount.id}/${mount.id}_120x120@3x.png`,
-      });
+      if (product.productKit && product.productKit.id) {
+        const mount = products.find(
+          (productItem) => productItem.id === product.productKit.id
+        );
+
+        if (mount) {
+          const { price } = mount as { price: Currencies };
+          isProductKitChecked.next(false);
+
+          cartModel.addProduct({
+            name: mount.name,
+            id: mount.id,
+            priceEURO: price.EUR,
+            priceUAH: price.UAH,
+            dimensions: '',
+            count: 1,
+            cartId: uuidv4(),
+            picture: `/products/${mount.id}/${mount.id}_120x120@3x.png`,
+          });
+        }
+      }
     }
   };
 

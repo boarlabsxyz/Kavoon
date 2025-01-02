@@ -54,7 +54,9 @@ function HowDiscoverPicker({
 
   return (
     <div ref={ref} className={st.wrapper}>
-      <label className={st.fieldTitle}>{lang('HowDiscover', language)}</label>
+      <label htmlFor="howDiscover" className={st.fieldTitle}>
+        {lang('HowDiscover', language)}
+      </label>
       <div className={statusWrapperClassName}>
         <div className={st.status}>
           {pickedItem?.name === 'Other' && (
@@ -78,9 +80,12 @@ function HowDiscoverPicker({
             />
           )}
           {!pickedItem && (
-            <span className={st.initialText}>
-              {lang('SelectFromList', language)}
-            </span>
+            <input
+              id="howDiscover"
+              className={st.initialText}
+              placeholder={lang('SelectFromList', language)}
+              disabled
+            />
           )}
           <button
             type="button"

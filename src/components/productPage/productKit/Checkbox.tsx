@@ -22,6 +22,7 @@ function Checkbox({ vm }: Props) {
       <input
         className={st.input}
         type="checkbox"
+        id="customCheckbox"
         checked={checked}
         onChange={() => vm.toggleChecked(checked)}
       />

@@ -36,9 +36,11 @@ function ContactsMessengerPicker({
     setOpened(false);
   });
   const handleSelect = (item) => {
-    setOpened(false);
     setPickedItem(item);
     onMessengerChange(item.name);
+    setTimeout(() => {
+      setOpened(false);
+    }, 50);
   };
 
   let statusWrapperClassName = isOpened
@@ -78,9 +80,12 @@ function ContactsMessengerPicker({
               />
             </>
           ) : (
-            <span className={st.initialText}>
-              {lang('SelectFromList', language)}
-            </span>
+            <input
+              id="numTel"
+              className={st.initialText}
+              placeholder={lang('SelectFromList', language)}
+              disabled
+            />
           )}
           <button
             type="button"

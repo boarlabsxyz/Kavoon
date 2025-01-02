@@ -38,11 +38,7 @@ const CategorySection = ({ category, language, vm }: Props) => {
           <p>{translate(category, language)}</p>
         </div>
         <ProductsRow vm={vm} />
-        <Link
-          href={`/${language}/${productTypeLink}`}
-          className={st.link}
-          rel="noreferrer"
-        >
+        <Link href={`/${language}/${productTypeLink}`} className={st.link}>
           <p data-cy={`${toKebabCase(category)}-category-link`}>
             {translate('ViewAll', language)}
           </p>
