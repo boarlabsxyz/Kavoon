@@ -8,15 +8,14 @@ import { Category, Subcategory } from 'src/data/constants';
 const filterShopVM = ({ productVMs: productList }) => {
   const productData: Observable<ProductListItemVM[]> = of(productList);
 
-  const filterByCategory = (filterValue: Category) => {
-    return combineLatest([of(filterValue), productData]).pipe(
+  const filterByCategory = (filterValue: Category) =>
+    combineLatest([of(filterValue), productData]).pipe(
       switchMap(([category, products]) =>
         of(products).pipe(
           map((data) => data.filter((bag) => bag.category === category))
         )
       )
     );
-  };
 
   const filterByCategoryAndSubcategory = (
     categoryValue: Category,
@@ -25,15 +24,9 @@ const filterShopVM = ({ productVMs: productList }) => {
     combineLatest([of(categoryValue), productData]).pipe(
       switchMap(([category, products]) =>
         of(products).pipe(
-          map((data) => {
-            const nonAllProductsIndex = data.findIndex(
-              (product) => toKebabCase(product.category) === category
-            );
-            if (nonAllProductsIndex === -1) {
-              return data;
-            }
-            return data.filter((bag) => toKebabCase(bag.category) === category);
-          }),
+          map((data) =>
+            data.filter((bag) => toKebabCase(bag.category) === category)
+          ),
           map((filteredByCategory) =>
             subcategories
               ? filteredByCategory.filter((bag) =>

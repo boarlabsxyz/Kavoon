@@ -13,20 +13,17 @@ const BICYCLE_EQUIPMENT_STRING = 'BicycleEquipment';
 const BAG_ACCESSORIES_STRING = 'BagAccessories';
 const CITY_COLLECTION_STRING = 'CityCollection';
 const IN_STOCK_STRING = 'InStock';
-const ALL_PRODUCTS_STRING = 'AllProducts';
 
 export type Category =
   | typeof BICYCLE_EQUIPMENT_STRING
   | typeof BAG_ACCESSORIES_STRING
   | typeof CITY_COLLECTION_STRING
-  | typeof IN_STOCK_STRING
-  | typeof ALL_PRODUCTS_STRING;
+  | typeof IN_STOCK_STRING;
 
 export const BICYCLE_EQUIPMENT: Category = BICYCLE_EQUIPMENT_STRING;
 export const BAG_ACCESSORIES: Category = BAG_ACCESSORIES_STRING;
 export const CITY_COLLECTION: Category = CITY_COLLECTION_STRING;
 export const IN_STOCK: Category = IN_STOCK_STRING;
-export const ALL_PRODUCTS: Category = ALL_PRODUCTS_STRING;
 
 // Categories of bicycle equipment
 
@@ -53,7 +50,6 @@ export const PRODUCT_CATEGORIES: Category[] = [
   BAG_ACCESSORIES,
   CITY_COLLECTION,
   IN_STOCK,
-  ALL_PRODUCTS,
 ];
 
 export type ProductKit = {

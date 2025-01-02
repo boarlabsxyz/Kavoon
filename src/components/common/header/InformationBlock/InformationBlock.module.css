@@ -36,8 +36,25 @@
     color: var(--primary-color);
   }
 
+  .title:after {
+    content: '';
+    position: relative;
+    position: absolute;
+    height: 7px;
+    width: 12px;
+    background-image: url('/icons/arrow-up-black.svg');
+    top: 6px;
+    right: -22px;
+    transition: 0.5s ease;
+    transform: rotate(180deg);
+  }
+
+  .wrapper.open .title:after {
+    transform: rotate(0deg);
+  }
+
   .list {
-    transition: 300ms;
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
     width: 190px;
@@ -130,7 +147,7 @@
     align-items: flex-start;
     height: 125px;
     opacity: 1;
-    transition: 3000ms;
+    transition: 3s;
   }
 
   .item:hover {

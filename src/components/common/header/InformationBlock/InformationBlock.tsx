@@ -39,9 +39,6 @@ function InformationBlock({ lang }: Props) {
     setIsShowList((prev) => !prev);
   };
 
-  const handleMouseEnter = () => setIsShowList(true);
-  const handleMouseLeave = () => setIsShowList(false);
-
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
@@ -58,9 +55,8 @@ function InformationBlock({ lang }: Props) {
     <div
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      role="menu"
+      onClick={toggleDropdown}
+      role="button"
       tabIndex={0}
       aria-expanded={isShowList}
       aria-haspopup="true"

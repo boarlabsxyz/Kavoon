@@ -29,26 +29,28 @@ type Props = {
 
 function FilterSubsection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
+
   const vm = vmFactory();
   const filteredVm = vm.productsListVM.filterByCategoryAndSubcategory(
     categoryId,
     subcategories.length > 0 ? subcategories : null
   ) as Observable<ProductListItemVm[]>;
 
-  // const isEquipmentOrStockCategory =
-  //   categoryId === toKebabCase(BICYCLE_EQUIPMENT) ||
-  //   categoryId === toKebabCase(IN_STOCK);
+  const isEquipmentOrStockCategory =
+    categoryId === toKebabCase(BICYCLE_EQUIPMENT) ||
+    categoryId === toKebabCase(IN_STOCK);
+
   return (
     <>
       <div className={st.wrapper}>
         <ShopPageStatus language={lang} vm={filteredVm} />
-        {
-          /*isEquipmentOrStockCategory &&*/ <SubcategoryFilter
+        {isEquipmentOrStockCategory && (
+          <SubcategoryFilter
             subcategories={subcategories}
             setSubcategories={setSubcategories}
             language={lang}
           />
-        }
+        )}
       </div>
 
       <CheckedSubcategories
