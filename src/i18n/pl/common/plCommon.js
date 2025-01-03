@@ -214,10 +214,11 @@ const Language = {
   Durable: 'Długotrwawy',
   WaterRepellent: 'Wodoodporny',
 
-  BicycleEquipment: 'sprzęt rowerowy',
-  CityCollection: 'kolekcja miejska',
-  BagAccessories: 'akcesoria do toreb',
-  InStock: 'na stanie',
+  AllProducts: 'Wszystkie towary',
+  BicycleEquipment: 'Sprzęt rowerowy',
+  CityCollection: 'Kolekcja miejska',
+  BagAccessories: 'Akcesoria do toreb',
+  InStock: 'Na stanie',
 
   HandlebarBags: 'Torby na kierownicę',
   SeatBags: 'Torby podsiodłowe',

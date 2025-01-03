@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import InformationBlock from 'src/components/common/header/InformationBlock';
+import ShopBlock from '../shopBlock';
 
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
@@ -14,10 +15,7 @@ type NavMainProps = {
   language: Language;
 };
 
-const pages = [
-  { target: '', label: 'Home' },
-  { target: 'shop', label: 'MenuItemShop' },
-];
+const pages = [{ target: '', label: 'Home' }];
 
 function NavMain({ language }: NavMainProps) {
   const pathname = usePathname();
@@ -48,6 +46,7 @@ function NavMain({ language }: NavMainProps) {
           );
         })}
       </ul>
+      <ShopBlock lang={language} />
       <InformationBlock lang={language} />
     </nav>
   );

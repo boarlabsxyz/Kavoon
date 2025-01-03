@@ -8,22 +8,26 @@ import { Language } from 'src/types/language';
 import useWindowWidth from 'src/hooks/useWindowWidth';
 import RespScreenWidth from 'src/data/mediaConst';
 
-import st from './InformationBlock.module.css';
+import st from './shopBlock.module.css';
 import useOutsideClick from 'src/hooks/useOutsideClick';
 
 type Props = {
   lang: Language;
 };
 
-function InformationBlock({ lang }: Props) {
+function ShopBlock({ lang }: Props) {
   const [currentPath, setCurrentPath] = useState('');
   const [isShowList, setIsShowList] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const pages = [
-    { target: 'about-us', label: 'MenuItemAboutUs' },
-    { target: 'blog', label: 'MenuItemBlog' },
-    { target: 'delivery-and-payment', label: 'DeliveryAndPayment' },
+    // { target: 'about-us', label: 'MenuItemAboutUs' },
+    // { target: 'blog', label: 'MenuItemBlog' },
+    // { target: 'delivery-and-payment', label: 'DeliveryAndPayment' },
+    { target: 'shop/all-products', label: 'AllProducts' },
+    { target: 'shop/bicycle-equipment', label: 'BicycleEquipment' },
+    { target: 'shop/bag-accessories', label: 'BagAccessories' },
+    { target: 'shop/city-collection', label: 'CityCollection' },
   ];
 
   const pathname = usePathname();
@@ -58,15 +62,19 @@ function InformationBlock({ lang }: Props) {
     <div
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
+      // onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      // onMouseOver={toggleDropdown}
+      // role="button"
       role="menu"
       tabIndex={0}
       aria-expanded={isShowList}
       aria-haspopup="true"
       onKeyDown={handleKeyDown}
     >
-      <p className={st.title}>{translate('Information', lang)}</p>
+      {/* <div className={st.hoverContainer}> */}
+      <p className={st.title}>{translate('Shop', lang)}</p>
       <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
         {pages.map(({ target, label }) => (
           <li key={target} className={st.item} data-cy={`${target}-link`}>
@@ -83,7 +91,31 @@ function InformationBlock({ lang }: Props) {
         ))}
       </ul>
     </div>
+    // </div>
   );
 }
 
-export default InformationBlock;
+export default ShopBlock;
+
+// import { Language } from 'src/types/language';
+// import DropdownList from '../../dropdownList';
+// import { Messenger, Network } from 'src/types/pickersProps';
+
+// type Props = {
+//   lang: Language;
+//   readonly optionsList: ReadonlyArray<Messenger | Network>;
+//   readonly handleSelect: (item: Messenger | Network) => void;
+//   readonly pickedItem: Messenger | Network;
+// };
+
+// function shopBlock({ lang, optionsList, handleSelect, pickedItem }: Props) {
+//   return (
+//     <DropdownList
+//       optionsList={optionsList}
+//       handleSelect={handleSelect}
+//       pickedItem={pickedItem}
+//     />
+//   );
+// }
+
+// export default shopBlock;
