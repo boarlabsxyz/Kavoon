@@ -62,11 +62,9 @@ function ShopBlock({ lang }: Props) {
     <div
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
-      // onClick={toggleDropdown}
+      onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // onMouseOver={toggleDropdown}
-      // role="button"
       role="menu"
       tabIndex={0}
       aria-expanded={isShowList}
