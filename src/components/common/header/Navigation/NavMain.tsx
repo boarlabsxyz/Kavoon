@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import InformationBlock from 'src/components/common/header/InformationBlock';
 import ShopBlock from '../shopBlock';
+import InformationBlock from 'src/components/common/header/InformationBlock';
+import CartStatus from '../../cartStatus';
 
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
@@ -48,6 +49,7 @@ function NavMain({ language }: NavMainProps) {
       </ul>
       <ShopBlock lang={language} />
       <InformationBlock lang={language} />
+      <CartStatus language={language} />
     </nav>
   );
 }
