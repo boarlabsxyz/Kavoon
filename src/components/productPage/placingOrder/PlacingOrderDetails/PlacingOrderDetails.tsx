@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
 import st from './PlacingOrderDetails.module.css';
 
 type Props = {
@@ -6,33 +6,39 @@ type Props = {
 };
 
 function PlacingOrderDetails({ text }: Props) {
-  const details: string[] = text.split('\n');
+  const sanitizedText = text.replace(/<br\s*\/?>/g, '');
+  const details: string[] = sanitizedText.split('\n');
 
   return (
     <ol className={st.detailsList}>
-      {details.map((item) => (
-        <li key={uuidv4()} className={st.detailsListItem}>
+      {details.map((item, index) => (
+        <li key={`detail-${index}`} className={st.detailsListItem}>
           {item
             .split('<b>')
-            .map((part, index, arr) => {
-              if (index === 0) {
-                return part;
+            .map((part, subIndex) => {
+              if (subIndex === 0) {
+                return <span key={`plain-${index}-${subIndex}`}>{part}</span>;
               }
               const [boldContent, ...rest] = part.split('</b>');
               return (
-                <>
-                  <strong>{boldContent}</strong>
-                  {rest.join('</b>')} {/* Join remaining parts */}
-                </>
+                <React.Fragment key={`fragment-${index}-${subIndex}`}>
+                  <strong key={`bold-${index}-${subIndex}`}>
+                    {boldContent}
+                  </strong>
+                  <span key={`rest-${index}-${subIndex}`}>
+                    {rest.join('</b>')}
+                  </span>
+                </React.Fragment>
               );
             })
-            .reduce((prev, curr) => (
-              <>
-                {prev}
-                <br key={uuidv4()} />
-                {curr}
-              </>
-            ))}
+            .reduce<React.ReactNode[]>(
+              (acc, curr, reduceIndex) => [
+                ...acc,
+                reduceIndex > 0 && <br key={`br-${index}-${reduceIndex}`} />,
+                curr,
+              ],
+              []
+            )}
         </li>
       ))}
     </ol>
