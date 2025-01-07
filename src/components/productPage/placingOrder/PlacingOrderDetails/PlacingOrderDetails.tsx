@@ -13,7 +13,9 @@ function PlacingOrderDetails({ text }: Props) {
     <ol className={st.detailsList}>
       {details.map((item) => (
         <li key={uuidv4()} className={st.detailsListItem}>
-          {item}
+          <span
+            dangerouslySetInnerHTML={{ __html: item.replace(/\n/g, '<br />') }}
+          />
         </li>
       ))}
     </ol>
