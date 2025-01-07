@@ -54,10 +54,7 @@ function Navigation({ children, lang }: Props) {
       </button>
       <div className={st.content}>
         <NavMain language={lang} />
-        <div className={st.statusAndLangAndSocial}>
-          <CartStatusForMenu language={lang} />
-          {children}
-        </div>
+        <div className={st.statusAndLangAndSocial}>{children}</div>
       </div>
     </div>
   );
