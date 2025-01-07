@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-
 import st from './PlacingOrderDetails.module.css';
 
 type Props = {
@@ -13,9 +12,27 @@ function PlacingOrderDetails({ text }: Props) {
     <ol className={st.detailsList}>
       {details.map((item) => (
         <li key={uuidv4()} className={st.detailsListItem}>
-          <span
-            dangerouslySetInnerHTML={{ __html: item.replace(/\n/g, '<br />') }}
-          />
+          {item
+            .split('<b>')
+            .map((part, index, arr) => {
+              if (index === 0) {
+                return part;
+              }
+              const [boldContent, ...rest] = part.split('</b>');
+              return (
+                <>
+                  <strong>{boldContent}</strong>
+                  {rest.join('</b>')} {/* Join remaining parts */}
+                </>
+              );
+            })
+            .reduce((prev, curr) => (
+              <>
+                {prev}
+                <br key={uuidv4()} />
+                {curr}
+              </>
+            ))}
         </li>
       ))}
     </ol>
