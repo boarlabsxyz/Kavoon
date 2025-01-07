@@ -1,4 +1,5 @@
-import React from 'react';
+import DOMPurify from 'isomorphic-dompurify';
+
 import st from './PlacingOrderDetails.module.css';
 
 type Props = {
@@ -6,41 +7,20 @@ type Props = {
 };
 
 function PlacingOrderDetails({ text }: Props) {
-  const sanitizedText = text.replace(/<br\s*\/?>/g, '');
-  const details: string[] = sanitizedText.split('\n');
+  const details: string[] = text.split('\n');
 
   return (
     <ol className={st.detailsList}>
-      {details.map((item, index) => (
-        <li key={`detail-${index}`} className={st.detailsListItem}>
-          {item
-            .split('<b>')
-            .map((part, subIndex) => {
-              if (subIndex === 0) {
-                return <span key={`plain-${index}-${subIndex}`}>{part}</span>;
-              }
-              const [boldContent, ...rest] = part.split('</b>');
-              return (
-                <React.Fragment key={`fragment-${index}-${subIndex}`}>
-                  <strong key={`bold-${index}-${subIndex}`}>
-                    {boldContent}
-                  </strong>
-                  <span key={`rest-${index}-${subIndex}`}>
-                    {rest.join('</b>')}
-                  </span>
-                </React.Fragment>
-              );
-            })
-            .reduce<React.ReactNode[]>(
-              (acc, curr, reduceIndex) => [
-                ...acc,
-                reduceIndex > 0 && <br key={`br-${index}-${reduceIndex}`} />,
-                curr,
-              ],
-              []
-            )}
-        </li>
-      ))}
+      {details.map((item, index) => {
+        const sanitizedContent = DOMPurify.sanitize(
+          item.replace(/\n/g, '<br />')
+        );
+        return (
+          <li key={index} className={st.detailsListItem}>
+            <span dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+          </li>
+        );
+      })}
     </ol>
   );
 }
