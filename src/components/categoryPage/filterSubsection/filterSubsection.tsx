@@ -35,15 +35,12 @@ function FilterSubsection({ lang, categoryId }: Props) {
     subcategories.length > 0 ? subcategories : null
   ) as Observable<ProductListItemVm[]>;
 
-  // const isEquipmentOrStockCategory =
-  //   categoryId === toKebabCase(BICYCLE_EQUIPMENT) ||
-  //   categoryId === toKebabCase(IN_STOCK);
   return (
     <>
       <div className={st.wrapper}>
         <ShopPageStatus language={lang} vm={filteredVm} />
         {
-          /*isEquipmentOrStockCategory &&*/ <SubcategoryFilter
+          <SubcategoryFilter
             subcategories={subcategories}
             setSubcategories={setSubcategories}
             language={lang}

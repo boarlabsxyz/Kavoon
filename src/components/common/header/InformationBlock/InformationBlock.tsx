@@ -29,7 +29,7 @@ function InformationBlock({ lang }: Props) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const pathWithoutLocale = pathname.substring(4);
+    const pathWithoutLocale = pathname.split('/').slice(2).join('/');
     setCurrentPath(pathWithoutLocale);
   }, [pathname]);
 

@@ -5,7 +5,7 @@
   align-items: center;
   width: 48px;
   height: 48px;
-  color: black;
+  color: var(--main-text-color);
 }
 
 .totalItems {
@@ -29,3 +29,9 @@
   color: var(--white);
   background-color: var(--primary-color);
 }
+
+/* @media (max-width: 1023px) {
+  .cartLink {
+    display: none;
+  }
+} */

@@ -21,9 +21,6 @@ function ShopBlock({ lang }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const pages = [
-    // { target: 'about-us', label: 'MenuItemAboutUs' },
-    // { target: 'blog', label: 'MenuItemBlog' },
-    // { target: 'delivery-and-payment', label: 'DeliveryAndPayment' },
     { target: 'shop/all-products', label: 'AllProducts' },
     { target: 'shop/bicycle-equipment', label: 'BicycleEquipment' },
     { target: 'shop/bag-accessories', label: 'BagAccessories' },
@@ -33,7 +30,7 @@ function ShopBlock({ lang }: Props) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const pathWithoutLocale = pathname.substring(4);
+    const pathWithoutLocale = pathname.split('/').slice(2).join('/');
     setCurrentPath(pathWithoutLocale);
   }, [pathname]);
 
@@ -62,18 +59,15 @@ function ShopBlock({ lang }: Props) {
     <div
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
-      // onClick={toggleDropdown}
+      onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // onMouseOver={toggleDropdown}
-      // role="button"
-      role="menu"
+      role="button"
       tabIndex={0}
       aria-expanded={isShowList}
       aria-haspopup="true"
       onKeyDown={handleKeyDown}
     >
-      {/* <div className={st.hoverContainer}> */}
       <p className={st.title}>{translate('Shop', lang)}</p>
       <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
         {pages.map(({ target, label }) => (
@@ -91,7 +85,6 @@ function ShopBlock({ lang }: Props) {
         ))}
       </ul>
     </div>
-    // </div>
   );
 }
 

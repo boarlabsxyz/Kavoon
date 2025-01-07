@@ -214,7 +214,7 @@ const Language = {
   Durable: 'durable',
   WaterRepellent: 'water repellent',
 
-  AllProducts: 'All goods',
+  AllProducts: 'All products',
   BicycleEquipment: 'Bicycle equipment',
   CityCollection: 'City collection',
   BagAccessories: 'Bag accessories',

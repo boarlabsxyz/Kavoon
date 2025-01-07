@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import ShopBlock from '../shopBlock';
+import ShopBlock from '../shopBlock/shopBlock';
 import InformationBlock from 'src/components/common/header/InformationBlock';
 import CartStatus from '../../cartStatus';
 
