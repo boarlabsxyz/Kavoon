@@ -64,13 +64,21 @@ function ShopBlock({ lang }: Props) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       aria-expanded={isShowList ? true : undefined}
-      aria-haspopup="menu"
+      aria-haspopup="true"
       onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Shop', lang)}</p>
-      <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
+      <ul
+        role="menu"
+        className={isShowList || isMobile ? st.list : st.listDisabled}
+      >
         {pages.map(({ target, label }) => (
-          <li key={target} className={st.item} data-cy={`${target}-link`}>
+          <li
+            key={target}
+            className={st.item}
+            data-cy={`${target}-link`}
+            role="menuitem"
+          >
             <Link
               className={
                 target === currentPath ? `${st.link} ${st.active}` : st.link

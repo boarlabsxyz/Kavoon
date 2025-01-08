@@ -69,9 +69,17 @@ function InformationBlock({ lang }: Props) {
       onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Information', lang)}</p>
-      <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
+      <ul
+        className={isShowList || isMobile ? st.list : st.listDisabled}
+        role="menu"
+      >
         {pages.map(({ target, label }) => (
-          <li key={target} className={st.item} data-cy={`${target}-link`}>
+          <li
+            key={target}
+            className={st.item}
+            data-cy={`${target}-link`}
+            role="menuitem"
+          >
             <Link
               className={
                 target === currentPath ? `${st.link} ${st.active}` : st.link
