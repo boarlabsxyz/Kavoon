@@ -17,28 +17,20 @@ const DeliveryAndPayment: FC<Props> = ({ dictionary }) => {
         <h3>{dictionary.payment}</h3>
         <p>{dictionary.subtitle}</p>
         <p>{dictionary.paymentSecondParagraph}</p>
-        <div className={styles.paymentOptions}>
-          <div className={styles.paymentOption}>
-            <CustomImage
-              src="/img/blog/delivery-and-payment/transfergo-logo.svg"
-              alt="TransferGo logo"
-              width={141}
-              height={40}
-            />
-          </div>
+        <div className={styles.paymentMethods}>
           <div className={styles.paymentOption}>
             <CustomImage
               src="/img/blog/delivery-and-payment/paypal-logo.svg"
               alt="PayPal logo"
-              width={40}
+              width={151}
               height={40}
             />
           </div>
           <div className={styles.paymentOption}>
             <CustomImage
-              src="/img/blog/delivery-and-payment/transferwise-logo.svg"
-              alt="Transferwise logo"
-              width={240}
+              src="/img/blog/delivery-and-payment/payoneer-logo.svg"
+              alt="Payoneer logo"
+              width={206}
               height={40}
             />
           </div>
@@ -47,10 +39,10 @@ const DeliveryAndPayment: FC<Props> = ({ dictionary }) => {
         <p>{dictionary.paymentThirdParagraph}</p>
         <h3>{dictionary.shippingInUkraine}</h3>
         <p>{dictionary.shippingInUkraineParagraph}</p>
-        <div className={`${styles.paymentOptions} ${styles.twoElements}`}>
+        <div className={`${styles.paymentMethods}`}>
           <div className={styles.paymentOption}>
             <CustomImage
-              src="/img/blog/delivery-and-payment/nova-poshta-logo.svg"
+              src="/img/blog/delivery-and-payment/nova-poshta-ua-logo.svg"
               alt="Nova Poshta logo"
               width={103}
               height={40}
@@ -67,17 +59,24 @@ const DeliveryAndPayment: FC<Props> = ({ dictionary }) => {
         </div>
         <h3>{dictionary.shippingAbroad}</h3>
         <p>{dictionary.shippingAbroadFirstParagraph}</p>
-        <div className={styles.paymentOptions}>
+        <div className={styles.paymentMethods}>
           <div className={styles.paymentOption}>
             <CustomImage
-              src="/img/blog/delivery-and-payment/rosan-logo.svg"
-              alt="Rosan logo"
-              width={153}
+              src="/img/blog/delivery-and-payment/nova-poshta-en-logo.svg"
+              alt="Nova Poshta International logo"
+              width={115}
+              height={40}
+            />
+          </div>
+          <div className={styles.paymentOption}>
+            <CustomImage
+              src="/img/blog/delivery-and-payment/ukrposhta-en-logo.svg"
+              alt="Ukrposhta International logo"
+              width={157}
               height={40}
             />
           </div>
         </div>
-        <p>{dictionary.shippingAbroadSecondParagraph}</p>
       </div>
     </section>
   );

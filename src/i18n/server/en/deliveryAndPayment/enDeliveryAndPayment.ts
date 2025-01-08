@@ -2,17 +2,16 @@ const dictionary = {
   title: 'Delivery and payment',
   payment: 'Payment',
   subtitle:
-    'Payment for the order is made to the account of a private entrepreneur. Payment data is provided by our manager during communication in a convenient messenger.',
+    'We work officially, so we accept all payments for orders in Ukraine to the account of an individual entrepreneur. Payment details are provided by our manager during communication in a convenient messenger. The cost of delivery is not included in the order price, so it is paid by the customer upon receipt.',
   paymentSecondParagraph:
-    'Payment for an international order is made through PayPal or TransferGo/TransferWise.',
+    'Payment for international orders is made via PayPal or Payoneer.',
   paymentThirdParagraph:
-    'For international shipments, there is a surcharge for shipping to your country. We calculate this price according to the price of postal companies. Most often, it depends on the address of the recipient and the weight of the order. To find out this price, write to us in the "Support" window and our manager will contact you.',
-  shippingInUkraine: 'Shipping in Ukraine',
+    'For international shipments, there is a surcharge for delivery to your country. We calculate this price according to the price list of postal companies. Most often, it depends on the recipient\'s country and the weight of the order. To find out this price, write to us in the "Support" field and our manager will contact you.',
+  shippingInUkraine: 'Delivery in Ukraine',
   shippingInUkraineParagraph:
-    'When placing each order, our manager communicates with you about delivery. If this is an order from Ukraine, we send it via Nova Poshta or Ukrposhta. The amount of the shipment is paid by the recipient.',
-  shippingAbroad: 'Shipping abroad',
-  shippingAbroadFirstParagraph: `The situation is similar with orders from abroad. Our manager will contact you and find out the recipient's country. We mainly ship with ROSAN. However, if your location is not on the ROSAN service list, then we use the services of Ukrposhta. The parcel can be easily tracked on the map.`,
-  shippingAbroadSecondParagraph: `We can send some orders (for example, Poland) by regular bus at the customer's request.`,
+    'When placing each order, our manager contacts you about the delivery. If it is an order within Ukraine, we send it by Nova Poshta. In Lviv, delivery by pickup or taxi is possible. The cost of delivery is paid by the recipient.',
+  shippingAbroad: 'Sending abroad',
+  shippingAbroadFirstParagraph: `The situation with orders abroad is similar. Our manager contacts you, agrees on the details of the order, and agrees on the terms of execution. At this stage, the shipping cost is calculated depending on the country and agreed with you. This amount is added to the total order amount. For international delivery, we also cooperate with Nova Poshta. And Ukrposhta as an additional delivery method.`,
 };
 
 export default dictionary;
