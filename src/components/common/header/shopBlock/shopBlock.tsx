@@ -67,17 +67,9 @@ function ShopBlock({ lang }: Props) {
       onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Shop', lang)}</p>
-      <ul
-        className={isShowList || isMobile ? st.list : st.listDisabled}
-        role="menu"
-      >
+      <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
         {pages.map(({ target, label }) => (
-          <li
-            key={target}
-            className={st.item}
-            data-cy={`${target}-link`}
-            role="menuitem"
-          >
+          <li key={target} className={st.item} data-cy={`${target}-link`}>
             <Link
               className={
                 target === currentPath ? `${st.link} ${st.active}` : st.link
