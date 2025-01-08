@@ -18,7 +18,7 @@ type Props = {
 function ShopBlock({ lang }: Props) {
   const [currentPath, setCurrentPath] = useState('');
   const [isShowList, setIsShowList] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLButtonElement>(null);
 
   const pages = [
     { target: 'shop/all-products', label: 'AllProducts' },
@@ -56,22 +56,28 @@ function ShopBlock({ lang }: Props) {
   const isMobile = widthScreen <= RespScreenWidth.screenWidthMobile;
 
   return (
-    <div
+    <button
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
       onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      role="button"
-      tabIndex={0}
       aria-expanded={isShowList ? true : undefined}
-      aria-haspopup={isShowList ? true : undefined}
+      aria-haspopup="menu"
       onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Shop', lang)}</p>
-      <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
+      <ul
+        className={isShowList || isMobile ? st.list : st.listDisabled}
+        role="menu"
+      >
         {pages.map(({ target, label }) => (
-          <li key={target} className={st.item} data-cy={`${target}-link`}>
+          <li
+            key={target}
+            className={st.item}
+            data-cy={`${target}-link`}
+            role="menuitem"
+          >
             <Link
               className={
                 target === currentPath ? `${st.link} ${st.active}` : st.link
@@ -84,7 +90,7 @@ function ShopBlock({ lang }: Props) {
           </li>
         ))}
       </ul>
-    </div>
+    </button>
   );
 }
 

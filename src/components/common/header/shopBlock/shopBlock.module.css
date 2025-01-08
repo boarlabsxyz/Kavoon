@@ -4,6 +4,11 @@
   color: var(--primary-color);
 }
 
+.wrapper {
+  border: none;
+  background: none;
+}
+
 @media (min-width: 1024px) {
   .wrapper {
     height: 40px;
