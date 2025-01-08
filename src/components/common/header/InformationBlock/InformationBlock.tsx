@@ -62,24 +62,14 @@ function InformationBlock({ lang }: Props) {
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      role="menu"
-      tabIndex={0}
       aria-expanded={isShowList}
       aria-haspopup="true"
       onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Information', lang)}</p>
-      <ul
-        className={isShowList || isMobile ? st.list : st.listDisabled}
-        role="menu"
-      >
+      <ul className={isShowList || isMobile ? st.list : st.listDisabled}>
         {pages.map(({ target, label }) => (
-          <li
-            key={target}
-            className={st.item}
-            data-cy={`${target}-link`}
-            role="menuitem"
-          >
+          <li key={target} className={st.item} data-cy={`${target}-link`}>
             <Link
               className={
                 target === currentPath ? `${st.link} ${st.active}` : st.link
