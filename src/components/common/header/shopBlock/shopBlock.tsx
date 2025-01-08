@@ -89,26 +89,3 @@ function ShopBlock({ lang }: Props) {
 }
 
 export default ShopBlock;
-
-// import { Language } from 'src/types/language';
-// import DropdownList from '../../dropdownList';
-// import { Messenger, Network } from 'src/types/pickersProps';
-
-// type Props = {
-//   lang: Language;
-//   readonly optionsList: ReadonlyArray<Messenger | Network>;
-//   readonly handleSelect: (item: Messenger | Network) => void;
-//   readonly pickedItem: Messenger | Network;
-// };
-
-// function shopBlock({ lang, optionsList, handleSelect, pickedItem }: Props) {
-//   return (
-//     <DropdownList
-//       optionsList={optionsList}
-//       handleSelect={handleSelect}
-//       pickedItem={pickedItem}
-//     />
-//   );
-// }
-
-// export default shopBlock;
