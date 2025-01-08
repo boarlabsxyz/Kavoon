@@ -62,10 +62,10 @@ function ShopBlock({ lang }: Props) {
       onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      role="button"
+      role="menu"
       tabIndex={0}
-      aria-expanded={isShowList}
-      aria-haspopup="true"
+      aria-expanded={isShowList ? true : undefined}
+      aria-haspopup={isShowList ? true : undefined}
       onKeyDown={handleKeyDown}
     >
       <p className={st.title}>{translate('Shop', lang)}</p>

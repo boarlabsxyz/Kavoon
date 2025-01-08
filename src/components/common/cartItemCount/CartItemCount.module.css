@@ -29,9 +29,3 @@
   color: var(--white);
   background-color: var(--primary-color);
 }
-
-/* @media (max-width: 1023px) {
-  .cartLink {
-    display: none;
-  }
-} */
