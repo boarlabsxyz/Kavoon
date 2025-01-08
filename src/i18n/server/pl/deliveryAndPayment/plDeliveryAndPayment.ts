@@ -1,18 +1,17 @@
 const dictionary = {
-  title: 'Wysyłka i Zapłata',
-  payment: 'Zapłata',
+  title: 'Wysyłka i Płatność',
+  payment: 'Płatność',
   subtitle:
-    'Płatność za zamówienie dokonywana jest na konto JDG. Dane do płatności podaje nasz manager podczas komunikacji w wygodnym komunikatorze.',
+    'Pracujemy oficjalnie, dlatego wszystkie płatności za zamówienia w Ukrainie przyjmujemy na konto osoby prowadzącej jednoosobową działalność gospodarczą. Szczegóły płatności są podawane przez naszego menedżera podczas komunikacji w wygodnym komunikatorze. Koszt dostawy nie jest wliczony w cenę zamówienia, więc jest opłacany przez klienta przy odbiorze.',
   paymentSecondParagraph:
-    'Płatność za zamówienie międzynarodowe odbywa się za pośrednictwem PayPal lub TransferGo/TransferWise.',
+    'Zamówienia międzynarodowe są opłacane za pośrednictwem PayPal lub Payoneer.',
   paymentThirdParagraph:
-    'W przypadku przesyłek międzynarodowych istnieje dodatkowa opłata za wysyłkę do Twojego kraju. Cenę tę obliczamy według cen firm pocztowych. Najczęściej jest to uzależnione od adresu odbiorcy oraz wagi zamówienia. Aby poznać tę cenę, napisz do nas w oknie „Pomóc”, a nasz menedżer skontaktuje się z Tobą.',
-  shippingInUkraine: 'Wysyłka na Ukrainie',
+    'W przypadku przesyłek międzynarodowych naliczana jest dodatkowa opłata za dostawę do kraju klienta. Obliczamy tę cenę zgodnie z cennikiem firm pocztowych. Zwykle zależy ona od kraju odbiorcy i wagi zamówienia. Aby poznać tę cenę, napisz do nas w polu „Wsparcie”, a nasz menedżer skontaktuje się z Tobą.',
+  shippingInUkraine: 'Dostawa na Ukrainę',
   shippingInUkraineParagraph:
-    'Podczas składania każdego zamówienia nasz menedżer komunikuje się z Tobą w sprawie dostawy. Jeśli jest to zamówienie z Ukrainy, wysyłamy je za pośrednictwem Nova Poshta lub Ukrposhta. Kwotę przesyłki płaci odbiorca.',
+    'Podczas składania każdego zamówienia nasz menedżer skontaktuje się z Tobą w sprawie dostawy. Jeśli jest to zamówienie wewnętrzne, wysyłamy je przez Nova Poshta. We Lwowie możliwy jest odbiór lub dostawa taksówką. Koszt dostawy pokrywa odbiorca.',
   shippingAbroad: 'Wysyłka za granicę',
-  shippingAbroadFirstParagraph: `Podobnie sytuacja wygląda w przypadku zamówień z zagranicy. Nasz menedżer skontaktuje się z Tobą i ustali kraj odbiorcy. Wysyłamy głównie z ROSAN. Jeśli jednak Twoja lokalizacja nie znajduje się na liście usług ROSAN, wówczas korzystamy z usług Ukrposhta. Samą paczkę można łatwo śledzić na mapie.`,
-  shippingAbroadSecondParagraph: `Na życzenie klienta możemy wysłać niektóre zamówienia (np. Polska) zwykłym autobusem.`,
+  shippingAbroadFirstParagraph: `Sytuacja z zamówieniami z zagranicy jest podobna. Nasz menedżer kontaktuje się z Tobą, wyjaśnia szczegóły zamówienia i uzgadnia czas dostawy. Na tym etapie obliczamy koszt dostawy w zależności od kraju i uzgadniamy go z Tobą. Kwota ta jest dodawana do całkowitej kwoty zamówienia. W przypadku dostaw międzynarodowych współpracujemy głównie z Nova Poshta, a Ukrposhta służy jako dodatkowa opcja dostawy.`,
 };
 
 export default dictionary;
