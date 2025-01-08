@@ -11,7 +11,7 @@ const dictionary = {
   shippingInUkraineParagraph:
     'Podczas składania każdego zamówienia nasz menedżer skontaktuje się z Tobą w sprawie dostawy. Jeśli jest to zamówienie wewnętrzne, wysyłamy je przez Nova Poshta. We Lwowie możliwy jest odbiór lub dostawa taksówką. Koszt dostawy pokrywa odbiorca.',
   shippingAbroad: 'Wysyłka za granicę',
-  shippingAbroadFirstParagraph: `Sytuacja z zamówieniami z zagranicy jest podobna. Nasz menedżer kontaktuje się z Tobą, wyjaśnia szczegóły zamówienia i uzgadnia czas dostawy. Na tym etapie obliczamy koszt dostawy w zależności od kraju i uzgadniamy go z Tobą. Kwota ta jest dodawana do całkowitej kwoty zamówienia. W przypadku dostaw międzynarodowych współpracujemy również z Nova Poshta i Ukrposhta jako dodatkową metodą dostawy.`,
+  shippingAbroadFirstParagraph: `Sytuacja z zamówieniami z zagranicy jest podobna. Nasz menedżer kontaktuje się z Tobą, wyjaśnia szczegóły zamówienia i uzgadnia czas dostawy. Na tym etapie obliczamy koszt dostawy w zależności od kraju i uzgadniamy go z Tobą. Kwota ta jest dodawana do całkowitej kwoty zamówienia. W przypadku dostaw międzynarodowych współpracujemy głównie z Nova Poshta, a Ukrposhta służy jako dodatkowa opcja dostawy.`,
 };
 
 export default dictionary;

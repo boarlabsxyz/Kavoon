@@ -11,7 +11,7 @@ const dictionary = {
   shippingInUkraineParagraph:
     'When placing each order, our manager contacts you about the delivery. If it is an order within Ukraine, we send it by Nova Poshta. In Lviv, delivery by pickup or taxi is possible. The cost of delivery is paid by the recipient.',
   shippingAbroad: 'Sending abroad',
-  shippingAbroadFirstParagraph: `The situation with orders abroad is similar. Our manager contacts you, agrees on the details of the order, and agrees on the terms of execution. At this stage, the shipping cost is calculated depending on the country and agreed with you. This amount is added to the total order amount. For international delivery, we also cooperate with Nova Poshta. And Ukrposhta as an additional delivery method.`,
+  shippingAbroadFirstParagraph: `The situation with orders abroad is similar. Our manager contacts you, agrees on the details of the order, and agrees on the terms of execution. At this stage, the shipping cost is calculated depending on the country and agreed with you. This amount is added to the total order amount. For international delivery, we primarily work with Nova Poshta, while Ukrposhta serves as an additional delivery option.`,
 };
 
 export default dictionary;
