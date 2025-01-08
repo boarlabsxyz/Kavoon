@@ -62,7 +62,7 @@ function ShopBlock({ lang }: Props) {
       onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      role="menu"
+      role="button"
       tabIndex={0}
       aria-expanded={isShowList ? true : undefined}
       aria-haspopup={isShowList ? true : undefined}
