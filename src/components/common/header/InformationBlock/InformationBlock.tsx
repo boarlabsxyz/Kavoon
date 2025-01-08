@@ -5,11 +5,16 @@ import { usePathname } from 'next/navigation';
 
 import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
-import useWindowWidth from 'src/hooks/useWindowWidth';
 import RespScreenWidth from 'src/data/mediaConst';
 
-import st from './InformationBlock.module.css';
+import { getPathWithoutLocale } from 'src/helpers/getPathWithoutLocale';
+
+import useDropdownHover from 'src/hooks/useDropdownHover';
+import useHandleKeyDown from 'src/hooks/useHandleKeyDown';
 import useOutsideClick from 'src/hooks/useOutsideClick';
+import useWindowWidth from 'src/hooks/useWindowWidth';
+
+import st from './InformationBlock.module.css';
 
 type Props = {
   lang: Language;
@@ -18,7 +23,7 @@ type Props = {
 function InformationBlock({ lang }: Props) {
   const [currentPath, setCurrentPath] = useState('');
   const [isShowList, setIsShowList] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLButtonElement>(null);
 
   const pages = [
     { target: 'about-us', label: 'MenuItemAboutUs' },
@@ -29,7 +34,7 @@ function InformationBlock({ lang }: Props) {
   const pathname = usePathname();
 
   useEffect(() => {
-    const pathWithoutLocale = pathname.split('/').slice(2).join('/');
+    const pathWithoutLocale = getPathWithoutLocale(pathname);
     setCurrentPath(pathWithoutLocale);
   }, [pathname]);
 
@@ -39,23 +44,20 @@ function InformationBlock({ lang }: Props) {
     setIsShowList((prev) => !prev);
   };
 
-  const handleMouseEnter = () => setIsShowList(true);
-  const handleMouseLeave = () => setIsShowList(false);
+  const handleKeyDown = useHandleKeyDown(
+    toggleDropdown,
+    setIsShowList,
+    isShowList
+  );
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      toggleDropdown();
-    } else if (event.key === 'Escape' && isShowList) {
-      setIsShowList(false);
-    }
-  };
+  const { handleMouseEnter, handleMouseLeave } =
+    useDropdownHover(setIsShowList);
 
   const widthScreen = useWindowWidth();
   const isMobile = widthScreen <= RespScreenWidth.screenWidthMobile;
 
   return (
-    <div
+    <button
       ref={wrapperRef}
       className={`${st.wrapper} ${isShowList ? st.open : ''}`}
       onMouseEnter={handleMouseEnter}
@@ -82,7 +84,7 @@ function InformationBlock({ lang }: Props) {
           </li>
         ))}
       </ul>
-    </div>
+    </button>
   );
 }
 

@@ -10,6 +10,8 @@ import CartStatus from '../../cartStatus';
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 
+import { getPathWithoutLocale } from 'src/helpers/getPathWithoutLocale';
+
 import styles from 'src/components/common/header/Navigation/Navigation.module.css';
 
 type NavMainProps = {
@@ -20,7 +22,7 @@ const pages = [{ target: '', label: 'Home' }];
 
 function NavMain({ language }: NavMainProps) {
   const pathname = usePathname();
-  const pathWithoutLocale = pathname.substring(4);
+  const pathWithoutLocale = getPathWithoutLocale(pathname);
   const pathSegments = pathWithoutLocale.split('/');
 
   return (
