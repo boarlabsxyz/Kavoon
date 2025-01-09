@@ -1,6 +1,8 @@
 import { Language } from 'src/types/language';
 import DropdownListForHeaderNav from '../../dropdownListForHeaderNav/dropdownListForHeaderNav';
 
+import st from './informationBlock.module.css';
+
 type Props = {
   lang: Language;
 };
@@ -13,7 +15,9 @@ const pages = [
 
 function InformationBlock({ lang }: Props) {
   return (
-    <DropdownListForHeaderNav pages={pages} lang={lang} title="Information" />
+    <div className={st.wrapper}>
+      <DropdownListForHeaderNav pages={pages} lang={lang} title="Information" />
+    </div>
   );
 }
 

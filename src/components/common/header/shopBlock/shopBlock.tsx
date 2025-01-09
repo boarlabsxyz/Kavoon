@@ -1,6 +1,8 @@
 import { Language } from 'src/types/language';
 import DropdownListForHeaderNav from '../../dropdownListForHeaderNav/dropdownListForHeaderNav';
 
+import st from './shopBlock.module.css';
+
 type Props = {
   lang: Language;
 };
@@ -10,10 +12,15 @@ const pages = [
   { target: 'shop/bicycle-equipment', label: 'BicycleEquipment' },
   { target: 'shop/bag-accessories', label: 'BagAccessories' },
   { target: 'shop/city-collection', label: 'CityCollection' },
+  { target: 'shop/in-stock', label: 'InStock' },
 ];
 
 function ShopBlock({ lang }: Props) {
-  return <DropdownListForHeaderNav pages={pages} lang={lang} title="Shop" />;
+  return (
+    <div className={st.wrapper}>
+      <DropdownListForHeaderNav pages={pages} lang={lang} title="Shop" />
+    </div>
+  );
 }
 
 export default ShopBlock;

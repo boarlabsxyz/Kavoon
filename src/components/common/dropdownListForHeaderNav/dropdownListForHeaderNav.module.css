@@ -59,7 +59,7 @@
 
   .wrapper.open .list {
     opacity: 1;
-    height: auto;
+    height: var(--child-height);
     animation: height 300ms alternate ease-in-out;
   }
 
@@ -80,7 +80,7 @@
       height: 0;
     }
     to {
-      height: auto;
+      height: var(--child-height);
     }
   }
 
