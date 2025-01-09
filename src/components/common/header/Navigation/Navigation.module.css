@@ -167,7 +167,6 @@
 
   .cartStatus {
     display: flex;
-    margin-top: 24px;
     opacity: 0;
     visibility: hidden;
     transition: 1s;

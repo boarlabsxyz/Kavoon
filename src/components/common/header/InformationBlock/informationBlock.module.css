@@ -1,3 +1,5 @@
 .wrapper {
   --child-height: 125px;
+  --mobile-padding: 0;
+  --mobile-margin-bottom: 0;
 }

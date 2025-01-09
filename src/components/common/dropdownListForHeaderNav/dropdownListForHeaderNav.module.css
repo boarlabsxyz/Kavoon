@@ -122,7 +122,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
-    margin-bottom: 70px;
+    margin-bottom: var(--mobile-margin-bottom);
   }
 
   .title {
@@ -138,11 +138,11 @@
     height: 125px;
     opacity: 1;
     transition: 3s;
-    padding-left: 20px;
+    padding: var(--mobile-padding);
   }
 
   .item {
-    padding: 7px;
+    padding: 7px 0;
   }
 
   .item:hover {

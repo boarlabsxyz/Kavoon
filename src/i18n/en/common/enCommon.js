@@ -108,7 +108,7 @@ const Language = {
   OrderSent: 'Your order has been sent!\nWe will contact you soon',
   AddedToComplect: 'Added to the kit',
   AddToComplect: 'Add to the kit',
-  ProductsShown1: 'The',
+  ProductsShown1: ' ',
   ProductsShown2: 'products are shown',
   Cart: 'Shopping bag',
   ProductName: 'Product name',
