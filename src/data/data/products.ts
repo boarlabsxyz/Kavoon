@@ -36,6 +36,7 @@ const bikeWallet = () => ({
   category: BAG_ACCESSORIES,
   subcategory: null,
   productKit: null,
+  createdAt: '2023-04-10',
 });
 
 const organizer = () => ({
@@ -60,6 +61,7 @@ const organizer = () => ({
   category: BAG_ACCESSORIES,
   subcategory: null,
   productKit: null,
+  createdAt: '2023-04-24',
 });
 
 const backpackForCity = () => ({
@@ -85,6 +87,7 @@ const backpackForCity = () => ({
   category: CITY_COLLECTION,
   subcategory: null,
   productKit: null,
+  createdAt: '2022-09-22',
 });
 
 const hamster = () => ({
@@ -118,6 +121,7 @@ const hamster = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: null,
+  createdAt: '2022-06-13',
 });
 
 const barrelBagWithoutValve = () => ({
@@ -151,6 +155,7 @@ const barrelBagWithoutValve = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2022-06-13',
 });
 
 const seatBag3L = () => ({
@@ -184,6 +189,7 @@ const seatBag3L = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.SeatBags,
   productKit: null,
+  createdAt: '2022-06-13',
 });
 
 const halfFrameBag = () => ({
@@ -223,6 +229,7 @@ const halfFrameBag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
   productKit: null,
+  createdAt: '2022-06-13',
 });
 
 const triangularBicycleFirstAidKitFrame = () => ({
@@ -256,6 +263,7 @@ const triangularBicycleFirstAidKitFrame = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
   productKit: null,
+  createdAt: '2020-07-30',
 });
 
 const smallBagTubeOnBar = () => ({
@@ -289,6 +297,7 @@ const smallBagTubeOnBar = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2020-08-14',
 });
 
 const bananaOnBar = () => ({
@@ -322,6 +331,7 @@ const bananaOnBar = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2020-08-14',
 });
 
 const seatBag5L = () => ({
@@ -355,6 +365,7 @@ const seatBag5L = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.SeatBags,
   productKit: null,
+  createdAt: '2022-02-17',
 });
 
 const innerFrameBag = () => ({
@@ -388,6 +399,7 @@ const innerFrameBag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
   productKit: null,
+  createdAt: '2020-07-09',
 });
 
 const barrelBagWithValve = () => ({
@@ -421,6 +433,7 @@ const barrelBagWithValve = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2021-11-10',
 });
 
 const fuelBag = () => ({
@@ -456,6 +469,7 @@ const fuelBag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
   productKit: null,
+  createdAt: '2021-11-10',
 });
 
 const ovalBarrelbag = () => ({
@@ -489,6 +503,7 @@ const ovalBarrelbag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2022-02-19',
 });
 
 const smallToolSeatbag = () => ({
@@ -513,6 +528,7 @@ const smallToolSeatbag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.SeatBags,
   productKit: null,
+  createdAt: '2022-10-13',
 });
 
 const barrelBagMini = () => ({
@@ -546,6 +562,7 @@ const barrelBagMini = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2023-02-15',
 });
 
 const tacticalStembag = () => ({
@@ -579,6 +596,7 @@ const tacticalStembag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: null,
+  createdAt: '2023-07-04',
 });
 
 const loopHandlebarBag = () => ({
@@ -603,6 +621,7 @@ const loopHandlebarBag = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: null,
+  createdAt: '2023-07-04',
 });
 
 const barrelbagWithVelcro = () => ({
@@ -636,6 +655,7 @@ const barrelbagWithVelcro = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2023-07-05',
 });
 
 const phonePouch = () => ({
@@ -660,6 +680,7 @@ const phonePouch = () => ({
   category: BAG_ACCESSORIES,
   subcategory: null,
   productKit: null,
+  createdAt: '2023-07-25',
 });
 
 const universalBagForCity = () => ({
@@ -684,6 +705,7 @@ const universalBagForCity = () => ({
   category: CITY_COLLECTION,
   subcategory: null,
   productKit: null,
+  createdAt: '2023-08-09',
 });
 
 const handlebarMount = () => ({
@@ -705,6 +727,7 @@ const handlebarMount = () => ({
   category: BICYCLE_EQUIPMENT,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts,
   productKit: null,
+  createdAt: '2023-12-22',
 });
 
 // const hamsterXpacWithoutPockets = () => ({
@@ -732,6 +755,7 @@ const handlebarMount = () => ({
 //   category: IN_STOCK,
 //   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
 //   productKit: null,
+//   createdAt: '2024-07-11',
 // });
 
 const hamsterCorduraNavyBlueFoxes = () => ({
@@ -759,6 +783,7 @@ const hamsterCorduraNavyBlueFoxes = () => ({
   category: IN_STOCK,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: null,
+  createdAt: '2024-07-11',
 });
 
 const hamsterCorduraBlackEmbroidery = () => ({
@@ -786,6 +811,7 @@ const hamsterCorduraBlackEmbroidery = () => ({
   category: IN_STOCK,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: null,
+  createdAt: '2024-07-11',
 });
 
 const halfFrameBagXpacOrange = () => ({
@@ -813,6 +839,7 @@ const halfFrameBagXpacOrange = () => ({
   category: IN_STOCK,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
   productKit: null,
+  createdAt: '2024-07-11',
 });
 
 const halfFrameBagXpacYellowBlue = () => ({
@@ -840,6 +867,7 @@ const halfFrameBagXpacYellowBlue = () => ({
   category: IN_STOCK,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
   productKit: null,
+  createdAt: '2024-07-11',
 });
 
 // const barrelBagWithEmbroideryBlue = () => ({
@@ -867,6 +895,7 @@ const halfFrameBagXpacYellowBlue = () => ({
 //   category: IN_STOCK,
 //   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
 //   productKit: PRODUCT_KIT,
+// createdAt: '2024-07-11',
 // });
 
 const barrelBagWithEmbroideryYellow = () => ({
@@ -894,6 +923,7 @@ const barrelBagWithEmbroideryYellow = () => ({
   category: IN_STOCK,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
   productKit: PRODUCT_KIT,
+  createdAt: '2024-07-11',
 });
 
 const Products: () => Product[] = () => [
