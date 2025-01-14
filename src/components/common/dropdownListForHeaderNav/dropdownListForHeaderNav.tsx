@@ -62,7 +62,7 @@ const DropdownListForHeaderNav: React.FC<DropdownListProps> = ({
       onClick={toggleDropdown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      aria-expanded={isShowList ? true : undefined}
+      aria-expanded={isShowList}
       aria-haspopup="true"
       onKeyDown={handleKeyDown}
     >
