@@ -16,6 +16,7 @@ interface IProductListItemVM {
   category: Category;
   subcategory: Subcategory;
   price: Price;
+  createdAt: string;
 }
 
 export default class ProductListItemVM {
@@ -45,6 +46,8 @@ export default class ProductListItemVM {
 
   hasTopBadge: boolean;
 
+  createdAt: string;
+
   constructor({
     name,
     mainPropertyName,
@@ -54,6 +57,7 @@ export default class ProductListItemVM {
     category,
     subcategory,
     price,
+    createdAt,
   }: IProductListItemVM) {
     this.id = id;
     this.name = name;
@@ -68,7 +72,7 @@ export default class ProductListItemVM {
     this.category = category;
     this.subcategory = subcategory;
     this.hasTopBadge = productIDCollectionForTopSalesBadge.includes(id);
-
+    this.createdAt = createdAt;
     if (ProductListItemVM.isFabricPrice(price)) {
       this.setFabricPrice(price);
     } else {

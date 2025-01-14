@@ -51,6 +51,7 @@ function FilterSubsection({ lang, categoryId }: Props) {
             language={lang}
           />
         )}
+        <div className="">Sort</div>
       </div>
 
       <CheckedSubcategories
