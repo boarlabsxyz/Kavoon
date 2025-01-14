@@ -13,7 +13,6 @@ type Props = {
 function CartStatus({ language }: Props) {
   return (
     <div className={st.wrapper}>
-      <span className={st.addedText}>{lang('AddedProducts2', language)}</span>
       <CartItemCount vm={new CartStatusVM()} language={language} />
     </div>
   );

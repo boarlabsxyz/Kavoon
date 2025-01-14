@@ -51,15 +51,12 @@
 }
 
 .cartStatus {
-  display: none;
+  display: flex;
   align-items: center;
 }
 
 .cartStatusText {
-  margin-right: 16px;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 0.89px;
+  display: none;
 }
 
 @media (max-width: 1259px) {
@@ -91,6 +88,14 @@
     justify-content: flex-end;
     justify-content: center;
     gap: 80px;
+  }
+
+  .cartStatusText {
+    display: inline;
+    margin-right: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.89px;
   }
 
   .mobileMenuButton {
@@ -162,7 +167,6 @@
 
   .cartStatus {
     display: flex;
-    margin-bottom: 32px;
     opacity: 0;
     visibility: hidden;
     transition: 1s;

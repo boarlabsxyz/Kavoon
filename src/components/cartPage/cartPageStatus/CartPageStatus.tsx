@@ -18,7 +18,6 @@ function CartPageStatus({ language }: Props) {
   return (
     <div className={st.wrapper}>
       <BreadcrumbsNav vm={vm.breadcrumbsNavVM} language={language} />
-      <CartStatus language={language} />
     </div>
   );
 }
