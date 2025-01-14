@@ -3,12 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import ShopBlock from '../shopBlock';
+import ShopBlock from '../shopBlock/shopBlock';
 import InformationBlock from 'src/components/common/header/InformationBlock';
 import CartStatus from '../../cartStatus';
 
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
+
+import { getPathWithoutLocale } from 'src/helpers/getPathWithoutLocale';
 
 import styles from 'src/components/common/header/Navigation/Navigation.module.css';
 
@@ -20,7 +22,7 @@ const pages = [{ target: '', label: 'Home' }];
 
 function NavMain({ language }: NavMainProps) {
   const pathname = usePathname();
-  const pathWithoutLocale = pathname.substring(4);
+  const pathWithoutLocale = getPathWithoutLocale(pathname);
   const pathSegments = pathWithoutLocale.split('/');
 
   return (
@@ -49,7 +51,12 @@ function NavMain({ language }: NavMainProps) {
       </ul>
       <ShopBlock lang={language} />
       <InformationBlock lang={language} />
-      <CartStatus language={language} />
+      <div className={styles.cartStatus}>
+        <span className={styles.cartStatusText}>
+          {lang('AddedProducts2', language)}
+        </span>
+        <CartStatus language={language} />
+      </div>
     </nav>
   );
 }

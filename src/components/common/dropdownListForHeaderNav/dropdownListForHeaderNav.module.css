@@ -4,6 +4,11 @@
   color: var(--primary-color);
 }
 
+.wrapper {
+  border: none;
+  background: none;
+}
+
 @media (min-width: 1024px) {
   .wrapper {
     height: 40px;
@@ -14,7 +19,6 @@
     font-weight: 500;
     line-height: 1.2;
     position: relative;
-    padding-right: 24px;
     cursor: pointer;
     z-index: 2;
   }
@@ -29,6 +33,7 @@
 
   .title {
     position: relative;
+    user-select: none;
   }
 
   .wrapper .list:hover ~ .title,
@@ -42,7 +47,7 @@
     flex-direction: column;
     width: 190px;
     top: 36px;
-    left: -34px;
+    left: -60px;
     position: absolute;
     opacity: 0;
     height: 0;
@@ -54,7 +59,7 @@
 
   .wrapper.open .list {
     opacity: 1;
-    height: 125px;
+    height: var(--child-height);
     animation: height 300ms alternate ease-in-out;
   }
 
@@ -75,7 +80,7 @@
       height: 0;
     }
     to {
-      height: 125px;
+      height: var(--child-height);
     }
   }
 
@@ -117,6 +122,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 1.2;
+    margin-bottom: var(--mobile-margin-bottom);
   }
 
   .title {
@@ -124,13 +130,19 @@
   }
 
   .list {
-    gap: 32px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     height: 125px;
     opacity: 1;
-    transition: 3000ms;
+    transition: 3s;
+    padding: var(--mobile-padding);
+  }
+
+  .item {
+    padding: 7px 0;
   }
 
   .item:hover {
