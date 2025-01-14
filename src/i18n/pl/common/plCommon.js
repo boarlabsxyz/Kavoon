@@ -194,9 +194,8 @@ const Language = {
 
   DeliveryAndPayment: 'Wysyłka i zapłata',
 
-  PlacingOrder: 'Jak zamówić?',
-  PlacingOrderDetails:
-    'Sprawdź dostępne opcje tkanin, kolorów, nadruków\nWybierz połączenie kolorów i nadruków do torby\nDodaj produkt do koszyka i zamów\nPo złóżeniu zamówienia, nasz menedżer skontaktuje się z Tobą w celu wyjaśnienia szczegółów zamówienia i pomoże Ci wybrać metodę płatności i dostawy\nPodczas rozmowy uzgodnimy wszystkie detale projektu torby (lokalizacja wybranych kolorów, nadruków itp.)\nGotowe! W razie wątpliwości, służymy pomocą',
+  PlacingOrder: 'Jak złożyć zamówienie?',
+  PlacingOrderDetails: `Przejrzyj dostępne opcje tkanin, kolorów, nadruków\nMożesz wybrać kolor i dodać nadruk do swojej torby. Jeśli chcesz połączyć kilka kolorów, wybierz jeden główny kolor i określ dodatkowy kolor w sekcji komentarzy do zamówienia <br /><b>*należy pamiętać, że czasami, z różnych powodów, niektóre kolory i nadruki mogą być niedostępne. Nasz menedżer skontaktuje się z Tobą po złożeniu zamówienia, poinformuje Cię o tym i zaproponuje rozwiązanie. Dziękujemy za zrozumienie</b>\nDodać produkt do koszyka i opłacić zamówienie. Jeśli nie jesteś pewien swojego wyboru, możesz napisać do działu wsparcia. Zawsze chętnie pomożemy i polecimy najlepsze kombinacje tkanin\nPo złożeniu zamówienia nasz menedżer skontaktuje się z Tobą, aby wyjaśnić szczegóły zamówienia, dowiedzieć się o warunkach dostawy i podać szczegóły płatności\nPodczas rozmowy z menedżerem będziesz mógł szczegółowo omówić model swojej torby (rozmieszczenie wybranych kolorów, nadruków itp.)\nGotowe! W razie jakichkolwiek wątpliwości chętnie pomożemy`,
   PlacingOrderInStockDetails:
     'Dodaj produkt do koszyka i zamów\nPo złóżeniu zamówienia, nasz menedżer skontaktuje się z Tobą w celu wyjaśnienia szczegółów zamówienia i pomoże Ci wybrać metodę płatności i dostawy\nGotowe! W razie wątpliwości, służymy pomocą',
   PlacingOrderForMounts:

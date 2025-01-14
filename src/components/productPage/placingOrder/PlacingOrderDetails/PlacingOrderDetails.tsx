@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import DOMPurify from 'isomorphic-dompurify';
 
 import st from './PlacingOrderDetails.module.css';
 
@@ -11,11 +11,16 @@ function PlacingOrderDetails({ text }: Props) {
 
   return (
     <ol className={st.detailsList}>
-      {details.map((item) => (
-        <li key={uuidv4()} className={st.detailsListItem}>
-          {item}
-        </li>
-      ))}
+      {details.map((item, index) => {
+        const sanitizedContent = DOMPurify.sanitize(
+          item.replace(/\n/g, '<br />')
+        );
+        return (
+          <li key={index} className={st.detailsListItem}>
+            <span dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+          </li>
+        );
+      })}
     </ol>
   );
 }
