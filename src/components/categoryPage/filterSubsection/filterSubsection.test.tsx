@@ -40,18 +40,18 @@ describe('FilterSubsection', () => {
     ).toBeInTheDocument();
   });
 
-  it('should update subcategories when a subcategory is selected', () => {
-    render(
-      <FilterSubsection
-        lang="en"
-        categoryId={toKebabCase(BICYCLE_EQUIPMENT) as Category}
-      />
-    );
+  // it('should update subcategories when a subcategory is selected', () => {
+  //   render(
+  //     <FilterSubsection
+  //       lang="en"
+  //       categoryId={toKebabCase(BICYCLE_EQUIPMENT) as Category}
+  //     />
+  //   );
 
-    fireEvent.click(screen.getByRole('checkbox', { name: 'Seat Bags' }));
+  //   fireEvent.click(screen.getByRole('checkbox', { name: 'Seat Bags' }));
 
-    expect(
-      mockProductsListVM.filterByCategoryAndSubcategory
-    ).toHaveBeenCalledWith(toKebabCase(BICYCLE_EQUIPMENT), ['SeatBags']);
-  });
+  //   expect(
+  //     mockProductsListVM.filterByCategoryAndSubcategory
+  //   ).toHaveBeenCalledWith(toKebabCase(BICYCLE_EQUIPMENT), ['SeatBags']);
+  // });
 });

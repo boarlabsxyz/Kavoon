@@ -22,6 +22,9 @@ import { Language } from 'src/types/language';
 import toKebabCase from 'src/helpers/toKebabCase';
 
 import st from './filterSubsection.module.css';
+import ProductsSorting from '../productsSorting';
+import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
+import { getSortingOptions } from 'src/helpers/getSortingOptions';
 
 type Props = {
   categoryId: Category;
@@ -30,10 +33,25 @@ type Props = {
 
 function FilterSubsection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
+  const [selectedOption, setSelectedOption] = useState<string>(
+    getSortingOptions(lang).at(0).label
+  );
+
+  const handleSortChange = (option: string) => {
+    setSelectedOption(option);
+  };
+
+  const [sortField, sortDirection] = selectedOption.split('-') as [
+    keyof ProductListItemVM,
+    'asc' | 'desc',
+  ];
+
   const vm = vmFactory();
   const filteredVm = vm.productsListVM.filterByCategoryAndSubcategory(
     categoryId,
-    subcategories.length > 0 ? subcategories : null
+    subcategories.length > 0 ? subcategories : null,
+    sortField,
+    sortDirection
   ) as Observable<ProductListItemVm[]>;
 
   const isFilterApplicableForCategory =
@@ -51,7 +69,7 @@ function FilterSubsection({ lang, categoryId }: Props) {
             language={lang}
           />
         )}
-        <div className="">Sort</div>
+        <ProductsSorting handleSortChange={handleSortChange} language={lang} />
       </div>
 
       <CheckedSubcategories

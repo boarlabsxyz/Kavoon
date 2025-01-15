@@ -4,8 +4,13 @@ import { map } from 'rxjs/operators';
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
 import toKebabCase from 'src/helpers/toKebabCase';
 import { Category, Subcategory } from 'src/data/constants';
+import sortProducts from 'src/helpers/sortProducts';
 
-const filterShopVM = ({ productVMs: productList }) => {
+const filterShopVM = ({
+  productVMs: productList,
+}: {
+  productVMs: ProductListItemVM[];
+}) => {
   const productData: Observable<ProductListItemVM[]> = of(productList);
 
   const filterByCategory = (filterValue: Category) => {
@@ -20,7 +25,9 @@ const filterShopVM = ({ productVMs: productList }) => {
 
   const filterByCategoryAndSubcategory = (
     categoryValue: Category,
-    subcategories: Subcategory[] | null
+    subcategories: Subcategory[] | null,
+    sortField: keyof ProductListItemVM = 'hasTopBadge',
+    sortDirection: 'asc' | 'desc' = 'desc'
   ) =>
     combineLatest([of(categoryValue), productData]).pipe(
       switchMap(([category, products]) =>
@@ -40,14 +47,17 @@ const filterShopVM = ({ productVMs: productList }) => {
                   subcategories.includes(bag.subcategory)
                 )
               : filteredByCategory
+          ),
+          map((filteredAndSubcategories) =>
+            sortProducts(filteredAndSubcategories, sortField, sortDirection)
           )
         )
       )
     );
 
-  const filterAndLimitByCategory = (filterValue: Category) =>
+  const filterAndLimitByCategory = (filterValue: Category, limit = 4) =>
     filterByCategory(filterValue).pipe(
-      map((filteredProducts) => filteredProducts.slice(0, 4))
+      map((filteredProducts) => filteredProducts.slice(0, limit))
     );
 
   return {

@@ -4,6 +4,7 @@
   align-items: center;
   margin-bottom: 24px;
   user-select: none;
+  font-weight: 500;
 }
 
 @media (max-width: 1023px) {
