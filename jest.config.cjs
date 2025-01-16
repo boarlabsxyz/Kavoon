@@ -14,7 +14,12 @@ const customJestConfig = {
     '!**/layout.tsx',
     '!node_modules/**',
     '!.next/**',
+    '!.vercel/**',
+    '!coverage/**',
+    '!cypress/**',
     '!**/*.d.ts',
+    '!**/index.{ts,tsx,js,jsx}',
+    '!**/*.config.ts',
   ],
 
   coverageThreshold: {

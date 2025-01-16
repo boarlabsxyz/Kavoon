@@ -1,57 +1,81 @@
-import React from 'react';
-import { of } from 'rxjs';
-
-import { render, screen, fireEvent } from '@testing-library/react';
-
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import FilterSubsection from './filterSubsection';
+import { Language } from 'src/types/language';
+import { Category } from 'src/data/constants';
+import { of } from 'rxjs';
 import vmFactory from 'src/data/viewModels/shopListVM';
-import { BICYCLE_EQUIPMENT, Category } from 'src/data/constants';
 import translate from 'src/i18n/lang';
-import toKebabCase from 'src/helpers/toKebabCase';
 
-jest.mock('src/data/viewModels/shopListVM');
+jest.mock('src/data/viewModels/shopListVM', () => jest.fn());
+jest.mock('src/helpers/getSortingOptions', () => ({
+  getSortingOptions: jest.fn(() => [
+    { label: 'mostPopular' },
+    { label: 'newest' },
+  ]),
+}));
 
-const mockProductsListVM = {
-  filterByCategoryAndSubcategory: jest.fn().mockReturnValue(of([])),
-};
+describe('FilterSubsection Component', () => {
+  const categoryId = 'bicycle-equipment' as Category;
+  const lang = 'en' as Language;
+  let mockFilterByCategoryAndSubcategory: jest.Mock;
 
-const language = 'en';
-
-describe('FilterSubsection', () => {
   beforeEach(() => {
-    (vmFactory as jest.Mock).mockReturnValue({
-      productsListVM: mockProductsListVM,
+    jest.clearAllMocks();
+
+    mockFilterByCategoryAndSubcategory = jest.fn(() => of([]));
+    (vmFactory as jest.Mock).mockImplementation(() => ({
+      productsListVM: {
+        filterByCategoryAndSubcategory: mockFilterByCategoryAndSubcategory,
+      },
+    }));
+  });
+
+  const renderComponent = () =>
+    render(<FilterSubsection categoryId={categoryId} lang={lang} />);
+
+  it('should render FilterSubsection component correctly', () => {
+    renderComponent();
+
+    expect(
+      screen.getByText(translate('ProductsShown2', lang))
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(translate('FilterByType', lang))
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(translate('mostPopular', lang))
+    ).toBeInTheDocument();
+  });
+
+  it('should render the new option when a selected option is clicked', async () => {
+    renderComponent();
+
+    expect(
+      screen.queryByText(translate('newest', lang))
+    ).not.toBeInTheDocument();
+
+    const sortingButton = screen.getByText(translate('mostPopular', lang));
+    fireEvent.click(sortingButton);
+
+    await waitFor(() =>
+      expect(screen.getByText(translate('newest', lang))).toBeInTheDocument()
+    );
+  });
+
+  it('should call filterByCategoryAndSubcategory with correct parameters', async () => {
+    renderComponent();
+
+    const sortingButton = screen.getByText(translate('mostPopular', lang));
+    fireEvent.click(sortingButton);
+
+    await waitFor(() => {
+      expect(mockFilterByCategoryAndSubcategory).toHaveBeenCalledTimes(1);
+      expect(mockFilterByCategoryAndSubcategory).toHaveBeenCalledWith(
+        'bicycle-equipment',
+        null,
+        'hasTopBadge',
+        undefined
+      );
     });
   });
-
-  it('should correct render for Bycycle equipment', () => {
-    render(
-      <FilterSubsection
-        lang={language}
-        categoryId={toKebabCase(BICYCLE_EQUIPMENT) as Category}
-      />
-    );
-
-    expect(
-      screen.getByText(translate('ProductsShown2', language))
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(translate('FilterByType', language))
-    ).toBeInTheDocument();
-  });
-
-  // it('should update subcategories when a subcategory is selected', () => {
-  //   render(
-  //     <FilterSubsection
-  //       lang="en"
-  //       categoryId={toKebabCase(BICYCLE_EQUIPMENT) as Category}
-  //     />
-  //   );
-
-  //   fireEvent.click(screen.getByRole('checkbox', { name: 'Seat Bags' }));
-
-  //   expect(
-  //     mockProductsListVM.filterByCategoryAndSubcategory
-  //   ).toHaveBeenCalledWith(toKebabCase(BICYCLE_EQUIPMENT), ['SeatBags']);
-  // });
 });

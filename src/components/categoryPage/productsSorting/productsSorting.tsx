@@ -49,7 +49,7 @@ function ProductsSorting({ handleSortChange, language }: Props) {
         <ul className={st.options}>
           {sortingOptions.map((option) => (
             <li
-              key={option.value}
+              key={option.label}
               className={st.option}
               onClick={() => handleOptionClick(option)}
             >
