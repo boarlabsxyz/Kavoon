@@ -1,128 +1,91 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import ProductsSorting from './productsSorting';
+import { getSortingOptions } from 'src/helpers/getSortingOptions';
 
-import SubcategoryFilter from 'src/components/categoryPage/subcategoryFilter';
+jest.mock('src/helpers/getSortingOptions', () => ({
+  getSortingOptions: jest.fn(),
+}));
 
-import {
-  SUBCATEGORIES_BICYCLE_EQUIPMENT,
-  Subcategory,
-} from 'src/data/constants';
-import { Language } from 'src/types/language';
-import translate from 'src/i18n/lang';
+jest.mock('src/i18n/lang', () => (key: string) => key); // Mock translation function
 
-jest.mock('src/hooks/useOutsideClick', () => jest.fn());
-jest.mock('src/icons/filterIcon', () => (props: any) => (
-  <svg {...props}>FilterIcon</svg>
-));
+describe('ProductsSorting Component', () => {
+  const mockHandleSortChange = jest.fn();
 
-describe('SubcategoryFilter', () => {
-  const defaultProps = {
-    subcategories: [],
-    setSubcategories: jest.fn(),
-    language: 'en' as Language,
-  };
-
-  const allSubcategories = Object.keys(
-    SUBCATEGORIES_BICYCLE_EQUIPMENT
-  ) as Subcategory[];
+  const mockSortingOptions = [
+    { value: 'hasTopBadge-desc', label: 'mostPopular' },
+    { value: 'createdAt-desc', label: 'newest' },
+    { value: 'priceUAH-asc', label: 'lowestPrice' },
+    { value: 'priceUAH-desc', label: 'highestPrice' },
+  ];
 
   beforeEach(() => {
     jest.clearAllMocks();
+    (getSortingOptions as jest.Mock).mockReturnValue(mockSortingOptions);
   });
 
-  it('should render without crashing', () => {
-    render(<SubcategoryFilter {...defaultProps} />);
-
-    expect(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    ).toBeInTheDocument();
-  });
-
-  it('should toggle className for the subcategory list when clicking the title', () => {
-    render(<SubcategoryFilter {...defaultProps} />);
-
-    const listElement = screen.getByRole('list');
-
-    expect(listElement).toHaveClass('hiddenList');
-
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    );
-
-    expect(listElement).not.toHaveClass('hiddenList');
-
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    );
-
-    expect(listElement).toHaveClass('hiddenList');
-  });
-
-  it('should display all subcategories in the list', () => {
-    render(<SubcategoryFilter {...defaultProps} />);
-
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    );
-
-    allSubcategories.forEach((subcategory) => {
-      expect(
-        screen.getByLabelText(translate(subcategory, defaultProps.language))
-      ).toBeInTheDocument();
-    });
-  });
-
-  it('should call setSubcategories with the correct updated value when a checkbox is clicked', () => {
-    const setSubcategoriesMock = jest.fn();
+  it('should render the component with default selected option', () => {
     render(
-      <SubcategoryFilter
-        {...defaultProps}
-        setSubcategories={setSubcategoriesMock}
-      />
+      <ProductsSorting handleSortChange={mockHandleSortChange} language="en" />
     );
 
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    );
-
-    const firstCheckbox = screen.getByLabelText(
-      translate(allSubcategories[0], defaultProps.language)
-    );
-
-    fireEvent.click(firstCheckbox);
-
-    expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
-
-    const updateFunction = setSubcategoriesMock.mock.calls[0][0];
-
-    const updatedSubcategories = updateFunction([]);
-    expect(updatedSubcategories).toEqual([allSubcategories[0]]);
+    expect(screen.getByText('mostPopular')).toBeInTheDocument();
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
-  it('should uncheck a checkbox and remove the subcategory from selected when unchecked', () => {
-    const setSubcategoriesMock = jest.fn();
-    const checkedSubcategories = [allSubcategories[0]];
+  it('should toggle dropdown visibility on click', () => {
     render(
-      <SubcategoryFilter
-        {...defaultProps}
-        subcategories={checkedSubcategories}
-        setSubcategories={setSubcategoriesMock}
-      />
+      <ProductsSorting handleSortChange={mockHandleSortChange} language="en" />
     );
 
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
+    const selectedElement = screen.getByText('mostPopular');
+    fireEvent.click(selectedElement);
+
+    expect(screen.getByRole('list')).toBeInTheDocument();
+    fireEvent.click(selectedElement);
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+  });
+
+  it('should call handleSortChange and update selected option on option click', () => {
+    render(
+      <ProductsSorting handleSortChange={mockHandleSortChange} language="en" />
     );
 
-    const firstCheckbox = screen.getByLabelText(
-      translate(allSubcategories[0], defaultProps.language)
+    const selectedElement = screen.getByText('mostPopular');
+    fireEvent.click(selectedElement);
+
+    const newOption = screen.getByText('newest');
+    fireEvent.click(newOption);
+
+    expect(mockHandleSortChange).toHaveBeenCalledWith('createdAt-desc');
+    expect(screen.getByText('newest')).toBeInTheDocument();
+  });
+
+  it('should close the dropdown when clicking outside', () => {
+    const { container } = render(
+      <div>
+        <ProductsSorting
+          handleSortChange={mockHandleSortChange}
+          language="en"
+        />
+        <div data-testid="outside-element">Outside</div>
+      </div>
     );
-    fireEvent.click(firstCheckbox);
 
-    expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
+    const selectedElement = screen.getByText('mostPopular');
+    fireEvent.click(selectedElement);
 
-    const updateFunction = setSubcategoriesMock.mock.calls[0][0];
+    expect(screen.getByRole('list')).toBeInTheDocument();
 
-    const updatedSubcategories = updateFunction([]);
-    expect(updatedSubcategories).toEqual([]);
+    const outsideElement = screen.getByTestId('outside-element');
+    fireEvent.click(outsideElement);
+
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+  });
+
+  it('should pass the correct language to getSortingOptions', () => {
+    render(
+      <ProductsSorting handleSortChange={mockHandleSortChange} language="en" />
+    );
+    expect(getSortingOptions).toHaveBeenCalledWith('en', 'mostPopular');
   });
 });
