@@ -12,16 +12,9 @@
   background-color: var(--white);
   cursor: pointer;
   transition: border-color 0.3s ease;
-}
-
-.selected::after {
-  content: '';
-  position: absolute;
-  height: 9px;
-  width: 15px;
-  background-image: url('/icons/more-icon.svg');
-  top: 21px;
-  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .showOptionsSelect .selected {
@@ -51,4 +44,10 @@
 
 .option {
   cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+  .select {
+    width: 100%;
+  }
 }

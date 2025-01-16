@@ -4,6 +4,7 @@ import useOutsideClick from 'src/hooks/useOutsideClick';
 import { getSortingOptions, SortingLabel } from 'src/helpers/getSortingOptions';
 import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
+import MoreIcon from 'src/icons/moreIcon';
 
 import st from './productsSorting.module.css';
 
@@ -38,6 +39,11 @@ function ProductsSorting({ handleSortChange, language }: Props) {
     >
       <div className={st.selected} onClick={toggleDropdown}>
         {translate(selected, language)}
+        <MoreIcon
+          width="16"
+          height="10"
+          color={isShowList ? '#11a0a9' : '#c0c6d0'}
+        />
       </div>
       {isShowList && (
         <ul className={st.options}>
