@@ -26,7 +26,7 @@ const filterShopVM = ({
   const filterByCategoryAndSubcategory = (
     categoryValue: Category,
     subcategories: Subcategory[] | null,
-    sortField: keyof ProductListItemVM = 'hasTopBadge',
+    sortField: keyof ProductListItemVM,
     sortDirection: 'asc' | 'desc' = 'desc'
   ) =>
     combineLatest([of(categoryValue), productData]).pipe(

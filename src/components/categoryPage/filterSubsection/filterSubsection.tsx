@@ -17,6 +17,7 @@ import {
   IN_STOCK,
   ALL_PRODUCTS,
   Subcategory,
+  MOST_POPULAR,
 } from 'src/data/constants';
 import { Language } from 'src/types/language';
 import toKebabCase from 'src/helpers/toKebabCase';
@@ -24,7 +25,6 @@ import toKebabCase from 'src/helpers/toKebabCase';
 import st from './filterSubsection.module.css';
 import ProductsSorting from '../productsSorting';
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
-import { getSortingOptions } from 'src/helpers/getSortingOptions';
 
 type Props = {
   categoryId: Category;
@@ -33,9 +33,7 @@ type Props = {
 
 function FilterSubsection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
-  const [selectedOption, setSelectedOption] = useState<string>(
-    getSortingOptions(lang).at(0).label
-  );
+  const [selectedOption, setSelectedOption] = useState<string>(MOST_POPULAR);
 
   const handleSortChange = (option: string) => {
     setSelectedOption(option);

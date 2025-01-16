@@ -79,3 +79,5 @@ export const [INCREASE, DECREASE, STORAGE, CART_DATA] = [
   'storage',
   'cartData',
 ] as const;
+
+export const MOST_POPULAR = 'hasTopBadge';

@@ -1,3 +1,4 @@
+import { MOST_POPULAR } from 'src/data/constants';
 import { Language } from 'src/types/language';
 
 export type SortingLabel =
@@ -13,11 +14,11 @@ export type SortingOption = {
 
 export const getSortingOptions = (
   language: Language,
-  label: SortingLabel = 'mostPopular'
+  label: SortingLabel
 ): SortingOption[] => {
   const currentPrice = language === 'uk' ? 'priceUAH' : 'priceEURO';
   return [
-    { value: 'hasTopBadge-desc', label: 'mostPopular' as SortingLabel },
+    { value: `${MOST_POPULAR}-desc`, label: 'mostPopular' as SortingLabel },
     { value: 'createdAt-desc', label: 'newest' as SortingLabel },
     { value: `${currentPrice}-asc`, label: 'lowestPrice' as SortingLabel },
     { value: `${currentPrice}-desc`, label: 'highestPrice' as SortingLabel },
