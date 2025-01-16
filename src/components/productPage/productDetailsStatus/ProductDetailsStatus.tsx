@@ -2,7 +2,6 @@
 
 import { useParams } from 'next/navigation';
 
-import CartStatus from 'src/components/common/cartStatus';
 import BreadcrumbsNav from 'src/components/common/breadcrumbs';
 
 import productDetailsStatusVM from 'src/data/viewModels/product/productDetailsStatusVM';
@@ -27,7 +26,6 @@ function ProductDetailsStatus({ productName }: ProductDetailsStatusProps) {
     <>
       <div className={st.wrapper}>
         <BreadcrumbsNav vm={vm.breadcrumbsNavVM} language={lang} />
-        <CartStatus language={lang} />
       </div>
     </>
   );

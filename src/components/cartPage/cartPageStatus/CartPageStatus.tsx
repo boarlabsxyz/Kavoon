@@ -1,6 +1,5 @@
 'use client';
 
-import CartStatus from 'src/components/common/cartStatus';
 import BreadcrumbsNav from 'src/components/common/breadcrumbs';
 
 import cartPageStatusVM from 'src/data/viewModels/cart/CartPageStatusVM';
