@@ -87,7 +87,7 @@
     width: 100vw;
     justify-content: flex-end;
     justify-content: center;
-    gap: 80px;
+    gap: 20px;
   }
 
   .cartStatusText {
@@ -148,7 +148,7 @@
   .navMain {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 0px;
     width: 323px;
     opacity: 0;
     visibility: hidden;
