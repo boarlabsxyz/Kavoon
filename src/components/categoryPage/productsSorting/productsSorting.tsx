@@ -16,12 +16,15 @@ type Props = {
 function ProductsSorting({ handleSortChange, language }: Props) {
   const [isShowList, setIsShowList] = useState(false);
   const [selected, setSelected] = useState('mostPopular' as SortingLabel);
-  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const ref = useRef<HTMLDivElement>(null);
 
   const sortingOptions = getSortingOptions(language, selected);
 
-  const toggleDropdown = () => setIsShowList((prev) => !prev);
+  const toggleDropdown = () => {
+    setIsShowList((prev) => !prev);
+    setHighlightedIndex(-1);
+  };
 
   const handleOptionClick = (option: {
     value: string;
@@ -37,19 +40,29 @@ function ProductsSorting({ handleSortChange, language }: Props) {
 
     switch (event.key) {
       case 'ArrowDown':
+        event.preventDefault();
         setHighlightedIndex((prev) => (prev + 1) % sortingOptions.length);
         break;
+
       case 'ArrowUp':
+        event.preventDefault();
         setHighlightedIndex((prev) =>
           prev > 0 ? prev - 1 : sortingOptions.length - 1
         );
         break;
+
       case 'Enter':
-        handleOptionClick(sortingOptions[highlightedIndex]);
+      case ' ':
+        event.preventDefault();
+        if (highlightedIndex >= 0) {
+          handleOptionClick(sortingOptions[highlightedIndex]);
+        }
         break;
+
       case 'Escape':
         setIsShowList(false);
         break;
+
       default:
         break;
     }
@@ -58,6 +71,18 @@ function ProductsSorting({ handleSortChange, language }: Props) {
   useOutsideClick(ref, () => {
     setIsShowList(false);
   });
+
+  useEffect(() => {
+    if (highlightedIndex >= 0) {
+      const focusedElement = document.querySelector(
+        `.${st.options} li:nth-child(${highlightedIndex + 1})`
+      ) as HTMLElement;
+
+      if (focusedElement) {
+        focusedElement.focus();
+      }
+    }
+  }, [highlightedIndex]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
@@ -77,7 +102,12 @@ function ProductsSorting({ handleSortChange, language }: Props) {
         className={st.selected}
         onClick={toggleDropdown}
         tabIndex={0}
-        onKeyDown={(e) => e.key === 'Enter' && toggleDropdown()}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleDropdown();
+          }
+        }}
       >
         {translate(selected, language)}
         <MoreIcon
@@ -97,6 +127,12 @@ function ProductsSorting({ handleSortChange, language }: Props) {
               onClick={() => handleOptionClick(option)}
               onMouseEnter={() => setHighlightedIndex(index)}
               tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleOptionClick(option);
+                }
+              }}
             >
               {translate(option.label, language)}
             </li>
