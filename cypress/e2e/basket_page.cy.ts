@@ -17,7 +17,11 @@ viewPorts.forEach(({ name, dimensions }) => {
         .click();
       cy.scrollTo('top', { duration: 1000 });
 
-      cy.get('main [data-cy="cart-link"]').click();
+      if (name === 'iphone-8') {
+        cy.get('[data-cy="mobile-menu-btn"]').click();
+      }
+
+      cy.get('[data-cy="cart-link"]').click();
       cy.url().should('include', '/shop/cart');
 
       cy.get('[data-cy="order-form"]').should('be.visible');
