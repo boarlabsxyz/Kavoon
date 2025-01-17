@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import FilterSubsection from './filterSubsection';
+import FilteringAndSortingSuction from './filteringAndSortingSection';
 import { Language } from 'src/types/language';
 import { Category } from 'src/data/constants';
 import { of } from 'rxjs';
@@ -14,7 +14,7 @@ jest.mock('src/helpers/getSortingOptions', () => ({
   ]),
 }));
 
-describe('FilterSubsection Component', () => {
+describe('FilteringAndSortingSuction Component', () => {
   const categoryId = 'bicycle-equipment' as Category;
   const lang = 'en' as Language;
   let mockFilterByCategoryAndSubcategory: jest.Mock;
@@ -31,9 +31,9 @@ describe('FilterSubsection Component', () => {
   });
 
   const renderComponent = () =>
-    render(<FilterSubsection categoryId={categoryId} lang={lang} />);
+    render(<FilteringAndSortingSuction categoryId={categoryId} lang={lang} />);
 
-  it('should render FilterSubsection component correctly', () => {
+  it('should render FilteringAndSortingSuction component correctly', () => {
     renderComponent();
 
     expect(

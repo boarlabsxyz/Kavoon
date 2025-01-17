@@ -23,8 +23,8 @@ import { Language } from 'src/types/language';
 import { SortingDirection } from 'src/types/sorting';
 import toKebabCase from 'src/helpers/toKebabCase';
 
-import st from './filterSubsection.module.css';
-import ProductsSorting from '../productsSorting';
+import st from './filteringAndSortingSection.module.css';
+import ProductsSorting from 'src/components/categoryPage/productsSorting';
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
 
 type Props = {
@@ -32,7 +32,7 @@ type Props = {
   lang: Language;
 };
 
-function FilterSubsection({ lang, categoryId }: Props) {
+function FilteringAndSortingSuction({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
   const [selectedOption, setSelectedOption] = useState<string>(
     INITIAL_SORTING_OPTION
@@ -94,4 +94,4 @@ function FilterSubsection({ lang, categoryId }: Props) {
   );
 }
 
-export default FilterSubsection;
+export default FilteringAndSortingSuction;

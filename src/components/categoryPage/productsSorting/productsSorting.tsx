@@ -11,10 +11,10 @@ import useOutsideClick from 'src/hooks/useOutsideClick';
 import { getSortingOptions } from 'src/helpers/getSortingOptions';
 import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
-import { SortingLabel } from 'src/types/sorting';
 import MoreIcon from 'src/icons/moreIcon';
 
 import st from './productsSorting.module.css';
+import { SortingLabel } from 'src/types/sorting';
 
 type Props = {
   handleSortChange: Dispatch<SetStateAction<string>>;
@@ -49,19 +49,29 @@ function ProductsSorting({ handleSortChange, language }: Props) {
 
       switch (event.key) {
         case 'ArrowDown':
+          event.preventDefault();
           setHighlightedIndex((prev) => (prev + 1) % sortingOptions.length);
           break;
+
         case 'ArrowUp':
+          event.preventDefault();
           setHighlightedIndex((prev) =>
             prev > 0 ? prev - 1 : sortingOptions.length - 1
           );
           break;
+
         case 'Enter':
-          handleOptionClick(sortingOptions[highlightedIndex]);
+        case ' ':
+          event.preventDefault();
+          if (highlightedIndex >= 0) {
+            handleOptionClick(sortingOptions[highlightedIndex]);
+          }
           break;
+
         case 'Escape':
           setIsShowList(false);
           break;
+
         default:
           break;
       }
@@ -125,7 +135,7 @@ function ProductsSorting({ handleSortChange, language }: Props) {
         <ul
           id="sorting-options"
           className={st.options}
-          role="listbox"
+          role="list"
           aria-activedescendant={
             highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
           }
