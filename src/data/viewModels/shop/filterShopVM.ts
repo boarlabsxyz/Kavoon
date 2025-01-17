@@ -5,6 +5,7 @@ import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
 import toKebabCase from 'src/helpers/toKebabCase';
 import { Category, Subcategory } from 'src/data/constants';
 import sortProducts from 'src/helpers/sortProducts';
+import { SortingDirection } from 'src/types/sorting';
 
 const filterShopVM = ({
   productVMs: productList,
@@ -27,7 +28,7 @@ const filterShopVM = ({
     categoryValue: Category,
     subcategories: Subcategory[] | null,
     sortField: keyof ProductListItemVM,
-    sortDirection: 'asc' | 'desc' = 'desc'
+    sortDirection: SortingDirection = 'desc'
   ) =>
     combineLatest([of(categoryValue), productData]).pipe(
       switchMap(([category, products]) =>

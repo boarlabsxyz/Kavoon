@@ -74,7 +74,7 @@ describe('FilterSubsection Component', () => {
         'bicycle-equipment',
         null,
         'hasTopBadge',
-        undefined
+        'desc'
       );
     });
   });

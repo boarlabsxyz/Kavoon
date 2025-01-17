@@ -17,9 +17,10 @@ import {
   IN_STOCK,
   ALL_PRODUCTS,
   Subcategory,
-  MOST_POPULAR,
+  INITIAL_SORTING_OPTION,
 } from 'src/data/constants';
 import { Language } from 'src/types/language';
+import { SortingDirection } from 'src/types/sorting';
 import toKebabCase from 'src/helpers/toKebabCase';
 
 import st from './filterSubsection.module.css';
@@ -33,23 +34,35 @@ type Props = {
 
 function FilterSubsection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
-  const [selectedOption, setSelectedOption] = useState<string>(MOST_POPULAR);
+  const [selectedOption, setSelectedOption] = useState<string>(
+    INITIAL_SORTING_OPTION
+  );
 
   const handleSortChange = (option: string) => {
     setSelectedOption(option);
   };
 
-  const [sortField, sortDirection] = selectedOption.split('-') as [
-    keyof ProductListItemVM,
-    'asc' | 'desc',
-  ];
+  const [field, direction] = selectedOption.split('-');
+  if (!isSortField(field) || !isSortDirection(direction)) {
+    throw new Error(`Invalid sort option: ${selectedOption}`);
+  }
+
+  function isSortField(field: string): field is keyof ProductListItemVM {
+    return ['hasTopBadge', 'createdAt', 'priceEURO', 'priceUAH'].includes(
+      field
+    );
+  }
+
+  function isSortDirection(direction: string): direction is SortingDirection {
+    return ['asc', 'desc'].includes(direction);
+  }
 
   const vm = vmFactory();
   const filteredVm = vm.productsListVM.filterByCategoryAndSubcategory(
     categoryId,
     subcategories.length > 0 ? subcategories : null,
-    sortField,
-    sortDirection
+    field,
+    direction as SortingDirection
   ) as Observable<ProductListItemVm[]>;
 
   const isFilterApplicableForCategory =

@@ -1,10 +1,17 @@
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
+import { SortingDirection } from 'src/types/sorting';
 
 function sortProducts(
   products: ProductListItemVM[],
   field: keyof ProductListItemVM,
-  direction: 'asc' | 'desc' = 'asc'
+  direction: SortingDirection = 'asc'
 ): ProductListItemVM[] {
+  if (products.length > 0 && typeof products[0][field] === 'undefined') {
+    throw new Error(
+      `Field ${String(field)} does not exist in ProductListItemVM`
+    );
+  }
+
   return [...products].sort((a, b) => {
     const valueA = a[field];
     const valueB = b[field];
@@ -13,7 +20,10 @@ function sortProducts(
     if (valueB === undefined || valueB === null) return -1;
 
     if (typeof valueA === 'string' && typeof valueB === 'string') {
-      if (!isNaN(Date.parse(valueA)) && !isNaN(Date.parse(valueB))) {
+      if (
+        !Number.isNaN(Date.parse(valueA)) &&
+        !Number.isNaN(Date.parse(valueB))
+      ) {
         const dateA = new Date(valueA).getTime();
         const dateB = new Date(valueB).getTime();
         return direction === 'asc' ? dateA - dateB : dateB - dateA;

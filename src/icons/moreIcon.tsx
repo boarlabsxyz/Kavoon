@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Icon } from 'src/types/iconProps';
 
-const CancelIcon: FC<Icon> = ({ width, height, color }) => (
+const MoreIcon: FC<Icon> = ({ width, height, color }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
@@ -25,4 +25,4 @@ const CancelIcon: FC<Icon> = ({ width, height, color }) => (
   </svg>
 );
 
-export default CancelIcon;
+export default MoreIcon;

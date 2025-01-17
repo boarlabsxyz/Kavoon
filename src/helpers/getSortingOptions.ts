@@ -1,16 +1,6 @@
-import { MOST_POPULAR } from 'src/data/constants';
+import { INITIAL_SORTING_OPTION } from 'src/data/constants';
 import { Language } from 'src/types/language';
-
-export type SortingLabel =
-  | 'mostPopular'
-  | 'newest'
-  | 'lowestPrice'
-  | 'highestPrice';
-
-export type SortingOption = {
-  value: string;
-  label: SortingLabel;
-};
+import { SortingLabel, SortingOption } from 'src/types/sorting';
 
 export const getSortingOptions = (
   language: Language,
@@ -18,7 +8,7 @@ export const getSortingOptions = (
 ): SortingOption[] => {
   const currentPrice = language === 'uk' ? 'priceUAH' : 'priceEURO';
   return [
-    { value: `${MOST_POPULAR}-desc`, label: 'mostPopular' as SortingLabel },
+    { value: INITIAL_SORTING_OPTION, label: 'mostPopular' as SortingLabel },
     { value: 'createdAt-desc', label: 'newest' as SortingLabel },
     { value: `${currentPrice}-asc`, label: 'lowestPrice' as SortingLabel },
     { value: `${currentPrice}-desc`, label: 'highestPrice' as SortingLabel },

@@ -6,21 +6,22 @@ jest.mock('src/helpers/getSortingOptions', () => ({
   getSortingOptions: jest.fn(),
 }));
 
-jest.mock('src/i18n/lang', () => (key: string) => key); // Mock translation function
+jest.mock('src/i18n/lang', () => (key: string) => key);
 
 describe('ProductsSorting Component', () => {
   const mockHandleSortChange = jest.fn();
 
-  const mockSortingOptions = [
-    { value: 'hasTopBadge-desc', label: 'mostPopular' },
-    { value: 'createdAt-desc', label: 'newest' },
-    { value: 'priceUAH-asc', label: 'lowestPrice' },
-    { value: 'priceUAH-desc', label: 'highestPrice' },
-  ];
-
   beforeEach(() => {
-    jest.clearAllMocks();
-    (getSortingOptions as jest.Mock).mockReturnValue(mockSortingOptions);
+    mockHandleSortChange.mockClear();
+    (getSortingOptions as jest.Mock).mockImplementation((language, label) => {
+      const currentPrice = language === 'uk' ? 'priceUAH' : 'priceEURO';
+      return [
+        { value: 'mostPopular', label: 'mostPopular' },
+        { value: 'createdAt-desc', label: 'newest' },
+        { value: `${currentPrice}-asc`, label: 'lowestPrice' },
+        { value: `${currentPrice}-desc`, label: 'highestPrice' },
+      ].filter((option) => option.label !== label);
+    });
   });
 
   it('should render the component with default selected option', () => {
@@ -40,9 +41,9 @@ describe('ProductsSorting Component', () => {
     const selectedElement = screen.getByText('mostPopular');
     fireEvent.click(selectedElement);
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toBeInTheDocument();
     fireEvent.click(selectedElement);
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
   it('should call handleSortChange and update selected option on option click', () => {
@@ -74,12 +75,12 @@ describe('ProductsSorting Component', () => {
     const selectedElement = screen.getByText('mostPopular');
     fireEvent.click(selectedElement);
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toBeInTheDocument();
 
     const outsideElement = screen.getByTestId('outside-element');
     fireEvent.click(outsideElement);
 
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
   it('should pass the correct language to getSortingOptions', () => {
@@ -87,5 +88,34 @@ describe('ProductsSorting Component', () => {
       <ProductsSorting handleSortChange={mockHandleSortChange} language="en" />
     );
     expect(getSortingOptions).toHaveBeenCalledWith('en', 'mostPopular');
+  });
+
+  it('should support keyboard navigation', () => {
+    render(
+      <ProductsSorting handleSortChange={mockHandleSortChange} language="en" />
+    );
+
+    const dropdownButton = screen.getByText('mostPopular');
+    fireEvent.click(dropdownButton);
+
+    const options = screen.getAllByRole('option');
+    expect(options).toHaveLength(3);
+
+    expect(screen.getByRole('listbox')).toBeInTheDocument();
+
+    fireEvent.keyDown(document, { key: 'ArrowDown' });
+    expect(options[0]).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'ArrowDown' });
+    expect(options[1]).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'ArrowDown' });
+    expect(options[2]).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'ArrowUp' });
+    expect(options[1]).toHaveFocus();
+
+    fireEvent.keyDown(document, { key: 'Enter' });
+    expect(mockHandleSortChange).toHaveBeenCalledWith('priceEURO-asc');
   });
 });

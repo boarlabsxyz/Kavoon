@@ -80,4 +80,4 @@ export const [INCREASE, DECREASE, STORAGE, CART_DATA] = [
   'cartData',
 ] as const;
 
-export const MOST_POPULAR = 'hasTopBadge';
+export const INITIAL_SORTING_OPTION = 'hasTopBadge-desc';

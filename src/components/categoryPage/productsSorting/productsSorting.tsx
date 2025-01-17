@@ -1,9 +1,17 @@
-import { Dispatch, SetStateAction, useState, useRef, useEffect } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react';
 
 import useOutsideClick from 'src/hooks/useOutsideClick';
-import { getSortingOptions, SortingLabel } from 'src/helpers/getSortingOptions';
+import { getSortingOptions } from 'src/helpers/getSortingOptions';
 import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
+import { SortingLabel } from 'src/types/sorting';
 import MoreIcon from 'src/icons/moreIcon';
 
 import st from './productsSorting.module.css';
@@ -26,47 +34,40 @@ function ProductsSorting({ handleSortChange, language }: Props) {
     setHighlightedIndex(-1);
   };
 
-  const handleOptionClick = (option: {
-    value: string;
-    label: SortingLabel;
-  }) => {
-    handleSortChange(option.value);
-    setSelected(option.label);
-    setIsShowList(false);
-  };
+  const handleOptionClick = useCallback(
+    (option: { value: string; label: SortingLabel }) => {
+      handleSortChange(option.value);
+      setSelected(option.label);
+      setIsShowList(false);
+    },
+    [handleSortChange]
+  );
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (!isShowList) return;
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (!isShowList) return;
 
-    switch (event.key) {
-      case 'ArrowDown':
-        event.preventDefault();
-        setHighlightedIndex((prev) => (prev + 1) % sortingOptions.length);
-        break;
-
-      case 'ArrowUp':
-        event.preventDefault();
-        setHighlightedIndex((prev) =>
-          prev > 0 ? prev - 1 : sortingOptions.length - 1
-        );
-        break;
-
-      case 'Enter':
-      case ' ':
-        event.preventDefault();
-        if (highlightedIndex >= 0) {
+      switch (event.key) {
+        case 'ArrowDown':
+          setHighlightedIndex((prev) => (prev + 1) % sortingOptions.length);
+          break;
+        case 'ArrowUp':
+          setHighlightedIndex((prev) =>
+            prev > 0 ? prev - 1 : sortingOptions.length - 1
+          );
+          break;
+        case 'Enter':
           handleOptionClick(sortingOptions[highlightedIndex]);
-        }
-        break;
-
-      case 'Escape':
-        setIsShowList(false);
-        break;
-
-      default:
-        break;
-    }
-  };
+          break;
+        case 'Escape':
+          setIsShowList(false);
+          break;
+        default:
+          break;
+      }
+    },
+    [isShowList, highlightedIndex, sortingOptions, handleOptionClick]
+  );
 
   useOutsideClick(ref, () => {
     setIsShowList(false);
@@ -89,7 +90,7 @@ function ProductsSorting({ handleSortChange, language }: Props) {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isShowList, highlightedIndex, sortingOptions]);
+  }, [isShowList, highlightedIndex, sortingOptions, handleKeyDown]);
 
   return (
     <div
@@ -97,11 +98,14 @@ function ProductsSorting({ handleSortChange, language }: Props) {
       className={
         isShowList ? `${st.select} ${st.showOptionsSelect}` : st.select
       }
+      aria-label="Sort products"
+      aria-controls="sorting-options"
     >
       <div
         className={st.selected}
         onClick={toggleDropdown}
         tabIndex={0}
+        aria-pressed={isShowList}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -114,13 +118,24 @@ function ProductsSorting({ handleSortChange, language }: Props) {
           width="16"
           height="10"
           color={isShowList ? '#11a0a9' : '#c0c6d0'}
+          aria-hidden="true"
         />
       </div>
       {isShowList && (
-        <ul className={st.options}>
+        <ul
+          id="sorting-options"
+          className={st.options}
+          role="listbox"
+          aria-activedescendant={
+            highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
+          }
+        >
           {sortingOptions.map((option, index) => (
             <li
               key={option.label}
+              id={`option-${index}`}
+              role="option"
+              aria-selected={highlightedIndex === index}
               className={`${st.option} ${
                 highlightedIndex === index ? st.highlighted : ''
               }`}
