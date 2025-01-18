@@ -96,9 +96,10 @@ function ProductsSorting({ handleSortChange, language }: Props) {
   }, [highlightedIndex]);
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
+    const currentHandler = handleKeyDown;
+    document.addEventListener('keydown', currentHandler);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', currentHandler);
     };
   }, [isShowList, highlightedIndex, sortingOptions, handleKeyDown]);
 
