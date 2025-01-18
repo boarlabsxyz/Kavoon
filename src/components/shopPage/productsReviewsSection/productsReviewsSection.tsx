@@ -16,10 +16,12 @@ type Props = {
 async function ProductsReviewsSection({ language, categoryId = null }: Props) {
   let reviews: any;
 
-  if (categoryId) {
+  if (categoryId === 'all-products') {
+    reviews = await getAllReviews({ showOnSite: true });
+  } else if (categoryId) {
     reviews = await getAllReviews({ categoryId: categoryId, showOnSite: true });
   } else {
-    reviews = await getAllReviews({ showOnSite: true });
+    reviews = [];
   }
 
   return (
