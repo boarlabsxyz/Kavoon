@@ -30,7 +30,7 @@ describe('ProductsSorting Component', () => {
     );
 
     expect(screen.getByText('mostPopular')).toBeInTheDocument();
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
   it('should toggle dropdown visibility on click', () => {
@@ -41,9 +41,9 @@ describe('ProductsSorting Component', () => {
     const selectedElement = screen.getByText('mostPopular');
     fireEvent.click(selectedElement);
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toBeInTheDocument();
     fireEvent.click(selectedElement);
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
   it('should call handleSortChange and update selected option on option click', () => {
@@ -75,12 +75,12 @@ describe('ProductsSorting Component', () => {
     const selectedElement = screen.getByText('mostPopular');
     fireEvent.click(selectedElement);
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toBeInTheDocument();
 
     const outsideElement = screen.getByTestId('outside-element');
     fireEvent.click(outsideElement);
 
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
   it('should pass the correct language to getSortingOptions', () => {
@@ -101,7 +101,7 @@ describe('ProductsSorting Component', () => {
     const options = screen.getAllByRole('option');
     expect(options).toHaveLength(3);
 
-    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByRole('listbox')).toBeInTheDocument();
 
     fireEvent.keyDown(document, { key: 'ArrowDown' });
     expect(options[0]).toHaveFocus();

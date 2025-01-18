@@ -32,14 +32,26 @@ type Props = {
   lang: Language;
 };
 
-function FilteringAndSortingSuction({ lang, categoryId }: Props) {
+function FilteringAndSortingSection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
   const [selectedOption, setSelectedOption] = useState<string>(
     INITIAL_SORTING_OPTION
   );
 
   const handleSortChange = (option: string) => {
-    setSelectedOption(option);
+    try {
+      const [field, direction] = option.split('-');
+      if (!isSortField(field) || !isSortDirection(direction)) {
+        console.error(
+          `Invalid sort option: ${option}, falling back to default`
+        );
+        setSelectedOption(INITIAL_SORTING_OPTION);
+        return;
+      }
+      setSelectedOption(option);
+    } catch (error) {
+      console.error('Error processing sort option:', error);
+    }
   };
 
   const [field, direction] = selectedOption.split('-');
@@ -94,4 +106,4 @@ function FilteringAndSortingSuction({ lang, categoryId }: Props) {
   );
 }
 
-export default FilteringAndSortingSuction;
+export default FilteringAndSortingSection;

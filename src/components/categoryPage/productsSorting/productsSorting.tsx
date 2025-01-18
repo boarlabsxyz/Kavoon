@@ -135,7 +135,7 @@ function ProductsSorting({ handleSortChange, language }: Props) {
         <ul
           id="sorting-options"
           className={st.options}
-          role="list"
+          role="listbox"
           aria-activedescendant={
             highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
           }

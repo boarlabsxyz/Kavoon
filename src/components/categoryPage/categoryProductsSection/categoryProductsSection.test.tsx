@@ -9,8 +9,8 @@ jest.mock('src/components/categoryPage/productState', () => () => (
 jest.mock(
   'src/components/categoryPage/filteringAndSortingSection',
   () => () => (
-    <div data-testid="FilteringAndSortingSuction">
-      Mocked FilteringAndSortingSuction
+    <div data-testid="FilteringAndSortingSection">
+      Mocked FilteringAndSortingSection
     </div>
   )
 );
@@ -26,7 +26,7 @@ describe('CategoryProductsSection', () => {
 
     expect(screen.getByTestId('ProductsState')).toBeInTheDocument();
     expect(
-      screen.getByTestId('FilteringAndSortingSuction')
+      screen.getByTestId('FilteringAndSortingSection')
     ).toBeInTheDocument();
   });
 
@@ -36,11 +36,11 @@ describe('CategoryProductsSection', () => {
     expect(screen.getByTestId('ProductsState')).toBeInTheDocument();
   });
 
-  it('should pass the correct props to FilteringAndSortingSuction component', () => {
+  it('should pass the correct props to FilteringAndSortingSection component', () => {
     render(<CategoryProductsSection {...defaultProps} />);
 
     expect(
-      screen.getByTestId('FilteringAndSortingSuction')
+      screen.getByTestId('FilteringAndSortingSection')
     ).toBeInTheDocument();
   });
 });
