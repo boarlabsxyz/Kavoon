@@ -46,6 +46,7 @@ function Navigation({ children, lang }: Props) {
         ref={buttonRef}
         className={st.mobileMenuButton}
         aria-label="mobile-menu-button"
+        data-cy="mobile-menu-btn"
       >
         <span></span>
         <span></span>
