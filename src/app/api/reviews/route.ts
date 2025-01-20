@@ -27,10 +27,15 @@ function capitalize(str: string) {
 function createTelegramMessage(review: Review) {
   const { images, productName, userName, rating, comment } = review;
 
+  const formattedProductName =
+    productName !== null
+      ? lang(capitalize(productName))
+      : lang('UnknownProduct');
+
   const imageUrl = images.length > 0 ? images.join('\n\n') : '\u268A';
 
   return `:fire: ${lang('ReceivedReview')}
-\n:shopping_bags: ${lang('ProductName')}: ${lang(capitalize(productName))}
+\n:shopping_bags: ${lang('ProductName')}: ${formattedProductName}
 \n:mage: ${lang('CustomerName')} ${userName}
 \n:star: ${lang('Mark')}: ${rating}
 \n:memo: ${lang('ReviewText')}: ${comment || '\u268A'}

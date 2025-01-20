@@ -276,6 +276,7 @@ const Language = {
   newest: 'Najnowsze',
   lowestPrice: 'Najniższa cena',
   highestPrice: 'Najwyższa cena',
+  unknownProduct: 'Produkt nieokreślony',
 };
 
 export default Language;
