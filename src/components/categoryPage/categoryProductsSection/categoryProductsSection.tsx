@@ -1,6 +1,6 @@
 import Container from 'src/components/common/container';
 import ProductsState from 'src/components/categoryPage/productState';
-import FilterSubsection from 'src/components/categoryPage/filterSubsection';
+import FilteringAndSortingSection from 'src/components/categoryPage/filteringAndSortingSection';
 
 import { Category } from 'src/data/constants';
 import { Language } from 'src/types/language';
@@ -14,7 +14,7 @@ function CategoryProductsSection({ lang, categoryId }: CategoryPageProps) {
   return (
     <Container>
       <ProductsState language={lang} />
-      <FilterSubsection categoryId={categoryId} lang={lang} />
+      <FilteringAndSortingSection categoryId={categoryId} lang={lang} />
     </Container>
   );
 }

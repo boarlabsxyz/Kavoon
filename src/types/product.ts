@@ -78,6 +78,7 @@ type Product = {
   category: Category;
   subcategory: Subcategory;
   productKit: ProductKit;
+  createdAt: string;
 };
 
 export type ProductInCart = {

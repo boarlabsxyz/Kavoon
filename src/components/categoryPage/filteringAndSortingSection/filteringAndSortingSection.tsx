@@ -17,23 +17,64 @@ import {
   IN_STOCK,
   ALL_PRODUCTS,
   Subcategory,
+  INITIAL_SORTING_OPTION,
 } from 'src/data/constants';
 import { Language } from 'src/types/language';
+import { SortingDirection } from 'src/types/sorting';
 import toKebabCase from 'src/helpers/toKebabCase';
 
-import st from './filterSubsection.module.css';
+import st from './filteringAndSortingSection.module.css';
+import ProductsSorting from 'src/components/categoryPage/productsSorting';
+import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
 
 type Props = {
   categoryId: Category;
   lang: Language;
 };
 
-function FilterSubsection({ lang, categoryId }: Props) {
+function FilteringAndSortingSection({ lang, categoryId }: Props) {
   const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
+  const [selectedOption, setSelectedOption] = useState<string>(
+    INITIAL_SORTING_OPTION
+  );
+
+  const handleSortChange = (option: string) => {
+    try {
+      const [field, direction] = option.split('-');
+      if (!isSortField(field) || !isSortDirection(direction)) {
+        console.error(
+          `Invalid sort option: ${option}, falling back to default`
+        );
+        setSelectedOption(INITIAL_SORTING_OPTION);
+        return;
+      }
+      setSelectedOption(option);
+    } catch (error) {
+      console.error('Error processing sort option:', error);
+    }
+  };
+
+  const [field, direction] = selectedOption.split('-');
+  if (!isSortField(field) || !isSortDirection(direction)) {
+    throw new Error(`Invalid sort option: ${selectedOption}`);
+  }
+
+  function isSortField(field: string): field is keyof ProductListItemVM {
+    return ['hasTopBadge', 'createdAt', 'priceEURO', 'priceUAH'].includes(
+      field
+    );
+  }
+
+  function isSortDirection(direction: string): direction is SortingDirection {
+    return ['asc', 'desc'].includes(direction);
+  }
+
   const vm = vmFactory();
   const filteredVm = vm.productsListVM.filterByCategoryAndSubcategory(
     categoryId,
-    subcategories.length > 0 ? subcategories : null
+    subcategories.length > 0 ? subcategories : null,
+    field,
+    direction as SortingDirection
   ) as Observable<ProductListItemVm[]>;
 
   const isFilterApplicableForCategory =
@@ -51,6 +92,7 @@ function FilterSubsection({ lang, categoryId }: Props) {
             language={lang}
           />
         )}
+        <ProductsSorting handleSortChange={handleSortChange} language={lang} />
       </div>
 
       <CheckedSubcategories
@@ -64,4 +106,4 @@ function FilterSubsection({ lang, categoryId }: Props) {
   );
 }
 
-export default FilterSubsection;
+export default FilteringAndSortingSection;

@@ -19,6 +19,7 @@ const productDetailsSeeMoreVM = (): ProductListItemVM[] => {
       price: productData.price,
       category: productData.category,
       subcategory: productData.subcategory,
+      createdAt: productData.createdAt,
     });
   });
 

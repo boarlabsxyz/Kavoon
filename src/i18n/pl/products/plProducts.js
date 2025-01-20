@@ -272,6 +272,10 @@ const Language = {
   ChooseZip: 'Wybierz wejście do głównej komory',
   onRight: 'Po prawej stronie',
   onLeft: 'Po lewej stronie',
+  mostPopular: 'Najpopularniejsze',
+  newest: 'Najnowsze',
+  lowestPrice: 'Najniższa cena',
+  highestPrice: 'Najwyższa cena',
 };
 
 export default Language;

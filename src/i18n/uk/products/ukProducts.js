@@ -272,6 +272,10 @@ const Language = {
   ChooseZip: 'Обрати загальний вхід в сумку',
   onRight: 'Справа',
   onLeft: 'Зліва',
+  mostPopular: 'Найпопулярніші',
+  newest: 'Найновіші',
+  lowestPrice: 'Найменша ціна',
+  highestPrice: 'Найбільша ціна',
 };
 
 export default Language;
