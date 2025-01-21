@@ -9,10 +9,10 @@ type CategoryPageProps = {
 
 function CategoryPage({ params: { lang, categoryId } }: CategoryPageProps) {
   return (
-    <>
+    <main style={{ marginBottom: '40px' }}>
       <CategoryProductsSection categoryId={categoryId} lang={lang} />
       <ReviewsSection />
-    </>
+    </main>
   );
 }
 

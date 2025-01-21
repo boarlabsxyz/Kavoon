@@ -38,11 +38,11 @@ export default async function HomePage({ params }: Props) {
   const { lang } = params;
 
   return (
-    <>
+    <main style={{ marginBottom: '40px' }}>
       <Hero lang={lang} />
       <Advantages lang={lang} />
       <ProductsSection language={lang} />
       <ReviewsSection />
-    </>
+    </main>
   );
 }
