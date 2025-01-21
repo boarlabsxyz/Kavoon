@@ -24,11 +24,10 @@ type UseParams = {
   categoryId: Category;
 };
 
-function ProductReviewsSection() {
+function ReviewsSection() {
   const { lang, productId, categoryId } = useParams<UseParams>();
 
   const [showModal, toggleModal] = useToggle(false);
-  const [message, setMessage] = useState('');
   const [isShowNotification, setIsShowNotification] = useState(false);
   const [reviews, setReviews] = useState([]);
 
@@ -53,11 +52,7 @@ function ProductReviewsSection() {
   }, []);
 
   const handleSaveReview = (text: string) => {
-    setMessage(text);
     setIsShowNotification(true);
-    setTimeout(() => {
-      setMessage('');
-    }, 1500);
   };
 
   const messageArray = [translate('ThankYouForFeedback', lang), '🎉'];
@@ -111,4 +106,4 @@ function ProductReviewsSection() {
     </section>
   );
 }
-export default ProductReviewsSection;
+export default ReviewsSection;

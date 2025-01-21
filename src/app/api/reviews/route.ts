@@ -94,7 +94,7 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const productId = searchParams.get('productId') || undefined;
   const categoryId = searchParams.get('categoryId') as Category | undefined;
-  const showOnSite = searchParams.get('showOnSite') as string | undefined;
+  const showOnSite = searchParams.get('showOnSite') ?? undefined;
 
   try {
     const client = await clientPromise;
