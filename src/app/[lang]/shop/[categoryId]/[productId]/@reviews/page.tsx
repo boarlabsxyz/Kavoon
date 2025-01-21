@@ -5,7 +5,7 @@ type Props = {
 };
 
 async function Reviews({ params: { productId } }: Props) {
-  return <ReviewsSection productId={productId} />;
+  return <ReviewsSection />;
 }
 
 export default Reviews;

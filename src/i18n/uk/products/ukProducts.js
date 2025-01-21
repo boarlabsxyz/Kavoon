@@ -276,7 +276,6 @@ const Language = {
   newest: 'Найновіші',
   lowestPrice: 'Найменша ціна',
   highestPrice: 'Найбільша ціна',
-  unknownProduct: 'Товар не вказано',
 };
 
 export default Language;

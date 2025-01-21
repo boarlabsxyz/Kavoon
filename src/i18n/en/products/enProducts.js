@@ -270,7 +270,6 @@ const Language = {
   newest: 'Newest',
   lowestPrice: 'Lowest Price',
   highestPrice: 'Highest Price',
-  unknownProduct: 'Product not specified',
 };
 
 export default Language;

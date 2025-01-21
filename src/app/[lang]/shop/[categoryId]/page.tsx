@@ -11,7 +11,7 @@ function CategoryPage({ params: { lang, categoryId } }: CategoryPageProps) {
   return (
     <>
       <CategoryProductsSection categoryId={categoryId} lang={lang} />
-      <ReviewsSection categoryId={categoryId} />
+      <ReviewsSection />
     </>
   );
 }

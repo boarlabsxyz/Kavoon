@@ -1,6 +1,10 @@
+import { NextRequest } from 'next/server';
+
 import { InsertOneResult, ObjectId } from 'mongodb';
 import Tgfancy from 'tgfancy';
 
+import { ALL_PRODUCTS, Category } from 'src/data/constants';
+import toKebabCase from 'src/helpers/toKebabCase';
 import lang from 'src/i18n/lang';
 import clientPromise from 'src/services/mongodb/connect';
 import IReview from 'src/types/review';
@@ -28,9 +32,7 @@ function createTelegramMessage(review: Review) {
   const { images, productName, userName, rating, comment } = review;
 
   const formattedProductName =
-    productName !== null
-      ? lang(capitalize(productName))
-      : lang('UnknownProduct');
+    productName !== null ? lang(capitalize(productName)) : '';
 
   const imageUrl = images.length > 0 ? images.join('\n\n') : '\u268A';
 
@@ -85,5 +87,46 @@ export async function PATCH(request: Request) {
     return Response.json({ status: 'success' });
   } catch (error) {
     return Response.json({ status: 'fail', error: error.message });
+  }
+}
+
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const productId = searchParams.get('productId') || undefined;
+  const categoryId = searchParams.get('categoryId') as Category | undefined;
+  const showOnSite = searchParams.get('showOnSite') as string | undefined;
+
+  try {
+    const client = await clientPromise;
+    const db = client.db('kavoon');
+    const collection = db.collection<IReview>('reviews');
+
+    const filter: any = { isActive: true };
+
+    if (showOnSite === 'true') {
+      filter.showOnSite = true;
+    }
+
+    if (productId) {
+      filter.productName = productId;
+    } else if (categoryId && categoryId !== toKebabCase(ALL_PRODUCTS)) {
+      filter.categoryId = categoryId;
+    }
+
+    const data = await collection.find(filter).toArray();
+    return Response.json({
+      success: true,
+      data: data,
+      count: data.length,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        error: 'Failed to fetch reviews',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
+      { status: 500 }
+    );
   }
 }

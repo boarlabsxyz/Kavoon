@@ -1,18 +1,114 @@
-import ProductReviews from 'src/components/common/productReviews';
+'use client';
 
-import { getReviews } from 'src/services/mongodb';
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
 
+import Container from 'src/components/common/container';
+import ModalWindow from 'src/components/common/modalWindow';
+import useToggle from 'src/hooks/useToggle';
+import ReviewsSlider from 'src/components/common/sliders/reviewsSlider';
+import AddReviewBtn from 'src/components/common/reviews/addReviewBtn';
+import CreateReviewForm from 'src/components/common/reviews/createReviewForm';
+
+import translate from 'src/i18n/lang';
+import { Language } from 'src/types/language';
+
+import st from './reviewsSection.module.css';
 import { Category } from 'src/data/constants';
+import Notification from 'src/components/common/notification';
+import style from 'src/components/common/notification/Notification.module.css';
 
-type Props = {
-  categoryId?: Category;
-  productId?: string;
+type UseParams = {
+  lang: Language;
+  productId: string;
+  categoryId: Category;
 };
 
-async function ReviewsSection({ productId, categoryId }: Props) {
-  const reviews = await getReviews(productId, categoryId);
+function ProductReviewsSection() {
+  const { lang, productId, categoryId } = useParams<UseParams>();
 
-  return <ProductReviews reviews={reviews} />;
+  const [showModal, toggleModal] = useToggle(false);
+  const [message, setMessage] = useState('');
+  const [isShowNotification, setIsShowNotification] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const query = new URLSearchParams({
+          ...{ showOnSite: 'true' },
+          ...(productId ? { productId } : {}),
+          ...(categoryId ? { categoryId } : {}),
+        });
+
+        const response = await fetch(`/api/reviews?${query.toString()}`);
+        const data = await response.json();
+        setReviews(data.data);
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
+  const handleSaveReview = (text: string) => {
+    setMessage(text);
+    setIsShowNotification(true);
+    setTimeout(() => {
+      setMessage('');
+    }, 1500);
+  };
+
+  const messageArray = [translate('ThankYouForFeedback', lang), '🎉'];
+  const delay = 6000;
+
+  setTimeout(() => {
+    setIsShowNotification(false);
+  }, delay);
+
+  return (
+    <section className={st.section}>
+      <Container>
+        <h2 className={st.title}>
+          {translate('Reviews', lang)}{' '}
+          {reviews.length > 0 && (
+            <span className={st.amount}>{`(${reviews.length})`}</span>
+          )}
+        </h2>
+        {reviews.length === 0 ? (
+          <p className={st.leaveFeedback}>{translate('LeaveFeedback', lang)}</p>
+        ) : (
+          <ReviewsSlider reviews={reviews} language={lang} />
+        )}
+        <AddReviewBtn
+          onClick={() => {
+            toggleModal();
+          }}
+        >
+          {translate('WriteReview', lang)}
+        </AddReviewBtn>
+        {showModal && (
+          <ModalWindow onClose={toggleModal}>
+            <CreateReviewForm
+              language={lang}
+              productId={productId}
+              categoryId={categoryId}
+              onClose={toggleModal}
+              onSaveReview={handleSaveReview}
+            />
+          </ModalWindow>
+        )}
+        {isShowNotification && (
+          <Notification
+            className={style.colReverse}
+            messageArray={messageArray}
+            delay={delay}
+          />
+        )}
+        <div></div>
+      </Container>
+    </section>
+  );
 }
-
-export default ReviewsSection;
+export default ProductReviewsSection;
