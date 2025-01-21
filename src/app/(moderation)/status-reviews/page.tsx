@@ -1,8 +1,8 @@
 import StatusReviews from 'src/components/statusReviewsPage';
-import { getAllReviews } from 'src/services/mongodb';
+import { getAllActiveReviews } from 'src/services/mongodb';
 
 async function StatusReviewsPage() {
-  const reviews = await getAllReviews();
+  const reviews = await getAllActiveReviews();
   return <StatusReviews reviews={reviews} />;
 }
 
