@@ -132,10 +132,10 @@ function ProductsSorting({ handleSortChange, language }: Props) {
           aria-hidden="true"
         />
       </div>
-      {isShowList && (
+      {
         <ul
           id="sorting-options"
-          className={st.options}
+          className={isShowList ? st.options : st.optionsHidden}
           role="listbox"
           aria-activedescendant={
             highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
@@ -164,7 +164,7 @@ function ProductsSorting({ handleSortChange, language }: Props) {
             </li>
           ))}
         </ul>
-      )}
+      }
     </div>
   );
 }
