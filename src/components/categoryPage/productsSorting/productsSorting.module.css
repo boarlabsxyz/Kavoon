@@ -42,6 +42,11 @@
   z-index: 2;
 }
 
+.options li:hover {
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+}
+
 .option {
   cursor: pointer;
 }
