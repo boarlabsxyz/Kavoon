@@ -58,6 +58,44 @@ function ReviewsSlider({ reviews, language }: Props) {
 
   return (
     <div className={st.container}>
+      {!isOneReview && (
+        <>
+          <div
+            className={`swiper-button-prev arrow-prev ${st.prevReviewArrow}`}
+            tabIndex={0}
+            role="button"
+            aria-label="Previous slide"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const prevButton = document.querySelector(
+                  '.swiper-button-prev'
+                );
+                prevButton?.dispatchEvent(
+                  new Event('click', { bubbles: true })
+                );
+              }
+            }}
+          />
+          <div
+            className={`swiper-button-next arrow-next ${st.nextReviewArrow}`}
+            tabIndex={0}
+            role="button"
+            aria-label="Next slide"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const nextButton = document.querySelector(
+                  '.swiper-button-next'
+                );
+                nextButton?.dispatchEvent(
+                  new Event('click', { bubbles: true })
+                );
+              }
+            }}
+          />
+        </>
+      )}
       <Swiper className={st.wrapper} centeredSlides={isOneReview} {...options}>
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
@@ -69,16 +107,7 @@ function ReviewsSlider({ reviews, language }: Props) {
           </SwiperSlide>
         ))}
       </Swiper>
-      {!isOneReview && (
-        <>
-          <div
-            className={`swiper-button-prev arrow-prev ${st.prevReviewArrow}`}
-          />
-          <div
-            className={`swiper-button-next arrow-next ${st.nextReviewArrow}`}
-          />
-        </>
-      )}
+
       {showModal && (
         <ModalWindow onClose={toggleModal}>
           <ReviewModalContent
