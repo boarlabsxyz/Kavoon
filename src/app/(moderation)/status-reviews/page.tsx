@@ -1,16 +1,25 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import StatusReviews from 'src/components/statusReviewsPage';
 
-async function StatusReviewsPage() {
-  // const baseUrl =
-  // process.env.NEXT_PUBLIC_API_BASE_URL || `https://${process.env.VERCEL_URL}`;
-  const baseUrl = `https://${process.env.VERCEL_URL}`;
-  const response = await fetch(`${baseUrl}/api/reviews`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch reviews');
-  }
+function StatusReviewsPage() {
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch('/api/reviews?');
+        const data = await response.json();
+        setReviews(data.data);
+      } catch (error) {
+        console.error('Error fetching reviews:', error);
+      }
+    };
 
-  const data = await response.json();
-  return <StatusReviews reviews={data.data} />;
+    fetchReviews();
+  }, []);
+
+  return <StatusReviews reviews={reviews} />;
 }
 
 export default StatusReviewsPage;
