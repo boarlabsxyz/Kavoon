@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - the text for "How to place an order?" section on product details page
 - the text and logos on the Delivery and Payment page
 
-## [1.2.0] - 2025-01-27
+## [1.2.0] - Unreleased
 
 ### Added
 - reviews to the "All Products" page
