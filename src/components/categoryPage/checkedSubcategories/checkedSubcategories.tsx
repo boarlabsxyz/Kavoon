@@ -24,15 +24,29 @@ function CheckedSubcategories({
     );
   };
 
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    value: string
+  ) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setSubcategories((prevSubcategories) =>
+        prevSubcategories.filter((sub) => sub !== value)
+      );
+    }
+  };
+
   return (
     <ul className={st.subcategories}>
       {subcategories.map((subcategory) => (
         <li key={subcategory}>
           <span>{translate(subcategory, language)}</span>
           <div
+            role="button"
+            tabIndex={0}
             data-testid="uncheck-button"
             className={st.uncheckButton}
             onClick={uncheck}
+            onKeyDown={(e) => handleKeyDown(e, subcategory)}
             data-value={subcategory}
           >
             <div />

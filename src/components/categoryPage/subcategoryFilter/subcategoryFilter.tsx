@@ -37,17 +37,6 @@ function SubcategoryFilter({
     SUBCATEGORIES_BICYCLE_EQUIPMENT
   ) as Subcategory[];
 
-  const handleCheckboxChange = ({
-    target: { value, checked },
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    setSubcategories((prevSubcategories) =>
-      checked
-        ? [...prevSubcategories, value as Subcategory]
-        : prevSubcategories.filter((sub) => sub !== value)
-    );
-    setIsShowList(false);
-  };
-
   const handleOptionClick = useCallback(
     (option: Subcategory) => {
       setSubcategories((prevSubcategories) =>
@@ -62,7 +51,7 @@ function SubcategoryFilter({
 
   const toggleDropdown = () => {
     setIsShowList((prev) => !prev);
-    setHighlightedIndex(-1); // Reset highlight on toggle
+    setHighlightedIndex(-1);
   };
 
   const handleKeyDown = useCallback(
@@ -82,14 +71,6 @@ function SubcategoryFilter({
           setHighlightedIndex((prev) =>
             prev <= 0 ? allSubcategories.length - 1 : prev - 1
           );
-          break;
-
-        case 'Enter':
-        case ' ':
-          event.preventDefault();
-          if (highlightedIndex >= 0) {
-            handleOptionClick(allSubcategories[highlightedIndex]);
-          }
           break;
 
         case 'Escape':
@@ -129,12 +110,12 @@ function SubcategoryFilter({
       className={st.wrapper}
       data-cy="subcategory-filter"
       tabIndex={-1}
-      onKeyDown={handleKeyDown} // For Arrow navigation
+      onKeyDown={handleKeyDown}
     >
       <div
         className={isShowList ? `${st.title} ${st.titleOfShowList}` : st.title}
         onClick={toggleDropdown}
-        tabIndex={0} // Makes the title focusable
+        tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -166,8 +147,14 @@ function SubcategoryFilter({
               aria-selected={highlightedIndex === index}
               className={highlightedIndex === index ? st.highlighted : ''}
               onClick={() => handleOptionClick(value)}
-              onFocus={() => handleListItemFocus(index)} // Sync highlight on focus
-              tabIndex={0} // Allows Tab navigation
+              onFocus={() => handleListItemFocus(index)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleOptionClick(value);
+                }
+              }}
+              tabIndex={0}
             >
               <label className={st.label}>
                 <input
@@ -176,7 +163,8 @@ function SubcategoryFilter({
                   type="checkbox"
                   name="subcategory"
                   value={value}
-                  onChange={handleCheckboxChange}
+                  tabIndex={-1}
+                  readOnly
                 />
                 <span className={st.checkbox} />
                 <span>{translate(value, language)}</span>

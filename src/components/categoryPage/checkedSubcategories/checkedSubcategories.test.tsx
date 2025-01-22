@@ -61,4 +61,64 @@ describe('CheckedSubcategories', () => {
     const updatedSubcategories = setSubcategoriesCallback(subcategories);
     expect(updatedSubcategories).toEqual(['SeatBags']);
   });
+
+  it('allows focus on uncheck button via tab key', () => {
+    (translate as jest.Mock).mockImplementation((key) => key);
+
+    render(
+      <CheckedSubcategories
+        subcategories={subcategories}
+        setSubcategories={mockSetSubcategories}
+        language={language}
+      />
+    );
+
+    const uncheckButtons = screen.getAllByTestId('uncheck-button');
+
+    expect(uncheckButtons[0]).toHaveAttribute('tabIndex', '0');
+  });
+
+  it('triggers uncheck action when Enter key is pressed on a focused uncheck button', () => {
+    (translate as jest.Mock).mockImplementation((key) => key);
+
+    render(
+      <CheckedSubcategories
+        subcategories={subcategories}
+        setSubcategories={mockSetSubcategories}
+        language={language}
+      />
+    );
+
+    const uncheckButtons = screen.getAllByTestId('uncheck-button');
+
+    uncheckButtons[0].focus();
+    fireEvent.keyDown(uncheckButtons[0], { key: 'Enter', code: 'Enter' });
+
+    expect(mockSetSubcategories).toHaveBeenCalledTimes(1);
+    const setSubcategoriesCallback = mockSetSubcategories.mock.calls[0][0];
+    const updatedSubcategories = setSubcategoriesCallback(subcategories);
+    expect(updatedSubcategories).toEqual(['SeatBags']);
+  });
+
+  it('triggers uncheck action when Space key is pressed on a focused uncheck button', () => {
+    (translate as jest.Mock).mockImplementation((key) => key);
+
+    render(
+      <CheckedSubcategories
+        subcategories={subcategories}
+        setSubcategories={mockSetSubcategories}
+        language={language}
+      />
+    );
+
+    const uncheckButtons = screen.getAllByTestId('uncheck-button');
+
+    uncheckButtons[0].focus();
+    fireEvent.keyDown(uncheckButtons[0], { key: ' ', code: 'Space' });
+
+    expect(mockSetSubcategories).toHaveBeenCalledTimes(1);
+    const setSubcategoriesCallback = mockSetSubcategories.mock.calls[0][0];
+    const updatedSubcategories = setSubcategoriesCallback(subcategories);
+    expect(updatedSubcategories).toEqual(['SeatBags']);
+  });
 });

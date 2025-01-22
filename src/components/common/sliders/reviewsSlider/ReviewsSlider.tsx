@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -36,21 +36,34 @@ const options: SwiperOptions = {
     768: { slidesPerView: 1 },
     1024: { slidesPerView: 2 },
   },
-  navigation: {
-    nextEl: `.${st.container} .arrow-next`,
-    prevEl: `.${st.container} .arrow-prev`,
-  },
   slidesPerGroup: 1,
 };
 
 function ReviewsSlider({ reviews, language }: Props) {
+  const swiperRef = useRef<any>(null);
   const [showModal, toggleModal] = useToggle();
-  const [seeMoreReviewId, setSeeMoreReviewId] = useState(null);
+  const [seeMoreReviewId, setSeeMoreReviewId] = useState<string | null>(null);
 
   const isOneReview = reviews.length === 1;
 
-  const handlerModal = (e, id) => {
-    if (e.target.id !== 'ShowOriginalBtn') {
+  const handleNavigation = (direction: 'prev' | 'next') => {
+    if (swiperRef.current) {
+      direction === 'prev'
+        ? swiperRef.current.slidePrev()
+        : swiperRef.current.slideNext();
+    }
+  };
+
+  const handleNavigationKeyPress =
+    (direction: 'prev' | 'next') => (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleNavigation(direction);
+      }
+    };
+
+  const handlerModal = (e: React.MouseEvent, id: string) => {
+    if ((e.target as HTMLElement).id !== 'ShowOriginalBtn') {
       toggleModal();
       setSeeMoreReviewId(id);
     }
@@ -65,38 +78,27 @@ function ReviewsSlider({ reviews, language }: Props) {
             tabIndex={0}
             role="button"
             aria-label="Previous slide"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                const prevButton = document.querySelector(
-                  '.swiper-button-prev'
-                );
-                prevButton?.dispatchEvent(
-                  new Event('click', { bubbles: true })
-                );
-              }
-            }}
+            aria-controls="reviews-slider"
+            onKeyDown={handleNavigationKeyPress('prev')}
+            onClick={() => handleNavigation('prev')}
           />
           <div
             className={`swiper-button-next arrow-next ${st.nextReviewArrow}`}
             tabIndex={0}
             role="button"
             aria-label="Next slide"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                const nextButton = document.querySelector(
-                  '.swiper-button-next'
-                );
-                nextButton?.dispatchEvent(
-                  new Event('click', { bubbles: true })
-                );
-              }
-            }}
+            aria-controls="reviews-slider"
+            onKeyDown={handleNavigationKeyPress('next')}
+            onClick={() => handleNavigation('next')}
           />
         </>
       )}
-      <Swiper className={st.wrapper} centeredSlides={isOneReview} {...options}>
+      <Swiper
+        className={st.wrapper}
+        centeredSlides={isOneReview}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        {...options}
+      >
         {reviews.map((review) => (
           <SwiperSlide key={review._id}>
             <ReviewCard
@@ -111,7 +113,9 @@ function ReviewsSlider({ reviews, language }: Props) {
       {showModal && (
         <ModalWindow onClose={toggleModal}>
           <ReviewModalContent
-            review={reviews.find((review) => review._id === seeMoreReviewId)}
+            review={
+              reviews.find((review) => review._id === seeMoreReviewId) || null
+            }
             language={language}
           />
         </ModalWindow>

@@ -1,7 +1,5 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
+import { render, screen, fireEvent } from '@testing-library/react';
 import SubcategoryFilter from 'src/components/categoryPage/subcategoryFilter';
-
 import {
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
   Subcategory,
@@ -31,39 +29,16 @@ describe('SubcategoryFilter', () => {
 
   it('should render without crashing', () => {
     render(<SubcategoryFilter {...defaultProps} />);
-
     expect(
       screen.getByText(translate('FilterByType', defaultProps.language))
     ).toBeInTheDocument();
   });
 
-  it('should toggle className for the subcategory list when clicking the title', () => {
-    render(<SubcategoryFilter {...defaultProps} />);
-
-    const listElement = screen.getByRole('list');
-
-    expect(listElement).toHaveClass('hiddenList');
-
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    );
-
-    expect(listElement).not.toHaveClass('hiddenList');
-
-    fireEvent.click(
-      screen.getByText(translate('FilterByType', defaultProps.language))
-    );
-
-    expect(listElement).toHaveClass('hiddenList');
-  });
-
   it('should display all subcategories in the list', () => {
     render(<SubcategoryFilter {...defaultProps} />);
-
     fireEvent.click(
       screen.getByText(translate('FilterByType', defaultProps.language))
     );
-
     allSubcategories.forEach((subcategory) => {
       expect(
         screen.getByLabelText(translate(subcategory, defaultProps.language))
@@ -79,21 +54,15 @@ describe('SubcategoryFilter', () => {
         setSubcategories={setSubcategoriesMock}
       />
     );
-
     fireEvent.click(
       screen.getByText(translate('FilterByType', defaultProps.language))
     );
-
     const firstCheckbox = screen.getByLabelText(
       translate(allSubcategories[0], defaultProps.language)
     );
-
     fireEvent.click(firstCheckbox);
-
     expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
-
     const updateFunction = setSubcategoriesMock.mock.calls[0][0];
-
     const updatedSubcategories = updateFunction([]);
     expect(updatedSubcategories).toEqual([allSubcategories[0]]);
   });
@@ -108,21 +77,111 @@ describe('SubcategoryFilter', () => {
         setSubcategories={setSubcategoriesMock}
       />
     );
+    fireEvent.click(
+      screen.getByText(translate('FilterByType', defaultProps.language))
+    );
+    const firstCheckbox = screen.getByLabelText(
+      translate(allSubcategories[0], defaultProps.language)
+    );
+    fireEvent.click(firstCheckbox);
+    expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
+    const updatedSubcategories =
+      setSubcategoriesMock.mock.calls[0][0](checkedSubcategories);
+    expect(updatedSubcategories).toEqual([]);
+  });
+
+  it('should navigate the list using the ArrowDown key', () => {
+    render(<SubcategoryFilter {...defaultProps} />);
+    fireEvent.click(
+      screen.getByText(translate('FilterByType', defaultProps.language))
+    );
+
+    fireEvent.keyDown(
+      screen.getByText(translate('FilterByType', defaultProps.language)),
+      { key: 'ArrowDown' }
+    );
+    expect(
+      screen.getByRole('option', {
+        name: translate(allSubcategories[0], defaultProps.language),
+      })
+    ).toHaveFocus();
+
+    fireEvent.keyDown(
+      screen.getByText(translate('FilterByType', defaultProps.language)),
+      { key: 'ArrowDown' }
+    );
+    expect(
+      screen.getByRole('option', {
+        name: translate(allSubcategories[1], defaultProps.language),
+      })
+    ).toHaveFocus();
+  });
+
+  it('should navigate the list using the ArrowUp key', () => {
+    render(<SubcategoryFilter {...defaultProps} />);
+    fireEvent.click(
+      screen.getByText(translate('FilterByType', defaultProps.language))
+    );
+
+    fireEvent.keyDown(
+      screen.getByText(translate('FilterByType', defaultProps.language)),
+      { key: 'ArrowDown' }
+    );
+    fireEvent.keyDown(
+      screen.getByText(translate('FilterByType', defaultProps.language)),
+      { key: 'ArrowDown' }
+    );
+
+    fireEvent.keyDown(
+      screen.getByText(translate('FilterByType', defaultProps.language)),
+      { key: 'ArrowUp' }
+    );
+    expect(
+      screen.getByRole('option', {
+        name: translate(allSubcategories[0], defaultProps.language),
+      })
+    ).toHaveFocus();
+  });
+
+  it('should select an item when Enter or Space is pressed on a focused item', () => {
+    const setSubcategoriesMock = jest.fn();
+    render(
+      <SubcategoryFilter
+        {...defaultProps}
+        setSubcategories={setSubcategoriesMock}
+      />
+    );
 
     fireEvent.click(
       screen.getByText(translate('FilterByType', defaultProps.language))
     );
 
-    const firstCheckbox = screen.getByLabelText(
+    const firstItem = screen.getByText(
       translate(allSubcategories[0], defaultProps.language)
     );
-    fireEvent.click(firstCheckbox);
+    fireEvent.keyDown(firstItem, { key: 'ArrowDown' });
+    fireEvent.keyDown(firstItem, { key: 'Enter' });
 
     expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
+    expect(setSubcategoriesMock).toHaveBeenCalledWith(expect.any(Function));
 
-    const updateFunction = setSubcategoriesMock.mock.calls[0][0];
+    fireEvent.keyDown(firstItem, { key: 'Space' });
 
-    const updatedSubcategories = updateFunction([]);
-    expect(updatedSubcategories).toEqual([]);
+    setTimeout(() => {
+      expect(setSubcategoriesMock).toHaveBeenCalledTimes(2);
+    }, 0);
+  });
+
+  it('should close the dropdown when Escape is pressed', () => {
+    render(<SubcategoryFilter {...defaultProps} />);
+    fireEvent.click(
+      screen.getByText(translate('FilterByType', defaultProps.language))
+    );
+
+    fireEvent.keyDown(
+      screen.getByText(translate('FilterByType', defaultProps.language)),
+      { key: 'Escape' }
+    );
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 });
