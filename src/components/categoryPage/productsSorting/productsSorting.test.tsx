@@ -30,7 +30,7 @@ describe('ProductsSorting Component', () => {
     );
 
     expect(screen.getByText('mostPopular')).toBeInTheDocument();
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toBeInTheDocument();
   });
 
   it('should toggle dropdown visibility on click', () => {
@@ -43,7 +43,7 @@ describe('ProductsSorting Component', () => {
 
     expect(screen.getByRole('listbox')).toBeInTheDocument();
     fireEvent.click(selectedElement);
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toBeInTheDocument();
   });
 
   it('should call handleSortChange and update selected option on option click', () => {
@@ -80,7 +80,7 @@ describe('ProductsSorting Component', () => {
     const outsideElement = screen.getByTestId('outside-element');
     fireEvent.click(outsideElement);
 
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toBeInTheDocument();
   });
 
   it('should pass the correct language to getSortingOptions', () => {

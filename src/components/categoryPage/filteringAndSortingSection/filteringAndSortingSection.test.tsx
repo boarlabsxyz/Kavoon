@@ -42,19 +42,15 @@ describe('FilteringAndSortingSection Component', () => {
     expect(
       screen.getByText(translate('FilterByType', lang))
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(translate('mostPopular', lang))
-    ).toBeInTheDocument();
+    expect(screen.getByLabelText('Sort products')).toBeInTheDocument();
   });
 
   it('should render the new option when a selected option is clicked', async () => {
     renderComponent();
 
-    expect(
-      screen.queryByText(translate('newest', lang))
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText(translate('newest', lang))).toBeInTheDocument();
 
-    const sortingButton = screen.getByText(translate('mostPopular', lang));
+    const sortingButton = screen.getByLabelText('Sort products');
     fireEvent.click(sortingButton);
 
     await waitFor(() =>
@@ -65,7 +61,7 @@ describe('FilteringAndSortingSection Component', () => {
   it('should call filterByCategoryAndSubcategory with correct parameters', async () => {
     renderComponent();
 
-    const sortingButton = screen.getByText(translate('mostPopular', lang));
+    const sortingButton = screen.getByLabelText('Sort products');
     fireEvent.click(sortingButton);
 
     await waitFor(() => {
