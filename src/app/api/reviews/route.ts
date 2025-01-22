@@ -101,7 +101,21 @@ export async function GET(request: NextRequest) {
     const db = client.db('kavoon');
     const collection = db.collection<IReview>('reviews');
 
-    const filter: any = { isActive: true };
+    interface ReviewFilter {
+      isActive: boolean;
+      showOnSite?: boolean;
+      productName?: string;
+      categoryId?: Category;
+    }
+
+    const filter: ReviewFilter = { isActive: true };
+
+    if (showOnSite !== undefined && !['true', 'false'].includes(showOnSite)) {
+      return Response.json(
+        { success: false, error: 'Invalid showOnSite parameter' },
+        { status: 400 }
+      );
+    }
 
     if (showOnSite === 'true') {
       filter.showOnSite = true;
@@ -113,7 +127,8 @@ export async function GET(request: NextRequest) {
       filter.categoryId = categoryId;
     }
 
-    const data = await collection.find(filter).toArray();
+    const data = await collection.find(filter).sort({ date: -1 }).toArray();
+
     return Response.json({
       success: true,
       data: data,

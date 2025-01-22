@@ -44,6 +44,7 @@ function ReviewsSection() {
         const data = await response.json();
         setReviews(data.data);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Error fetching reviews:', error);
       }
     };
@@ -80,11 +81,15 @@ function ReviewsSection() {
           onClick={() => {
             toggleModal();
           }}
+          aria-haspopup="dialog"
         >
           {translate('WriteReview', lang)}
         </AddReviewBtn>
         {showModal && (
-          <ModalWindow onClose={toggleModal}>
+          <ModalWindow
+            onClose={toggleModal}
+            aria-label={translate('WriteReview', lang)}
+          >
             <CreateReviewForm
               language={lang}
               productId={productId}
@@ -101,7 +106,6 @@ function ReviewsSection() {
             delay={delay}
           />
         )}
-        <div></div>
       </Container>
     </section>
   );
