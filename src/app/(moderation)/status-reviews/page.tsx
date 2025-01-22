@@ -1,11 +1,10 @@
 import StatusReviews from 'src/components/statusReviewsPage';
 
 async function StatusReviewsPage() {
-  // const apiBaseUrl =
-  //   process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
-
-  // const response = await fetch(`${apiBaseUrl}/api/reviews`);
-  const response = await fetch('http://localhost:3000/api/reviews');
+  // const baseUrl =
+  // process.env.NEXT_PUBLIC_API_BASE_URL || `https://${process.env.VERCEL_URL}`;
+  const baseUrl = `https://${process.env.VERCEL_URL}`;
+  const response = await fetch(`${baseUrl}/api/reviews`);
   if (!response.ok) {
     throw new Error('Failed to fetch reviews');
   }
