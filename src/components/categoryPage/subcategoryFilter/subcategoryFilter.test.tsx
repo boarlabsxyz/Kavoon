@@ -143,7 +143,7 @@ describe('SubcategoryFilter', () => {
     ).toHaveFocus();
   });
 
-  it('should select an item when Enter or Space is pressed on a focused item', () => {
+  it('should select an item when Enter or Space is pressed on a focused item', async () => {
     const setSubcategoriesMock = jest.fn();
     render(
       <SubcategoryFilter
@@ -167,9 +167,8 @@ describe('SubcategoryFilter', () => {
 
     fireEvent.keyDown(firstItem, { key: 'Space' });
 
-    setTimeout(() => {
-      expect(setSubcategoriesMock).toHaveBeenCalledTimes(2);
-    }, 0);
+    await new Promise(process.nextTick);
+    expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
   });
 
   it('should close the dropdown when Escape is pressed', () => {

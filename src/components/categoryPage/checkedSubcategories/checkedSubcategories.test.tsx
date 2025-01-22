@@ -16,11 +16,10 @@ describe('CheckedSubcategories', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    (translate as jest.Mock).mockImplementation((key) => key);
   });
 
-  it('renders the subcategories', () => {
-    (translate as jest.Mock).mockImplementation((key) => key);
-
+  const setup = () => {
     render(
       <CheckedSubcategories
         subcategories={subcategories}
@@ -28,6 +27,25 @@ describe('CheckedSubcategories', () => {
         language={language}
       />
     );
+    return screen.getAllByTestId('uncheck-button');
+  };
+
+  const testKeyAction = (
+    key: string,
+    code: string,
+    expectedSubcategories: Subcategory[]
+  ) => {
+    const uncheckButtons = setup();
+    uncheckButtons[0].focus();
+    fireEvent.keyDown(uncheckButtons[0], { key, code });
+    expect(mockSetSubcategories).toHaveBeenCalledTimes(1);
+    const setSubcategoriesCallback = mockSetSubcategories.mock.calls[0][0];
+    const updatedSubcategories = setSubcategoriesCallback(subcategories);
+    expect(updatedSubcategories).toEqual(expectedSubcategories);
+  };
+
+  it('renders the subcategories', () => {
+    setup();
 
     subcategories.forEach((subcategory) => {
       expect(screen.getByText(subcategory)).toBeInTheDocument();
@@ -40,18 +58,7 @@ describe('CheckedSubcategories', () => {
   });
 
   it('calls setSubcategories with the correct value when uncheck button is clicked', () => {
-    (translate as jest.Mock).mockImplementation((key) => key);
-
-    render(
-      <CheckedSubcategories
-        subcategories={subcategories}
-        setSubcategories={mockSetSubcategories}
-        language={language}
-      />
-    );
-
-    const uncheckButtons = screen.getAllByTestId('uncheck-button');
-
+    const uncheckButtons = setup();
     fireEvent.click(uncheckButtons[0]);
 
     expect(mockSetSubcategories).toHaveBeenCalledTimes(1);
@@ -63,62 +70,15 @@ describe('CheckedSubcategories', () => {
   });
 
   it('allows focus on uncheck button via tab key', () => {
-    (translate as jest.Mock).mockImplementation((key) => key);
-
-    render(
-      <CheckedSubcategories
-        subcategories={subcategories}
-        setSubcategories={mockSetSubcategories}
-        language={language}
-      />
-    );
-
-    const uncheckButtons = screen.getAllByTestId('uncheck-button');
-
+    const uncheckButtons = setup();
     expect(uncheckButtons[0]).toHaveAttribute('tabIndex', '0');
   });
 
   it('triggers uncheck action when Enter key is pressed on a focused uncheck button', () => {
-    (translate as jest.Mock).mockImplementation((key) => key);
-
-    render(
-      <CheckedSubcategories
-        subcategories={subcategories}
-        setSubcategories={mockSetSubcategories}
-        language={language}
-      />
-    );
-
-    const uncheckButtons = screen.getAllByTestId('uncheck-button');
-
-    uncheckButtons[0].focus();
-    fireEvent.keyDown(uncheckButtons[0], { key: 'Enter', code: 'Enter' });
-
-    expect(mockSetSubcategories).toHaveBeenCalledTimes(1);
-    const setSubcategoriesCallback = mockSetSubcategories.mock.calls[0][0];
-    const updatedSubcategories = setSubcategoriesCallback(subcategories);
-    expect(updatedSubcategories).toEqual(['SeatBags']);
+    testKeyAction('Enter', 'Enter', ['SeatBags']);
   });
 
   it('triggers uncheck action when Space key is pressed on a focused uncheck button', () => {
-    (translate as jest.Mock).mockImplementation((key) => key);
-
-    render(
-      <CheckedSubcategories
-        subcategories={subcategories}
-        setSubcategories={mockSetSubcategories}
-        language={language}
-      />
-    );
-
-    const uncheckButtons = screen.getAllByTestId('uncheck-button');
-
-    uncheckButtons[0].focus();
-    fireEvent.keyDown(uncheckButtons[0], { key: ' ', code: 'Space' });
-
-    expect(mockSetSubcategories).toHaveBeenCalledTimes(1);
-    const setSubcategoriesCallback = mockSetSubcategories.mock.calls[0][0];
-    const updatedSubcategories = setSubcategoriesCallback(subcategories);
-    expect(updatedSubcategories).toEqual(['SeatBags']);
+    testKeyAction(' ', 'Space', ['SeatBags']);
   });
 });

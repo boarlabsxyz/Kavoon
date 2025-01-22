@@ -114,7 +114,10 @@ function ReviewsSlider({ reviews, language }: Props) {
         <ModalWindow onClose={toggleModal}>
           <ReviewModalContent
             review={
-              reviews.find((review) => review._id === seeMoreReviewId) || null
+              seeMoreReviewId
+                ? reviews.find((review) => review._id === seeMoreReviewId) ||
+                  null
+                : null
             }
             language={language}
           />
