@@ -44,6 +44,11 @@
   color: var(--primary-color);
 }
 
+.list li:last-child:hover {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
 .hiddenList {
   display: none;
 }
