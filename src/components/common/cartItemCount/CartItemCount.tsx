@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 
 import { Observable } from 'rxjs';
 
-import ShopIcon from 'src/icons/shopIcon';
+import CartIcon from 'src/icons/cartIcon';
 import { Language } from 'src/types/language';
 
 import st from './CartItemCount.module.css';
@@ -32,7 +32,7 @@ function CartItemCount({ vm: { count, href }, language }: Props) {
       data-cy="cart-link"
       prefetch={false}
     >
-      <ShopIcon width="24" height="25" />
+      <CartIcon width="24" height="25" />
       <CartTotalItems count={count} />
     </Link>
   );
