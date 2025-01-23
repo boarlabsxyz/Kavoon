@@ -73,6 +73,20 @@ function SubcategoryFilter({
           );
           break;
 
+        case 'Tab':
+          event.preventDefault();
+          const isShiftTab = event.shiftKey;
+          if (isShiftTab) {
+            setHighlightedIndex((prev) =>
+              prev <= 0 ? allSubcategories.length - 1 : prev - 1
+            );
+          } else {
+            setHighlightedIndex((prev) =>
+              prev === allSubcategories.length - 1 ? 0 : prev + 1
+            );
+          }
+          break;
+
         case 'Escape':
           setIsShowList(false);
           break;

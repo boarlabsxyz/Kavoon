@@ -143,7 +143,7 @@ describe('SubcategoryFilter', () => {
     ).toHaveFocus();
   });
 
-  it('should select an item when Enter or Space is pressed on a focused item', async () => {
+  it('should select an item when Enter is pressed on a focused item', async () => {
     const setSubcategoriesMock = jest.fn();
     render(
       <SubcategoryFilter
@@ -159,16 +159,37 @@ describe('SubcategoryFilter', () => {
     const firstItem = screen.getByText(
       translate(allSubcategories[0], defaultProps.language)
     );
-    fireEvent.keyDown(firstItem, { key: 'ArrowDown' });
     fireEvent.keyDown(firstItem, { key: 'Enter' });
 
     expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
     expect(setSubcategoriesMock).toHaveBeenCalledWith(expect.any(Function));
+    const enterUpdate = setSubcategoriesMock.mock.calls[0][0]([]);
+    expect(enterUpdate).toEqual([allSubcategories[0]]);
+  });
 
-    fireEvent.keyDown(firstItem, { key: 'Space' });
+  it('should select an item when Space is pressed on a focused item', async () => {
+    const setSubcategoriesMock = jest.fn();
+    render(
+      <SubcategoryFilter
+        {...defaultProps}
+        setSubcategories={setSubcategoriesMock}
+      />
+    );
 
-    await new Promise(process.nextTick);
+    fireEvent.click(
+      screen.getByText(translate('FilterByType', defaultProps.language))
+    );
+
+    const firstItem = screen.getByText(
+      translate(allSubcategories[0], defaultProps.language)
+    );
+
+    fireEvent.keyDown(firstItem, { key: ' ' });
+
     expect(setSubcategoriesMock).toHaveBeenCalledTimes(1);
+    expect(setSubcategoriesMock).toHaveBeenCalledWith(expect.any(Function));
+    const enterUpdate = setSubcategoriesMock.mock.calls[0][0]([]);
+    expect(enterUpdate).toEqual([allSubcategories[0]]);
   });
 
   it('should close the dropdown when Escape is pressed', () => {
@@ -182,5 +203,34 @@ describe('SubcategoryFilter', () => {
       { key: 'Escape' }
     );
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+  });
+
+  it('should trap focus within dropdown when open', () => {
+    render(<SubcategoryFilter {...defaultProps} />);
+
+    // Open dropdown
+    const filterButton = screen.getByText(
+      translate('FilterByType', defaultProps.language)
+    );
+    fireEvent.click(filterButton);
+
+    // Verify aria attributes
+    expect(filterButton).toHaveAttribute('aria-expanded', 'true');
+
+    // Try to Tab out
+    const lastOption = screen.getByRole('option', {
+      name: translate(
+        allSubcategories[allSubcategories.length - 1],
+        defaultProps.language
+      ),
+    });
+    fireEvent.keyDown(lastOption, { key: 'Tab' });
+
+    // Should cycle back to first option
+    expect(
+      screen.getByRole('option', {
+        name: translate(allSubcategories[0], defaultProps.language),
+      })
+    ).toHaveFocus();
   });
 });
