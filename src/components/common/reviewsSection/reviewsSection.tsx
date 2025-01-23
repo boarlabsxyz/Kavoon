@@ -20,8 +20,8 @@ import style from 'src/components/common/notification/Notification.module.css';
 
 type UseParams = {
   lang: Language;
-  productId: string;
-  categoryId: Category;
+  productId?: string;
+  categoryId?: Category;
 };
 
 function ReviewsSection() {
@@ -50,6 +50,7 @@ function ReviewsSection() {
     };
 
     fetchReviews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSaveReview = (text: string) => {
