@@ -27,12 +27,10 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* gap: 16px; */
   list-style: none;
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0px;
-  /* padding: 20px; */
   position: absolute;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;

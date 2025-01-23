@@ -27,7 +27,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* gap: 16px; */
   position: absolute;
   top: 100%;
   left: 0;
@@ -38,7 +37,6 @@
   border-bottom-right-radius: 12px;
   border-top: none;
   list-style: none;
-  /* padding: 20px; */
   z-index: 2;
 }
 
