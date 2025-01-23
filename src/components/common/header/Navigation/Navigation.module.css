@@ -81,8 +81,7 @@
     text-align: center;
     background-color: #fff;
     width: 100vw;
-    justify-content: flex-end;
-    justify-content: center;
+    justify-content: space-around;
     gap: 20px;
   }
   .cartStatus {
