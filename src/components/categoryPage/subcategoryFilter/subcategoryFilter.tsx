@@ -95,7 +95,7 @@ function SubcategoryFilter({
           break;
       }
     },
-    [isShowList, highlightedIndex, allSubcategories, handleOptionClick]
+    [isShowList, allSubcategories]
   );
 
   const handleListItemFocus = useCallback((index: number) => {
