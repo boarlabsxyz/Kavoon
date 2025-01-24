@@ -15,6 +15,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 23px;
+  user-select: none;
 }
 
 .buttonWrapper {
