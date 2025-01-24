@@ -31,16 +31,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - reviews to the "All Products" page
 - sorting to the shop page
+- common/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
 
 ### Changed
 - menu navigation for Kavoon 
 - the shopping cart position from the page to the header with navigation
+- 
 
 ### Fixed
 - incorrect display of the contents of the "Menu"”" page on a mobile phone
 - wrong display of "All Products" category section on the home page
 - duplication of the shopping carts on the product details page
+- posibility to sent review a review from any page with any products (https://github.com/boarlabsxyz/Kavoon/pull/167)
+- api/reviews/route - route for working with reviews (https://github.com/boarlabsxyz/Kavoon/pull/167)
 
 ### Removed
 - product categories as a filter on shop page
 - unused code for Delivery and Payment page
+- homePage/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
+- productPage/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
