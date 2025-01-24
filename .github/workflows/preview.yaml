@@ -70,18 +70,18 @@ jobs:
       - name: Create snapshots directory
         run: mkdir -p cypress/snapshots
 
-      # - name: Download snapshots from artifacts
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: cypress-snapshots
-      #     path: cypress/snapshots
+      - name: Download snapshots from artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
 
       - name: Run Cypress tests
         run: npm run cy:test
 
       - name: Upload new snapshots as artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-snapshots
           path: cypress/snapshots
