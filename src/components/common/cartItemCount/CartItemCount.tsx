@@ -29,7 +29,6 @@ function CartItemCount({ vm: { count, href }, language }: Props) {
       href={`/${language}${href}`}
       className={st.cartLink}
       aria-label="link-to-cart-page"
-      data-cy="cart-link"
       prefetch={false}
     >
       <CartIcon width="24" height="25" />

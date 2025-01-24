@@ -23,7 +23,7 @@ function CartButton({ language }: Props) {
   }
 
   return (
-    <div className={st.wrapper}>
+    <div className={st.wrapper} data-cy="link-to-cart-page-from-button">
       <CartItemCount vm={new CartStatusVM()} language={language} />
     </div>
   );
