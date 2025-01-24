@@ -67,9 +67,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create snapshots directory
+        run: mkdir -p cypress/snapshots
+
       - name: Download snapshots from artifacts
-        run: |
-          mkdir -p cypress/snapshots
         uses: actions/download-artifact@v3
         with:
           name: cypress-snapshots
