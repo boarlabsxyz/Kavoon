@@ -1,6 +1,10 @@
+import { NextRequest } from 'next/server';
+
 import { InsertOneResult, ObjectId } from 'mongodb';
 import Tgfancy from 'tgfancy';
 
+import { ALL_PRODUCTS, Category } from 'src/data/constants';
+import toKebabCase from 'src/helpers/toKebabCase';
 import lang from 'src/i18n/lang';
 import clientPromise from 'src/services/mongodb/connect';
 import IReview from 'src/types/review';
@@ -27,10 +31,13 @@ function capitalize(str: string) {
 function createTelegramMessage(review: Review) {
   const { images, productName, userName, rating, comment } = review;
 
+  const formattedProductName =
+    productName !== null ? lang(capitalize(productName)) : '';
+
   const imageUrl = images.length > 0 ? images.join('\n\n') : '\u268A';
 
   return `:fire: ${lang('ReceivedReview')}
-\n:shopping_bags: ${lang('ProductName')}: ${lang(capitalize(productName))}
+\n:shopping_bags: ${lang('ProductName')}: ${formattedProductName}
 \n:mage: ${lang('CustomerName')} ${userName}
 \n:star: ${lang('Mark')}: ${rating}
 \n:memo: ${lang('ReviewText')}: ${comment || '\u268A'}
@@ -80,5 +87,61 @@ export async function PATCH(request: Request) {
     return Response.json({ status: 'success' });
   } catch (error) {
     return Response.json({ status: 'fail', error: error.message });
+  }
+}
+
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const productId = searchParams.get('productId') || undefined;
+  const categoryId = searchParams.get('categoryId') as Category | undefined;
+  const showOnSite = searchParams.get('showOnSite') ?? undefined;
+
+  try {
+    const client = await clientPromise;
+    const db = client.db('kavoon');
+    const collection = db.collection<IReview>('reviews');
+
+    interface ReviewFilter {
+      isActive: boolean;
+      showOnSite?: boolean;
+      productName?: string;
+      categoryId?: Category;
+    }
+
+    const filter: ReviewFilter = { isActive: true };
+
+    if (showOnSite !== undefined && !['true', 'false'].includes(showOnSite)) {
+      return Response.json(
+        { success: false, error: 'Invalid showOnSite parameter' },
+        { status: 400 }
+      );
+    }
+
+    if (showOnSite === 'true') {
+      filter.showOnSite = true;
+    }
+
+    if (productId) {
+      filter.productName = productId;
+    } else if (categoryId && categoryId !== toKebabCase(ALL_PRODUCTS)) {
+      filter.categoryId = categoryId;
+    }
+
+    const data = await collection.find(filter).sort({ date: -1 }).toArray();
+
+    return Response.json({
+      success: true,
+      data: data,
+      count: data.length,
+    });
+  } catch (error) {
+    return Response.json(
+      {
+        success: false,
+        error: 'Failed to fetch reviews',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
+      { status: 500 }
+    );
   }
 }
