@@ -29,6 +29,7 @@ function CheckedSubcategories({
     value: string
   ) => {
     if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       setSubcategories((prevSubcategories) =>
         prevSubcategories.filter((sub) => sub !== value)
       );
