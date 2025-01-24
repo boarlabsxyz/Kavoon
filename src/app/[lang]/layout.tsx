@@ -6,6 +6,7 @@ import Header from 'src/components/common/header';
 import HeaderContent from 'src/components/common/header/headerContent';
 import Banner from 'src/components/common/header/banner';
 import Chat from 'src/components/common/chat/chat';
+import CartButton from 'src/components/common/cartButton';
 
 import { i18n } from 'src/i18n/config';
 import { Language } from 'src/types/language';
@@ -46,6 +47,7 @@ export default function RootLayout({ children, params }: Props) {
           <Footer language={lang} />
         </LocalStorageProvider>
         <Chat language={lang} />
+        <CartButton language={lang} />
       </body>
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_4_ID} />
     </html>

@@ -4,7 +4,6 @@ import { useEffect, useRef, ElementRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 import NavMain from 'src/components/common/header/Navigation/NavMain';
-import CartStatusForMenu from 'src/components/common/header/cartStatusForMenu';
 
 import { Language } from 'src/types/language';
 

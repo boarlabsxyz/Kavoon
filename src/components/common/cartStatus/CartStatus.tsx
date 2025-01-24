@@ -1,7 +1,6 @@
 import CartItemCount from 'src/components/common/cartItemCount';
 
 import CartStatusVM from 'src/data/viewModels/cart/cartStatusVM';
-import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 
 import st from './CartStatus.module.css';

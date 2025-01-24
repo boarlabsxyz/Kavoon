@@ -19,9 +19,11 @@ viewPorts.forEach(({ name, dimensions }) => {
 
       if (name === 'iphone-8') {
         cy.get('[data-cy="mobile-menu-btn"]').click();
+        cy.get('[data-cy="link-to-cart-page-from-button"]').click();
+      } else {
+        cy.get('[data-cy="link-to-cart-page-from-header"]').click();
       }
 
-      cy.get('[data-cy="cart-link"]').click();
       cy.url().should('include', '/shop/cart');
 
       cy.get('[data-cy="order-form"]').should('be.visible');
