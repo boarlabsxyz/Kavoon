@@ -75,6 +75,7 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
+        continue-on-error: true
 
       - name: Run Cypress tests
         run: npm run cy:test
@@ -85,6 +86,7 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
+          retention-days: 30
 
   preview-deployment:
     runs-on: ubuntu-latest
