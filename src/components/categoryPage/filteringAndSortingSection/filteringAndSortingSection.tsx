@@ -42,6 +42,7 @@ function FilteringAndSortingSection({ lang, categoryId }: Props) {
     try {
       const [field, direction] = option.split('-');
       if (!isSortField(field) || !isSortDirection(direction)) {
+        // eslint-disable-next-line no-console
         console.error(
           `Invalid sort option: ${option}, falling back to default`
         );
@@ -50,6 +51,7 @@ function FilteringAndSortingSection({ lang, categoryId }: Props) {
       }
       setSelectedOption(option);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Error processing sort option:', error);
     }
   };

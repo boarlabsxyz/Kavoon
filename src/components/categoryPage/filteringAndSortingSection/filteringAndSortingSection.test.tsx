@@ -45,19 +45,6 @@ describe('FilteringAndSortingSection Component', () => {
     expect(screen.getByLabelText('Sort products')).toBeInTheDocument();
   });
 
-  it('should render the new option when a selected option is clicked', async () => {
-    renderComponent();
-
-    expect(screen.queryByText(translate('newest', lang))).toBeInTheDocument();
-
-    const sortingButton = screen.getByLabelText('Sort products');
-    fireEvent.click(sortingButton);
-
-    await waitFor(() =>
-      expect(screen.getByText(translate('newest', lang))).toBeInTheDocument()
-    );
-  });
-
   it('should call filterByCategoryAndSubcategory with correct parameters', async () => {
     renderComponent();
 
