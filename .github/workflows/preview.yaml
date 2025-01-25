@@ -82,7 +82,7 @@ jobs:
 
       - name: Upload new snapshots as artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-snapshots
           path: cypress/snapshots
