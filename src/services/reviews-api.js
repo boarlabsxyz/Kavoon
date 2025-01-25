@@ -2,8 +2,8 @@ import * as Sentry from '@sentry/browser';
 
 const createReview = async (review) => {
   const {
-    productName,
-    categoryId,
+    productName = null,
+    categoryId = null,
     userName,
     rating,
     comment,
