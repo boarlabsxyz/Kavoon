@@ -132,39 +132,37 @@ function ProductsSorting({ handleSortChange, language }: Props) {
           aria-hidden="true"
         />
       </div>
-      {
-        <ul
-          id="sorting-options"
-          className={isShowList ? st.options : st.optionsHidden}
-          role="listbox"
-          aria-activedescendant={
-            highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
-          }
-        >
-          {sortingOptions.map((option, index) => (
-            <li
-              key={option.label}
-              id={`option-${index}`}
-              role="option"
-              aria-selected={highlightedIndex === index}
-              className={`${st.option} ${
-                highlightedIndex === index ? st.highlighted : ''
-              }`}
-              onClick={() => handleOptionClick(option)}
-              onMouseEnter={() => setHighlightedIndex(index)}
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleOptionClick(option);
-                }
-              }}
-            >
-              {translate(option.label, language)}
-            </li>
-          ))}
-        </ul>
-      }
+      <ul
+        id="sorting-options"
+        className={isShowList ? st.options : st.optionsHidden}
+        role="listbox"
+        aria-activedescendant={
+          highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
+        }
+      >
+        {sortingOptions.map((option, index) => (
+          <li
+            key={option.label}
+            id={`option-${index}`}
+            role="option"
+            aria-selected={highlightedIndex === index}
+            className={`${st.option} ${
+              highlightedIndex === index ? st.highlighted : ''
+            }`}
+            onClick={() => handleOptionClick(option)}
+            onMouseEnter={() => setHighlightedIndex(index)}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOptionClick(option);
+              }
+            }}
+          >
+            {translate(option.label, language)}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
