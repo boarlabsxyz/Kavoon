@@ -55,25 +55,44 @@
    - Push your branch to the remote repository:
 
      ```sh
-     git push origin feature/issue-<issue-number>
+     git push origin <issue-number>-<short-description>
      ```
 
    - Open a PR against the `main` branch.
    - Provide a clear and concise description of the changes made.
 
-5. **Pass Continuous Integration (CI):** - Ensure that all CI checks pass successfully. - Fix any issues reported by the CI pipeline.
-   `sh
-docker compose run app npm run lint
-` - Fix any linting issues reported.
+5. **Pass Continuous Integration (CI):**
+
+    - Ensure that all CI checks pass successfully.
+    - Fix any issues reported by the CI pipeline.
+    ```sh
+    docker compose run app npm run lint
+    ```
+    - Fix any linting issues reported.
 
 6. **Get approval and merge the code:**
+
    - Request a review from the project maintainers.
    - Address any feedback or requested changes.
    - Once approved, merge the PR into the `main` branch.
 
-### **FAQ**
+## FAQ
 
    1. After fulfilling steps in Database section I still get error messages about environment variables
       - Try to restart VSCode or your PC (either on Linux or Windows)
 
-For more detailed instructions, refer to the [documentation](./docs).
+## Changelog
+
+We use Semantic Versioning (SemVer) and track all changes in the [`CHANGELOG.md`](/CHANGELOG.md) file. Please refer to it for details about updates, new features, bug fixes, and other modifications.
+
+
+## Semantic Versioning (SemVer)
+Format: MAJOR.MINOR.PATCH
+
+- MAJOR: incremented for significant changes that are not backward compatible.
+- MINOR: incremented when new functionality is added that is backward compatible.
+- PATCH: incremented for bug fixes or minor changes.
+
+Example: 1.2.3 — the third patch of the second minor update of the first major version.
+
+The SemVer is updated in the `version` field of the `package.json` file.
