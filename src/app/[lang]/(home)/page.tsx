@@ -1,7 +1,7 @@
 import Advantages from 'src/components/homePage/advantages';
 import Hero from 'src/components/homePage/hero';
 import ProductsSection from 'src/components/homePage/productsSection';
-import ReviewsSection from 'src/components/homePage/reviewsSection';
+import ReviewsSection from 'src/components/common/reviewsSection';
 
 import translate from 'src/i18n/lang';
 import brandingConst from 'src/data/brandingConst';
@@ -38,11 +38,11 @@ export default async function HomePage({ params }: Props) {
   const { lang } = params;
 
   return (
-    <>
+    <main style={{ marginBottom: '40px' }}>
       <Hero lang={lang} />
       <Advantages lang={lang} />
       <ProductsSection language={lang} />
-      <ReviewsSection language={lang} />
-    </>
+      <ReviewsSection />
+    </main>
   );
 }

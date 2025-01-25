@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 
 import Container from 'src/components/common/container';
@@ -13,36 +13,48 @@ import CreateReviewForm from 'src/components/common/reviews/createReviewForm';
 import translate from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 
-import IReview from 'src/types/review';
-
-import st from './ProductReviewsSection.module.css';
+import st from './reviewsSection.module.css';
 import { Category } from 'src/data/constants';
 import Notification from 'src/components/common/notification';
 import style from 'src/components/common/notification/Notification.module.css';
 
-type Props = {
-  reviews: IReview[];
-};
-
 type UseParams = {
   lang: Language;
-  productId: string;
-  categoryId: Category;
+  productId?: string;
+  categoryId?: Category;
 };
 
-function ProductReviewsSection({ reviews }: Props) {
+function ReviewsSection() {
   const { lang, productId, categoryId } = useParams<UseParams>();
 
   const [showModal, toggleModal] = useToggle(false);
-  const [message, setMessage] = useState('');
   const [isShowNotification, setIsShowNotification] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const query = new URLSearchParams({
+          ...{ showOnSite: 'true' },
+          ...(productId ? { productId } : {}),
+          ...(categoryId ? { categoryId } : {}),
+        });
+
+        const response = await fetch(`/api/reviews?${query.toString()}`);
+        const data = await response.json();
+        setReviews(data.data);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Error fetching reviews:', error);
+      }
+    };
+
+    fetchReviews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSaveReview = (text: string) => {
-    setMessage(text);
     setIsShowNotification(true);
-    setTimeout(() => {
-      setMessage('');
-    }, 1500);
   };
 
   const messageArray = [translate('ThankYouForFeedback', lang), '🎉'];
@@ -70,11 +82,15 @@ function ProductReviewsSection({ reviews }: Props) {
           onClick={() => {
             toggleModal();
           }}
+          aria-haspopup="dialog"
         >
           {translate('WriteReview', lang)}
         </AddReviewBtn>
         {showModal && (
-          <ModalWindow onClose={toggleModal}>
+          <ModalWindow
+            onClose={toggleModal}
+            aria-label={translate('WriteReview', lang)}
+          >
             <CreateReviewForm
               language={lang}
               productId={productId}
@@ -95,4 +111,4 @@ function ProductReviewsSection({ reviews }: Props) {
     </section>
   );
 }
-export default ProductReviewsSection;
+export default ReviewsSection;
