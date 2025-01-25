@@ -75,7 +75,7 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
-        continue-on-error: true
+        # continue-on-error: true
 
       - name: Run Cypress tests
         run: npm run cy:test
