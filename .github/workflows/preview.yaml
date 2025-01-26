@@ -70,6 +70,9 @@ jobs:
       - name: Create snapshots directory
         run: mkdir -p cypress/snapshots
 
+      - name: Run build
+        run: npm run build
+
       - name: Start the server
         run: npm start &
         env:
