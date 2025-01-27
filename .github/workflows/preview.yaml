@@ -67,15 +67,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # - name: Create snapshots directory
-      #   run: mkdir -p cypress/snapshots
-
-      - name: Download snapshots from artifacts
-        uses: actions/download-artifact@v4
+      # - name: Download snapshots from artifacts
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: cypress-snapshots
+      #   continue-on-error: true
+      - name: Cache snapshots
+        uses: actions/cache@v4
         with:
-          name: cypress-snapshots
-          # path: cypress/snapshots
-        continue-on-error: true
+          path: cypress/snapshots
+          key: ${{ runner.os }}-cypress-snapshots-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-snapshots-
 
       - name: Run Cypress tests
         run: npm run cy:test
@@ -88,12 +91,11 @@ jobs:
           path: cypress/snapshots
           retention-days: 30
 
-      - name: Download snapshots from artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: cypress-snapshots
-          # path: cypress/snapshots
-        continue-on-error: true
+      # - name: Download snapshots from artifacts
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: cypress-snapshots
+      #   continue-on-error: true
 
   # preview-deployment:
   #   runs-on: ubuntu-latest
