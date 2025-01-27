@@ -67,11 +67,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # - name: Download snapshots from artifacts
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: cypress-snapshots
-      #   continue-on-error: true
       - name: Cache snapshots
         uses: actions/cache@v4
         with:
@@ -83,13 +78,9 @@ jobs:
       - name: Run Cypress tests
         run: npm run cy:test
 
-      - name: Upload new snapshots as artifacts
+      - name: Upload updated snapshots
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots
-          retention-days: 30
+        run: echo "Updated snapshots cached for next runs"
 
       # - name: Download snapshots from artifacts
       #   uses: actions/download-artifact@v4
