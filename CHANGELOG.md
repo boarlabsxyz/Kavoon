@@ -32,6 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - reviews to the "All Products" page
 - sorting to the shop page
 - common/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
+- updateSnapshots workflow for github actions (https://github.com/boarlabsxyz/Kavoon/pull/176)
+- cartButton component for mobile (https://github.com/boarlabsxyz/Kavoon/pull/176)
 
 ### Changed
 - menu navigation for Kavoon 
@@ -50,3 +52,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - unused code for Delivery and Payment page
 - homePage/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
 - productPage/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
+- cartStatusForMenu component (https://github.com/boarlabsxyz/Kavoon/pull/176)

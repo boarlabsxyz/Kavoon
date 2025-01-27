@@ -51,10 +51,10 @@ function NavMain({ language }: NavMainProps) {
       </ul>
       <ShopBlock lang={language} />
       <InformationBlock lang={language} />
-      <div className={styles.cartStatus}>
-        <span className={styles.cartStatusText}>
-          {lang('AddedProducts2', language)}
-        </span>
+      <div
+        className={styles.cartStatus}
+        data-cy="link-to-cart-page-from-header"
+      >
         <CartStatus language={language} />
       </div>
     </nav>
