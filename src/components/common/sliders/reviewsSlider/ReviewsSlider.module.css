@@ -4,6 +4,7 @@
 
   .wrapper {
     width: 1106px;
+    user-select: none;
     padding: 16px 10px 60px;
   }
 }

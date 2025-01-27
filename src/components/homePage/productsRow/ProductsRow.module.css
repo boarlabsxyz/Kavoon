@@ -4,6 +4,7 @@
   gap: 23px;
   order: 1;
   width: 100%;
+  user-select: none;
 }
 
 .cardWrapper {
