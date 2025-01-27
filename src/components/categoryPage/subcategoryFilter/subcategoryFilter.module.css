@@ -41,6 +41,10 @@
   background-color: var(--white);
 }
 
+.hiddenList {
+  display: none;
+}
+
 .label {
   display: flex;
   align-items: center;

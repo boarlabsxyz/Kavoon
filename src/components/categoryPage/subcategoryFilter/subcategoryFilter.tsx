@@ -150,7 +150,7 @@ function SubcategoryFilter({
       </div>
       {isShowList && (
         <ul
-          className={st.list}
+          className={isShowList ? st.list : st.hiddenList}
           role="listbox"
           aria-activedescendant={
             highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
