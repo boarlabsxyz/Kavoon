@@ -78,9 +78,13 @@ jobs:
       - name: Run Cypress tests
         run: npm run cy:test
 
-      - name: Upload updated snapshots
+      - name: Upload new snapshots as artifacts
         if: always()
-        run: echo "Updated snapshots cached for next runs"
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
+          retention-days: 30
 
       # - name: Download snapshots from artifacts
       #   uses: actions/download-artifact@v4
