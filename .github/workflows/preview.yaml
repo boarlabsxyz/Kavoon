@@ -86,7 +86,14 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
-          retention-days: 30"
+          retention-days: 30
+
+      - name: Download snapshots from artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-snapshots
+          # path: cypress/snapshots
+        continue-on-error: true
 
   # preview-deployment:
   #   runs-on: ubuntu-latest
