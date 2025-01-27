@@ -15,6 +15,7 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .titleOfShowList {
@@ -27,28 +28,51 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   list-style: none;
   margin-block-start: 0;
   margin-block-end: 0;
   padding-inline-start: 0px;
-  padding: 20px;
   position: absolute;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   border: 1px solid var(--primary-color);
   border-top: none;
   background-color: var(--white);
+
+  max-height: 260px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition:
+    opacity 300ms ease-in-out,
+    max-height 300ms ease-in-out;
+}
+
+.list li:hover {
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+}
+
+.list li:last-child:hover {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .hiddenList {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition:
+    opacity 0ms ease-in-out,
+    max-height 0ms ease-in-out;
 }
 
 .label {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 12px;
 }
 
 .input {
