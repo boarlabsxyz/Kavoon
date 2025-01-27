@@ -38,6 +38,24 @@
   border-top: none;
   list-style: none;
   z-index: 2;
+
+  max-height: 210px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition:
+    opacity 300ms ease-in-out,
+    max-height 300ms ease-in-out;
+}
+
+.optionsHidden {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition:
+    opacity 0ms ease-in-out,
+    max-height 0ms ease-in-out;
 }
 
 .options li:hover {
@@ -51,6 +69,7 @@
 }
 
 .option {
+  padding: 15px;
   cursor: pointer;
   padding: 15px;
 }

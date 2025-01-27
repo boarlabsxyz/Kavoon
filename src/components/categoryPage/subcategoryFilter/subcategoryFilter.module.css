@@ -15,6 +15,7 @@
   border-radius: 12px;
   border: 1px solid var(--border-color);
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .titleOfShowList {
@@ -37,6 +38,14 @@
   border: 1px solid var(--primary-color);
   border-top: none;
   background-color: var(--white);
+
+  max-height: 260px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition:
+    opacity 300ms ease-in-out,
+    max-height 300ms ease-in-out;
 }
 
 .list li:hover {
@@ -50,7 +59,13 @@
 }
 
 .hiddenList {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition:
+    opacity 0ms ease-in-out,
+    max-height 0ms ease-in-out;
 }
 
 .label {

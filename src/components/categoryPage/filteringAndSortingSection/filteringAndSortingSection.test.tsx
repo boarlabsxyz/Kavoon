@@ -42,30 +42,13 @@ describe('FilteringAndSortingSection Component', () => {
     expect(
       screen.getByText(translate('FilterByType', lang))
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(translate('mostPopular', lang))
-    ).toBeInTheDocument();
-  });
-
-  it('should render the new option when a selected option is clicked', async () => {
-    renderComponent();
-
-    expect(
-      screen.queryByText(translate('newest', lang))
-    ).not.toBeInTheDocument();
-
-    const sortingButton = screen.getByText(translate('mostPopular', lang));
-    fireEvent.click(sortingButton);
-
-    await waitFor(() =>
-      expect(screen.getByText(translate('newest', lang))).toBeInTheDocument()
-    );
+    expect(screen.getByLabelText('Sort products')).toBeInTheDocument();
   });
 
   it('should call filterByCategoryAndSubcategory with correct parameters', async () => {
     renderComponent();
 
-    const sortingButton = screen.getByText(translate('mostPopular', lang));
+    const sortingButton = screen.getByLabelText('Sort products');
     fireEvent.click(sortingButton);
 
     await waitFor(() => {

@@ -11,14 +11,14 @@ type Props = {
 };
 
 function RateAndDateBox({ rating, date, language }: Props) {
-  const now = new Date(date);
+  const parsedDate = new Date(date);
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   };
 
-  const createdAt = now.toLocaleDateString(language, options);
+  const createdAt = parsedDate.toLocaleDateString(language, options);
 
   return (
     <div className={st.wrapper}>
