@@ -74,7 +74,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: cypress-snapshots
-          path: cypress/snapshots
+          # path: cypress/snapshots
         continue-on-error: true
 
       - name: Run Cypress tests
