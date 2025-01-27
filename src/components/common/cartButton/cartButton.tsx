@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation';
 import { getPathWithoutLocale } from 'src/helpers/getPathWithoutLocale';
 
 type Props = {
-  language: Language;
+  readonly language: Language;
 };
 
 function CartButton({ language }: Props) {
@@ -23,14 +23,14 @@ function CartButton({ language }: Props) {
   }
 
   return (
-    <div
+    <button
       className={st.wrapper}
       data-cy="link-to-cart-page-from-button"
       role="button"
       aria-label="Shopping cart"
     >
       <CartItemCount vm={new CartStatusVM()} language={language} />
-    </div>
+    </button>
   );
 }
 
