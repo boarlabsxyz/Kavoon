@@ -7,6 +7,7 @@ import { Language } from 'src/types/language';
 import st from './cartButton.module.css';
 import { usePathname } from 'next/navigation';
 import { getPathWithoutLocale } from 'src/helpers/getPathWithoutLocale';
+import { useMemo } from 'react';
 
 type Props = {
   readonly language: Language;
@@ -17,6 +18,7 @@ function CartButton({ language }: Props) {
   const pathWithoutLocale = getPathWithoutLocale(pathname);
   const pathSegments = pathWithoutLocale.split('/');
   const isCartPage = pathSegments.at(-1) === 'cart';
+  const cartStatusVM = useMemo(() => new CartStatusVM(), []);
 
   if (isCartPage) {
     return null;
@@ -26,10 +28,9 @@ function CartButton({ language }: Props) {
     <button
       className={st.wrapper}
       data-cy="link-to-cart-page-from-button"
-      role="button"
       aria-label="Shopping cart"
     >
-      <CartItemCount vm={new CartStatusVM()} language={language} />
+      <CartItemCount vm={cartStatusVM} language={language} />
     </button>
   );
 }
