@@ -22,10 +22,3 @@ jobs:
 
       - name: Update Cypress Snapshots
         run: npm run cy:update-snapshots
-
-      - name: Upload updated snapshots as artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots
-          retention-days: 30

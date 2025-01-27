@@ -53,7 +53,7 @@ jobs:
 
   e2e-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -67,29 +67,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Create snapshots directory
-        run: mkdir -p cypress/snapshots
-
-      - name: Download snapshots from artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots
-        continue-on-error: true
-
-      - name: Run Cypress tests
+      - name: Run Cypress
         run: npm run cy:test
-
-      - name: Upload new snapshots as artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots
-          retention-days: 30
-
-      - name: Update Cypress Snapshots
-        run: npm run cy:update-snapshots
 
   preview-deployment:
     runs-on: ubuntu-latest
