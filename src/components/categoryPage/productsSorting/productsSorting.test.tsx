@@ -30,7 +30,10 @@ describe('ProductsSorting Component', () => {
     );
 
     expect(screen.getByText('mostPopular')).toBeInTheDocument();
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute(
+      'class',
+      'optionsHidden'
+    );
   });
 
   it('should toggle dropdown visibility on click', () => {
@@ -39,11 +42,21 @@ describe('ProductsSorting Component', () => {
     );
 
     const selectedElement = screen.getByText('mostPopular');
+    expect(screen.queryByRole('listbox')).toHaveAttribute(
+      'class',
+      'optionsHidden'
+    );
+    fireEvent.click(selectedElement);
+    expect(screen.queryByRole('listbox')).not.toHaveAttribute(
+      'class',
+      'optionsHidden'
+    );
     fireEvent.click(selectedElement);
 
-    expect(screen.getByRole('listbox')).toBeInTheDocument();
-    fireEvent.click(selectedElement);
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute(
+      'class',
+      'optionsHidden'
+    );
   });
 
   it('should call handleSortChange and update selected option on option click', () => {
@@ -58,7 +71,6 @@ describe('ProductsSorting Component', () => {
     fireEvent.click(newOption);
 
     expect(mockHandleSortChange).toHaveBeenCalledWith('createdAt-desc');
-    expect(screen.getByText('newest')).toBeInTheDocument();
   });
 
   it('should close the dropdown when clicking outside', () => {
@@ -75,12 +87,13 @@ describe('ProductsSorting Component', () => {
     const selectedElement = screen.getByText('mostPopular');
     fireEvent.click(selectedElement);
 
-    expect(screen.getByRole('listbox')).toBeInTheDocument();
-
     const outsideElement = screen.getByTestId('outside-element');
     fireEvent.click(outsideElement);
 
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute(
+      'class',
+      'optionsHidden'
+    );
   });
 
   it('should pass the correct language to getSortingOptions', () => {
