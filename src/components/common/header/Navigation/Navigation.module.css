@@ -55,10 +55,6 @@
   align-items: center;
 }
 
-.cartStatusText {
-  display: none;
-}
-
 @media (max-width: 1259px) {
   .content {
     width: 580px;
@@ -85,17 +81,11 @@
     text-align: center;
     background-color: #fff;
     width: 100vw;
-    justify-content: flex-end;
-    justify-content: center;
+    justify-content: space-around;
     gap: 20px;
   }
-
-  .cartStatusText {
-    display: inline;
-    margin-right: 16px;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 0.89px;
+  .cartStatus {
+    display: none;
   }
 
   .mobileMenuButton {
@@ -165,13 +155,6 @@
     }
   }
 
-  .cartStatus {
-    display: flex;
-    opacity: 0;
-    visibility: hidden;
-    transition: 1s;
-  }
-
   .langsAndSocials {
     width: 343px;
     height: 121px;
@@ -214,7 +197,6 @@
     }
 
     .navMain,
-    .cartStatus,
     .statusAndLangAndSocial {
       opacity: 1;
       visibility: visible;
