@@ -174,12 +174,13 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
+        continue-on-error: true
 
       - name: Run Cypress tests
         run: npm run cy:test
 
       - name: Upload new snapshots as artifacts
-        if: env.artifact_exists == '1'
+        if: env.artifact_exists == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: cypress-snapshots-comparison-results
@@ -187,7 +188,7 @@ jobs:
           retention-days: 30
 
       - name: Upload snapshots as new artifact
-        if: env.artifact_exists != '1'
+        if: env.artifact_exists != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: cypress-snapshots
