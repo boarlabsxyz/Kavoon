@@ -10,15 +10,21 @@ type Props = {
 function SocialLinksList({ background = 'light' }: Props) {
   return (
     <ul className={st.list}>
-      {socialsNetworks.map(({ component: Icon, url, width, height, ariaLabelContent }) => {
-        return (
-          <li key={url} className={st.listItem}>
-            <IconLink href={url} ariaLabel={ariaLabelContent} background={background}>
-              <Icon width={width} height={height} className='' />
-            </IconLink>
-          </li>
-        );
-      })}
+      {socialsNetworks.map(
+        ({ component: Icon, url, width, height, ariaLabelContent }) => {
+          return (
+            <li key={url} className={st.listItem}>
+              <IconLink
+                href={url}
+                ariaLabel={ariaLabelContent}
+                background={background}
+              >
+                <Icon width={width} height={height} className="" />
+              </IconLink>
+            </li>
+          );
+        }
+      )}
     </ul>
   );
 }

@@ -34,21 +34,20 @@ export const socialsNetworks = [
     component: InstagramIcon,
     width: '22',
     height: '22',
-    ariaLabelContent:"Visit our Instagram profile"
+    ariaLabelContent: 'Visit our Instagram profile',
   },
   {
     url: BrandingConst.siteFacebook,
     component: FacebookIcon,
     width: '10',
     height: '22',
-    ariaLabelContent:"Visit our Facebook profile"
+    ariaLabelContent: 'Visit our Facebook profile',
   },
   {
     url: BrandingConst.siteTikTok,
     component: TikTokIcon,
     width: '14',
     height: '16',
-    ariaLabelContent: "Visit our TikTok Profile"
+    ariaLabelContent: 'Visit our TikTok Profile',
   },
 ];
-
