@@ -169,7 +169,7 @@ jobs:
         run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
 
       - name: Download snapshots from artifacts
-        if: env.artifact_exists == '1'
+        if: env.artifact_exists == 'true'
         uses: actions/download-artifact@v4
         with:
           name: cypress-snapshots
