@@ -46,7 +46,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - duplication of the shopping carts on the product details page
 - posibility to sent review a review from any page with any products (https://github.com/boarlabsxyz/Kavoon/pull/167)
 - api/reviews/route - route for working with reviews (https://github.com/boarlabsxyz/Kavoon/pull/167)
-- work with cypress snapshots
 
 ### Removed
 - product categories as a filter on shop page

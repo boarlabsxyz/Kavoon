@@ -20,5 +20,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update Cypress Snapshots
-        run: npm run cy:update-snapshots
+      - name: Clear snapshot cache
+        run: rm -rf cypress/snapshots/*
+
+      - name: Run Cypress tests
+        run: npm run cy:test
+
+      - name: Upload new snapshots as artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
+          retention-days: 30
