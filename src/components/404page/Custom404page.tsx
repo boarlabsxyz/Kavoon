@@ -22,7 +22,7 @@ export default function Custom404() {
   ];
 
   function goBack() {
-    window.window.history.go(-2);
+    window.history.back();
   }
 
   function isLanguage(value: string): value is Language {
@@ -35,10 +35,10 @@ export default function Custom404() {
       <div className={st.main}>
         <CustomImage
           className={st.picture}
-          src="/404/oops.svg"
+          src="/img/404/oops.svg"
           alt="Oops!"
           width={500}
-          height={180}
+          height={100}
         />
         <h1 className={st.title}>{translate('PageNotFound', language)}</h1>
         <button type="button" className={st.button} onClick={() => goBack()}>

@@ -13,6 +13,7 @@ const productsListVM = (productsData: Product[]) => ({
         category: productData.category,
         subcategory: productData.subcategory,
         price: productData.price,
+        createdAt: productData.createdAt,
       })
   ),
 });

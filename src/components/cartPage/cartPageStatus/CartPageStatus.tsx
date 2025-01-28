@@ -1,6 +1,5 @@
 'use client';
 
-import CartStatus from 'src/components/common/cartStatus';
 import BreadcrumbsNav from 'src/components/common/breadcrumbs';
 
 import cartPageStatusVM from 'src/data/viewModels/cart/CartPageStatusVM';
@@ -18,7 +17,6 @@ function CartPageStatus({ language }: Props) {
   return (
     <div className={st.wrapper}>
       <BreadcrumbsNav vm={vm.breadcrumbsNavVM} language={language} />
-      <CartStatus language={language} />
     </div>
   );
 }

@@ -266,6 +266,10 @@ const Language = {
   ChooseZip: 'Choose the main zip',
   onRight: 'Right',
   onLeft: 'Left',
+  mostPopular: 'Most Popular',
+  newest: 'Newest',
+  lowestPrice: 'Lowest Price',
+  highestPrice: 'Highest Price',
 };
 
 export default Language;

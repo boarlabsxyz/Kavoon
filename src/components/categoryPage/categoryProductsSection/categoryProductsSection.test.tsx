@@ -6,12 +6,14 @@ import { Language } from 'src/types/language';
 jest.mock('src/components/categoryPage/productState', () => () => (
   <div data-testid="ProductsState">Mocked ProductsState</div>
 ));
-jest.mock('src/components/categoryPage/pureProductCategories', () => () => (
-  <div data-testid="PureProductCategories">Mocked PureProductCategories</div>
-));
-jest.mock('src/components/categoryPage/filterSubsection', () => () => (
-  <div data-testid="FilterSubsection">Mocked FilterSubsection</div>
-));
+jest.mock(
+  'src/components/categoryPage/filteringAndSortingSection',
+  () => () => (
+    <div data-testid="FilteringAndSortingSection">
+      Mocked FilteringAndSortingSection
+    </div>
+  )
+);
 
 describe('CategoryProductsSection', () => {
   const defaultProps = {
@@ -23,8 +25,9 @@ describe('CategoryProductsSection', () => {
     render(<CategoryProductsSection {...defaultProps} />);
 
     expect(screen.getByTestId('ProductsState')).toBeInTheDocument();
-    expect(screen.getByTestId('PureProductCategories')).toBeInTheDocument();
-    expect(screen.getByTestId('FilterSubsection')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('FilteringAndSortingSection')
+    ).toBeInTheDocument();
   });
 
   it('should pass the correct props to ProductsState component', () => {
@@ -33,15 +36,11 @@ describe('CategoryProductsSection', () => {
     expect(screen.getByTestId('ProductsState')).toBeInTheDocument();
   });
 
-  it('should pass the correct props to PureProductCategories component', () => {
+  it('should pass the correct props to FilteringAndSortingSection component', () => {
     render(<CategoryProductsSection {...defaultProps} />);
 
-    expect(screen.getByTestId('PureProductCategories')).toBeInTheDocument();
-  });
-
-  it('should pass the correct props to FilterSubsection component', () => {
-    render(<CategoryProductsSection {...defaultProps} />);
-
-    expect(screen.getByTestId('FilterSubsection')).toBeInTheDocument();
+    expect(
+      screen.getByTestId('FilteringAndSortingSection')
+    ).toBeInTheDocument();
   });
 });

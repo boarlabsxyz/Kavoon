@@ -1,9 +1,8 @@
 import Container from 'src/components/common/container';
-import PureProductCategories from 'src/components/categoryPage/pureProductCategories';
 import ProductsState from 'src/components/categoryPage/productState';
-import FilterSubsection from 'src/components/categoryPage/filterSubsection';
+import FilteringAndSortingSection from 'src/components/categoryPage/filteringAndSortingSection';
 
-import { PRODUCT_CATEGORIES, Category } from 'src/data/constants';
+import { Category } from 'src/data/constants';
 import { Language } from 'src/types/language';
 
 type CategoryPageProps = {
@@ -15,12 +14,7 @@ function CategoryProductsSection({ lang, categoryId }: CategoryPageProps) {
   return (
     <Container>
       <ProductsState language={lang} />
-      <PureProductCategories
-        categories={PRODUCT_CATEGORIES}
-        activeCategory={categoryId}
-        language={lang}
-      />
-      <FilterSubsection categoryId={categoryId} lang={lang} />
+      <FilteringAndSortingSection categoryId={categoryId} lang={lang} />
     </Container>
   );
 }

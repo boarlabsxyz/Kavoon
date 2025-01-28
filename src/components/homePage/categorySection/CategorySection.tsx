@@ -32,24 +32,22 @@ const CategorySection = ({ category, language, vm }: Props) => {
   );
 
   return (
-    <div>
-      <div className={st.titleWrapper}>
-        <div className={st.category}>
-          <p>{translate(category, language)}</p>
+    category !== 'AllProducts' && (
+      <div>
+        <div className={st.titleWrapper}>
+          <div className={st.category}>
+            <p>{translate(category, language)}</p>
+          </div>
+          <ProductsRow vm={vm} />
+          <Link href={`/${language}/${productTypeLink}`} className={st.link}>
+            <p data-cy={`${toKebabCase(category)}-category-link`}>
+              {translate('ViewAll', language)}
+            </p>
+            {content}
+          </Link>
         </div>
-        <ProductsRow vm={vm} />
-        <Link
-          href={`/${language}/${productTypeLink}`}
-          className={st.link}
-          rel="noreferrer"
-        >
-          <p data-cy={`${toKebabCase(category)}-category-link`}>
-            {translate('ViewAll', language)}
-          </p>
-          {content}
-        </Link>
       </div>
-    </div>
+    )
   );
 };
 

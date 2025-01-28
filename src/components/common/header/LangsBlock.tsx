@@ -1,11 +1,13 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import useOutsideClick from 'src/hooks/useOutsideClick';
+
 import ActiveLocale from 'src/components/common/activeLocale';
 import LocaleList from 'src/components/common/localeList';
-
 import { Language } from 'src/types/language';
+
+import useHandleKeyDown from 'src/hooks/useHandleKeyDown';
+import useOutsideClick from 'src/hooks/useOutsideClick';
 
 import st from './LangsBlock.module.css';
 
@@ -19,14 +21,11 @@ function LangsBlock({ lang }: LangsBlockProps) {
 
   const toggleDropdown = () => setIsShowList((prev) => !prev);
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      toggleDropdown();
-    } else if (event.key === 'Escape' && isShowList) {
-      setIsShowList(false);
-    }
-  };
+  const handleKeyDown = useHandleKeyDown(
+    toggleDropdown,
+    setIsShowList,
+    isShowList
+  );
 
   useOutsideClick(wrapperRef, () => setIsShowList(false));
 

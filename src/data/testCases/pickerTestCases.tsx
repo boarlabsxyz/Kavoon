@@ -1,4 +1,4 @@
-import { screen, fireEvent, act } from '@testing-library/react';
+import { screen, fireEvent, act, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { Language } from 'src/types/language';
@@ -9,7 +9,7 @@ const language = 'en' as Language;
 export function rendersWithoutCrashingTest(buttonName) {
   test('renders without crashing and shows initial text', () => {
     expect(
-      screen.getByText(translate('SelectFromList', language))
+      screen.getByPlaceholderText(translate('SelectFromList', language))
     ).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: buttonName })
@@ -42,8 +42,10 @@ export function closesDropdownOnSelectionTest(buttonName, optionName) {
     await act(async () => {
       fireEvent.click(listItem);
     });
-    const closedList = screen.queryByRole('listbox');
-    expect(closedList).not.toBeInTheDocument();
+    await waitFor(() => {
+      const closedList = screen.queryByRole('listbox');
+      expect(closedList).not.toBeInTheDocument();
+    });
   });
 }
 

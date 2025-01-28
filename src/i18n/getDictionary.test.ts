@@ -34,22 +34,20 @@ describe('getDictionary', () => {
   });
 
   it('should handle import errors and throw the appropriate error', async () => {
-    await expect(getDictionary(invalidLanguage, pageName)).rejects.toThrow();
-
-    await expect(getDictionary(language, invalidPageName)).rejects.toThrow();
-  });
-
-  it('should log an error to the console when import fails', async () => {
-    const consoleSpy = jest
+    const consoleErrorMock = jest
       .spyOn(console, 'error')
       .mockImplementation(() => {});
 
-    await expect(
-      getDictionary(invalidLanguage, invalidPageName)
-    ).rejects.toThrow();
+    try {
+      await expect(getDictionary(invalidLanguage, pageName)).rejects.toThrow();
+      await expect(getDictionary(language, invalidPageName)).rejects.toThrow();
+      await expect(
+        getDictionary(invalidLanguage, invalidPageName)
+      ).rejects.toThrow();
 
-    expect(consoleSpy).toHaveBeenCalled();
-
-    consoleSpy.mockRestore();
+      expect(consoleErrorMock).toHaveBeenCalledTimes(3);
+    } finally {
+      consoleErrorMock.mockRestore();
+    }
   });
 });

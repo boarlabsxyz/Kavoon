@@ -2,7 +2,7 @@ import PageTitle from 'src/components/categoryPage/pageTitle';
 
 import { Language } from 'src/types/language';
 
-import st from 'src/components/homePage/productsSection/ProductsSection.module.css';
+import st from 'src/components/categoryPage/productState/ProductsState.module.css';
 
 type ProductsStateProps = {
   language: Language;

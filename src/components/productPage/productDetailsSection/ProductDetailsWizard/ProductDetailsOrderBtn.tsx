@@ -29,7 +29,7 @@ function ProductDetailsOrderBtn({ vm, language }: Props) {
       return 0;
     };
 
-    const marginTop = 70;
+    const marginTop = 62;
 
     marginTop + btnInitialTop(controls) <= heightOfScreen && !isFooterOnPage
       ? setIsFixedPosition(true)

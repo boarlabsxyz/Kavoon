@@ -35,7 +35,7 @@
   line-height: 140%;
 }
 
-.paymentOptions {
+.paymentMethods {
   width: fit-content;
   display: flex;
   gap: 1px;
@@ -51,11 +51,6 @@
   background-color: #fff;
 }
 
-.paymentOption img {
-  max-width: 100%;
-  height: auto;
-}
-
 @media (max-width: 1023px) {
   .section {
     margin: 40px auto;
@@ -69,20 +64,12 @@
 }
 
 @media only screen and (max-width: 640px) {
-  .paymentOptions {
+  .paymentMethods {
     flex-wrap: wrap;
     width: auto;
   }
 
-  .twoElements .paymentOption:last-child {
-    flex: 1;
-  }
-
   .paymentOption {
-    flex: 0 0 calc(50% - 0.5px);
-  }
-
-  .paymentOption:last-child {
     flex: 0 0 100%;
   }
 }

@@ -4,7 +4,6 @@ import { useEffect, useRef, ElementRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 import NavMain from 'src/components/common/header/Navigation/NavMain';
-import CartStatusForMenu from 'src/components/common/header/cartStatusForMenu';
 
 import { Language } from 'src/types/language';
 
@@ -46,6 +45,7 @@ function Navigation({ children, lang }: Props) {
         ref={buttonRef}
         className={st.mobileMenuButton}
         aria-label="mobile-menu-button"
+        data-cy="mobile-menu-btn"
       >
         <span></span>
         <span></span>
@@ -54,10 +54,7 @@ function Navigation({ children, lang }: Props) {
       </button>
       <div className={st.content}>
         <NavMain language={lang} />
-        <div className={st.statusAndLangAndSocial}>
-          <CartStatusForMenu language={lang} />
-          {children}
-        </div>
+        <div className={st.statusAndLangAndSocial}>{children}</div>
       </div>
     </div>
   );

@@ -99,7 +99,6 @@ const Language = {
   AddToCart: 'Add to the shopping bag',
   Product: 'product',
   YourEmptyCart: 'Your shopping bag is empty',
-  ThouEmptyCart: 'Your shopping bag is currently empty',
   PleaseFill: 'Please fill in the field',
   WrongNumberFormat: 'The phone format is invalid',
   PlaceOrder: 'To make an order',
@@ -109,7 +108,7 @@ const Language = {
   OrderSent: 'Your order has been sent!\nWe will contact you soon',
   AddedToComplect: 'Added to the kit',
   AddToComplect: 'Add to the kit',
-  ProductsShown1: 'The',
+  ProductsShown1: ' ',
   ProductsShown2: 'products are shown',
   Cart: 'Shopping bag',
   ProductName: 'Product name',
@@ -196,8 +195,7 @@ const Language = {
   DeliveryAndPayment: 'Delivery and payment',
 
   PlacingOrder: 'How to make an order?',
-  PlacingOrderDetails:
-    'Check out the available options for fabrics, colors and prints\nChoose a combination of colors and prints for your bag\nAdd the product to the shopping bag and make an order\nAfter making an order, our manager will contact you to clarify the details of the order and help you choose a method of payment and delivery\nDuring the conversation with the manager, you will be able to discuss in detail the model of your bag (chosen colors, prints, etc.)\nDone! If in doubt, we are here to help you',
+  PlacingOrderDetails: `Check out the available options for fabrics, colors, prints\nYou can choose a color and add a print to your bag. If you want to combine several colors, choose one main color and write an additional one in the comments to the order.<br /><b>* please note that sometimes, for various reasons, some colors and prints may be out of stock. Our manager will contact you after placing the order, orient you in this matter and offer a solution. Thank you for your understanding</b>\nAdd the item to your cart and checkout. If you are not sure about your choice, you can write to the support box. We are always happy to help you and recommend the best fabric combinations\nAfter placing an order, our manager will contact you to clarify the details of the order, orient you on the terms of execution and provide payment details\nDuring the conversation with the manager, you will be able to discuss in detail the model of your bag(location of the selected colors, prints, etc.)\nEverything is ready! If in doubt, we are here to help`,
   PlacingOrderInStockDetails:
     'Add the product to the shopping bag and make an order\nAfter making an order, our manager will contact you to clarify the details of the order and help you choose a method of payment and delivery\nDone! If in doubt, we are here to help you',
   PlacingOrderForMounts:
@@ -215,10 +213,11 @@ const Language = {
   Durable: 'durable',
   WaterRepellent: 'water repellent',
 
-  BicycleEquipment: 'bicycle equipment',
-  CityCollection: 'city collection',
-  BagAccessories: 'bag accessories',
-  InStock: 'in stock',
+  AllProducts: 'All products',
+  BicycleEquipment: 'Bicycle equipment',
+  CityCollection: 'City collection',
+  BagAccessories: 'Bag accessories',
+  InStock: 'In stock',
 
   HandlebarBags: 'Handlebar bags',
   SeatBags: 'Seat Bags',

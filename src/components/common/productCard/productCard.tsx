@@ -26,15 +26,12 @@ function ProductCard({ vm }: Props) {
   const currentPrice = getLocalPrice({ priceEURO, priceUAH }, language);
   const formattedCurrentPrice = getFormattedPrice(currentPrice, language);
   const badgeContent = lang('BadgeContent', language);
-  //--- 11/16/2024 --- issue #22
-  //added the flag manually until there is a condition to draw the badge
-  const drawBadge = false;
+  const drawBadge = vm.hasTopBadge;
 
   return (
     <Link
       href={`/${language}${vm.href}`}
       className={st.link}
-      rel="noreferrer"
       data-cy="product-card"
     >
       {vm.allowColorOptionBlock && (

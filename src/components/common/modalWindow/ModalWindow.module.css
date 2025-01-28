@@ -18,6 +18,10 @@
   background-color: var(--white);
   color: var(--main-text-color);
   width: fit-content;
+
+  & [class^='loading_wrapper'] {
+    height: auto;
+  }
 }
 
 .closeButton {

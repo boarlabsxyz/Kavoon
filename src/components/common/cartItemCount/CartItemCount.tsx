@@ -1,10 +1,9 @@
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { Observable } from 'rxjs';
 
-import CartTotalItems from 'src/components/common/cartItemCount/CartTotalItems';
-
-import ShopIcon from 'src/icons/shopIcon';
+import CartIcon from 'src/icons/cartIcon';
 import { Language } from 'src/types/language';
 
 import st from './CartItemCount.module.css';
@@ -18,15 +17,21 @@ type Props = {
 };
 
 function CartItemCount({ vm: { count, href }, language }: Props) {
+  const CartTotalItems = dynamic(
+    () => import('src/components/common/cartItemCount/CartTotalItems'),
+    {
+      ssr: false,
+    }
+  );
+
   return (
     <Link
       href={`/${language}${href}`}
       className={st.cartLink}
       aria-label="link-to-cart-page"
-      data-cy="cart-link"
       prefetch={false}
     >
-      <ShopIcon width="24" height="25" />
+      <CartIcon width="24" height="25" />
       <CartTotalItems count={count} />
     </Link>
   );

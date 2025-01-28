@@ -3,8 +3,9 @@
   width: 100%;
 
   .wrapper {
-    width: 1106px;
-    padding: 16px 10px 49px;
+    width: 92%;
+    user-select: none;
+    padding: 16px 10px 60px;
   }
 }
 
@@ -38,7 +39,7 @@
 }
 
 .container :global(.swiper-pagination) {
-  bottom: 10px;
+  bottom: 24px;
   z-index: 0;
 }
 

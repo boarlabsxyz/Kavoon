@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { Language } from 'src/types/language';
 import lang from 'src/i18n/lang';
+import { getPathWithoutLocale } from 'src/helpers/getPathWithoutLocale';
 
 import st from './FooterMenu.module.css';
 
@@ -14,7 +15,7 @@ type Props = {
 
 function FooterMenu({ language }: Props) {
   const pathname = usePathname();
-  const pathWithoutLocale = pathname.substring(4);
+  const pathWithoutLocale = getPathWithoutLocale(pathname);
 
   const pages = [
     { target: 'about-us', label: 'MenuItemAboutUs' },
