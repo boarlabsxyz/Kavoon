@@ -168,11 +168,32 @@ jobs:
       - name: Debug ARTIFACT_EXISTS value
         run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
 
-      - name: Download snapshots from artifacts
-        if: env.artifact_exists == 'true'
+      # - name: Download snapshots from artifacts
+      #   if: env.artifact_exists == 'true'
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: cypress-snapshots
+      #     path: cypress/snapshots
+      #   continue-on-error: true
+
+      - name: List all artifacts with the name "cypress-snapshots"
+        id: list-artifacts
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github+json" \
+               "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+               | jq '[.artifacts[] | select(.name == "cypress-snapshots")] | sort_by(.created_at) | last' > latest-artifact.json
+
+      - name: Extract artifact ID
+        id: extract-id
+        run: |
+          ARTIFACT_ID=$(jq -r '.id' latest-artifact.json)
+          echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
+
+      - name: Download the latest snapshot artifact
         uses: actions/download-artifact@v4
         with:
-          name: cypress-snapshots
+          artifact-id: ${{ env.artifact_id }}
           path: cypress/snapshots
         continue-on-error: true
 
