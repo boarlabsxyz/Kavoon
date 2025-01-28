@@ -81,8 +81,8 @@
     text-align: center;
     background-color: #fff;
     width: 100vw;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 25px;
   }
   .cartStatus {
     display: none;
@@ -147,6 +147,7 @@
     .list {
       flex-direction: column;
       gap: 18px;
+      margin-top: 30px;
     }
 
     .link {
@@ -157,7 +158,7 @@
 
   .langsAndSocials {
     width: 343px;
-    height: 121px;
+    gap: 20px;
     flex-direction: column;
     align-items: center;
   }
