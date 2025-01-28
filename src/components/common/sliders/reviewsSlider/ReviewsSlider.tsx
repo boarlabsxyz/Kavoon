@@ -36,6 +36,10 @@ const options: SwiperOptions = {
     768: { slidesPerView: 1 },
     1024: { slidesPerView: 2 },
   },
+  navigation: {
+    nextEl: `.${st.nextReviewArrow}`,
+    prevEl: `.${st.prevReviewArrow}`,
+  },
   slidesPerGroup: 1,
 };
 

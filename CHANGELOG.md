@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - Unreleased
 
 ### Added
+- accessibility for the Filter dropdown and the Reviews section
 - reviews to the "All Products" page
 - sorting to the shop page
 - common/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
@@ -41,6 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 
 
 ### Fixed
+-  incorrect illumination of the navigation arrows in the reviews
+- issue where the forward/backward arrows in the reviews section disappeared when adjusting the page scale
 - incorrect display of the contents of the "Menu"”" page on a mobile phone
 - wrong display of "All Products" category section on the home page
 - duplication of the shopping carts on the product details page
