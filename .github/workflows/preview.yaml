@@ -150,24 +150,35 @@ jobs:
       - name: Create snapshots directory
         run: mkdir -p cypress/snapshots
 
-      - name: List artifacts from last successful workflow
+      - name: Check if snapshots artifact exists
+        id: check-artifact
         run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
+          ARTIFACT_EXISTS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+            | jq '.artifacts[] | select(.name == "cypress-snapshots") | .name' | wc -l)
+          echo "artifact_exists=$ARTIFACT_EXISTS" >> $GITHUB_ENV
 
       - name: Download snapshots from artifacts
+        if: env.artifact_exists == '1'
         uses: actions/download-artifact@v4
         with:
           name: cypress-snapshots
           path: cypress/snapshots
-        continue-on-error: true
 
       - name: Run Cypress tests
         run: npm run cy:test
 
       - name: Upload new snapshots as artifacts
-        if: always()
+        if: env.artifact_exists == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-snapshots-comparison-results
+          path: cypress/snapshots
+          retention-days: 30
+
+      - name: Upload snapshots as new artifact
+        if: env.artifact_exists != '1'
         uses: actions/upload-artifact@v4
         with:
           name: cypress-snapshots
