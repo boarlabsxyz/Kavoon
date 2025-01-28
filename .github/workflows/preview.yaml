@@ -150,6 +150,12 @@ jobs:
       - name: Create snapshots directory
         run: mkdir -p cypress/snapshots
 
+      - name: List artifacts from last successful workflow
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
+
       - name: Check if snapshots artifact exists
         id: check-artifact
         run: |
