@@ -156,14 +156,14 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
 
-      - name: Check if snapshots artifact exists
-        id: check-artifact
-        run: |
-          ARTIFACT_EXISTS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
-            | jq 'any(.artifacts[]; .name == "cypress-snapshots")')
-          echo "artifact_exists=$ARTIFACT_EXISTS" >> $GITHUB_ENV
+      # - name: Check if snapshots artifact exists
+      #   id: check-artifact
+      #   run: |
+      #     ARTIFACT_EXISTS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+      #       -H "Accept: application/vnd.github+json" \
+      #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+      #       | jq 'any(.artifacts[]; .name == "cypress-snapshots")')
+      #     echo "artifact_exists=$ARTIFACT_EXISTS" >> $GITHUB_ENV
 
       - name: Debug ARTIFACT_EXISTS value
         run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
@@ -184,7 +184,7 @@ jobs:
                "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
                | jq '[.artifacts[] | select(.name == "cypress-snapshots")] | sort_by(.created_at) | last' > latest-artifact.json
 
-      - name: Extract artifact ID
+      - name: Extract latest artifact ID
         id: extract-id
         run: |
           ARTIFACT_ID=$(jq -r '.id' latest-artifact.json)
@@ -195,23 +195,24 @@ jobs:
         with:
           artifact-id: ${{ env.artifact_id }}
           path: cypress/snapshots
-        continue-on-error: true
+        # continue-on-error: true
 
       - name: Run Cypress tests
         run: npm run cy:test
 
       - name: Upload new snapshots as artifacts
-        if: env.artifact_exists == 'true'
+        if: always()
+        # if: env.artifact_exists == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
           retention-days: 30
 
-      - name: Upload snapshots as new artifact
-        if: env.artifact_exists != 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots
-          retention-days: 30
+      # - name: Upload snapshots as new artifact
+      #   if: env.artifact_exists != 'true'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: cypress-snapshots
+      #     path: cypress/snapshots
+      #     retention-days: 30

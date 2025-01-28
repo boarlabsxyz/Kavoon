@@ -1,49 +1,32 @@
-name: Delete Cypress Snapshots Artifacts
+name: Update Snapshots
 
 on:
   workflow_dispatch:
 
 jobs:
-  delete-artifacts:
+  update-snapshots:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: List artifacts from last successful workflow
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: List all artifacts with the name "cypress-snapshots"
-        id: list-artifacts
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
-              | jq '[.artifacts[] | select(.name == "cypress-snapshots")]' > artifacts.json
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
 
-          ARTIFACT_COUNT=$(jq 'length' artifacts.json)
-          echo "artifact_count=$ARTIFACT_COUNT" >> $GITHUB_ENV
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Delete artifacts if any exist
-        if: env.artifact_count != '0'
-        run: |
-          for id in $(jq -r '.[].id' artifacts.json); do
-            echo "Deleting artifact with ID: $id"
-            curl -X DELETE -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-                -H "Accept: application/vnd.github+json" \
-                "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/$id"
-          done
+      - name: Run Cypress tests
+        run: npm run cy:test
 
-      - name: List artifacts from last successful workflow
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
-
-      - name: Log result
-        run: |
-          if [ "$ARTIFACT_COUNT" -eq 0 ]; then
-            echo "No artifacts found with the name 'cypress-snapshots'."
-          else
-            echo "Deleted $ARTIFACT_COUNT artifacts with the name 'cypress-snapshots'."
-          fi
+      - name: Upload snapshots as new artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-snapshots
+          path: cypress/snapshots
+          retention-days: 30
