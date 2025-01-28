@@ -165,8 +165,8 @@ jobs:
       #       | jq 'any(.artifacts[]; .name == "cypress-snapshots")')
       #     echo "artifact_exists=$ARTIFACT_EXISTS" >> $GITHUB_ENV
 
-      - name: Debug ARTIFACT_EXISTS value
-        run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
+      # - name: Debug ARTIFACT_EXISTS value
+      #   run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
 
       # - name: Download snapshots from artifacts
       #   if: env.artifact_exists == 'true'
@@ -193,7 +193,7 @@ jobs:
       - name: Download the latest snapshot artifact
         uses: actions/download-artifact@v4
         with:
-          artifact-id: ${{ env.artifact_id }}
+          run-id: ${{ env.artifact_id }}
           path: cypress/snapshots
         # continue-on-error: true
 
