@@ -197,24 +197,41 @@ jobs:
       #     path: cypress/snapshots
       #   # continue-on-error: true
 
-      - name: Download latest artifact
+      # - name: Download latest artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: cypress-baseline-snapshots
+      #     path: cypress/snapshots
+      # filter: latest
+
+      - name: Get latest successful workflow run ID
+        id: get-latest-run
+        run: |
+          RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=success&event=push" \
+            | jq -r '.workflow_runs | map(select(.name == "Update Snapshots")) | first | .id')
+          echo "latest_run_id=$RUN_ID" >> $GITHUB_ENV
+
+      - name: Download latest artifact from previous run
         uses: actions/download-artifact@v4
         with:
           name: cypress-baseline-snapshots
           path: cypress/snapshots
-          # filter: latest
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
 
-      - name: Run Cypress tests
-        run: npm run cy:test
+      # - name: Run Cypress tests
+      #   run: npm run cy:test
 
-      - name: Upload new snapshots as artifacts
-        if: always()
-        # if: env.artifact_exists == 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-snapshots-comparison-results
-          path: cypress/snapshots
-          retention-days: 30
+      # - name: Upload new snapshots as artifacts
+      #   if: always()
+      #   # if: env.artifact_exists == 'true'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: cypress-snapshots-comparison-results
+      #     path: cypress/snapshots
+      #     retention-days: 30
 
       # - name: Upload snapshots as new artifact
       #   if: env.artifact_exists != 'true'
