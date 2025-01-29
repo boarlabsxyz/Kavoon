@@ -231,7 +231,7 @@ jobs:
       #     run-id: ${{ env.latest_run_id }}
       #     # run-id: ${{ env.artifact_id }}
       - name: Download snapshots from artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: cypress-baseline-snapshots
           path: cypress/snapshots
