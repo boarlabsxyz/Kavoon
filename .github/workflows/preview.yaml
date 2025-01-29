@@ -132,129 +132,155 @@ jobs:
   #         echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
   #         echo "Preview URL: $DEPLOY_URL"
 
-  e2e-tests:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+  # e2e-tests:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 18
+  #         cache: npm
+
+  #     - name: Install dependencies
+  #       run: npm ci
+
+  #     - name: Create snapshots directory
+  #       run: mkdir -p cypress/snapshots
+
+  #     # - name: List artifacts from last successful workflow
+  #     #   run: |
+  #     #     curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #     #         -H "Accept: application/vnd.github+json" \
+  #     #         "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
+  #     # - name: Check if snapshots artifact exists
+  #     #   id: check-artifact
+  #     #   run: |
+  #     #     ARTIFACT_EXISTS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #     #       -H "Accept: application/vnd.github+json" \
+  #     #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+  #     #       | jq 'any(.artifacts[]; .name == "cypress-snapshots")')
+  #     #     echo "artifact_exists=$ARTIFACT_EXISTS" >> $GITHUB_ENV
+  #     # - name: Debug ARTIFACT_EXISTS value
+  #     #   run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
+  #     # - name: Download snapshots from artifacts
+  #     #   if: env.artifact_exists == 'true'
+  #     #   uses: actions/download-artifact@v4
+  #     #   with:
+  #     #     name: cypress-snapshots
+  #     #     path: cypress/snapshots
+  #     #   continue-on-error: true
+  #     # - name: List all artifacts with the name "cypress-snapshots"
+  #     #   id: list-artifacts
+  #     #   run: |
+  #     #     curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #     #          -H "Accept: application/vnd.github+json" \
+  #     #          "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+  #     #          | jq '[.artifacts[] | select(.name == "cypress-snapshots")] | sort_by(.created_at) | last' > latest-artifact.json
+  #     # - name: Extract latest artifact ID
+  #     #   id: extract-id
+  #     #   run: |
+  #     #     ARTIFACT_ID=$(jq -r '.id' latest-artifact.json)
+  #     #     echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
+  #     # - name: Download the latest snapshot artifact
+  #     #   uses: actions/download-artifact@v4
+  #     #   with:
+  #     #     run-id: ${{ env.artifact_id }}
+  #     #     path: cypress/snapshots
+  #     #   # continue-on-error: true
+  #     # - name: Download latest artifact
+  #     #   uses: actions/download-artifact@v4
+  #     #   with:
+  #     #     name: cypress-baseline-snapshots
+  #     #     path: cypress/snapshots
+  #     # filter: latest
+  #     # - name: Get latest successful workflow run ID
+  #     #   id: get-latest-run
+  #     #   run: |
+  #     #     RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #     #       -H "Accept: application/vnd.github+json" \
+  #     #       "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=success&event=push" \
+  #     #       | jq -r '.workflow_runs | map(select(.name == "Update Snapshots")) | first | .id')
+  #     #     echo "latest_run_id=$RUN_ID" >> $GITHUB_ENV
+  #     # - name: Get latest successful workflow run ID
+  #     #   id: get-latest-run
+  #     #   run: |
+  #     #     RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #     #       -H "Accept: application/vnd.github+json" \
+  #     #       "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=success")
+  #     #     echo "API response: $RESPONSE"
+  #     #     RUN_ID=$(echo "$RESPONSE" | jq -r '.workflow_runs | map(select(.name == "Update Snapshots")) | first | .id')
+  #     #     echo "Latest run ID: $RUN_ID"
+  #     #     echo "latest_run_id=$RUN_ID" >> $GITHUB_ENV
+  #     # - name: Get latest artifact ID
+  #     #   id: get-latest-artifact
+  #     #   run: |
+  #     #     ARTIFACT_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #     #       -H "Accept: application/vnd.github+json" \
+  #     #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+  #     #       | jq '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last | .id')
+  #     #     echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
+  #     # - name: Download latest artifact from previous run
+  #     #   uses: actions/download-artifact@v4
+  #     #   with:
+  #     #     name: cypress-baseline-snapshots
+  #     #     path: cypress/snapshots
+  #     #     repository: ${{ github.repository }}
+  #     #     run-id: ${{ env.latest_run_id }}
+  #     #     # run-id: ${{ env.artifact_id }}
+  #     - name: Download snapshots from artifacts
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: cypress-snapshots
+  #         path: cypress/snapshots
+  #         github-token: ${{ secrets.PAT_TOKEN }}
+  #       continue-on-error: true
+
+  #     - name: Run Cypress tests
+  #       run: npm run cy:test
+
+  #     - name: Upload new snapshots as artifacts
+  #       if: always()
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         # name: cypress-snapshots-comparison-results
+  #         name: cypress-snapshots
+  #         path: cypress/snapshots
+  #         retention-days: 30
+
+  #     # - name: Upload snapshots as new artifact
+  #     #   if: env.artifact_exists != 'true'
+  #     #   uses: actions/upload-artifact@v4
+  #     #   with:
+  #     #     name: cypress-snapshots
+  #     #     path: cypress/snapshots
+  #     #     retention-days: 30
+
+  upload:
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.runs-on }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Create snapshots directory
-        run: mkdir -p cypress/snapshots
-
-      # - name: List artifacts from last successful workflow
-      #   run: |
-      #     curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      #         -H "Accept: application/vnd.github+json" \
-      #         "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
-      # - name: Check if snapshots artifact exists
-      #   id: check-artifact
-      #   run: |
-      #     ARTIFACT_EXISTS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      #       -H "Accept: application/vnd.github+json" \
-      #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
-      #       | jq 'any(.artifacts[]; .name == "cypress-snapshots")')
-      #     echo "artifact_exists=$ARTIFACT_EXISTS" >> $GITHUB_ENV
-      # - name: Debug ARTIFACT_EXISTS value
-      #   run: echo "ARTIFACT_EXISTS=${{ env.artifact_exists }}"
-      # - name: Download snapshots from artifacts
-      #   if: env.artifact_exists == 'true'
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: cypress-snapshots
-      #     path: cypress/snapshots
-      #   continue-on-error: true
-      # - name: List all artifacts with the name "cypress-snapshots"
-      #   id: list-artifacts
-      #   run: |
-      #     curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      #          -H "Accept: application/vnd.github+json" \
-      #          "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
-      #          | jq '[.artifacts[] | select(.name == "cypress-snapshots")] | sort_by(.created_at) | last' > latest-artifact.json
-      # - name: Extract latest artifact ID
-      #   id: extract-id
-      #   run: |
-      #     ARTIFACT_ID=$(jq -r '.id' latest-artifact.json)
-      #     echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
-      # - name: Download the latest snapshot artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     run-id: ${{ env.artifact_id }}
-      #     path: cypress/snapshots
-      #   # continue-on-error: true
-      # - name: Download latest artifact
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: cypress-baseline-snapshots
-      #     path: cypress/snapshots
-      # filter: latest
-      # - name: Get latest successful workflow run ID
-      #   id: get-latest-run
-      #   run: |
-      #     RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      #       -H "Accept: application/vnd.github+json" \
-      #       "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=success&event=push" \
-      #       | jq -r '.workflow_runs | map(select(.name == "Update Snapshots")) | first | .id')
-      #     echo "latest_run_id=$RUN_ID" >> $GITHUB_ENV
-      # - name: Get latest successful workflow run ID
-      #   id: get-latest-run
-      #   run: |
-      #     RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      #       -H "Accept: application/vnd.github+json" \
-      #       "https://api.github.com/repos/${{ github.repository }}/actions/runs?status=success")
-      #     echo "API response: $RESPONSE"
-      #     RUN_ID=$(echo "$RESPONSE" | jq -r '.workflow_runs | map(select(.name == "Update Snapshots")) | first | .id')
-      #     echo "Latest run ID: $RUN_ID"
-      #     echo "latest_run_id=$RUN_ID" >> $GITHUB_ENV
-      # - name: Get latest artifact ID
-      #   id: get-latest-artifact
-      #   run: |
-      #     ARTIFACT_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      #       -H "Accept: application/vnd.github+json" \
-      #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
-      #       | jq '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last | .id')
-      #     echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
-      # - name: Download latest artifact from previous run
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: cypress-baseline-snapshots
-      #     path: cypress/snapshots
-      #     repository: ${{ github.repository }}
-      #     run-id: ${{ env.latest_run_id }}
-      #     # run-id: ${{ env.artifact_id }}
-      - name: Download snapshots from artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots
-          github-token: ${{ secrets.PAT_TOKEN }}
-        continue-on-error: true
-
-      - name: Run Cypress tests
-        run: npm run cy:test
-
-      - name: Upload new snapshots as artifacts
-        if: always()
+      - name: Create a File
+        run: echo "hello from ${{ matrix.runs-on }}" > file-${{ matrix.runs-on }}.txt
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          # name: cypress-snapshots-comparison-results
-          name: cypress-snapshots
-          path: cypress/snapshots
-          retention-days: 30
-
-      # - name: Upload snapshots as new artifact
-      #   if: env.artifact_exists != 'true'
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: cypress-snapshots
-      #     path: cypress/snapshots
-      #     retention-days: 30
+          name: my-artifact-${{ matrix.runs-on }}
+          path: file-${{ matrix.runs-on }}.txt
+          retention-days: 1
+  download:
+    needs: upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: my-artifact
+          pattern: my-artifact-*
+          merge-multiple: true
+      - run: ls -R my-artifact
