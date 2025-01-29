@@ -202,7 +202,7 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
-          filter: latest
+          # filter: latest
 
       - name: Run Cypress tests
         run: npm run cy:test
