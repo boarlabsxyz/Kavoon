@@ -21,10 +21,10 @@ jobs:
         run: npm ci
 
       - name: List artifacts from last successful workflow
-              run: |
-                curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-                    -H "Accept: application/vnd.github+json" \
-                    "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
 
       - name: Run Cypress tests
         run: npm run cy:test
