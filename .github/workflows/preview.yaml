@@ -236,14 +236,14 @@ jobs:
       #       | jq '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last | .id')
       #     echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
 
-      # - name: Download latest artifact from previous run
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: cypress-baseline-snapshots
-      #     path: cypress/snapshots
-      #     repository: ${{ github.repository }}
-      #     # run-id: ${{ env.latest_run_id }}
-      #     run-id: ${{ env.artifact_id }}
+      - name: Download latest artifact from previous run
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
+          # run-id: ${{ env.artifact_id }}
 
       # - name: Run Cypress tests
       #   run: npm run cy:test
