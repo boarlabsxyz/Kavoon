@@ -11,14 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - accessibility for the Filter dropdown and the Reviews section
 - reviews to the "All Products" page
 - sorting to the shop page
-- common/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
-- updateSnapshots workflow for github actions (https://github.com/boarlabsxyz/Kavoon/pull/176)
-- cartButton component for mobile (https://github.com/boarlabsxyz/Kavoon/pull/176)
+- common/reviewsSection component ([#167](https://github.com/boarlabsxyz/Kavoon/pull/167))
+- updateSnapshots workflow for github actions ([#176](https://github.com/boarlabsxyz/Kavoon/pull/176))
+- cartButton component for mobile ([#176](https://github.com/boarlabsxyz/Kavoon/pull/176))
 
 ### Changed
 - menu navigation for Kavoon 
 - the shopping cart position from the page to the header with navigation
-- 
 
 ### Fixed
 - incorrect illumination of the navigation arrows in the reviews
@@ -26,16 +25,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - incorrect display of the contents of the "Menu"”" page on a mobile phone
 - wrong display of "All Products" category section on the home page
 - duplication of the shopping carts on the product details page
-- posibility to sent review a review from any page with any products (https://github.com/boarlabsxyz/Kavoon/pull/167)
-- api/reviews/route - route for working with reviews (https://github.com/boarlabsxyz/Kavoon/pull/167)
+- posibility to sent review a review from any page with any products ([#167](https://github.com/boarlabsxyz/Kavoon/pull/167))
+- api/reviews/route - route for working with reviews ([#167](https://github.com/boarlabsxyz/Kavoon/pull/167))
+- mobile menu navigation styles that were not displayed correctly on the iPhone ([#186](https://github.com/boarlabsxyz/Kavoon/pull/186))
 - styles for centering the counter value in the shopping cart ([#188](https://github.com/boarlabsxyz/Kavoon/pull/188))
 
 ### Removed
 - product categories as a filter on shop page
 - unused code for Delivery and Payment page
-- homePage/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
-- productPage/reviewsSection component (https://github.com/boarlabsxyz/Kavoon/pull/167)
-- cartStatusForMenu component (https://github.com/boarlabsxyz/Kavoon/pull/176)
+- homePage/reviewsSection component ([#167](https://github.com/boarlabsxyz/Kavoon/pull/167))
+- productPage/reviewsSection component ([#167](https://github.com/boarlabsxyz/Kavoon/pull/167))
+- cartStatusForMenu component ([#176](https://github.com/boarlabsxyz/Kavoon/pull/176))
 
 ## [1.1.0] - 2025-01-15
 
