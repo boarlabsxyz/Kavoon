@@ -274,7 +274,7 @@ jobs:
   #         path: file-${{ matrix.runs-on }}.txt
   #         retention-days: 1
   download:
-    needs: upload
+    # needs: upload
     runs-on: ubuntu-latest
     steps:
       - name: Download All Artifacts
