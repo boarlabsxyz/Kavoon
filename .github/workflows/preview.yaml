@@ -176,26 +176,33 @@ jobs:
       #     path: cypress/snapshots
       #   continue-on-error: true
 
-      - name: List all artifacts with the name "cypress-snapshots"
-        id: list-artifacts
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github+json" \
-               "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
-               | jq '[.artifacts[] | select(.name == "cypress-snapshots")] | sort_by(.created_at) | last' > latest-artifact.json
+      # - name: List all artifacts with the name "cypress-snapshots"
+      #   id: list-artifacts
+      #   run: |
+      #     curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+      #          -H "Accept: application/vnd.github+json" \
+      #          "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" \
+      #          | jq '[.artifacts[] | select(.name == "cypress-snapshots")] | sort_by(.created_at) | last' > latest-artifact.json
 
-      - name: Extract latest artifact ID
-        id: extract-id
-        run: |
-          ARTIFACT_ID=$(jq -r '.id' latest-artifact.json)
-          echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
+      # - name: Extract latest artifact ID
+      #   id: extract-id
+      #   run: |
+      #     ARTIFACT_ID=$(jq -r '.id' latest-artifact.json)
+      #     echo "artifact_id=$ARTIFACT_ID" >> $GITHUB_ENV
 
-      - name: Download the latest snapshot artifact
+      # - name: Download the latest snapshot artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     run-id: ${{ env.artifact_id }}
+      #     path: cypress/snapshots
+      #   # continue-on-error: true
+
+      - name: Download latest artifact
         uses: actions/download-artifact@v4
         with:
-          run-id: ${{ env.artifact_id }}
+          name: cypress-snapshots
           path: cypress/snapshots
-        # continue-on-error: true
+          filter: latest
 
       - name: Run Cypress tests
         run: npm run cy:test
