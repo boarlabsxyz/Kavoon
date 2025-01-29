@@ -200,7 +200,7 @@ jobs:
       - name: Download latest artifact
         uses: actions/download-artifact@v4
         with:
-          name: cypress-snapshots
+          name: cypress-baseline-snapshots
           path: cypress/snapshots
           # filter: latest
 
