@@ -273,14 +273,21 @@ jobs:
   #         name: my-artifact-${{ matrix.runs-on }}
   #         path: file-${{ matrix.runs-on }}.txt
   #         retention-days: 1
+
   download:
     # needs: upload
     runs-on: ubuntu-latest
     steps:
+      - name: List artifacts from last successful workflow
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
           path: my-artifact
           pattern: my-artifact-*
           merge-multiple: true
+          github-token: ${{ secrets.PAT_TOKEN }}
       - run: ls -R my-artifact
