@@ -236,8 +236,8 @@ jobs:
         with:
           name: cypress-snapshots
           path: cypress/snapshots
+          github-token: ${{ secrets.PAT_TOKEN }}
         continue-on-error: true
-        github-token: ${{ secrets.PAT_TOKEN }}
 
       - name: Run Cypress tests
         run: npm run cy:test
