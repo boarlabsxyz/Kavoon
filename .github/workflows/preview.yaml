@@ -114,6 +114,13 @@ jobs:
       - name: Run Cypress tests
         run: npm run cy:test
 
+      - name: Upload snapshots as new artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-snapshots-comparison-results
+          path: cypress/snapshots
+          retention-days: 45
+
   #     - name: Upload new snapshots as artifacts
   #       if: always()
   #       uses: actions/upload-artifact@v4

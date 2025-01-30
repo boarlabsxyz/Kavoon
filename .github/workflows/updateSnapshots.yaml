@@ -36,7 +36,7 @@ jobs:
         run: npm run cy:test
 
       - name: Upload snapshots as new artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-baseline-snapshots
           path: cypress/snapshots
