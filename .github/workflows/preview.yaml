@@ -98,7 +98,7 @@ jobs:
         with:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
-          retention-days: 45
+          retention-days: 30
 
   # preview-deployment:
   #   runs-on: ubuntu-latest

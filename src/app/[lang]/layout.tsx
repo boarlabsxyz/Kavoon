@@ -47,7 +47,7 @@ export default function RootLayout({ children, params }: Props) {
           <Footer language={lang} />
         </LocalStorageProvider>
         <Chat language={lang} />
-        <CartButton language={lang} />
+        {/* <CartButton language={lang} /> */}
       </body>
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_4_ID} />
     </html>
