@@ -10,7 +10,6 @@ on:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
 jobs:
@@ -71,12 +70,27 @@ jobs:
       - name: Get latest run ID for cypress-baseline-snapshots
         id: get-latest-run
         run: |
-          LATEST_RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
-            jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last | .workflow_run.id')
+          for i in {1..3}; do
+            response=$(curl -sL --max-time 10 \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
 
-          echo "latest_run_id=$LATEST_RUN_ID" >> $GITHUB_ENV
+            if [ $? -eq 0 ]; then
+              latest=$(echo "$response" | \
+                jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
+
+              if [ "$latest" != "null" ]; then
+                run_id=$(echo "$latest" | jq -r '.workflow_run.id')
+                echo "latest_run_id=$run_id" >> $GITHUB_ENV
+                echo "Found latest run ID: $run_id"
+                break
+              fi
+            fi
+
+            echo "Attempt $i failed, retrying..."
+            sleep 5
+          done
 
       - name: Download artifacts from latest successful run
         uses: actions/download-artifact@v4

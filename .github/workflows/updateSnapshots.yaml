@@ -6,7 +6,6 @@ on:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
 jobs:
