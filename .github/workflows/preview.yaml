@@ -120,6 +120,7 @@ jobs:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
           retention-days: 45
+        continue-on-error: true
 
   #     - name: Upload new snapshots as artifacts
   #       if: always()
