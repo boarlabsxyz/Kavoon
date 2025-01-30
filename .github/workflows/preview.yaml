@@ -52,32 +52,67 @@ jobs:
   #     - name: Run Jest
   #       run: npm run jest
 
-  # e2e-tests:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  e2e-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
-  #         cache: 'npm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Cache snapshots
-  #       uses: actions/cache@v4
-  #       with:
-  #         path: cypress/snapshots
-  #         key: ${{ runner.os }}-cypress-snapshots-${{ github.run_id }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-cypress-snapshots-
+      - name: List artifacts from last successful workflow
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
 
-  #     - name: Run Cypress tests
-  #       run: npm run cy:test
+      # - name: Get latest run ID
+      #   id: get-latest-run
+      #   run: |
+      #     LATEST_RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+      #       -H "Accept: application/vnd.github+json" \
+      #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq -r '.artifacts[0].workflow_run.id')
+      #     echo "latest_run_id=$LATEST_RUN_ID" >> $GITHUB_ENV
+
+      - name: Get latest run ID for cypress-baseline-snapshots
+        id: get-latest-run
+        run: |
+          LATEST_RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
+            jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last | .workflow_run.id')
+
+          echo "latest_run_id=$LATEST_RUN_ID" >> $GITHUB_ENV
+
+      - name: Download artifacts from latest successful run
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
+      - run: ls -R cypress/snapshots
+
+      #     - name: Cache snapshots
+      #       uses: actions/cache@v4
+      #       with:
+      #         path: cypress/snapshots
+      #         key: ${{ runner.os }}-cypress-snapshots-${{ github.run_id }}
+      #         restore-keys: |
+      #           ${{ runner.os }}-cypress-snapshots-
+
+      - name: Run Cypress tests
+        run: npm run cy:test
 
   #     - name: Upload new snapshots as artifacts
   #       if: always()
@@ -274,32 +309,41 @@ jobs:
   #         path: file-${{ matrix.runs-on }}.txt
   #         retention-days: 1
 
-  download:
-    # needs: upload
-    runs-on: ubuntu-latest
-    steps:
-      - name: List artifacts from last successful workflow
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
+  # download:
+  # needs: upload
+  # runs-on: ubuntu-latest
+  # steps:
+  # - name: List artifacts from last successful workflow
+  #   run: |
+  #     curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #         -H "Accept: application/vnd.github+json" \
+  #         "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq '.artifacts[] | .name'
 
-      - name: Get latest run ID
-        id: get-latest-run
-        run: |
-          LATEST_RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq -r '.artifacts[0].workflow_run.id')
-          echo "latest_run_id=$LATEST_RUN_ID" >> $GITHUB_ENV
+  # # - name: Get latest run ID
+  # #   id: get-latest-run
+  # #   run: |
+  # #     LATEST_RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  # #       -H "Accept: application/vnd.github+json" \
+  # #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | jq -r '.artifacts[0].workflow_run.id')
+  # #     echo "latest_run_id=$LATEST_RUN_ID" >> $GITHUB_ENV
 
-      - name: Download artifacts from latest successful run
-        uses: actions/download-artifact@v4
-        with:
-          with:
-          name: cypress-baseline-snapshots
-          path: cypress/snapshots
-          merge-multiple: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          run-id: ${{ env.latest_run_id }}
-      - run: ls -R cypress/snapshots
+  # - name: Get latest run ID for cypress-baseline-snapshots
+  #   id: get-latest-run
+  #   run: |
+  #     LATEST_RUN_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+  #       -H "Accept: application/vnd.github+json" \
+  #       "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" | \
+  #       jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last | .workflow_run.id')
+
+  #     echo "latest_run_id=$LATEST_RUN_ID" >> $GITHUB_ENV
+
+  # - name: Download artifacts from latest successful run
+  #   uses: actions/download-artifact@v4
+  #   with:
+  #     name: cypress-baseline-snapshots
+  #     path: cypress/snapshots
+  #     merge-multiple: true
+  #     github-token: ${{ secrets.GITHUB_TOKEN }}
+  #     repository: ${{ github.repository }}
+  #     run-id: ${{ env.latest_run_id }}
+  # - run: ls -R cypress/snapshots
