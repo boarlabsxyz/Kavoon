@@ -113,7 +113,7 @@ jobs:
         with:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
-          retention-days: 30
+          retention-days: 10
 
       - name: Fail workflow if tests failed
         if: env.TESTS_FAILED == 'true'
