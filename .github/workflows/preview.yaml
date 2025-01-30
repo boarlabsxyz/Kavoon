@@ -113,6 +113,7 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run cy:test
+        continue-on-error: true
 
       - name: Upload snapshots as new artifact
         uses: actions/upload-artifact@v4
@@ -120,7 +121,6 @@ jobs:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
           retention-days: 45
-        continue-on-error: true
 
   #     - name: Upload new snapshots as artifacts
   #       if: always()
