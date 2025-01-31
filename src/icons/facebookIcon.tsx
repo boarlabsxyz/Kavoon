@@ -2,13 +2,19 @@ import { FC } from 'react';
 
 import { IconWithClassName } from 'src/types/iconProps';
 
-const FacebookIcon: FC<IconWithClassName> = ({ width, height, className }) => (
+const FacebookIcon: FC<IconWithClassName> = ({
+  width,
+  height,
+  className,
+  ariaLabelContent,
+}) => (
   <svg
     className={className}
     width={width}
     height={height}
     viewBox="0 0 10 18"
     xmlns="http://www.w3.org/2000/svg"
+    aria-label={ariaLabelContent}
   >
     <path
       fill="currentColor"
