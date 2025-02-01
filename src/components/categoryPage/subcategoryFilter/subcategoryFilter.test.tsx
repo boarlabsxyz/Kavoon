@@ -151,9 +151,17 @@ describe('SubcategoryFilter', () => {
 
   it('should close the dropdown when Escape is pressed', () => {
     renderComponent();
+    expect(screen.queryByRole('listbox')).toHaveAttribute(
+      'class',
+      'hiddenList'
+    );
     clickFilterButton();
+    expect(screen.queryByRole('listbox')).toHaveAttribute('class', 'list');
     pressKey('Escape');
-    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    expect(screen.queryByRole('listbox')).toHaveAttribute(
+      'class',
+      'hiddenList'
+    );
   });
 
   it('should trap focus within dropdown when open', () => {
