@@ -148,48 +148,49 @@ function SubcategoryFilter({
           className={subcategories.length === 0 ? st.svg : `${st.activeSvg}`}
         />
       </div>
-      {isShowList && (
-        <ul
-          className={isShowList ? st.list : st.hiddenList}
-          role="listbox"
-          aria-activedescendant={
-            highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
-          }
-        >
-          {allSubcategories.map((value, index) => (
-            <li
-              key={value}
-              id={`option-${index}`}
-              role="option"
-              aria-selected={highlightedIndex === index}
-              className={highlightedIndex === index ? st.highlighted : ''}
-              onClick={() => handleOptionClick(value)}
-              onFocus={() => handleListItemFocus(index)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleOptionClick(value);
-                }
-              }}
-              tabIndex={0}
-            >
-              <label className={st.label}>
-                <input
-                  checked={subcategories.includes(value)}
-                  className={st.input}
-                  type="checkbox"
-                  name="subcategory"
-                  value={value}
-                  tabIndex={-1}
-                  readOnly
-                />
-                <span className={st.checkbox} />
-                <span>{translate(value, language)}</span>
-              </label>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul
+        className={isShowList ? st.list : st.hiddenList}
+        role="listbox"
+        aria-activedescendant={
+          highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
+        }
+      >
+        {allSubcategories.map((value, index) => (
+          <li
+            key={value}
+            id={`option-${index}`}
+            role="option"
+            aria-selected={highlightedIndex === index}
+            className={highlightedIndex === index ? st.highlighted : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              handleOptionClick(value);
+            }}
+            onFocus={() => handleListItemFocus(index)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOptionClick(value);
+              }
+            }}
+            tabIndex={0}
+          >
+            <label className={st.label}>
+              <input
+                checked={subcategories.includes(value)}
+                className={st.input}
+                type="checkbox"
+                name="subcategory"
+                value={value}
+                tabIndex={-1}
+                readOnly
+              />
+              <span className={st.checkbox} />
+              <span>{translate(value, language)}</span>
+            </label>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
