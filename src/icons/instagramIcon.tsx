@@ -2,7 +2,12 @@ import { FC } from 'react';
 
 import { IconWithClassName } from 'src/types/iconProps';
 
-const InstagramIcon: FC<IconWithClassName> = ({ width, height, className, ariaLabelContent }) => (
+const InstagramIcon: FC<IconWithClassName> = ({
+  width,
+  height,
+  className,
+  ariaLabelContent,
+}) => (
   <svg
     className={className}
     width={width}

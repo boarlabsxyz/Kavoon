@@ -2,12 +2,11 @@ import { FC } from 'react';
 
 import { IconWithClassName } from 'src/types/iconProps';
 
-
 const FilterIcon: FC<IconWithClassName> = ({
   width,
   height,
   className,
-  ariaLabelContent
+  ariaLabelContent,
 }) => (
   <svg
     className={className}
