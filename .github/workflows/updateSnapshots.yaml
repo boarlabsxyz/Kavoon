@@ -3,10 +3,15 @@ name: Update Snapshots
 on:
   workflow_dispatch:
 
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+
 jobs:
   update-snapshots:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -20,5 +25,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update Cypress Snapshots
-        run: npm run cy:update-snapshots
+      - name: Run Cypress tests
+        run: npm run cy:test
+
+      - name: Upload snapshots as new artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          retention-days: 45

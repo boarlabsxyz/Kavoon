@@ -62,13 +62,62 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress
-        run: npm run cy:test
+      - name: Get latest run ID for cypress-baseline-snapshots
+        id: get-latest-run
+        run: |
+          for i in {1..3}; do
+            response=$(curl -sL --max-time 10 \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
+
+            if [ $? -eq 0 ]; then
+              latest=$(echo "$response" | \
+                jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
+
+              if [ "$latest" != "null" ]; then
+                run_id=$(echo "$latest" | jq -r '.workflow_run.id')
+                echo "latest_run_id=$run_id" >> $GITHUB_ENV
+                echo "Found latest run ID: $run_id"
+                break
+              fi
+            fi
+
+            echo "Attempt $i failed, retrying..."
+            sleep 5
+          done
+
+      - name: Download artifacts from latest successful run
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
+      - run: ls -R cypress/snapshots
+
+      - name: Run Cypress tests
+        run: npm run cy:test || echo "TESTS_FAILED=true" >> $GITHUB_ENV
+        continue-on-error: true
+
+      - name: Upload snapshots as new artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-snapshots-comparison-results
+          path: cypress/snapshots
+          retention-days: 10
+
+      - name: Fail workflow if tests failed
+        if: env.TESTS_FAILED == 'true'
+        run: exit 1
 
   preview-deployment:
     runs-on: ubuntu-latest
