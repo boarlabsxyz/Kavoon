@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - making and updating snapshots in e2e-tests on github actions ([#181](https://github.com/boarlabsxyz/Kavoon/pull/181))
 
+### Changed
+- Update the icon languages and flags with higher quality for mobile devices with Retina and Super AMOLED displays ([#197](https://github.com/boarlabsxyz/Kavoon/pull/197))
+
 ## [1.2.0] - 2025-01-15
 
 ### Added
