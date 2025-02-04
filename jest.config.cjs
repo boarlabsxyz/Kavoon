@@ -31,7 +31,7 @@ const customJestConfig = {
     },
   },
 
-  coverageReporters: ['html', 'text', 'text-summary', 'cobertura'],
+  coverageReporters: ['html', 'lcov'],
   testMatch: ['**/*.test.{js,jsx,ts,tsx}'],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 
