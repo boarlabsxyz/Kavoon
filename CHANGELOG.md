@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.0] - Unreleased
 
+### Added
+- robots.txt for search engine crawlers ([200](https://github.com/boarlabsxyz/Kavoon/pull/200))
+- google html file for verification website's ownership ([199](https://github.com/boarlabsxyz/Kavoon/pull/199))
+
 ### Fixed
 - making and updating snapshots in e2e-tests on github actions ([#181](https://github.com/boarlabsxyz/Kavoon/pull/181))
 
