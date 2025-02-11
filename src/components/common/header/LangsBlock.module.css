@@ -106,7 +106,7 @@
 
   .wrapper.open > .availableLangs {
     animation: display 300ms ease-in-out;
-    height: 120px;
+    max-height: 120px;
     border: 1px #11a0a9 solid;
     display: flex;
     flex-direction: column;
@@ -149,15 +149,15 @@
 }
 
 .availableLangs {
-  transition: 0.3s;
+  transition: max-height 0.3s ease-in-out;
   position: absolute;
   list-style: none;
   width: 100%;
-  height: 0;
+  max-height: 0;
+  overflow: hidden;
   border-radius: 6px;
   box-shadow: 1px 2px 3px -2px rgba(12, 32, 60, 0.2);
   box-shadow: 3px 8px 10px 0px rgba(4, 15, 42, 0.05);
-
   background-color: var(--white);
   top: 46px;
   left: 0;
