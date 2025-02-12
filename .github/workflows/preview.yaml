@@ -140,8 +140,17 @@ jobs:
         with:
           name: coverage-report
 
-      - name: Check if source file exists
-        run: ls -l src/helpers/shimmerUrl.js || echo "File not found"
+            - name: Debug missing file
+        run: |
+          if [ -f src/helpers/shimmerUrl.js ]; then
+            echo "✅ File exists: src/helpers/shimmerUrl.js"
+            ls -l src/helpers/shimmerUrl.js
+            cat src/helpers/shimmerUrl.js
+          else
+            echo "❌ File NOT found: src/helpers/shimmerUrl.js"
+            find . -name "shimmerUrl.js"
+          fi
+
 
       # - name: Debug lcov.info
       #   run: cat lcov.info
