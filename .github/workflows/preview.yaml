@@ -151,8 +151,8 @@ jobs:
             find . -name "shimmerUrl.js"
           fi
 
-      # - name: Debug lcov.info
-      #   run: cat lcov.info
+      - name: Show SonarQube detected sources
+        run: find $(pwd)/src -type f
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
