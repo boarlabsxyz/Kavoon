@@ -140,16 +140,18 @@ jobs:
         with:
           name: coverage-report
 
-      - name: Debug missing file
-        run: |
-          if [ -f src/helpers/shimmerUrl.js ]; then
-            echo "✅ File exists: src/helpers/shimmerUrl.js"
-            ls -l src/helpers/shimmerUrl.js
-            cat src/helpers/shimmerUrl.js
-          else
-            echo "❌ File NOT found: src/helpers/shimmerUrl.js"
-            find . -name "shimmerUrl.js"
-          fi
+      # - name: Debug missing file
+      #   run: |
+      #     if [ -f src/helpers/shimmerUrl.js ]; then
+      #       echo "✅ File exists: src/helpers/shimmerUrl.js"
+      #       ls -l src/helpers/shimmerUrl.js
+      #       cat src/helpers/shimmerUrl.js
+      #     else
+      #       echo "❌ File NOT found: src/helpers/shimmerUrl.js"
+      #       find . -name "shimmerUrl.js"
+      #     fi
+      - name: Debug LCOV paths
+        run: grep "SF:" lcov.info
 
       - name: Show SonarQube detected sources
         run: find $(pwd)/src -type f
