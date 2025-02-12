@@ -119,6 +119,32 @@ jobs:
         if: env.TESTS_FAILED == 'true'
         run: exit 1
 
+  sonarqube:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    needs: unit-tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download coverage report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v4.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   preview-deployment:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -129,6 +155,7 @@ jobs:
       - lint
       - unit-tests
       - e2e-tests
+      - sonarqube
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
