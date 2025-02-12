@@ -135,11 +135,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set SonarQube working directory
-        run: |
-          echo "##[group]Set working directory"
-          cd $GITHUB_WORKSPACE
-          echo "##[endgroup]"
+      # - name: Set SonarQube working directory
+      #   run: |
+      #     echo "##[group]Set working directory"
+      #     cd $GITHUB_WORKSPACE
+      #     echo "##[endgroup]"
 
       - name: Download coverage report
         uses: actions/download-artifact@v4
@@ -156,11 +156,11 @@ jobs:
       #       echo "❌ File NOT found: src/helpers/shimmerUrl.js"
       #       find . -name "shimmerUrl.js"
       #     fi
-      - name: Debug LCOV paths
-        run: grep "SF:" lcov.info
+      # - name: Debug LCOV paths
+      #   run: grep "SF:" lcov.info
 
-      - name: Show SonarQube detected sources
-        run: find $(pwd)/src -type f
+      # - name: Show SonarQube detected sources
+      #   run: find $(pwd)/src -type f
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
