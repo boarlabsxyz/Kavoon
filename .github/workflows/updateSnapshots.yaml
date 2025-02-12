@@ -33,4 +33,4 @@ jobs:
         with:
           name: cypress-baseline-snapshots
           path: cypress/snapshots
-          retention-days: 45
+          retention-days: 30

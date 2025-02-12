@@ -56,6 +56,7 @@ jobs:
         with:
           name: coverage-report
           path: coverage/lcov.info
+          retention-days: 1
 
   e2e-tests:
     runs-on: ubuntu-latest
@@ -80,7 +81,7 @@ jobs:
             response=$(curl -sL --max-time 10 \
               -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
               -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts?per_page=100")
 
             if [ $? -eq 0 ]; then
               latest=$(echo "$response" | \
@@ -119,7 +120,7 @@ jobs:
         with:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
-          retention-days: 10
+          retention-days: 3
 
       - name: Fail workflow if tests failed
         if: env.TESTS_FAILED == 'true'
