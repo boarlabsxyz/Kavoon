@@ -140,8 +140,8 @@ jobs:
         with:
           name: coverage-report
 
-      - name: Debug lcov.info
-        run: cat lcov.info
+      # - name: Debug lcov.info
+      #   run: cat lcov.info
 
       # - name: SonarQube Scan
       #   uses: sonarsource/sonarqube-scan-action@v4.1.0
