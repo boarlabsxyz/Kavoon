@@ -143,10 +143,17 @@ jobs:
       - name: Debug lcov.info
         run: cat lcov.info
 
-      - name: SonarQube Scan
+      # - name: SonarQube Scan
+      #   uses: sonarsource/sonarqube-scan-action@v4.1.0
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: SonarQube Scan (Debug)
         uses: sonarsource/sonarqube-scan-action@v4.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: -X
 
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
