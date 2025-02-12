@@ -135,6 +135,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set SonarQube working directory
+        run: |
+          echo "##[group]Set working directory"
+          cd $GITHUB_WORKSPACE
+          echo "##[endgroup]"
+
       - name: Download coverage report
         uses: actions/download-artifact@v4
         with:
