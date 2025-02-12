@@ -13,24 +13,24 @@ env:
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
-  #         cache: npm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Run Eslint
-  #       run: npm run lint
+      - name: Run Eslint
+        run: npm run lint
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -57,73 +57,73 @@ jobs:
           name: coverage-report
           path: coverage/lcov.info
 
-  # e2e-tests:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  e2e-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
-  #         cache: 'npm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Get latest run ID for cypress-baseline-snapshots
-  #       id: get-latest-run
-  #       run: |
-  #         for i in {1..3}; do
-  #           response=$(curl -sL --max-time 10 \
-  #             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-  #             -H "Accept: application/vnd.github+json" \
-  #             "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
+      - name: Get latest run ID for cypress-baseline-snapshots
+        id: get-latest-run
+        run: |
+          for i in {1..3}; do
+            response=$(curl -sL --max-time 10 \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
 
-  #           if [ $? -eq 0 ]; then
-  #             latest=$(echo "$response" | \
-  #               jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
+            if [ $? -eq 0 ]; then
+              latest=$(echo "$response" | \
+                jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
 
-  #             if [ "$latest" != "null" ]; then
-  #               run_id=$(echo "$latest" | jq -r '.workflow_run.id')
-  #               echo "latest_run_id=$run_id" >> $GITHUB_ENV
-  #               echo "Found latest run ID: $run_id"
-  #               break
-  #             fi
-  #           fi
+              if [ "$latest" != "null" ]; then
+                run_id=$(echo "$latest" | jq -r '.workflow_run.id')
+                echo "latest_run_id=$run_id" >> $GITHUB_ENV
+                echo "Found latest run ID: $run_id"
+                break
+              fi
+            fi
 
-  #           echo "Attempt $i failed, retrying..."
-  #           sleep 5
-  #         done
+            echo "Attempt $i failed, retrying..."
+            sleep 5
+          done
 
-  #     - name: Download artifacts from latest successful run
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: cypress-baseline-snapshots
-  #         path: cypress/snapshots
-  #         merge-multiple: true
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
-  #         repository: ${{ github.repository }}
-  #         run-id: ${{ env.latest_run_id }}
-  #     - run: ls -R cypress/snapshots
+      - name: Download artifacts from latest successful run
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
+      - run: ls -R cypress/snapshots
 
-  #     - name: Run Cypress tests
-  #       run: npm run cy:test || echo "TESTS_FAILED=true" >> $GITHUB_ENV
-  #       continue-on-error: true
+      - name: Run Cypress tests
+        run: npm run cy:test || echo "TESTS_FAILED=true" >> $GITHUB_ENV
+        continue-on-error: true
 
-  #     - name: Upload snapshots as new artifact
-  #       uses: actions/upload-artifact@v4
-  #       if: always()
-  #       with:
-  #         name: cypress-snapshots-comparison-results
-  #         path: cypress/snapshots
-  #         retention-days: 10
+      - name: Upload snapshots as new artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-snapshots-comparison-results
+          path: cypress/snapshots
+          retention-days: 10
 
-  #     - name: Fail workflow if tests failed
-  #       if: env.TESTS_FAILED == 'true'
-  #       run: exit 1
+      - name: Fail workflow if tests failed
+        if: env.TESTS_FAILED == 'true'
+        run: exit 1
 
   sonarqube:
     runs-on: ubuntu-latest
@@ -135,44 +135,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      # - name: Set SonarQube working directory
-      #   run: |
-      #     echo "##[group]Set working directory"
-      #     cd $GITHUB_WORKSPACE
-      #     echo "##[endgroup]"
-
       - name: Download coverage report
         uses: actions/download-artifact@v4
         with:
           name: coverage-report
 
-      # - name: Debug missing file
-      #   run: |
-      #     if [ -f src/helpers/shimmerUrl.js ]; then
-      #       echo "✅ File exists: src/helpers/shimmerUrl.js"
-      #       ls -l src/helpers/shimmerUrl.js
-      #       cat src/helpers/shimmerUrl.js
-      #     else
-      #       echo "❌ File NOT found: src/helpers/shimmerUrl.js"
-      #       find . -name "shimmerUrl.js"
-      #     fi
-      # - name: Debug LCOV paths
-      #   run: grep "SF:" lcov.info
-
-      # - name: Show SonarQube detected sources
-      #   run: find $(pwd)/src -type f
-
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@v4.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      # - name: SonarQube Scan (Debug)
-      #   uses: sonarsource/sonarqube-scan-action@v4.1.0
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #   with:
-      #     args: -X
 
       - name: SonarQube Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
@@ -180,42 +151,42 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  # preview-deployment:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   environment:
-  #     name: preview
-  #     url: ${{ steps.deploy.outputs.url }}
-  #   needs:
-  #     - lint
-  #     - unit-tests
-  #     - e2e-tests
-  #     - sonarqube
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  preview-deployment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.url }}
+    needs:
+      - lint
+      - unit-tests
+      - e2e-tests
+      - sonarqube
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
-  #         cache: npm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Install Vercel CLI
-  #       run: npm install --global vercel@latest
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
 
-  #     - name: Pull Vercel Environment Information
-  #       run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
-  #     - name: Build Project Artifacts
-  #       run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
-  #     - name: Deploy Project Artifacts to Vercel
-  #       id: deploy
-  #       run: |
-  #         DEPLOY_URL=$(vercel deploy --prebuilt --token='${{ secrets.VERCEL_TOKEN }}')
-  #         echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-  #         echo "Preview URL: $DEPLOY_URL"
+      - name: Deploy Project Artifacts to Vercel
+        id: deploy
+        run: |
+          DEPLOY_URL=$(vercel deploy --prebuilt --token='${{ secrets.VERCEL_TOKEN }}')
+          echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+          echo "Preview URL: $DEPLOY_URL"
