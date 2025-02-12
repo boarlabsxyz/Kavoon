@@ -17,6 +17,7 @@ const customJestConfig = {
     '!.vercel/**',
     '!coverage/**',
     '!cypress/**',
+    '!**/helpers/**',
     '!**/*.d.ts',
     '!**/index.{ts,tsx,js,jsx}',
     '!**/*.config.ts',
