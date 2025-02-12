@@ -140,7 +140,7 @@ jobs:
         with:
           name: coverage-report
 
-            - name: Debug missing file
+      - name: Debug missing file
         run: |
           if [ -f src/helpers/shimmerUrl.js ]; then
             echo "✅ File exists: src/helpers/shimmerUrl.js"
@@ -150,7 +150,6 @@ jobs:
             echo "❌ File NOT found: src/helpers/shimmerUrl.js"
             find . -name "shimmerUrl.js"
           fi
-
 
       # - name: Debug lcov.info
       #   run: cat lcov.info
