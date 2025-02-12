@@ -17,7 +17,7 @@ const customJestConfig = {
     '!.vercel/**',
     '!coverage/**',
     '!cypress/**',
-    '!**/helpers/**',
+    '!**/helpers/shimmerUrl.js',
     '!**/*.d.ts',
     '!**/index.{ts,tsx,js,jsx}',
     '!**/*.config.ts',
