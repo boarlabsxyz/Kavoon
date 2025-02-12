@@ -29,12 +29,6 @@
     "incremental": true,
     "types": ["cypress"]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/components/common/containerTEST/Container.test.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "cypress.config.ts", "cypress"]
 }
