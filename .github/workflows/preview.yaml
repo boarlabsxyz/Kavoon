@@ -51,6 +51,13 @@ jobs:
       - name: Run Jest
         run: npm run jest
 
+      - name: Save coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/lcov.info
+          retention-days: 1
+
   e2e-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -74,7 +81,7 @@ jobs:
             response=$(curl -sL --max-time 10 \
               -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
               -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts?per_page=100")
 
             if [ $? -eq 0 ]; then
               latest=$(echo "$response" | \
@@ -113,11 +120,37 @@ jobs:
         with:
           name: cypress-snapshots-comparison-results
           path: cypress/snapshots
-          retention-days: 10
+          retention-days: 3
 
       - name: Fail workflow if tests failed
         if: env.TESTS_FAILED == 'true'
         run: exit 1
+
+  sonarqube:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    needs: unit-tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download coverage report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v4.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   preview-deployment:
     runs-on: ubuntu-latest
@@ -129,6 +162,7 @@ jobs:
       - lint
       - unit-tests
       - e2e-tests
+      - sonarqube
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

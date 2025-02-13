@@ -17,6 +17,7 @@ const customJestConfig = {
     '!.vercel/**',
     '!coverage/**',
     '!cypress/**',
+    '!**/helpers/shimmerUrl.js',
     '!**/*.d.ts',
     '!**/index.{ts,tsx,js,jsx}',
     '!**/*.config.ts',
@@ -31,7 +32,7 @@ const customJestConfig = {
     },
   },
 
-  coverageReporters: ['html', 'text', 'text-summary', 'cobertura'],
+  coverageReporters: ['text', 'lcov'],
   testMatch: ['**/*.test.{js,jsx,ts,tsx}'],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 
