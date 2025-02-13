@@ -1,4 +1,11 @@
-import { Dispatch, SetStateAction, useMemo, useState, useRef } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from 'react';
 
 import {
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
@@ -16,62 +23,163 @@ type Props = {
   setSubcategories: Dispatch<SetStateAction<Subcategory[]>>;
   language: Language;
 };
+
 function SubcategoryFilter({
   subcategories,
   setSubcategories,
   language,
 }: Props) {
   const [isShowList, setIsShowList] = useState(false);
-  const ref = useRef();
-  const allSubcategories = useMemo(
-    () => Object.keys(SUBCATEGORIES_BICYCLE_EQUIPMENT) as Subcategory[],
-    []
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const allSubcategories = Object.keys(
+    SUBCATEGORIES_BICYCLE_EQUIPMENT
+  ) as Subcategory[];
+
+  const handleOptionClick = useCallback(
+    (option: Subcategory) => {
+      setSubcategories((prevSubcategories) =>
+        prevSubcategories.includes(option)
+          ? prevSubcategories.filter((sub) => sub !== option)
+          : [...prevSubcategories, option]
+      );
+      setIsShowList(false);
+    },
+    [setSubcategories]
   );
 
-  const handleCheckboxChange = ({
-    target: { value, checked },
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    setSubcategories((prevSubcategories) =>
-      checked
-        ? [...prevSubcategories, value as Subcategory]
-        : prevSubcategories.filter((sub) => sub !== value)
-    );
-    setIsShowList(false);
+  const toggleDropdown = () => {
+    setIsShowList((prev) => !prev);
+    setHighlightedIndex(-1);
   };
+
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (!isShowList) return;
+
+      switch (event.key) {
+        case 'ArrowDown':
+          event.preventDefault();
+          setHighlightedIndex((prev) =>
+            prev === allSubcategories.length - 1 ? 0 : prev + 1
+          );
+          break;
+
+        case 'ArrowUp':
+          event.preventDefault();
+          setHighlightedIndex((prev) =>
+            prev <= 0 ? allSubcategories.length - 1 : prev - 1
+          );
+          break;
+
+        case 'Tab':
+          event.preventDefault();
+          {
+            const isShiftTab = event.shiftKey;
+            if (isShiftTab) {
+              setHighlightedIndex((prev) =>
+                prev <= 0 ? allSubcategories.length - 1 : prev - 1
+              );
+            } else {
+              setHighlightedIndex((prev) =>
+                prev === allSubcategories.length - 1 ? 0 : prev + 1
+              );
+            }
+          }
+
+          break;
+
+        case 'Escape':
+          setIsShowList(false);
+          break;
+
+        default:
+          break;
+      }
+    },
+    [isShowList, allSubcategories]
+  );
+
+  const handleListItemFocus = useCallback((index: number) => {
+    setHighlightedIndex(index);
+  }, []);
 
   useOutsideClick(ref, () => {
     setIsShowList(false);
   });
 
-  const handleClick = () => {
-    setIsShowList(!isShowList);
-  };
+  useEffect(() => {
+    if (highlightedIndex >= 0 && isShowList) {
+      const focusedElement = document.querySelector(
+        `.${st.list} li:nth-child(${highlightedIndex + 1})`
+      ) as HTMLElement;
 
-  const noCheckedSubcategories = !subcategories.length;
+      if (focusedElement) {
+        focusedElement.focus();
+      }
+    }
+  }, [highlightedIndex, isShowList]);
 
   return (
     <div
       ref={ref}
       className={st.wrapper}
-      onClick={handleClick}
       data-cy="subcategory-filter"
+      tabIndex={-1}
+      onKeyDown={handleKeyDown}
     >
       <div
         className={isShowList ? `${st.title} ${st.titleOfShowList}` : st.title}
-        onClick={() => {
-          setIsShowList(!isShowList);
+        onClick={toggleDropdown}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleDropdown();
+          }
         }}
+        aria-expanded={isShowList}
       >
         {translate('FilterByType', language)}
         <FilterIcon
           width="18"
           height="12"
-          className={noCheckedSubcategories ? st.svg : `${st.activeSvg}`}
+          className={subcategories.length === 0 ? st.svg : `${st.activeSvg}`}
+          ariaLabelContent={
+            isShowList
+              ? 'Close subcategory filter'
+              : 'Filter subcategory by type'
+          }
         />
       </div>
-      <ul className={isShowList ? st.list : st.hiddenList}>
-        {allSubcategories.map((value) => (
-          <li key={value}>
+      <ul
+        className={isShowList ? st.list : st.hiddenList}
+        role="listbox"
+        aria-activedescendant={
+          highlightedIndex >= 0 ? `option-${highlightedIndex}` : undefined
+        }
+      >
+        {allSubcategories.map((value, index) => (
+          <li
+            key={value}
+            id={`option-${index}`}
+            role="option"
+            aria-selected={highlightedIndex === index}
+            className={highlightedIndex === index ? st.highlighted : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              handleOptionClick(value);
+            }}
+            onFocus={() => handleListItemFocus(index)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOptionClick(value);
+              }
+            }}
+            tabIndex={0}
+          >
             <label className={st.label}>
               <input
                 checked={subcategories.includes(value)}
@@ -79,7 +187,8 @@ function SubcategoryFilter({
                 type="checkbox"
                 name="subcategory"
                 value={value}
-                onChange={handleCheckboxChange}
+                tabIndex={-1}
+                readOnly
               />
               <span className={st.checkbox} />
               <span>{translate(value, language)}</span>
