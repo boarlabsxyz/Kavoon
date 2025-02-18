@@ -778,7 +778,7 @@ const hamsterCorduraNavyBlueFoxes = () => ({
   gallery: 3,
   price: { UAH: 1100, EUR: 30 },
   fabrics: { name: 'Cordura', color: 'CorduraNavyBlue' },
-  print: 'foxes',
+  print: 'without_print',
   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
   category: IN_STOCK,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
