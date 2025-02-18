@@ -3,12 +3,17 @@
 import { useEffect, useState } from 'react';
 import StatusReviews from 'src/components/statusReviewsPage';
 import IReview from 'src/types/review';
+import st from 'src/components/statusReviewsPage/ReviewAuth.module.css';
 
 function StatusReviewsPage() {
   const [reviews, setReviews] = useState<IReview[]>([]);
   const [error, setError] = useState<Error | null>(null);
+  const [password, setPassword] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    if (!isAuthenticated) return;
+
     const fetchReviews = async () => {
       try {
         const response = await fetch('/api/reviews');
@@ -28,7 +33,33 @@ function StatusReviewsPage() {
     };
 
     fetchReviews();
-  }, []);
+  }, [isAuthenticated]);
+
+  const handleLogin = () => {
+    if (password === process.env.NEXT_PUBLIC_REVIEWS_TOKEN) {
+      setIsAuthenticated(true);
+    } else {
+      alert('Incorrect password');
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className={st.container}>
+        <h2 className={st.header}>Enter Password</h2>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter password"
+          className={st.input}
+        />
+        <button onClick={handleLogin} className={st.button}>
+          Submit
+        </button>
+      </div>
+    );
+  }
 
   if (error) {
     return <div>Error loading reviews: {error.message}</div>;
