@@ -35,11 +35,20 @@ function StatusReviewsPage() {
     fetchReviews();
   }, [isAuthenticated]);
 
-  const handleLogin = () => {
-    if (password === process.env.NEXT_PUBLIC_REVIEWS_TOKEN) {
+  const handleLogin = async () => {
+    const response = await fetch('/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ password }),
+    });
+
+    if (response.ok) {
       setIsAuthenticated(true);
     } else {
-      alert('Incorrect password');
+      const data = await response.json();
+      alert(data.message || 'Authentication failed');
     }
   };
 
