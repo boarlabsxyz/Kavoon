@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update the icon languages and flags with higher quality for mobile devices with Retina and Super AMOLED displays ([#197](https://github.com/boarlabsxyz/Kavoon/pull/197))
 
 ### Removed
-- unused prints (dinosaurs, scarlet_ibis, star_flower, foxes, parrots, leaf_on_black, jungle, forest) and their corresponding pictures
+- unused prints (dinosaurs, scarlet_ibis, star_flower, foxes, parrots, leaf_on_black, jungle, forest) and their corresponding pictures ([#217](https://github.com/boarlabsxyz/Kavoon/pull/217))
 
 ## [1.2.0] - 2025-01-15
 
