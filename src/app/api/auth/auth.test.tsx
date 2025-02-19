@@ -15,7 +15,12 @@ describe('POST /api/auth', () => {
 
   beforeEach(() => {
     jest.resetModules();
-    process.env = { ...OLD_ENV, REVIEWS_TOKEN: 'test_secret' };
+    process.env = {
+      ...OLD_ENV,
+      REVIEWS_TOKEN: 'test_secret',
+      TEST_PASSWORD: 'test_secret',
+      WRONG_PASSWORD: 'wrong_password',
+    };
   });
 
   afterEach(() => {
@@ -39,7 +44,7 @@ describe('POST /api/auth', () => {
   it('should return 401 if password is incorrect', async () => {
     const req = new Request('http://localhost/api/auth', {
       method: 'POST',
-      body: JSON.stringify({ password: 'wrong_password' }),
+      body: JSON.stringify({ password: process.env.WRONG_PASSWORD }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -53,7 +58,7 @@ describe('POST /api/auth', () => {
   it('should return authenticated if password is correct', async () => {
     const req = new Request('http://localhost/api/auth', {
       method: 'POST',
-      body: JSON.stringify({ password: 'test_secret' }),
+      body: JSON.stringify({ password: process.env.TEST_PASSWORD }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -69,7 +74,7 @@ describe('POST /api/auth', () => {
 
     const req = new Request('http://localhost/api/auth', {
       method: 'POST',
-      body: JSON.stringify({ password: 'test_secret' }),
+      body: JSON.stringify({ password: process.env.TEST_PASSWORD }),
       headers: { 'Content-Type': 'application/json' },
     });
 
