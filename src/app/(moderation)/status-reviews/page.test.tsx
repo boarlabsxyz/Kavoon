@@ -2,6 +2,7 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import IReview from 'src/types/review';
 import '@testing-library/jest-dom';
 import StatusReviewsPage from './page';
+import { act } from 'react';
 
 jest.mock('src/components/statusReviewsPage/StatusReviews', () => {
   return function MockStatusReviews({ reviews = [] as IReview[] }) {
@@ -53,10 +54,13 @@ describe('StatusReviewsPage', () => {
     });
 
     render(<StatusReviewsPage />);
-    fireEvent.change(screen.getByPlaceholderText('Enter password'), {
-      target: { value: 'correctpassword' },
+
+    await act(async () => {
+      fireEvent.change(screen.getByPlaceholderText('Enter password'), {
+        target: { value: 'correctpassword' },
+      });
+      fireEvent.click(screen.getByText('Submit'));
     });
-    fireEvent.click(screen.getByText('Submit'));
 
     await waitFor(() =>
       expect(
@@ -102,11 +106,13 @@ describe('StatusReviewsPage', () => {
       json: async () => ({}),
     });
 
-    render(<StatusReviewsPage />);
+    await act(async () => {
+      render(<StatusReviewsPage />);
+    });
 
-    await waitFor(() =>
-      expect(screen.getByPlaceholderText('Enter password')).toBeInTheDocument()
-    );
+    await waitFor(() => {
+      expect(screen.getByPlaceholderText('Enter password')).toBeInTheDocument();
+    });
 
     fireEvent.change(screen.getByPlaceholderText('Enter password'), {
       target: { value: 'correctpassword' },
@@ -117,7 +123,10 @@ describe('StatusReviewsPage', () => {
       expect(sessionStorage.getItem('isAuthenticated')).toBe('true')
     );
 
-    render(<StatusReviewsPage />);
+    await act(async () => {
+      render(<StatusReviewsPage />);
+    });
+
     expect(
       screen.queryByPlaceholderText('Enter password')
     ).not.toBeInTheDocument();

@@ -8,24 +8,31 @@ export async function POST(req: NextRequest) {
     const { password } = await req.json();
     const secret = process.env.REVIEWS_TOKEN;
 
-    if (!password || !secret) {
+    if (!password) {
       return NextResponse.json(
         { message: 'Missing password.' },
         { status: 400 }
       );
     }
 
-    const providedBuffer = encoder.encode(password);
-    const secretBuffer = encoder.encode(secret);
-
-    if (providedBuffer.length !== secretBuffer.length) {
+    if (!secret) {
       return NextResponse.json(
-        { message: 'Incorrect password' },
-        { status: 401 }
+        { message: 'Internal Server Error' },
+        { status: 500 }
       );
     }
 
-    if (timingSafeEqual(providedBuffer, secretBuffer)) {
+    const providedBuffer = encoder.encode(password);
+    const secretBuffer = encoder.encode(secret);
+
+    const maxLength = Math.max(providedBuffer.length, secretBuffer.length);
+    const paddedProvided = new Uint8Array(maxLength);
+    const paddedSecret = new Uint8Array(maxLength);
+
+    paddedProvided.set(providedBuffer);
+    paddedSecret.set(secretBuffer);
+
+    if (timingSafeEqual(paddedProvided, paddedSecret)) {
       return NextResponse.json({ authenticated: true });
     } else {
       return NextResponse.json(
