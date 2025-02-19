@@ -66,20 +66,23 @@ describe('StatusReviewsPage', () => {
   });
 
   it('displays an error message on fetch failure', async () => {
-    process.env.NEXT_PUBLIC_REVIEWS_TOKEN = 'correctpassword';
+    sessionStorage.clear();
+    sessionStorage.setItem('isAuthenticated', 'false');
 
-    (fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({}),
-    });
-
-    (fetch as jest.Mock).mockResolvedValueOnce({
-      ok: false,
-      status: 500,
-      json: async () => ({ message: 'Internal Server Error' }),
-    });
+    (fetch as jest.Mock)
+      .mockResolvedValueOnce({ ok: true, json: async () => ({}) })
+      .mockResolvedValueOnce({
+        ok: false,
+        status: 500,
+        json: async () => ({ message: 'Internal Server Error' }),
+      });
 
     render(<StatusReviewsPage />);
+
+    await waitFor(() =>
+      expect(screen.getByPlaceholderText('Enter password')).toBeInTheDocument()
+    );
+
     fireEvent.change(screen.getByPlaceholderText('Enter password'), {
       target: { value: 'correctpassword' },
     });
@@ -87,6 +90,56 @@ describe('StatusReviewsPage', () => {
 
     await waitFor(() =>
       expect(screen.getByText(/Error loading reviews/)).toBeInTheDocument()
+    );
+  });
+
+  it('sets authentication state to true on successful login', async () => {
+    sessionStorage.clear();
+    sessionStorage.setItem('isAuthenticated', 'false');
+
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({}),
+    });
+
+    render(<StatusReviewsPage />);
+
+    await waitFor(() =>
+      expect(screen.getByPlaceholderText('Enter password')).toBeInTheDocument()
+    );
+
+    fireEvent.change(screen.getByPlaceholderText('Enter password'), {
+      target: { value: 'correctpassword' },
+    });
+    fireEvent.click(screen.getByText('Submit'));
+
+    await waitFor(() =>
+      expect(sessionStorage.getItem('isAuthenticated')).toBe('true')
+    );
+
+    render(<StatusReviewsPage />);
+    expect(
+      screen.queryByPlaceholderText('Enter password')
+    ).not.toBeInTheDocument();
+  });
+
+  it('throws an error when API returns an invalid response format', async () => {
+    sessionStorage.clear();
+    sessionStorage.setItem('isAuthenticated', 'true');
+
+    (fetch as jest.Mock)
+      .mockResolvedValueOnce({ ok: true, json: async () => ({}) })
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ data: 'invalid-data' }),
+      });
+
+    render(<StatusReviewsPage />);
+
+    await waitFor(() =>
+      expect(
+        screen.getByText(/Error loading reviews: Invalid response format/)
+      ).toBeInTheDocument()
     );
   });
 });

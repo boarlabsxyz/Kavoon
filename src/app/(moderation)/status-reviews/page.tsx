@@ -4,12 +4,22 @@ import { useEffect, useState } from 'react';
 import StatusReviews from 'src/components/statusReviewsPage';
 import IReview from 'src/types/review';
 import st from 'src/components/statusReviewsPage/ReviewAuth.module.css';
+import Spinner from 'src/components/common/spinner';
 
 function StatusReviewsPage() {
   const [reviews, setReviews] = useState<IReview[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const sessionAuth = sessionStorage.getItem('isAuthenticated');
+    if (sessionAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -46,11 +56,16 @@ function StatusReviewsPage() {
 
     if (response.ok) {
       setIsAuthenticated(true);
+      sessionStorage.setItem('isAuthenticated', 'true');
     } else {
       const data = await response.json();
       alert(data.message || 'Authentication failed');
     }
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   if (!isAuthenticated) {
     return (
