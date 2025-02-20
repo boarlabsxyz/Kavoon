@@ -41,6 +41,16 @@ describe('sitemap', () => {
 
     expect(result).toBeDefined();
     expect(Array.isArray(result)).toBe(true);
+    result.forEach((entry) => {
+      expect(entry).toMatchObject({
+        url: expect.stringMatching(/^https?:\/\//),
+        lastModified: expect.any(Object),
+        changeFrequency: expect.stringMatching(
+          /^(always|hourly|daily|weekly|monthly|yearly|never)$/
+        ),
+        priority: expect.any(Number),
+      });
+    });
   });
 
   it('should call getAllProducts and getPosts', async () => {
