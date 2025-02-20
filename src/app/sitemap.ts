@@ -33,8 +33,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
+  const products = getAllProducts();
+
   const allCategories = Array.from(
-    new Set(getAllProducts().map((product) => product.category))
+    new Set(products.map((product) => product.category))
   );
 
   const categoriesSitemap = allCategories.flatMap((category) =>
@@ -54,7 +56,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
-  const products = getAllProducts();
   const productsSitemap = products.flatMap((product) =>
     languages.map(({ locale }) => ({
       url: `${baseUrl}/${locale}/shop/${product.id}`,
