@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - update the icon languages and flags with higher quality for mobile devices with Retina and Super AMOLED displays ([#197](https://github.com/boarlabsxyz/Kavoon/pull/197))
+- update the babel/core version from v7.23.5 to 7.26.9([#222](https://github.com/boarlabsxyz/Kavoon/pull/222))
 
 ## [1.2.0] - 2025-01-15
 
