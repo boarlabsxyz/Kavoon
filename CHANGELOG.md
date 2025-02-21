@@ -5,12 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.0] - Unreleased
+## [1.4.0] - Unreleased
 
 ### Added
-- robots.txt for search engine crawlers ([200](https://github.com/boarlabsxyz/Kavoon/pull/200))
-- google html file for verification website's ownership ([199](https://github.com/boarlabsxyz/Kavoon/pull/199))
-- SonarQube cloud test coverage ([196](https://github.com/boarlabsxyz/Kavoon/pull/196))
+- generation of sitemap.xml for Google indexing ([#218](https://github.com/boarlabsxyz/Kavoon/pull/218))
+
+### Removed
+- unused prints (dinosaurs, scarlet_ibis, star_flower, foxes, parrots, leaf_on_black, jungle, forest) and their corresponding pictures ([#217](https://github.com/boarlabsxyz/Kavoon/pull/217))
+
+## [1.3.0] - 2025-02-10
+
+### Added
+- robots.txt for search engine crawlers ([#200](https://github.com/boarlabsxyz/Kavoon/pull/200))
+- google html file for verification website's ownership ([#199](https://github.com/boarlabsxyz/Kavoon/pull/199))
+- SonarQube cloud test coverage ([#196](https://github.com/boarlabsxyz/Kavoon/pull/196))
 
 ### Fixed
 - making and updating snapshots in e2e-tests on github actions ([#181](https://github.com/boarlabsxyz/Kavoon/pull/181))
@@ -18,9 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - update the icon languages and flags with higher quality for mobile devices with Retina and Super AMOLED displays ([#197](https://github.com/boarlabsxyz/Kavoon/pull/197))
 - update the babel/core version from v7.23.5 to 7.26.9([#222](https://github.com/boarlabsxyz/Kavoon/pull/222))
-
-### Removed
-- unused prints (dinosaurs, scarlet_ibis, star_flower, foxes, parrots, leaf_on_black, jungle, forest) and their corresponding pictures ([#217](https://github.com/boarlabsxyz/Kavoon/pull/217))
 
 ## [1.2.0] - 2025-01-15
 
