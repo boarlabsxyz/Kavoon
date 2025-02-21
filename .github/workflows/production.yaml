@@ -1,6 +1,11 @@
-name: Vercel Production Deployment
+name: Vercel Deployment
 
 on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
   workflow_dispatch:
 
 env:
@@ -25,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Eslint
+      - name: Run ESLint
         run: npm run lint
 
   unit-tests:
@@ -70,8 +75,57 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress
-        run: npm run cy:test
+      - name: Get latest run ID for cypress-baseline-snapshots
+        id: get-latest-run
+        run: |
+          for i in {1..3}; do
+            response=$(curl -sL --max-time 10 \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts?per_page=100")
+
+            if [ $? -eq 0 ]; then
+              latest=$(echo "$response" | \
+                jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
+
+              if [ "$latest" != "null" ]; then
+                run_id=$(echo "$latest" | jq -r '.workflow_run.id')
+                echo "latest_run_id=$run_id" >> $GITHUB_ENV
+                echo "Found latest run ID: $run_id"
+                break
+              fi
+            fi
+
+            echo "Attempt $i failed, retrying..."
+            sleep 5
+          done
+
+      - name: Download artifacts from latest successful run
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
+      - run: ls -R cypress/snapshots
+
+      - name: Run Cypress tests
+        run: npm run cy:test || echo "TESTS_FAILED=true" >> $GITHUB_ENV
+        continue-on-error: true
+
+      - name: Upload snapshots as new artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-snapshots-comparison-results
+          path: cypress/snapshots
+          retention-days: 3
+
+      - name: Fail workflow if tests failed
+        if: env.TESTS_FAILED == 'true'
+        run: exit 1
 
   sonarqube:
     runs-on: ubuntu-latest
@@ -99,12 +153,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  production-deployment:
+  deployment:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
-      name: production
-      url: https://www.kavoon.com.ua
+      name: ${{ github.event_name == 'workflow_dispatch' && 'production' || 'preview' }}
+      url: ${{ github.event_name == 'workflow_dispatch' && 'https://www.kavoon.com.ua' || steps.deploy.outputs.url }}
     needs:
       - lint
       - unit-tests
@@ -127,10 +181,20 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=${{ github.event_name == 'workflow_dispatch' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build ${{ github.event_name == 'workflow_dispatch' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        id: deploy
+        run: |
+          # For Preview Deployment
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            DEPLOY_URL=$(vercel deploy --prebuilt --token='${{ secrets.VERCEL_TOKEN }}')
+            echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+            echo "Deployment URL: $DEPLOY_URL"
+          else
+            # For Production Deployment (static URL)
+            vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+          fi
