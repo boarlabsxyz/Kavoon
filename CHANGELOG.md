@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - unused prints (dinosaurs, scarlet_ibis, star_flower, foxes, parrots, leaf_on_black, jungle, forest) and their corresponding pictures ([#217](https://github.com/boarlabsxyz/Kavoon/pull/217))
 
+### Fixed
+- the issue with checkbox state update for the status/reviews page ([#228](https://github.com/boarlabsxyz/Kavoon/pull/228))
+
 ## [1.3.0] - 2025-02-10
 
 ### Added
