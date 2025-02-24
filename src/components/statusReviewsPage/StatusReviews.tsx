@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import ReviewsModerationTable from './ReviewsModerationTable';
@@ -17,11 +18,29 @@ type ReviewLanguage = '' | 'uk' | 'en' | 'ru' | 'pl';
 
 function StatusReviews({ reviews }: Props) {
   const router = useRouter();
+  const [allReviews, setAllReviews] = useState<IReview[]>([]);
 
-  const changeShowOnSite = async (id: string, showOnSite: boolean) => {
-    const updates = { showOnSite: !showOnSite };
-    await reviewsApi.updateReview(id, updates);
-    router.refresh();
+  useEffect(() => {
+    if (reviews?.length) {
+      setAllReviews(reviews);
+    }
+  }, [reviews]);
+
+  const changeShowOnSite = async (id: string, currentShowOnSite: boolean) => {
+    const newShowOnSite = !currentShowOnSite; // Toggle the value
+    const updates = { showOnSite: newShowOnSite };
+
+    try {
+      await reviewsApi.updateReview(id, updates);
+      setAllReviews((prevReviews) =>
+        prevReviews.map((review) =>
+          review._id === id ? { ...review, showOnSite: newShowOnSite } : review
+        )
+      );
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Failed to update showOnSite:', error);
+    }
   };
 
   const chooseLanguage = async (id: string, reviewLanguage: ReviewLanguage) => {
@@ -38,14 +57,14 @@ function StatusReviews({ reviews }: Props) {
 
   return (
     <main className={st.page}>
-      {reviews && reviews.length === 0 ? (
+      {allReviews.length === 0 ? (
         <h2 className={st.message}>There are no reviews yet</h2>
       ) : (
         <ReviewsModerationTable
           changeShowOnSite={changeShowOnSite}
           chooseLanguage={chooseLanguage}
           deactivateReview={deactivateReview}
-          allReviews={reviews}
+          allReviews={allReviews}
         />
       )}
     </main>
