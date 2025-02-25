@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.2.5",
-    "@sentry/browser": "^8.33.1",
-    "@sentry/nextjs": "^7.85.0",
+    "@sentry/browser": "^9.2.0",
+    "@sentry/nextjs": "^7.120.3",
     "bufferutil": "^4.0.8",
     "firebase": "^10.12.0",
     "formik": "^2.4.6",
