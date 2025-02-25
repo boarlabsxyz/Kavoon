@@ -37,9 +37,6 @@ public/presentation_uk.pdf
 public/presentation_uk_min.pdf
 public/printsandcolors.pdf
 
-# removing package-lock.json
-package-lock.json
-
 # Terraform stuff
 .terraform*
 .next-tf
