@@ -2,11 +2,6 @@
  * @type {import('next').NextConfig}
  */
 import { withSentryConfig } from '@sentry/nextjs';
-import withBundleAnalyzer from '@next/bundle-analyzer';
-
-const bundleAnalyzer = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
-});
 
 const nextConfig = {
   images: {
@@ -32,7 +27,4 @@ const sentryWebpackPluginOptions = {
   silent: true, // Suppresses all logs
 };
 
-export default withSentryConfig(
-  bundleAnalyzer(nextConfig),
-  sentryWebpackPluginOptions
-);
+export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
