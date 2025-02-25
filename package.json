@@ -53,7 +53,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",
-    "@next/bundle-analyzer": "^14.2.8",
     "@simonsmith/cypress-image-snapshot": "^9.1.0",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
