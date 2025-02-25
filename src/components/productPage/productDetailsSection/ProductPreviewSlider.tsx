@@ -18,7 +18,7 @@ function ProductDetailsPrevSlider({ vm, name }) {
   const [slider2, setSlider2] = useState<SwiperClass | null>(null);
 
   return (
-    <div className={st.wrapper}>
+    <div className={st.wrapper} data-cy="preview-slider">
       <div className={st.previewWrapper}>
         <Swiper
           className={st.preview}
