@@ -8,10 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.4.0] - 2025-02-25
 
 ### Added
+- server-side authentication for the status-reviews page ([216](https://github.com/boarlabsxyz/Kavoon/pull/216))
 - generation of sitemap.xml for Google indexing ([#218](https://github.com/boarlabsxyz/Kavoon/pull/218))
 
 ### Fixed
 - e2e/cypress tests([#229](https://github.com/boarlabsxyz/Kavoon/pull/229))
+
+### Changed 
+- the YAML file for deployment([#226](https://github.com/boarlabsxyz/Kavoon/pull/226))
 
 ### Removed
 - @next/bundle-analyzer from the Kavoon project ([#223](https://github.com/boarlabsxyz/Kavoon/pull/223))
