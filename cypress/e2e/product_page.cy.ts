@@ -16,6 +16,15 @@ describe('Product Page Tests', () => {
       cy.url().should('include', '/shop/bicycle-equipment/hamster');
       cy.get('[data-cy="product-page"]').should('be.visible');
 
+      cy.get('[data-cy="preview-slider"]').each(($img) => {
+        cy.wrap($img).scrollIntoView();
+        cy.wrap($img)
+          .find('img')
+          .should('be.visible')
+          .and('have.prop', 'naturalWidth')
+          .should('be.greaterThan', 0);
+      });
+
       cy.scrollTo(0, 2000, { duration: 1000 });
       cy.get('[data-cy="add-to-cart-btn"]').should('be.visible');
 

@@ -12,7 +12,15 @@ describe('Shop Page Tests', () => {
       cy.url().should('include', '/shop/bicycle-equipment');
       cy.get('[data-cy="subcategory-filter"]').should('be.visible');
 
-      cy.scrollTo('bottom', { duration: 4000 });
+      cy.get('[data-cy="product-card"]').each(($card) => {
+        cy.wrap($card).scrollIntoView();
+        cy.wrap($card)
+          .find('img')
+          .should('be.visible')
+          .and('have.prop', 'naturalWidth')
+          .should('be.greaterThan', 0);
+      });
+      cy.scrollTo('bottom', { duration: 1000 });
       cy.matchImageSnapshot(`bicycle-equipment-page-${name}`);
     });
 
@@ -24,7 +32,15 @@ describe('Shop Page Tests', () => {
       cy.url().should('include', '/shop/bag-accessories');
       cy.get('[data-cy="subcategory-filter"]').should('not.exist');
 
-      cy.scrollTo('bottom', { duration: 4000 });
+      cy.get('[data-cy="product-card"]').each(($card) => {
+        cy.wrap($card).scrollIntoView();
+        cy.wrap($card)
+          .find('img')
+          .should('be.visible')
+          .and('have.prop', 'naturalWidth')
+          .should('be.greaterThan', 0);
+      });
+      cy.scrollTo('bottom', { duration: 1000 });
       cy.matchImageSnapshot(`bag-accessories-page-${name}`);
     });
   });
