@@ -19,3 +19,9 @@
     gap: 0px;
   }
 }
+
+@media (max-width: 440px) {
+  .hero {
+    background-image: url('/img/design-imgs-main-page/main-bg-mobile-small@3x.webp');
+  }
+}
