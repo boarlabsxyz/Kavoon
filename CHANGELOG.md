@@ -5,11 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.0] - Unreleased
+## [1.4.0] - 2025-02-25
 
 ### Added
 - server-side authentication for the status-reviews page ([216](https://github.com/boarlabsxyz/Kavoon/pull/216))
 - generation of sitemap.xml for Google indexing ([#218](https://github.com/boarlabsxyz/Kavoon/pull/218))
+
+### Fixed
+- e2e/cypress tests([#229](https://github.com/boarlabsxyz/Kavoon/pull/229))
 
 ### Removed
 - @next/bundle-analyzer from the Kavoon project ([#223](https://github.com/boarlabsxyz/Kavoon/pull/223))
@@ -27,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - update the icon languages and flags with higher quality for mobile devices with Retina and Super AMOLED displays ([#197](https://github.com/boarlabsxyz/Kavoon/pull/197))
+- update the babel/core version from v7.23.5 to 7.26.9([#222](https://github.com/boarlabsxyz/Kavoon/pull/222))
 
 ## [1.2.0] - 2025-01-15
 
