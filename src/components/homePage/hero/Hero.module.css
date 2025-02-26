@@ -11,23 +11,11 @@
 
 @media (max-width: 1023px) {
   .hero {
-    background-image: url('/img/design-imgs-main-page/main-bg-tablet@3x.webp');
+    background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
     padding-bottom: 87px;
   }
 
   .wrapper {
     gap: 0px;
-  }
-}
-
-@media (max-width: 650px) {
-  .hero {
-    background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
-  }
-}
-
-@media (max-width: 375px) {
-  .hero {
-    background-image: url('/img/design-imgs-main-page/main-bg-mobile-small@3x.webp');
   }
 }
