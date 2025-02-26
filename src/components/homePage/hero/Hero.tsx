@@ -1,16 +1,19 @@
+import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import Container from 'src/components/common/container';
 import Title from 'src/components/homePage/title';
-import Subtitle from 'src/components/homePage/subtitle';
-
+import st from './Hero.module.css';
 import { Language } from 'src/types/language';
 
-import st from './Hero.module.css';
+const Subtitle = dynamic(() => import('src/components/homePage/subtitle'), {
+  ssr: false,
+});
 
 type HeroProps = {
   lang: Language;
 };
 
-function Hero({ lang }: HeroProps) {
+const Hero = ({ lang }: HeroProps) => {
   return (
     <section data-testid="hero" className={st.hero}>
       <Container>
@@ -21,6 +24,6 @@ function Hero({ lang }: HeroProps) {
       </Container>
     </section>
   );
-}
+};
 
-export default Hero;
+export default memo(Hero);
