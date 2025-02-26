@@ -1,4 +1,4 @@
-name: Vercel Preview Deployment
+name: Vercel Deployment
 
 on:
   pull_request:
@@ -6,6 +6,7 @@ on:
       - opened
       - synchronize
       - reopened
+  workflow_dispatch:
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -29,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Eslint
+      - name: Run ESLint
         run: npm run lint
 
   unit-tests:
@@ -69,7 +70,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -152,12 +153,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  preview-deployment:
+  deployment:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
-      name: preview
-      url: ${{ steps.deploy.outputs.url }}
+      name: ${{ github.event_name == 'workflow_dispatch' && 'production' || 'preview' }}
+      url: ${{ github.event_name == 'workflow_dispatch' && 'https://www.kavoon.com.ua' || steps.deploy.outputs.url }}
     needs:
       - lint
       - unit-tests
@@ -180,14 +181,20 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=${{ github.event_name == 'workflow_dispatch' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel build ${{ github.event_name == 'workflow_dispatch' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
         id: deploy
         run: |
-          DEPLOY_URL=$(vercel deploy --prebuilt --token='${{ secrets.VERCEL_TOKEN }}')
-          echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-          echo "Preview URL: $DEPLOY_URL"
+          # For Preview Deployment
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            DEPLOY_URL=$(vercel deploy --prebuilt --token='${{ secrets.VERCEL_TOKEN }}')
+            echo "url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+            echo "Deployment URL: $DEPLOY_URL"
+          else
+            # For Production Deployment (static URL)
+            vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+          fi

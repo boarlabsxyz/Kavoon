@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - e2e/cypress tests([#229](https://github.com/boarlabsxyz/Kavoon/pull/229))
 
+### Changed 
+- the YAML file for deployment([#226](https://github.com/boarlabsxyz/Kavoon/pull/226))
+
 ### Removed
 - @next/bundle-analyzer from the Kavoon project ([#223](https://github.com/boarlabsxyz/Kavoon/pull/223))
 - unused prints (dinosaurs, scarlet_ibis, star_flower, foxes, parrots, leaf_on_black, jungle, forest) and their corresponding pictures ([#217](https://github.com/boarlabsxyz/Kavoon/pull/217))
