@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - e2e/cypress tests([#229](https://github.com/boarlabsxyz/Kavoon/pull/229))
+- issues with updating the language selector and checkbox state on the status/reviews page ([#228](https://github.com/boarlabsxyz/Kavoon/pull/228))
 
 ### Changed 
 - the YAML file for deployment([#226](https://github.com/boarlabsxyz/Kavoon/pull/226))
