@@ -35,10 +35,20 @@ jest.mock('./ReviewsModerationTable', () => ({
   __esModule: true,
   default: ({
     changeShowOnSite,
+    chooseLanguage,
   }: {
     changeShowOnSite: (id: string, showOnSite: boolean) => void;
+    chooseLanguage: (
+      id: string,
+      reviewLanguage: 'en' | 'uk' | 'ru' | 'pl'
+    ) => void;
   }) => (
-    <button onClick={() => changeShowOnSite('1', true)}>Toggle Show</button>
+    <>
+      <button onClick={() => changeShowOnSite('1', true)}>Toggle Show</button>
+      <button onClick={() => chooseLanguage('1', 'uk')}>
+        Change to Ukrainian
+      </button>
+    </>
   ),
 }));
 
@@ -50,5 +60,14 @@ describe('StatusReviews', () => {
     await userEvent.click(button);
 
     expect(screen.getByText('Toggle Show')).toBeInTheDocument();
+  });
+
+  it('calls chooseLanguage when language change button is clicked', async () => {
+    render(<StatusReviews reviews={mockReviews} />);
+
+    const button = screen.getByText('Change to Ukrainian');
+    await userEvent.click(button);
+
+    expect(screen.getByText('Change to Ukrainian')).toBeInTheDocument();
   });
 });
