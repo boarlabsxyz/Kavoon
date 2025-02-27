@@ -14,6 +14,7 @@ import LocalStorageProvider from 'src/services/localStorageProvider';
 
 import 'modern-normalize/modern-normalize.css';
 import 'src/app/global.css';
+import Head from 'next/head';
 
 type Props = {
   children: React.ReactNode;
@@ -36,6 +37,15 @@ export default function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={lang}>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/img/design-imgs-main-page/main-bg-mobile-small@3x.webp"
+          type="image/webp"
+          media="(max-width: 480px)"
+        />
+      </Head>
       <body className={montserrat.className}>
         <LocalStorageProvider>
           <Header>

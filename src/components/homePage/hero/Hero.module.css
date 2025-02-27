@@ -11,6 +11,7 @@
 
 @media (max-width: 1023px) {
   .hero {
+    background-color: #f3f3f3;
     background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
     padding-bottom: 87px;
   }
@@ -22,6 +23,7 @@
 
 @media (max-width: 480px) {
   .hero {
+    background-color: #f3f3f3;
     background-image: url('/img/design-imgs-main-page/main-bg-mobile-small@3x.webp');
     padding-bottom: 87px;
   }
