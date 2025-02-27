@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--light-cyan);
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: var(--main-text-color);
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 250px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: var(--white);
+  background-color: var(--transparency);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 250px;
+}

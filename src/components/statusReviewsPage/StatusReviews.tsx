@@ -27,7 +27,7 @@ function StatusReviews({ reviews }: Props) {
   }, [reviews]);
 
   const changeShowOnSite = async (id: string, currentShowOnSite: boolean) => {
-    const newShowOnSite = !currentShowOnSite; // Toggle the value
+    const newShowOnSite = !currentShowOnSite;
     const updates = { showOnSite: newShowOnSite };
 
     try {
@@ -45,8 +45,18 @@ function StatusReviews({ reviews }: Props) {
 
   const chooseLanguage = async (id: string, reviewLanguage: ReviewLanguage) => {
     const updates = { reviewLanguage };
-    await reviewsApi.updateReview(id, updates);
-    router.refresh();
+
+    try {
+      await reviewsApi.updateReview(id, updates);
+      setAllReviews((prevReviews) =>
+        prevReviews.map((review) =>
+          review._id === id ? { ...review, reviewLanguage } : review
+        )
+      );
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Failed to update review language:', error);
+    }
   };
 
   const deactivateReview = async (id: string) => {
