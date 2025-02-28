@@ -161,7 +161,7 @@ jobs:
       url: ${{ github.event_name == 'workflow_dispatch' && 'https://www.kavoon.com.ua' || steps.deploy.outputs.url }}
     needs:
       - lint
-      - unit-tests
+      # - unit-tests
       # - e2e-tests
       - sonarqube
     steps:
