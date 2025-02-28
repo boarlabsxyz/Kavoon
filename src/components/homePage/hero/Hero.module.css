@@ -12,15 +12,6 @@
     background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
     padding-bottom: 87px;
   }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    background-image: url('/img/design-imgs-main-page/main-bg-mobile-small@3x.avif');
-  }
-}
-
-@media (max-width: 1023px), (max-width: 480px) {
   .wrapper {
     gap: 0;
   }
