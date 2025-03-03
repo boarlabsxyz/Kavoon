@@ -2,14 +2,14 @@
   height: 518px;
   display: flex;
   align-items: flex-end;
-  /* background: #f3f3f3 url('/img/design-imgs-main-page/main-bg-desktop@3x.webp')
-    center / cover no-repeat; */
+  background: #f3f3f3 url('/img/design-imgs-main-page/main-bg-desktop@3x.webp')
+    center / cover no-repeat;
   padding-bottom: 102px;
 }
 
 @media (max-width: 1023px) {
   .hero {
-    /* background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp'); */
+    background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
     padding-bottom: 87px;
   }
   .wrapper {

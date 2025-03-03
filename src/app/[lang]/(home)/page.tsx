@@ -41,7 +41,7 @@ export default async function HomePage({ params }: Props) {
     <main style={{ marginBottom: '40px' }}>
       <Hero lang={lang} />
       <Advantages lang={lang} />
-      <ProductsSection language={lang} />
+      {/* <ProductsSection language={lang} /> */}
       <ReviewsSection />
     </main>
   );

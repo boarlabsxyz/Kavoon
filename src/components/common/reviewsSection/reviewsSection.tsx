@@ -75,9 +75,8 @@ function ReviewsSection() {
         </h2>
         {reviews.length === 0 ? (
           <p className={st.leaveFeedback}>{translate('LeaveFeedback', lang)}</p>
-        ) : (
-          <ReviewsSlider reviews={reviews} language={lang} />
-        )}
+        ) : // <ReviewsSlider reviews={reviews} language={lang} />
+        null}
         <AddReviewBtn
           onClick={() => {
             toggleModal();
