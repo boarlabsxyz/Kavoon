@@ -1,13 +1,9 @@
 import { memo } from 'react';
-import dynamic from 'next/dynamic';
 import Container from 'src/components/common/container';
 import Title from 'src/components/homePage/title';
 import st from './Hero.module.css';
 import { Language } from 'src/types/language';
-
-const Subtitle = dynamic(() => import('src/components/homePage/subtitle'), {
-  ssr: true,
-});
+import Subtitle from 'src/components/homePage/subtitle';
 
 type HeroProps = {
   lang: Language;

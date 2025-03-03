@@ -14,9 +14,9 @@ function HeaderContent({ lang, children }: HeaderContentProps) {
   return (
     <div className={st.content}>
       {children}
-      {/* <Navigation lang={lang}>
+      <Navigation lang={lang}>
         <NavigationContent lang={lang} />
-      </Navigation> */}
+      </Navigation>
     </div>
   );
 }

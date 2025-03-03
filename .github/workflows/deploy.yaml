@@ -33,125 +33,125 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-  # unit-tests:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  unit-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
-  #         cache: npm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Run Jest
-  #       run: npm run jest
+      - name: Run Jest
+        run: npm run jest
 
-  #     - name: Save coverage report
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: coverage-report
-  #         path: coverage/lcov.info
-  #         retention-days: 1
+      - name: Save coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/lcov.info
+          retention-days: 1
 
-  # e2e-tests:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  e2e-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 18
-  #         cache: npm
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Get latest run ID for cypress-baseline-snapshots
-  #       id: get-latest-run
-  #       run: |
-  #         for i in {1..3}; do
-  #           response=$(curl -sL --max-time 10 \
-  #             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-  #             -H "Accept: application/vnd.github+json" \
-  #             "https://api.github.com/repos/${{ github.repository }}/actions/artifacts?per_page=100")
+      - name: Get latest run ID for cypress-baseline-snapshots
+        id: get-latest-run
+        run: |
+          for i in {1..3}; do
+            response=$(curl -sL --max-time 10 \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts?per_page=100")
 
-  #           if [ $? -eq 0 ]; then
-  #             latest=$(echo "$response" | \
-  #               jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
+            if [ $? -eq 0 ]; then
+              latest=$(echo "$response" | \
+                jq -r '[.artifacts[] | select(.name == "cypress-baseline-snapshots")] | sort_by(.created_at) | last')
 
-  #             if [ "$latest" != "null" ]; then
-  #               run_id=$(echo "$latest" | jq -r '.workflow_run.id')
-  #               echo "latest_run_id=$run_id" >> $GITHUB_ENV
-  #               echo "Found latest run ID: $run_id"
-  #               break
-  #             fi
-  #           fi
+              if [ "$latest" != "null" ]; then
+                run_id=$(echo "$latest" | jq -r '.workflow_run.id')
+                echo "latest_run_id=$run_id" >> $GITHUB_ENV
+                echo "Found latest run ID: $run_id"
+                break
+              fi
+            fi
 
-  #           echo "Attempt $i failed, retrying..."
-  #           sleep 5
-  #         done
+            echo "Attempt $i failed, retrying..."
+            sleep 5
+          done
 
-  #     - name: Download artifacts from latest successful run
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: cypress-baseline-snapshots
-  #         path: cypress/snapshots
-  #         merge-multiple: true
-  #         github-token: ${{ secrets.GITHUB_TOKEN }}
-  #         repository: ${{ github.repository }}
-  #         run-id: ${{ env.latest_run_id }}
-  #     - run: ls -R cypress/snapshots
+      - name: Download artifacts from latest successful run
+        uses: actions/download-artifact@v4
+        with:
+          name: cypress-baseline-snapshots
+          path: cypress/snapshots
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ env.latest_run_id }}
+      - run: ls -R cypress/snapshots
 
-  #     - name: Run Cypress tests
-  #       run: npm run cy:test || echo "TESTS_FAILED=true" >> $GITHUB_ENV
-  #       continue-on-error: true
+      - name: Run Cypress tests
+        run: npm run cy:test || echo "TESTS_FAILED=true" >> $GITHUB_ENV
+        continue-on-error: true
 
-  #     - name: Upload snapshots as new artifact
-  #       uses: actions/upload-artifact@v4
-  #       if: always()
-  #       with:
-  #         name: cypress-snapshots-comparison-results
-  #         path: cypress/snapshots
-  #         retention-days: 3
+      - name: Upload snapshots as new artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-snapshots-comparison-results
+          path: cypress/snapshots
+          retention-days: 3
 
-  #     - name: Fail workflow if tests failed
-  #       if: env.TESTS_FAILED == 'true'
-  #       run: exit 1
+      - name: Fail workflow if tests failed
+        if: env.TESTS_FAILED == 'true'
+        run: exit 1
 
-  # sonarqube:
-  #   runs-on: ubuntu-latest
-  #   if: ${{ github.actor != 'dependabot[bot]' }}
-  #   needs: unit-tests
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
+  sonarqube:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    needs: unit-tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-  #     - name: Download coverage report
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: coverage-report
+      - name: Download coverage report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
 
-  #     - name: SonarQube Scan
-  #       uses: sonarsource/sonarqube-scan-action@v5.0.0
-  #       env:
-  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v5.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  #     - name: SonarQube Quality Gate check
-  #       uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
-  #       timeout-minutes: 5
-  #       env:
-  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: SonarQube Quality Gate check
+        uses: sonarsource/sonarqube-quality-gate-action@v1.1.0
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deployment:
     runs-on: ubuntu-latest
@@ -161,9 +161,9 @@ jobs:
       url: ${{ github.event_name == 'workflow_dispatch' && 'https://www.kavoon.com.ua' || steps.deploy.outputs.url }}
     needs:
       - lint
-      # - unit-tests
-      # - e2e-tests
-      # - sonarqube
+      - unit-tests
+      - e2e-tests
+      - sonarqube
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

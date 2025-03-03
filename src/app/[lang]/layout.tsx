@@ -37,17 +37,17 @@ export default function RootLayout({ children, params }: Props) {
   return (
     <html lang={lang}>
       <body className={montserrat.className}>
-        {/* <LocalStorageProvider> */}
-        <Header>
-          <HeaderContent lang={lang}>
-            <Banner lang={lang} name="logotype" height={31} />
-          </HeaderContent>
-        </Header>
-        <main>{children}</main>
-        <Footer language={lang} />
-        {/* </LocalStorageProvider> */}
-        {/* <Chat language={lang} /> */}
-        {/* <CartButton language={lang} /> */}
+        <LocalStorageProvider>
+          <Header>
+            <HeaderContent lang={lang}>
+              <Banner lang={lang} name="logotype" height={31} />
+            </HeaderContent>
+          </Header>
+          <main>{children}</main>
+          <Footer language={lang} />
+        </LocalStorageProvider>
+        <Chat language={lang} />
+        <CartButton language={lang} />
       </body>
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_4_ID} />
     </html>
