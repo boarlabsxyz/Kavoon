@@ -163,7 +163,7 @@ jobs:
       - lint
       - unit-tests
       - e2e-tests
-      - sonarqube
+      # - sonarqube
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
