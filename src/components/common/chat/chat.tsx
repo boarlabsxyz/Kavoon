@@ -37,7 +37,7 @@ function Chat({ language }: Props) {
   return (
     <div className={st.wrapper}>
       {showContactUs && <ContactUs language={language} />}
-      <ChatButton togglePopup={togglePopup} showPopup={showPopup} />
+      {/* <ChatButton togglePopup={togglePopup} showPopup={showPopup} /> */}
       {showPopup && (
         <Popup
           togglePopup={togglePopup}
