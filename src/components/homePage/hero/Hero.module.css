@@ -2,10 +2,8 @@
   height: 518px;
   display: flex;
   align-items: flex-end;
-  background-image: url('/img/design-imgs-main-page/main-bg-desktop@3x.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #f3f3f3 url('/img/design-imgs-main-page/main-bg-desktop@3x.webp')
+    center / cover no-repeat;
   padding-bottom: 102px;
 }
 
@@ -14,8 +12,13 @@
     background-image: url('/img/design-imgs-main-page/main-bg-mobile@3x.webp');
     padding-bottom: 87px;
   }
-
   .wrapper {
-    gap: 0px;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background-image: url('/img/design-imgs-main-page/main-bg-mobile-small@3x.avif');
   }
 }
