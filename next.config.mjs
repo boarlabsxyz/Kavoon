@@ -17,10 +17,6 @@ const nextConfig = {
 
     return config;
   },
-
-  sentry: {
-    hideSourceMaps: true,
-  },
 };
 
 const sentryWebpackPluginOptions = {
