@@ -15,11 +15,9 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <html>
-      <body>
-        <h1>Something went wrong!</h1>
-        <button onClick={() => reset()}>Try one more time</button>
-      </body>
-    </html>
+    <div>
+      <h1>Something went wrong!</h1>
+      <button onClick={() => reset()}>Try one more time</button>
+    </div>
   );
 }
