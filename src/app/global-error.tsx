@@ -6,10 +6,10 @@ import { useEffect } from 'react';
 export default function GlobalError({
   error,
   reset,
-}: {
+}: Readonly<{
   error: Error;
   reset: () => void;
-}) {
+}>) {
   useEffect(() => {
     Sentry.captureException(error);
   }, [error]);
