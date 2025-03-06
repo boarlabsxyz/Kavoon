@@ -29,6 +29,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             `${baseUrl}/${locale}${route}`,
           ])
         ),
+        canonical:
+          route === '' || locale === 'uk'
+            ? `${baseUrl}/uk${route}`
+            : `${baseUrl}/uk${route}`,
       },
     }))
   );
@@ -52,25 +56,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
           ])
         ),
+        canonical: `${baseUrl}/uk/shop/${toKebabCase(category)}`,
       },
     }))
   );
 
   const productsSitemap = products.flatMap((product) =>
-    languages.map(({ locale }) => ({
-      url: `${baseUrl}/${locale}/shop/${product.id}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-      alternates: {
-        languages: Object.fromEntries(
-          languages.map(({ locale }) => [
-            locale,
-            `${baseUrl}/${locale}/shop/${product.id}`,
-          ])
-        ),
-      },
-    }))
+    languages.map(({ locale }) => {
+      const categorySlug = toKebabCase(product.category);
+      const productUrl = `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`;
+
+      return {
+        url: productUrl,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+        alternates: {
+          languages: Object.fromEntries(
+            languages.map(({ locale }) => [
+              locale,
+              `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
+            ])
+          ),
+          canonical: `${baseUrl}/uk/shop/${categorySlug}/${product.id}`,
+        },
+      };
+    })
   );
 
   const postsByLanguages = await Promise.all(
@@ -92,6 +103,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               `${baseUrl}/${locale}/blog/${post.slug}`,
             ])
           ),
+          canonical: `${baseUrl}/uk/blog/${post.slug}`,
         },
       }))
     )

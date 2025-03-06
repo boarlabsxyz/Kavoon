@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -26,6 +27,22 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
 });
+
+export function generateMetadata({ params }: Props): Metadata {
+  const baseUrl = 'https://kavoon.com.ua';
+  const { lang } = params;
+
+  return {
+    alternates: {
+      canonical: lang === 'uk' ? `${baseUrl}/uk` : `${baseUrl}/uk`,
+      languages: {
+        en: `${baseUrl}/en`,
+        uk: `${baseUrl}/uk`,
+        pl: `${baseUrl}/pl`,
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
