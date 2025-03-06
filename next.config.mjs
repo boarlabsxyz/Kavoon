@@ -5,7 +5,16 @@ import { withSentryConfig } from '@sentry/nextjs';
 
 const nextConfig = {
   images: {
-    domains: ['firebasestorage.googleapis.com', 'gitlab.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'gitlab.com',
+      },
+    ],
   },
 
   webpack(config) {
@@ -16,10 +25,6 @@ const nextConfig = {
     });
 
     return config;
-  },
-
-  sentry: {
-    hideSourceMaps: true,
   },
 };
 
