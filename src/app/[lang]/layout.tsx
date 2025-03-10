@@ -34,7 +34,7 @@ export function generateMetadata({ params }: Props): Metadata {
 
   return {
     alternates: {
-      canonical: lang === 'uk' ? `${baseUrl}/uk` : `${baseUrl}/uk`,
+      canonical: `${baseUrl}/${lang}`,
       languages: {
         en: `${baseUrl}/en`,
         uk: `${baseUrl}/uk`,

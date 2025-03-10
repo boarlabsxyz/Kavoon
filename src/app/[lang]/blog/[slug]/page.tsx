@@ -30,10 +30,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     // title: `Блог | ${slug}`,
     alternates: {
-      canonical:
-        lang === 'uk'
-          ? `${baseUrl}/uk/blog/${slug}`
-          : `${baseUrl}/uk/blog/${slug}`,
+      canonical: `${baseUrl}/${lang}/blog/${slug}`,
       languages: {
         en: `${baseUrl}/en/blog/${slug}`,
         uk: `${baseUrl}/uk/blog/${slug}`,

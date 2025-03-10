@@ -17,10 +17,7 @@ export async function generateMetadata({
   return {
     // title: `Категорія ${categoryId} | Магазин`,
     alternates: {
-      canonical:
-        lang === 'uk'
-          ? `${baseUrl}/uk/shop/${categoryId}`
-          : `${baseUrl}/uk/shop/${categoryId}`,
+      canonical: `${baseUrl}/${lang}/shop/${categoryId}`,
 
       languages: {
         en: `${baseUrl}/en/shop/${categoryId}`,

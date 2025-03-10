@@ -29,10 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             `${baseUrl}/${locale}${route}`,
           ])
         ),
-        canonical:
-          route === '' || locale === 'uk'
-            ? `${baseUrl}/uk${route}`
-            : `${baseUrl}/uk${route}`,
+        canonical: `${baseUrl}/${locale}${route}`,
       },
     }))
   );
@@ -56,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
           ])
         ),
-        canonical: `${baseUrl}/uk/shop/${toKebabCase(category)}`,
+        canonical: `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
       },
     }))
   );
@@ -78,7 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
             ])
           ),
-          canonical: `${baseUrl}/uk/shop/${categorySlug}/${product.id}`,
+          canonical: `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
         },
       };
     })
@@ -103,7 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               `${baseUrl}/${locale}/blog/${post.slug}`,
             ])
           ),
-          canonical: `${baseUrl}/uk/blog/${post.slug}`,
+          canonical: `${baseUrl}/${locale}/blog/${post.slug}`,
         },
       }))
     )
