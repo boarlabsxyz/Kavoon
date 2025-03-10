@@ -92,8 +92,6 @@ describe('generateMetadata', () => {
       },
     });
 
-    expect(metadata.alternates?.canonical).toBe(
-      'https://kavoon.com.ua//shop//'
-    );
+    expect(metadata.alternates?.canonical).toBe('https://kavoon.com.ua/shop/');
   });
 });
