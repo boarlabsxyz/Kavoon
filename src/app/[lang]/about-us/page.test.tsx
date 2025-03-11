@@ -1,4 +1,4 @@
-import { act, screen, waitFor } from '@testing-library/react';
+import { act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AboutUsPage, { generateMetadata } from './page';
 import getDictionary from 'src/i18n/getDictionary';
