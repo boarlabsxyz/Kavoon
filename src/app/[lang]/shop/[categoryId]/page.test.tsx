@@ -77,6 +77,6 @@ describe('generateMetadata', () => {
       params: { categoryId: '' as Category, lang: '' as Language },
     });
 
-    expect(metadata.alternates?.canonical).toBe('https://kavoon.com.ua/shop/');
+    expect(metadata.alternates?.canonical).toBe('https://kavoon.com.ua/shop');
   });
 });

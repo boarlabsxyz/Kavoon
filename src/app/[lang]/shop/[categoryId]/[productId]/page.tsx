@@ -16,15 +16,17 @@ export async function generateMetadata({
   const baseUrl = 'https://kavoon.com.ua';
   const { lang, categoryId, productId } = params;
 
+  const categoryPath = categoryId ? `/shop/${categoryId}` : 'shop';
+  const productPath = productId ? `/${productId}` : '';
+
   return {
     // title: `Продукт ${productId} | Категорія ${categoryId}`,
     alternates: {
-      canonical: `${baseUrl}/${lang}/shop/${categoryId}/${productId}`,
-
+      canonical: `${baseUrl}/${lang}${categoryPath}${productPath}`,
       languages: {
-        en: `${baseUrl}/en/shop/${categoryId}/${productId}`,
-        uk: `${baseUrl}/uk/shop/${categoryId}/${productId}`,
-        pl: `${baseUrl}/pl/shop/${categoryId}/${productId}`,
+        en: `${baseUrl}/en${categoryPath}${productPath}`,
+        uk: `${baseUrl}/uk${categoryPath}${productPath}`,
+        pl: `${baseUrl}/pl${categoryPath}${productPath}`,
       },
     },
   };

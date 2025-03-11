@@ -14,15 +14,18 @@ export async function generateMetadata({
 }: CategoryPageProps): Promise<Metadata> {
   const baseUrl = 'https://kavoon.com.ua';
   const { lang, categoryId } = params;
+
+  const categoryPath = categoryId ? `/shop/${categoryId}` : 'shop';
+
   return {
     // title: `Категорія ${categoryId} | Магазин`,
     alternates: {
-      canonical: `${baseUrl}/${lang}/shop/${categoryId}`,
+      canonical: `${baseUrl}/${lang}${categoryPath}`,
 
       languages: {
-        en: `${baseUrl}/en/shop/${categoryId}`,
-        uk: `${baseUrl}/uk/shop/${categoryId}`,
-        pl: `${baseUrl}/pl/shop/${categoryId}`,
+        en: `${baseUrl}/en${categoryPath}`,
+        uk: `${baseUrl}/uk${categoryPath}`,
+        pl: `${baseUrl}/pl${categoryPath}`,
       },
     },
   };
