@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${translate('SiteName', lang)} - ${translate('PolicyTitle', lang)}`,
+    description: `${translate('PolicyMetaDescription', lang)}`,
     alternates: {
       canonical: `${baseUrl}/${lang}${path}`,
       languages: {
@@ -25,6 +26,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         uk: `${baseUrl}/uk${path}`,
         pl: `${baseUrl}/pl${path}`,
       },
+    },
+    openGraph: {
+      title: `${translate('SiteName', lang)} - ${translate('PolicyTitle', lang)}`,
+      description: translate('PolicyMetaDescription', lang),
+      url: `${baseUrl}/${lang}${path}`,
+      type: 'website',
+      siteName: translate('SiteName', lang),
+      locale: 'uk-UA',
+      alternateLocale: ['en-US', 'pl-PL'],
     },
   };
 }

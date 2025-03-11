@@ -158,6 +158,8 @@ const Language = {
   LeaveFeedback: 'Napisz swoją opinię, aby pomóc nam stać się lepszymi',
   ReadMore: 'Rozwiń opinię',
   PolicyTitle: 'Polityka prywatności',
+  PolicyMetaDescription:
+    'Polityka prywatności Kavoon opisuje gromadzenie, wykorzystanie i ochronę danych osobowych użytkowników. Gwarantujemy bezpieczeństwo informacji i nie udostępniamy ich osobom trzecim. Korzystanie z serwisu oznacza akceptację zasad przetwarzania danych.',
   ThankYouForFeedback: 'Dziękujemy za opinię!',
   ErrorMessage: 'Coś poszło nie tak. Spróbuj ponownie później',
   ReceivedReview: 'Otrzymano nową opinię',

@@ -44,11 +44,12 @@ describe('PolicyPage', () => {
     expect(await findByText('Error loading policy page.')).toBeInTheDocument();
   });
 
-  test('generateMetadata returns correct title and canonical URL', async () => {
+  test('generateMetadata returns correct metadata', async () => {
     const metadata = await generateMetadata({ params: { lang: 'en' } });
 
     expect(metadata).toEqual({
       title: 'SiteName-en - PolicyTitle-en',
+      description: 'PolicyMetaDescription-en',
       alternates: {
         canonical: 'https://kavoon.com.ua/en/policy',
         languages: {
@@ -56,6 +57,15 @@ describe('PolicyPage', () => {
           uk: 'https://kavoon.com.ua/uk/policy',
           pl: 'https://kavoon.com.ua/pl/policy',
         },
+      },
+      openGraph: {
+        title: 'SiteName-en - PolicyTitle-en',
+        description: 'PolicyMetaDescription-en',
+        url: 'https://kavoon.com.ua/en/policy',
+        type: 'website',
+        siteName: 'SiteName-en',
+        locale: 'uk-UA',
+        alternateLocale: ['en-US', 'pl-PL'],
       },
     });
   });

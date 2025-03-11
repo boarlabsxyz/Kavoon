@@ -158,6 +158,8 @@ const Language = {
   LeaveFeedback: 'Leave your feedback to help us get better',
   ReadMore: 'Read more',
   PolicyTitle: 'Privacy policy',
+  PolicyMetaDescription:
+    "Kavoon's Privacy Policy outlines the collection, use, and protection of users' personal data. We ensure data security and do not share information with third parties. By using our website, you agree to the terms of data processing",
   ThankYouForFeedback: 'Thank you for your feedback!',
   ErrorMessage: 'Something went wrong. Please try again later',
   ReceivedReview: 'New feedback was received',
