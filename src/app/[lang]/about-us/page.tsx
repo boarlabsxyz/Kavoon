@@ -1,4 +1,5 @@
-import AboutUs from 'src/components/aboutUsPage/aboutUs';
+import AboutUs from 'src/components/aboutUsPage/aboutUs/AboutUs';
+
 import getDictionary from 'src/i18n/getDictionary';
 import { I18N } from 'src/types/i18n.type';
 

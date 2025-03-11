@@ -1,5 +1,4 @@
-import { generateStaticParams, generateMetadata } from './page';
-import PostPage from './page';
+import PostPage, { generateStaticParams, generateMetadata } from './page';
 import { Language } from 'src/types/language';
 
 import { getPostsNames } from 'src/services/blog';

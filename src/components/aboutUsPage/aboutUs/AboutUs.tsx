@@ -11,7 +11,7 @@ type Props = {
   dictionary: I18N;
 };
 
-const dictionary: FC<Props> = ({ dictionary }) => {
+const AboutUs: FC<Props> = ({ dictionary }) => {
   const aboutUsItems = [
     {
       src: '/img/about-us/history_560x362@3x.jpg',
@@ -74,4 +74,4 @@ const dictionary: FC<Props> = ({ dictionary }) => {
   );
 };
 
-export default dictionary;
+export default AboutUs;
