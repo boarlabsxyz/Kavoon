@@ -16,8 +16,6 @@ export function generateMetadata({ params }: Props): Metadata {
   const path = '/about-us';
 
   return {
-    // title: 'Про нас | Kavoon',
-    // description: 'Дізнайтеся більше про Kavoon',
     alternates: {
       canonical: `${baseUrl}/${lang}${path}`,
       languages: {

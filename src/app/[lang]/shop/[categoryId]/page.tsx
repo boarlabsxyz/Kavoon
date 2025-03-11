@@ -18,7 +18,6 @@ export async function generateMetadata({
   const categoryPath = categoryId ? `/shop/${categoryId}` : 'shop';
 
   return {
-    // title: `Категорія ${categoryId} | Магазин`,
     alternates: {
       canonical: `${baseUrl}/${lang}${categoryPath}`,
 

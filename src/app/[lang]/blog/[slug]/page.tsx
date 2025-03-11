@@ -28,7 +28,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { lang, slug } = params;
 
   return {
-    // title: `Блог | ${slug}`,
     alternates: {
       canonical: `${baseUrl}/${lang}/blog/${slug}`,
       languages: {

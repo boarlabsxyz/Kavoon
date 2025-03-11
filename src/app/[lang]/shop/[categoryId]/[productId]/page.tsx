@@ -20,7 +20,6 @@ export async function generateMetadata({
   const productPath = productId ? `/${productId}` : '';
 
   return {
-    // title: `Продукт ${productId} | Категорія ${categoryId}`,
     alternates: {
       canonical: `${baseUrl}/${lang}${categoryPath}${productPath}`,
       languages: {
