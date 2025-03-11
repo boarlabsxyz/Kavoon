@@ -12,10 +12,30 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const language = params.lang;
+  const baseUrl = 'https://kavoon.com.ua';
+  const { lang } = params;
+  const path = '/policy';
 
   return {
-    title: `${translate('SiteName', language)} - ${translate('PolicyTitle', language)}`,
+    title: `${translate('SiteName', lang)} - ${translate('PolicyTitle', lang)}`,
+    description: `${translate('PolicyMetaDescription', lang)}`,
+    alternates: {
+      canonical: `${baseUrl}/${lang}${path}`,
+      languages: {
+        en: `${baseUrl}/en${path}`,
+        uk: `${baseUrl}/uk${path}`,
+        pl: `${baseUrl}/pl${path}`,
+      },
+    },
+    openGraph: {
+      title: `${translate('SiteName', lang)} - ${translate('PolicyTitle', lang)}`,
+      description: translate('PolicyMetaDescription', lang),
+      url: `${baseUrl}/${lang}${path}`,
+      type: 'website',
+      siteName: translate('SiteName', lang),
+      locale: 'uk-UA',
+      alternateLocale: ['en-US', 'pl-PL'],
+    },
   };
 }
 

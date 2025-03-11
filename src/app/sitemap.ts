@@ -29,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             `${baseUrl}/${locale}${route}`,
           ])
         ),
+        canonical: `${baseUrl}/${locale}${route}`,
       },
     }))
   );
@@ -52,25 +53,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
           ])
         ),
+        canonical: `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
       },
     }))
   );
 
   const productsSitemap = products.flatMap((product) =>
-    languages.map(({ locale }) => ({
-      url: `${baseUrl}/${locale}/shop/${product.id}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-      alternates: {
-        languages: Object.fromEntries(
-          languages.map(({ locale }) => [
-            locale,
-            `${baseUrl}/${locale}/shop/${product.id}`,
-          ])
-        ),
-      },
-    }))
+    languages.map(({ locale }) => {
+      const categorySlug = toKebabCase(product.category);
+      const productUrl = `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`;
+
+      return {
+        url: productUrl,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+        alternates: {
+          languages: Object.fromEntries(
+            languages.map(({ locale }) => [
+              locale,
+              `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
+            ])
+          ),
+          canonical: `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
+        },
+      };
+    })
   );
 
   const postsByLanguages = await Promise.all(
@@ -92,6 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               `${baseUrl}/${locale}/blog/${post.slug}`,
             ])
           ),
+          canonical: `${baseUrl}/${locale}/blog/${post.slug}`,
         },
       }))
     )
