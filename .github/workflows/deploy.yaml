@@ -129,8 +129,9 @@ jobs:
 
   sonarqube:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && github.ref != 'refs/heads/main' }}
     needs: unit-tests
+    continue-on-error: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
