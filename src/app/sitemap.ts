@@ -14,6 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/about-us',
     '/delivery-and-payment',
     '/policy',
+    '/shop/cart',
   ];
 
   const staticRoutesSitemap = routes.flatMap((route) =>
