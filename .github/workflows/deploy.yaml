@@ -129,7 +129,7 @@ jobs:
 
   sonarqube:
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' && github.ref != 'refs/heads/main' }}
+    if: ${{ github.actor != 'dependabot[bot]' }}
     needs: unit-tests
     continue-on-error: true
     steps:
