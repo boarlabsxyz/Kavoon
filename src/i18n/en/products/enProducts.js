@@ -167,6 +167,38 @@ const Language = {
     'Video review of The mount to the bicycle handlebar',
   HandlebarMountMaterial: 'steel',
 
+  ChevronLetsGo: 'Chevron "Let\'s Go"',
+  ChevronLetsGoDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Coffee" chevrons.',
+
+  ChevronStrava: 'Chevron "Strava"',
+  ChevronStravaDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" chevrons.',
+
+  ChevronVelocats: 'Chevron "Velocats"',
+  ChevronVelocatsDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is designed for cyclists who defend our land against the Russian invasion.',
+
+  ChevronCoffee: 'Chevron "Coffee"',
+  ChevronCoffeeDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" chevrons.',
+
+  ChevronDonut: 'Chevron "Donut"',
+  ChevronDonutDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon donut is a tribute and a reminder of the sunny and juicy south of our country.',
+
+  ChevronGhost: 'Chevron "Ghost"',
+  ChevronGhostDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The ghost is embroidered on reflective fabric, making it a reliable companion in the dark.',
+
+  ChevronHeart: 'Chevron "Heart"',
+  ChevronHeartDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon heart is a tribute and a reminder of the sunny and juicy south of our country.',
+
+  ChevronSlice: 'Chevron "Slice"',
+  ChevronSliceDescription:
+    'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon slice is a tribute and a reminder of the sunny and juicy south of our country.',
+
   Cup: 'Cup WILDO Fold x4',
   Kettle: 'Kettle Tatonka 1,6L x1',
   Sandals: 'Sandals Teva x2',

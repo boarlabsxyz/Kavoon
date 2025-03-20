@@ -146,6 +146,46 @@ const meta = {
     description:
       'Wygodna i pojemna uniwersalna torba odpowiednia zarówno na spacery, jak i rowerowe przejażdżki',
   },
+  'chevron-lets-go': {
+    title: 'Naszywka "Let\'s Go" – rowerowa z rzepem',
+    description:
+      'Naszywka "Let\'s Go" to świetny sposób na personalizację torby, plecaka lub odzieży. Doskonale pasuje do serii "Rowerowa" z naszywkami "Strava" i "Kawa". Mocowanie na rzep.',
+  },
+  'chevron-strava': {
+    title: 'Naszywka "Strava" – dla miłośników rowerów',
+    description:
+      'Haftowana naszywka "Strava" do plecaków, toreb i odzieży. Doskonale komponuje się z naszywkami "Kawa" i "Let\'s Go". Idealny dodatek dla rowerzystów.',
+  },
+  'chevron-velocats': {
+    title: 'Naszywka "Rowerowe Koty" – dla patriotów',
+    description:
+      'Haftowana naszywka "Rowerowe Koty" dla rowerzystów broniących Ukrainy. Łatwe mocowanie na rzep do odzieży, plecaków i toreb.',
+  },
+  'chevron-coffee': {
+    title: 'Naszywka "Kawa" – idealna dla rowerzystów',
+    description:
+      'Naszywka "Kawa" to część serii "Rowerowa" i doskonale pasuje do "Strava" i "Let\'s Go". Mocowanie na rzep do odzieży i akcesoriów.',
+  },
+  'chevron-donut': {
+    title: 'Naszywka "Pączek" – arbuzowy styl',
+    description:
+      'Haftowana naszywka "Pączek" to hołd dla słonecznego południa Ukrainy. Łatwe mocowanie na rzep do plecaków i ubrań.',
+  },
+  'chevron-ghost': {
+    title: 'Naszywka "Duch" – odblaskowy haftowany patch',
+    description:
+      'Naszywka "Duch" wykonana jest z odblaskowego materiału, co sprawia, że jest idealnym towarzyszem po zmroku.',
+  },
+  'chevron-heart': {
+    title: 'Naszywka "Serduszko" – arbuzowy motyw',
+    description:
+      'Naszywka "Serduszko" to hołd dla słonecznego południa Ukrainy. Mocowanie na rzep do odzieży i akcesoriów.',
+  },
+  'chevron-slice': {
+    title: 'Naszywka "Kawałek" – arbuzowy styl',
+    description:
+      'Haftowana naszywka "Kawałek" to hołd dla południa Ukrainy. Mocowanie na rzep do ubrań i plecaków.',
+  },
 };
 
 export default meta;

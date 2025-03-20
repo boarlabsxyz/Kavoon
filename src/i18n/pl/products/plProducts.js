@@ -172,6 +172,38 @@ const Language = {
   HandlebarMountVideoTitle: 'Wideo recenzja Mocowaniа na kierownicy',
   HandlebarMountMaterial: 'stal',
 
+  ChevronLetsGo: 'Naszywka "Let\'s Go"',
+  ChevronLetsGoDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Kawa"',
+
+  ChevronStrava: 'Naszywka "Strava"',
+  ChevronStravaDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Kawa" i "Let\'s Go".',
+
+  ChevronVelocats: 'Naszywka "Rowerowe Koty"',
+  ChevronVelocatsDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka została zaprojektowana dla rowerzystów, którzy bronią naszej ziemi przed rosyjską inwazją.',
+
+  ChevronCoffee: 'Naszywka "Kawa"',
+  ChevronCoffeeDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Let\'s Go".',
+
+  ChevronDonut: 'Naszywka "Pączek"',
+  ChevronDonutDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowy pączek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+
+  ChevronGhost: 'Naszywka "Duch"',
+  ChevronGhostDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Duch jest haftowany na odblaskowej tkaninie, dzięki czemu będzie niezawodnym towarzyszem po zmroku.',
+
+  ChevronHeart: 'Naszywka "Serduszko"',
+  ChevronHeartDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowe serduszko to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+
+  ChevronSlice: 'Naszywka "Kawałek"',
+  ChevronSliceDescription:
+    'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowy kawałek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+
   Cup: 'Składany kubek WILDO x4',
   Kettle: 'Kociołek Tatonka Kettle 1,6l x1',
   Sandals: 'Sandały Teva x2',
