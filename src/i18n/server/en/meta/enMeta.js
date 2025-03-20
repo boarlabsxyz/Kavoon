@@ -1,3 +1,11 @@
+const commonDescriptions = {
+  anyDistance: `Suitable for cycling and hiking. For any distances`,
+  hamster: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
+  halfFrame: `We sew according to your measurements. For any distance`,
+  fuelBag: `Suitable for a repair kit, first aid kit, or as a snack bag. For any distance`,
+  universalBag: `A comfortable and spacious universal bag suitable for both walks and bicycle rides`,
+};
+
 const meta = {
   'backpack-for-city': {
     title: 'Backpack for the city',
@@ -13,11 +21,11 @@ const meta = {
   },
   'barrel-bag-with-embroidery-blue': {
     title: 'Handlebar bag "Barrelbag without valve"',
-    description: `Suitable for cycling and hiking. For any distances`,
+    description: commonDescriptions.anyDistance,
   },
   'barrel-bag-with-embroidery-yellow': {
     title: 'Handlebar bag "Barrelbag without valve"',
-    description: `Suitable for cycling and hiking. For any distances`,
+    description: commonDescriptions.anyDistance,
   },
   'barrel-bag-with-valve': {
     title: 'Handlebar bag "Barrelbag with valve"',
@@ -25,7 +33,7 @@ const meta = {
   },
   'barrel-bag-without-valve': {
     title: 'Handlebar bag "Barrelbag without valve"',
-    description: `Suitable for cycling and hiking. For any distances`,
+    description: commonDescriptions.anyDistance,
   },
   'barrelbag-with-velcro': {
     title: 'Handlebar bag "Barrelbag with Velcro"',
@@ -37,35 +45,35 @@ const meta = {
   },
   'fuel-bag': {
     title: 'Fuelbag',
-    description: `Suitable for a repair kit, first aid kit, or as a snack bag. For any distance`,
+    description: commonDescriptions.fuelBag,
   },
   'half-frame-bag': {
     title: 'Framepack half',
-    description: `We sew according to your measurements. For any distance`,
+    description: commonDescriptions.halfFrame,
   },
   'half-frame-bag-xpac-orange': {
     title: 'Framepack half',
-    description: `We sew according to your measurements. For any distance`,
+    description: commonDescriptions.halfFrame,
   },
   'half-frame-bag-xpac-yellow-blue': {
     title: 'Framepack half',
-    description: `We sew according to your measurements. For any distance`,
+    description: commonDescriptions.halfFrame,
   },
   hamster: {
     title: 'Stembag "Hamster"',
-    description: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
+    description: commonDescriptions.hamster,
   },
   'hamster-cordura-black-embroidery': {
     title: 'Stembag "Hamster"',
-    description: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
+    description: commonDescriptions.hamster,
   },
   'hamster-cordura-navyblue-foxes': {
     title: 'Stembag "Hamster"',
-    description: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
+    description: commonDescriptions.hamster,
   },
   'hamster-xpac-without-pockets': {
     title: 'Stembag "Hamster"',
-    description: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
+    description: commonDescriptions.hamster,
   },
   'handlebar-mount': {
     title: 'The mount to the bicycle handlebar',
@@ -85,7 +93,7 @@ const meta = {
   },
   'oval-barrelbag': {
     title: 'Handlebar bag "Oval barrelbag"',
-    description: `A model of a handlebar bag with an increased volume. Suitable for cycling and hiking. For any distances`,
+    description: `A model of a handlebar bag with an increased volume. ${commonDescriptions.anyDistance}`,
   },
   'phone-pouch': {
     title: 'Phone pouch',
@@ -101,7 +109,7 @@ const meta = {
   },
   'small-bag-tube-on-bar': {
     title: 'Handlebar Bag "Tube"',
-    description: `Stylish, small, and light. Suitable for cycling and hiking. It is convenient both for a short-distance and a long trip`,
+    description: `Stylish, small, and light. ${commonDescriptions.anyDistance}`,
   },
   'small-tool-seatbag': {
     title: 'Seat Bag small tool',
@@ -113,11 +121,11 @@ const meta = {
   },
   'triangular-bicycle-first-aid-kit-frame': {
     title: 'TopTube Pack',
-    description: `Suitable for a repair kit, first aid kit, or as a snack bag. For any distance`,
+    description: commonDescriptions.fuelBag,
   },
   'universal-bag-for-city': {
     title: 'Universal Bag',
-    description: `A comfortable and spacious universal bag suitable for both walks and bicycle rides`,
+    description: commonDescriptions.universalBag,
   },
   'chevron-lets-go': {
     title: 'Chevron "Let\'s Go" – cycling patch with Velcro',
