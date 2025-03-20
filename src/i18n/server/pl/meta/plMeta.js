@@ -64,22 +64,22 @@ const meta = {
   hamster: {
     title: 'Torba na kierownice na przekąski "Chomik"',
     description:
-      'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
+      'Pomieści bądź jakie drobiazgi. Nadaje się do jazdy po mieście',
   },
   'hamster-cordura-black-embroidery': {
     title: 'Torba na kierownice na przekąski "Chomik"',
     description:
-      'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
+      'Pomieści bądź jakie drobiazgi. Nadaje się do jazdy po mieście',
   },
   'hamster-cordura-navyblue-foxes': {
     title: 'Torba na kierownice na przekąski "Chomik"',
     description:
-      'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
+      'Pomieści bądź jakie drobiazgi. Nadaje się do jazdy po mieście',
   },
   'hamster-xpac-without-pockets': {
     title: 'Torba na kierownice na przekąski "Chomik"',
     description:
-      'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
+      'Pomieści bądź jakie drobiazgi. Nadaje się do jazdy po mieście',
   },
   'handlebar-mount': {
     title: 'Mocowanie na kierownicy',
@@ -132,7 +132,7 @@ const meta = {
       'Mała torba, która może pomieścić rzeczy niezbędne podczas podróży',
   },
   'tactical-stembag': {
-    title: 'Torba na kierownice na przekąski “Chomik-Ładownica”',
+    title: 'Torba na kierownice na przekąski "Chomik-Ładownica"',
     description:
       'Uniwersalna torba z systemem Molle. Można go używać podczas pieszych wędrówek lub przejażdżek rowerowych',
   },
