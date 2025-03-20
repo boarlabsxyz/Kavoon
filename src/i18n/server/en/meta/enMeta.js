@@ -144,43 +144,35 @@ const meta = {
   },
   'chevron-lets-go': {
     title: 'Chevron "Let\'s Go" – cycling patch with Velcro',
-    description:
-      'The "Let\'s Go" chevron is a stylish way to personalize your bag, backpack, or gear. Pairs well with the "Strava" and "Coffee" chevrons. Easy Velcro attachment.',
+    description: 'The "Let\'s Go" chevron is a stylish way to personalize your bag, backpack, or gear. Pairs well with the "Strava" and "Coffee" chevrons. Easy Velcro attachment.',
   },
   'chevron-strava': {
     title: 'Chevron "Strava" – stylish cycling patch',
-    description:
-      'The "Strava" chevron is perfect for customizing bags, backpacks, and gear. It pairs well with the "Coffee" and "Let\'s Go" chevrons. Ideal for cycling enthusiasts.',
+    description: 'The "Strava" chevron is perfect for customizing bags, backpacks, and gear. It pairs well with the "Coffee" and "Let\'s Go" chevrons. Ideal for cycling enthusiasts.',
   },
   'chevron-velocats': {
     title: 'Chevron "Velocats" – patch for cyclists',
-    description:
-      'The "Velocats" chevron is designed for cyclists defending Ukraine. Attach it to your backpack, bag, or clothing with Velcro. A perfect patriotic accessory.',
+    description: 'The "Velocats" chevron is designed for cyclists defending Ukraine. Attach it to your backpack, bag, or clothing with Velcro. A perfect patriotic accessory.',
   },
   'chevron-coffee': {
     title: 'Chevron "Coffee" – unique cycling patch',
-    description:
-      'The "Coffee" chevron is part of the "Cycling" series and pairs well with "Strava" and "Let\'s Go." Easily attach it to your bag or clothing with Velcro.',
+    description: 'The "Coffee" chevron is part of the "Cycling" series and pairs well with "Strava" and "Let\'s Go." Easily attach it to your bag or clothing with Velcro.',
   },
   'chevron-donut': {
     title: 'Chevron "Donut" – watermelon-inspired patch',
-    description:
-      'The "Donut" chevron is a fun reminder of Ukraine\'s sunny south. Easy Velcro attachment for backpacks, clothing, and accessories.',
+    description: 'The "Donut" chevron is a fun reminder of Ukraine\'s sunny south. Easy Velcro attachment for backpacks, clothing, and accessories.',
   },
   'chevron-ghost': {
     title: 'Chevron "Ghost" – reflective embroidered patch',
-    description:
-      'The "Ghost" chevron is embroidered on reflective fabric, making it a great companion at night. Attaches easily with Velcro.',
+    description: 'The "Ghost" chevron is embroidered on reflective fabric, making it a great companion at night. Attaches easily with Velcro.',
   },
   'chevron-heart': {
     title: 'Chevron "Heart" – watermelon-inspired patch',
-    description:
-      'The "Heart" chevron is a tribute to Ukraine\'s sunny south. Easy Velcro attachment for bags, backpacks, and clothing.',
+    description: 'The "Heart" chevron is a tribute to Ukraine\'s sunny south. Easy Velcro attachment for bags, backpacks, and clothing.',
   },
   'chevron-slice': {
     title: 'Chevron "Slice" – watermelon patch',
-    description:
-      'The "Slice" chevron is a tribute to Ukraine\'s sunny south. Easily attach it to bags, clothing, or gear with Velcro.',
+    description: 'The "Slice" chevron is a tribute to Ukraine\'s sunny south. Easily attach it to bags, clothing, or gear with Velcro.',
   },
 };
 
