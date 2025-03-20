@@ -1,26 +1,7 @@
-const commonDescriptions = {
-  anyDistance: `Suitable for cycling and hiking. For any distances`,
-  hamster: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
-  halfFrame: `We sew according to your measurements. For any distance`,
-  fuelBag: `Suitable for a repair kit, first aid kit, or as a snack bag. For any distance`,
-  universalBag: `A comfortable and spacious universal bag suitable for both walks and bicycle rides`,
-  chevron: (name, extra = '') =>
-    `The "${name}" chevron${extra} Easily attach it to your bag or clothing with Velcro.`,
-  barrelbagWithoutValve: {
-    title: 'Handlebar bag "Barrelbag without valve"',
-    description: `Suitable for cycling and hiking. For any distances`,
-  },
-  framepackHalf: {
-    title: 'Framepack half',
-    description: `We sew according to your measurements. For any distance`,
-  },
-  hamsterBag: {
-    title: 'Stembag "Hamster"',
-    description: `Stembag for every day. It can hold any little thing. Suitable for city trips and long trips`,
-  },
-};
+import metaStructure from '../../meta/metaStructure';
 
-const meta = {
+const enMeta = {
+  ...metaStructure,
   'backpack-for-city': {
     title: 'Backpack for the city',
     description: `Backpack - convenient for everyday use. Suitable for 1-2 day hikes. You can fix small pouches as an additional volume`,
@@ -113,4 +94,4 @@ const meta = {
   },
 };
 
-export default meta;
+export default enMeta;

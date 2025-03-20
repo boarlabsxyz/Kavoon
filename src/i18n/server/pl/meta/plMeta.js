@@ -1,4 +1,7 @@
-const meta = {
+import metaStructure from '../../meta/metaStructure';
+
+const plMeta = {
+  ...metaStructure,
   'backpack-for-city': {
     title: 'Plecak miejski',
     description: `Plecak - wygodny w codziennym użytkowaniu. Nadaje się na 1-2 dniowe wędrówki. Małe woreczki możesz wykorzystać jako dodatkową objętość`,
@@ -153,4 +156,4 @@ const meta = {
   },
 };
 
-export default meta;
+export default plMeta;

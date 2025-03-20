@@ -1,4 +1,7 @@
-const meta = {
+import metaStructure from '../../meta/metaStructure';
+
+const ukMeta = {
+  ...metaStructure,
   'backpack-for-city': {
     title: 'Міський рюкзак',
     description: `Зручний у щоденному використанні. Підходить для 1-2-денних походів. Можна вчепити маленькі підсумки як додатковий об'єм`,
@@ -153,4 +156,4 @@ const meta = {
   },
 };
 
-export default meta;
+export default ukMeta;
