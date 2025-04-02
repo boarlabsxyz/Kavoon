@@ -39,7 +39,7 @@ describe('getMeta', () => {
 
     expect(result['seat-bag-3l'].title).toBe('Torba podsiodłowa 3L');
     expect(result['seat-bag-3l'].description).toContain(
-      'Możesz regulować głośność'
+      'Możesz regulować objętość'
     );
   });
 

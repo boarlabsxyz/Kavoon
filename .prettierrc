@@ -6,13 +6,5 @@
   "bracketSpacing": true,
   "bracketSameLine": false,
   "endOfLine": "auto",
-  "printWidth": 80,
-  "overrides": [
-    {
-      "files": ["src/i18n/server/meta/metaData.js"],
-      "options": {
-        "printWidth": 9999
-      }
-    }
-  ]
+  "printWidth": 80
 }
