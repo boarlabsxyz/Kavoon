@@ -9,7 +9,7 @@ describe('plMeta', () => {
 
     expect(plMeta['seat-bag-3l'].title).toBe('Torba podsiodłowa 3L');
     expect(plMeta['seat-bag-3l'].description).toContain(
-      'Możesz regulować objętość'
+      'Możesz regulować głośność'
     );
   });
 
