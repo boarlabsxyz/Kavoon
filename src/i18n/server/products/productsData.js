@@ -85,22 +85,22 @@ const productsData = {
     pl: 'Torba jest wyjątkowa, ponieważ jest całkowicie dostosowana do wymiarów klienta. Jest wygodna podczas transportu pałąków do namiotu, wody itp. Nadaje się do podróży, która wymaga zabranie maksymalnej ilości rzeczy.',
   },
   Hamster: {
-    uk: 'Сумка на кермо для снеків "Хом\ʼяк"',
+    uk: 'Сумка на кермо для снеків "Хом\'як"',
     en: 'Stembag "Hamster"',
     pl: 'Torba na kierownice na przekąski "Chomik"',
   },
   HamsterXpacWithoutPockets: {
-    uk: 'Сумка на кермо для снеків "Хом\ʼяк" в чорному кольорі без зовнішніх кишень-сіточок',
+    uk: 'Сумка на кермо для снеків "Хом\'як" в чорному кольорі без зовнішніх кишень-сіточок',
     en: 'Stembag "Hamster" in black color without external pockets',
     pl: 'Torba na kierownice na przekąski "Chomik" w kolorze czarnym',
   },
   HamsterCorduraNavyblueFoxes: {
-    uk: 'Сумка на кермо для снеків "Хом\ʼяк" синьому кольорі з принтом "Лисички"',
+    uk: 'Сумка на кермо для снеків "Хом\'як" синьому кольорі з принтом "Лисички"',
     en: 'Stembag "Hamster" in blue color with "Foxes" print.',
     pl: 'Torba na kierownice na przekąski "Chomik" w niebieskim kolorze z nadrukiem Lisków',
   },
   HamsterCorduraBlackEmbroidery: {
-    uk: 'Сумка на кермо для снеків "Хом\ʼяк" з авторською вишивкою',
+    uk: 'Сумка на кермо для снеків "Хом\'як" з авторською вишивкою',
     en: 'Stembag "Hamster" with author"s embroidery',
     pl: 'Torba na kierownice na przekąski "Chomik" z autorskim haftem',
   },
@@ -125,7 +125,7 @@ const productsData = {
     pl: 'Chomik o niestandardowym rozmiarze z autorskim haftem. W magazynie. Tkanina Cordura. Kolor jest czarny. Jeśli chcesz taką samą w parze lub w innych kolorach, możesz złożyć zamówienie na tę torebkę i opisać swoje życzenia w komentarzach do zamówienia\n',
   },
   HamsterCorduraNavyblueFoxesShortDescription: {
-    uk: 'Хом\ʼяк в синьому кольорі з принтом "Лисички". Основна тканина кордура, колір "синій неві". В наявності, готовий до відправки',
+    uk: 'Хом\'як в синьому кольорі з принтом "Лисички". Основна тканина кордура, колір "синій неві". В наявності, готовий до відправки',
     en: 'Hamster in blue color with "Foxes" print. The main fabric is cordura, the color is "navy blue". In stock, ready to ship',
     pl: 'Chomik w niebieskim kolorze z nadrukiem Lisków. Głównym materiałem jest cordura, kolor "granatowy". W magazynie, gotowe do wysyłki',
   },
@@ -135,7 +135,7 @@ const productsData = {
     pl: 'Niezastąpiona torebka na co dzień. Pomieści bądź jakie drobiazgi telefon/klucze/powerbanki a nawet kilogram cukierków, hantei lub inne przedmioty. Nadaje się do jazdy po mieście oraz długie wycieczki rowerowe.',
   },
   HamsterVideoTitle: {
-    uk: 'Відеоогляд нашої сумки на кермо "Хом\ʼяк"',
+    uk: 'Відеоогляд нашої сумки на кермо "Хом\'як"',
     en: 'Video review of our Stembag',
     pl: 'Wideo recenzja naszej torby na kierownice "Chomik"',
   },
@@ -206,7 +206,7 @@ const productsData = {
   },
   BarrelBagWithEmbroideryBlueShortDescription: {
     uk: 'Бочонок на кермо з вишивкою має авторський дизайн та національні мотиви. Тканина кордура, основний колір блакитний. Вишивка виконана на світловідбиваючей тканині, що додає додаткову видимість в темну пору доби. В наявності.\nДисклеймер! Якщо ви хочете бочонок такого ж дизайну, але в інших кольорах, можете зробити замовлення на цю сумочку, а в коментарях до замовлення описати ваші побажання',
-    en: 'The handlebar bag "Barrelbag without valve" has an author\"s design and national motifs. Cordura fabric, the main color is blue. The embroidery is made on reflective fabric, which adds additional visibility in the dark. Available.\nDisclaimer! If you want a barrel of the same design, but in other colors, you can place an order for this handbag, and describe your wishes in the comments to the order',
+    en: 'The handlebar bag "Barrelbag without valve" has an author\'s design and national motifs. Cordura fabric, the main color is blue. The embroidery is made on reflective fabric, which adds additional visibility in the dark. Available.\nDisclaimer! If you want a barrel of the same design, but in other colors, you can place an order for this handbag, and describe your wishes in the comments to the order',
     pl: 'Torba na kierownicę „Barrelbag bez zaworu" ma autorski projekt i motywy narodowe. Tkanina Cordura, głównym kolorem jest niebieski. Haft wykonany jest na odblaskowej tkaninie, co zapewnia dodatkową widoczność w ciemności. Dostępny.\nZastrzeżenie! Jeśli chcesz beczkę o tym samym wzorze, ale w innych kolorach, możesz złożyć zamówienie na tę torebkę i opisać swoje życzenia w komentarzach do zamówienia',
   },
   BarrelBagWithEmbroideryBlueDescription: {
@@ -400,7 +400,7 @@ const productsData = {
     pl: 'Organizer z małymi kieszonkami i gumkami. Nadaje się zarówno do uporządkowania rzeczy w dużych torbach, jak i rzeczy osobistych w domu. Na zewnątrz, na rewersie trzy rzędy zawiesi z systemem Molle. Wodoodporne zamknięcie na zamek błyskawiczny. Wewnątrz lewej komory znajduje się płaska kieszeń zamykana na zamek oraz druga płaska kieszeń; po prawej stronie oddzielone dwie płaskie kieszonki oraz dwa rzędy gumek.',
   },
   TacticalStembag: {
-    uk: 'Сумка на кермо "Хом\ʼяк - підсумок"',
+    uk: 'Сумка на кермо "Хом\'як - підсумок"',
     en: 'Tactical stembag',
     pl: 'Torba na kierownice na przekąski "Chomik-Ładownica"',
   },
@@ -460,9 +460,9 @@ const productsData = {
     pl: 'stal',
   },
   ChevronLetsGo: {
-    uk: 'Шеврон "Let\"s Go"',
-    en: 'Chevron "Let\"s Go"',
-    pl: 'Naszywka "Let\"s Go"',
+    uk: 'Шеврон "Let\'s Go"',
+    en: 'Chevron "Let\'s Go"',
+    pl: 'Naszywka "Let\'s Go"',
   },
   ChevronLetsGoDescription: {
     uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Кава".',
@@ -475,9 +475,9 @@ const productsData = {
     pl: 'Naszywka "Strava"',
   },
   ChevronStravaDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Кава" та "Let\"s Go".',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\"s Go" chevrons.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Kawa" i "Let\"s Go".',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Кава" та "Let\'s Go".',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" chevrons.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Kawa" i "Let\'s Go".',
   },
   ChevronVelocats: {
     uk: 'Шеврон "Велокотики"',
@@ -495,9 +495,9 @@ const productsData = {
     pl: 'Naszywka "Kawa"',
   },
   ChevronCoffeeDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Let\"s Go".',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\"s Go" chevrons.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Let\"s Go".',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Let\'s Go".',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" chevrons.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Let\'s Go".',
   },
   ChevronDonut: {
     uk: 'Шеврон "Пончик"',

@@ -45,7 +45,6 @@ describe('metaData', () => {
   });
 
   test('should have consistent structure across all products', () => {
-    const firstProduct = Object.values(metaData)[0];
     const expectedStructure = {
       uk: { title: expect.any(String), description: expect.any(String) },
       en: { title: expect.any(String), description: expect.any(String) },
