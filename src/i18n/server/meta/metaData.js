@@ -1,9 +1,60 @@
+const commonTranslations = {
+  barrelBagWithoutValve: {
+    uk: {
+      title: 'Сумка на кермо "Бочонок на блискавці"',
+      description:
+        'Підходить для велосипеда та піших прогулянок. Для будь яких дистанцій',
+    },
+    en: {
+      title: 'Handlebar bag "Barrelbag without valve"',
+      description: 'Suitable for cycling and hiking. For any distances',
+    },
+    pl: {
+      title: 'Torba na kierownicę "Beczka na zamku błyskawicznym"',
+      description:
+        'Nadaje się do jazdy na rowerze i pieszych wędrówek. Na dowolne dystanse',
+    },
+  },
+  halfFrameBag: {
+    uk: {
+      title: 'Сумка під раму половинка',
+      description:
+        'Половинка фреймбега, або "оселедець". Відшиваємо за вашими замірами. Для будь яких дистанцій',
+    },
+    en: {
+      title: 'Framepack half',
+      description: 'We sew according to your measurements. For any distance',
+    },
+    pl: {
+      title: 'Torba pod ramę "Połowa"',
+      description: 'Szyjemy według Twoich wymiarów. Na dowolne dystanse',
+    },
+  },
+  hamster: {
+    uk: {
+      title: 'Сумка на кермо для снеків "Хомяк"',
+      description:
+        'Може вмістити будь-які дрібниці. Підходить для подорожей будь-якого напрямку',
+    },
+    en: {
+      title: 'Stembag "Hamster"',
+      description:
+        'Stembag for every day. It can hold any little thing. Suitable for city trips and long trips',
+    },
+    pl: {
+      title: 'Torba na kierownice na przekąski "Chomik"',
+      description:
+        'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
+    },
+  },
+};
+
 const metaData = {
   'backpack-for-city': {
     uk: {
       title: 'Міський рюкзак',
       description:
-        'Зручний у щоденному використанні. Підходить для 1-2 -денних походів. Можна вчепити маленькі підсумки як додатковий об’єм',
+        "Зручний у щоденному використанні. Підходить для 1-2 -денних походів. Можна вчепити маленькі підсумки як додатковий об\'єм",
     },
     en: {
       title: 'Backpack for the city',
@@ -50,22 +101,7 @@ const metaData = {
         'Mała torebka na kierownicę na drobiazgi. Na codzienne wycieczki. Nadaje się do maratonów, brevetsów i krótkich dystansów',
     },
   },
-  'barrel-bag-with-embroidery-blue': {
-    uk: {
-      title: 'Сумка на кермо "Бочонок на блискавці"',
-      description:
-        'Підходить для велосипеда та піших прогулянок. Для будь-яких дистанцій',
-    },
-    en: {
-      title: 'Handlebar bag "Barrelbag without valve"',
-      description: 'Suitable for cycling and hiking. For any distances',
-    },
-    pl: {
-      title: 'Torba na kierownicę "Beczka na zamku błyskawicznym"',
-      description:
-        'Nadaje się do jazdy na rowerze i pieszych wędrówek. Na dowolne dystanse',
-    },
-  },
+  'barrel-bag-with-embroidery-blue': commonTranslations.barrelBagWithoutValve,
   'barrel-bag-with-valve': {
     uk: {
       title: 'Сумка на кермо "Бочонок з клапаном"',
@@ -151,43 +187,13 @@ const metaData = {
         'Organizer z kieszeniami i gumkami. Dla porządku rzeczy w workach. Chusty z systemem Molle. Wodoodporne zamknięcie na zamek błyskawiczny',
     },
   },
-  hamster: {
-    uk: {
-      title: `Сумка на кермо для снеків "Хом'як"`,
-      description:
-        'Може вмістити будь-які дрібниці. Підходить для подорожей будь-якого напрямку',
-    },
-    en: {
-      title: 'Stembag "Hamster"',
-      description:
-        'Stembag for every day. It can hold any little thing. Suitable for city trips and long trips',
-    },
-    pl: {
-      title: 'Torba na kierownice na przekąski "Chomik"',
-      description:
-        'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
-    },
-  },
-  'barrel-bag-without-valve': {
-    uk: {
-      title: 'Сумка на кермо "Бочонок на блискавці"',
-      description:
-        'Підходить для велосипеда та піших прогулянок. Для будь яких дистанцій',
-    },
-    en: {
-      title: 'Handlebar bag "Barrelbag without valve"',
-      description: 'Suitable for cycling and hiking. For any distances',
-    },
-    pl: {
-      title: 'Torba na kierownicę "Beczka na zamku błyskawicznym"',
-      description:
-        'Nadaje się do jazdy na rowerze i pieszych wędrówek. Na dowolne dystanse',
-    },
-  },
+  hamster: commonTranslations.hamster,
+  'barrel-bag-without-valve': commonTranslations.barrelBagWithoutValve,
   'seat-bag-3l': {
     uk: {
       title: 'Підсідельна сумка 3л',
-      description: `Можна регулювати об'єм. Фіксація в 2 рухи. Підходить для невеликих подорожей та бреветів`,
+      description:
+        "Можна регулювати об\'єм. Фіксація в 2 рухи. Підходить для невеликих подорожей та бреветів",
     },
     en: {
       title: 'Seat Bag 3L',
@@ -200,21 +206,7 @@ const metaData = {
         'Możesz regulować głośność. Unieruchomienie w 2 ruchach. Nadaje się na małe wycieczki i brevety',
     },
   },
-  'half-frame-bag': {
-    uk: {
-      title: 'Сумка під раму половинка',
-      description:
-        'Половинка фреймбега, або "оселедець". Відшиваємо за вашими замірами. Для будь яких дистанцій',
-    },
-    en: {
-      title: 'Framepack half',
-      description: 'We sew according to your measurements. For any distance',
-    },
-    pl: {
-      title: 'Torba pod ramę "Połowa"',
-      description: 'Szyjemy według Twoich wymiarów. Na dowolne dystanse',
-    },
-  },
+  'half-frame-bag': commonTranslations.halfFrameBag,
   'triangular-bicycle-first-aid-kit-frame': {
     uk: {
       title: 'Сумка на раму "Велоаптечка"',
@@ -286,7 +278,8 @@ const metaData = {
   'oval-barrelbag': {
     uk: {
       title: 'Сумка на кермо "Овальний бочонок"',
-      description: `Модель сумки на кермо зі збільшеним об'ємом. Підходить для велосипеда та піших прогулянок. Для будь яких дистанцій`,
+      description:
+        "Модель сумки на кермо зі збільшеним об\'ємом. Підходить для велосипеда та піших прогулянок. Для будь яких дистанцій",
     },
     en: {
       title: 'Handlebar bag "Oval barrelbag"',
@@ -316,7 +309,7 @@ const metaData = {
   },
   'tactical-stembag': {
     uk: {
-      title: 'Сумка на кермо “Хом’як - підсумок”',
+      title: 'Сумка на кермо "Хомяк - підсумок"',
       description:
         'Універсальна сумка, із системою Molle. Її Можна використовувати у походах або у велопоїздках',
     },
@@ -326,7 +319,7 @@ const metaData = {
         'Universal bag with Molle system. It can be used on hikes or bike rides',
     },
     pl: {
-      title: 'Torba na kierownice na przekąski “Chomik-Ładownica”',
+      title: 'Torba na kierownice na przekąski "Chomik-Ładownica"',
       description:
         'Uniwersalna torba z systemem Molle. Można go używać podczas pieszych wędrówek lub przejażdżek rowerowych',
     },
@@ -399,103 +392,12 @@ const metaData = {
         'Mocowanie na kierownicę ma prostą konstrukcję i przejrzystą funkcjonalność. Można go łatwo zamontować na rowerze',
     },
   },
-  'hamster-cordura-navyblue-foxes': {
-    uk: {
-      title: `Сумка на кермо для снеків "Хом'як"`,
-      description:
-        'Може вмістити будь-які дрібниці. Підходить для подорожей будь-якого напрямку',
-    },
-    en: {
-      title: 'Stembag "Hamster"',
-      description:
-        'Stembag for every day. It can hold any little thing. Suitable for city trips and long trips',
-    },
-    pl: {
-      title: 'Torba na kierownice na przekąski "Chomik"',
-      description:
-        'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
-    },
-  },
-  'hamster-cordura-black-embroidery': {
-    uk: {
-      title: `Сумка на кермо для снеків "Хом'як"`,
-      description:
-        'Може вмістити будь-які дрібниці. Підходить для подорожей будь-якого напрямку',
-    },
-    en: {
-      title: 'Stembag "Hamster"',
-      description:
-        'Stembag for every day. It can hold any little thing. Suitable for city trips and long trips',
-    },
-    pl: {
-      title: 'Torba na kierownice na przekąski "Chomik"',
-      description:
-        'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
-    },
-  },
-  'half-frame-bag-xpac-orange': {
-    uk: {
-      title: 'Сумка під раму половинка',
-      description:
-        'Половинка фреймбега, або "оселедець". Відшиваємо за вашими замірами. Для будь яких дистанцій',
-    },
-    en: {
-      title: 'Framepack half',
-      description: 'We sew according to your measurements. For any distance',
-    },
-    pl: {
-      title: 'Torba pod ramę "Połowa"',
-      description: 'Szyjemy według Twoich wymiarów. Na dowolne dystanse',
-    },
-  },
-  'half-frame-bag-xpac-yellow-blue': {
-    uk: {
-      title: 'Сумка під раму половинка',
-      description:
-        'Половинка фреймбега, або "оселедець". Відшиваємо за вашими замірами. Для будь яких дистанцій',
-    },
-    en: {
-      title: 'Framepack half',
-      description: 'We sew according to your measurements. For any distance',
-    },
-    pl: {
-      title: 'Torba pod ramę "Połowa"',
-      description: 'Szyjemy według Twoich wymiarów. Na dowolne dystanse',
-    },
-  },
-  'barrel-bag-with-embroidery-yellow': {
-    uk: {
-      title: 'Сумка на кермо "Бочонок на блискавці"',
-      description:
-        'Підходить для велосипеда та піших прогулянок. Для будь яких дистанцій',
-    },
-    en: {
-      title: 'Handlebar bag "Barrelbag without valve"',
-      description: 'Suitable for cycling and hiking. For any distances',
-    },
-    pl: {
-      title: 'Torba na kierownicę "Beczka na zamku błyskawicznym"',
-      description:
-        'Nadaje się do jazdy na rowerze i pieszych wędrówek. Na dowolne dystanse',
-    },
-  },
-  'hamster-xpac-without-pockets': {
-    uk: {
-      title: `Сумка на кермо для снеків "Хом'як"`,
-      description:
-        'Може вмістити будь-які дрібниці. Підходить для подорожей будь-якого напрямку',
-    },
-    en: {
-      title: 'Stembag "Hamster"',
-      description:
-        'Stembag for every day. It can hold any little thing. Suitable for city trips and long trips',
-    },
-    pl: {
-      title: 'Torba na kierownice na przekąski "Chomik"',
-      description:
-        'Pomieści bądź jakie drobiazgi.  Nadaje się do jazdy po mieście',
-    },
-  },
+  'hamster-cordura-navyblue-foxes': commonTranslations.hamster,
+  'hamster-cordura-black-embroidery': commonTranslations.hamster,
+  'half-frame-bag-xpac-orange': commonTranslations.halfFrameBag,
+  'half-frame-bag-xpac-yellow-blue': commonTranslations.halfFrameBag,
+  'barrel-bag-with-embroidery-yellow': commonTranslations.barrelBagWithoutValve,
+  'hamster-xpac-without-pockets': commonTranslations.hamster,
 };
 
 export default metaData;
