@@ -125,7 +125,7 @@ const productsData = {
     pl: 'Chomik o niestandardowym rozmiarze z autorskim haftem. W magazynie. Tkanina Cordura. Kolor jest czarny. Jeśli chcesz taką samą w parze lub w innych kolorach, możesz złożyć zamówienie na tę torebkę i opisać swoje życzenia w komentarzach do zamówienia\n',
   },
   HamsterCorduraNavyblueFoxesShortDescription: {
-    uk: 'Хом\'як в синьому кольорі з принтом "Лисички". Основна тканина кордура, колір "синій неві". В наявності, готовий до відправки',
+    uk: 'Хомʼяк в синьому кольорі з принтом "Лисички". Основна тканина кордура, колір "синій неві". В наявності, готовий до відправки',
     en: 'Hamster in blue color with "Foxes" print. The main fabric is cordura, the color is "navy blue". In stock, ready to ship',
     pl: 'Chomik w niebieskim kolorze z nadrukiem Lisków. Głównym materiałem jest cordura, kolor "granatowy". W magazynie, gotowe do wysyłki',
   },
@@ -400,7 +400,7 @@ const productsData = {
     pl: 'Organizer z małymi kieszonkami i gumkami. Nadaje się zarówno do uporządkowania rzeczy w dużych torbach, jak i rzeczy osobistych w domu. Na zewnątrz, na rewersie trzy rzędy zawiesi z systemem Molle. Wodoodporne zamknięcie na zamek błyskawiczny. Wewnątrz lewej komory znajduje się płaska kieszeń zamykana na zamek oraz druga płaska kieszeń; po prawej stronie oddzielone dwie płaskie kieszonki oraz dwa rzędy gumek.',
   },
   TacticalStembag: {
-    uk: 'Сумка на кермо "Хом\'як - підсумок"',
+    uk: 'Сумка на кермо "Хомʼяк - підсумок"',
     en: 'Tactical stembag',
     pl: 'Torba na kierownice na przekąski "Chomik-Ładownica"',
   },
