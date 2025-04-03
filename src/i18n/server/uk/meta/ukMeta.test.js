@@ -28,7 +28,7 @@ describe('ukMeta', () => {
     expect(ukMeta['barrel-bag-without-valve'].title).toBe(
       'Сумка на кермо "Бочонок на блискавці"'
     );
-    expect(ukMeta['hamster'].title).toBe('Сумка на кермо для снеків "Хомяк"');
+    expect(ukMeta['hamster'].title).toBe('Сумка на кермо для снеків "Хомʼяк"');
     expect(ukMeta['half-frame-bag'].title).toBe('Сумка під раму половинка');
   });
 

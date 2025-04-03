@@ -7,7 +7,7 @@ viewPorts.forEach(({ name, dimensions }) => {
     beforeEach(() => {
       cy.viewport(width, height);
       cy.visit('/');
-      cy.get('[data-cy="product-title"]').first().contains("Хом'як").click();
+      cy.get('[data-cy="product-title"]').first().contains('Хомʼяк').click();
 
       cy.url().should('include', '/shop/bicycle-equipment/hamster');
       cy.scrollTo(0, 600, { duration: 1000 });
