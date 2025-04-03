@@ -85,22 +85,22 @@ const productsData = {
     pl: 'Torba jest wyjątkowa, ponieważ jest całkowicie dostosowana do wymiarów klienta. Jest wygodna podczas transportu pałąków do namiotu, wody itp. Nadaje się do podróży, która wymaga zabranie maksymalnej ilości rzeczy.',
   },
   Hamster: {
-    uk: 'Сумка на кермо для снеків "Хом\'як"',
+    uk: 'Сумка на кермо для снеків "Хомʼяк"',
     en: 'Stembag "Hamster"',
     pl: 'Torba na kierownice na przekąski "Chomik"',
   },
   HamsterXpacWithoutPockets: {
-    uk: 'Сумка на кермо для снеків "Хом\'як" в чорному кольорі без зовнішніх кишень-сіточок',
+    uk: 'Сумка на кермо для снеків "Хомʼяк" в чорному кольорі без зовнішніх кишень-сіточок',
     en: 'Stembag "Hamster" in black color without external pockets',
     pl: 'Torba na kierownice na przekąski "Chomik" w kolorze czarnym',
   },
   HamsterCorduraNavyblueFoxes: {
-    uk: 'Сумка на кермо для снеків "Хом\'як" синьому кольорі з принтом "Лисички"',
+    uk: 'Сумка на кермо для снеків "Хомʼяк" синьому кольорі з принтом "Лисички"',
     en: 'Stembag "Hamster" in blue color with "Foxes" print.',
     pl: 'Torba na kierownice na przekąski "Chomik" w niebieskim kolorze z nadrukiem Lisków',
   },
   HamsterCorduraBlackEmbroidery: {
-    uk: 'Сумка на кермо для снеків "Хом\'як" з авторською вишивкою',
+    uk: 'Сумка на кермо для снеків "Хомʼяк" з авторською вишивкою',
     en: 'Stembag "Hamster" with author"s embroidery',
     pl: 'Torba na kierownice na przekąski "Chomik" z autorskim haftem',
   },
@@ -135,7 +135,7 @@ const productsData = {
     pl: 'Niezastąpiona torebka na co dzień. Pomieści bądź jakie drobiazgi telefon/klucze/powerbanki a nawet kilogram cukierków, hantei lub inne przedmioty. Nadaje się do jazdy po mieście oraz długie wycieczki rowerowe.',
   },
   HamsterVideoTitle: {
-    uk: 'Відеоогляд нашої сумки на кермо "Хом\'як"',
+    uk: 'Відеоогляд нашої сумки на кермо "Хомʼяк"',
     en: 'Video review of our Stembag',
     pl: 'Wideo recenzja naszej torby na kierownice "Chomik"',
   },
