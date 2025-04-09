@@ -234,7 +234,7 @@ const Language = {
   AllProducts: 'Усі товари',
   BicycleEquipment: 'Велоспорядження',
   CityCollection: 'Міська колекція',
-  BagAccessories: 'Аксесуари до сумок',
+  BagAccessories: 'Аксесуари і кріплення',
   Chevrons: 'Шеврони',
   InStock: 'В наявності',
 

@@ -220,7 +220,7 @@ const Language = {
   AllProducts: 'All products',
   BicycleEquipment: 'Bicycle equipment',
   CityCollection: 'City collection',
-  BagAccessories: 'Bag accessories',
+  BagAccessories: 'Accessories and mounts',
   Chevrons: 'Chevrons',
   InStock: 'In stock',
 
