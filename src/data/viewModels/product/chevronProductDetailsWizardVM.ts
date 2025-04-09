@@ -1,8 +1,10 @@
 import mountProductDetailsWizardTitleVM from './mountProductDetailsWizardTitleVM';
 import mountProductDetailsOrderBtnVM from './mountProductDetailsOrderBtnVM';
+import Product, { Currencies } from 'src/types/product';
 
-function chevronProductDetailsWizardVM(product: any) {
-  const { name, price } = product;
+function chevronProductDetailsWizardVM(product: Product) {
+  const { name } = product;
+  const price = product.price as Currencies;
 
   return {
     productDetailsWizardPickerVM: null,
