@@ -949,7 +949,7 @@ const donutChevron = () => ({
   category: CHEVRONS,
   subcategory: null,
   productKit: null,
-  createdAt: '2024-03-20',
+  createdAt: '2025-03-20',
 });
 
 const ghostChevron = () => ({
