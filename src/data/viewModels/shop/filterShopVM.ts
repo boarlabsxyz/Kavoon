@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 
 import ProductListItemVM from 'src/data/viewModels/shop/productListItemVM';
 import toKebabCase from 'src/helpers/toKebabCase';
-import { Category, Subcategory } from 'src/data/constants';
+import { Category, Subcategory, ALL_PRODUCTS } from 'src/data/constants';
 import sortProducts from 'src/helpers/sortProducts';
 import { SortingDirection } from 'src/types/sorting';
 
@@ -18,7 +18,11 @@ const filterShopVM = ({
     return combineLatest([of(filterValue), productData]).pipe(
       switchMap(([category, products]) =>
         of(products).pipe(
-          map((data) => data.filter((bag) => bag.category === category))
+          map((data) =>
+            data.filter(
+              (bag) => toKebabCase(bag.category) === toKebabCase(category)
+            )
+          )
         )
       )
     );
@@ -34,13 +38,12 @@ const filterShopVM = ({
       switchMap(([category, products]) =>
         of(products).pipe(
           map((data) => {
-            const nonAllProductsIndex = data.findIndex(
-              (product) => toKebabCase(product.category) === category
-            );
-            if (nonAllProductsIndex === -1) {
+            if (toKebabCase(category) === toKebabCase(ALL_PRODUCTS)) {
               return data;
             }
-            return data.filter((bag) => toKebabCase(bag.category) === category);
+            return data.filter(
+              (bag) => toKebabCase(bag.category) === toKebabCase(category)
+            );
           }),
           map((filteredByCategory) =>
             subcategories

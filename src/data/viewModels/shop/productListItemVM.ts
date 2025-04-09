@@ -68,7 +68,8 @@ export default class ProductListItemVM {
     this.href = `/${'shop'}/${toKebabCase(category)}/${id}`;
     this.allowColorOptionBlock =
       subcategory !== SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts &&
-      category !== 'InStock';
+      category !== 'InStock' &&
+      category !== 'Chevrons';
     this.category = category;
     this.subcategory = subcategory;
     this.hasTopBadge = productIDCollectionForTopSalesBadge.includes(id);

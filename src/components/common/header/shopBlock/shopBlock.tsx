@@ -12,6 +12,7 @@ const pages = [
   { target: 'shop/bicycle-equipment', label: 'BicycleEquipment' },
   { target: 'shop/bag-accessories', label: 'BagAccessories' },
   { target: 'shop/city-collection', label: 'CityCollection' },
+  { target: 'shop/chevrons', label: 'Chevrons' },
   { target: 'shop/in-stock', label: 'InStock' },
 ];
 

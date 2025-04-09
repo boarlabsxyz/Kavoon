@@ -235,6 +235,7 @@ const Language = {
   BicycleEquipment: 'Велоспорядження',
   CityCollection: 'Міська колекція',
   BagAccessories: 'Аксесуари до сумок',
+  Chevrons: 'Шеврони',
   InStock: 'В наявності',
 
   HandlebarBags: 'Сумки на кермо',

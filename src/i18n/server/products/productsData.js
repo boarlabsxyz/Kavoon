@@ -539,6 +539,16 @@ const productsData = {
     en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon slice is a tribute and a reminder of the sunny and juicy south of our country.',
     pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowy kawałek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
   },
+  ChevronMountType: {
+    uk: 'велкро',
+    en: 'Velcro',
+    pl: 'Rzep (Velcro)',
+  },
+  ChevronUsage: {
+    uk: 'кріпиться на одяг, сумки, рюкзаки або спорядження',
+    en: 'can be attached to clothing, bags, backpacks, or gear',
+    pl: 'można przymocować do ubrań, toreb, plecaków lub sprzętu',
+  },
   Cup: {
     uk: 'Чашка складна WILDO x4',
     en: 'Cup WILDO Fold x4',

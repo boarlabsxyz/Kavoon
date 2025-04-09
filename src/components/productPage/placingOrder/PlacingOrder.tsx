@@ -1,7 +1,11 @@
 import PlacingOrderDetails from './PlacingOrderDetails';
 
 import Product from 'src/types/product';
-import { SUBCATEGORIES_BICYCLE_EQUIPMENT, IN_STOCK } from 'src/data/constants';
+import {
+  SUBCATEGORIES_BICYCLE_EQUIPMENT,
+  IN_STOCK,
+  CHEVRONS,
+} from 'src/data/constants';
 import lang from 'src/i18n/lang';
 import { Language } from 'src/types/language';
 
@@ -18,6 +22,8 @@ function PlacingOrder({ language, product }: Props) {
     content = 'PlacingOrderForMounts';
   } else if (product.category === IN_STOCK) {
     content = 'PlacingOrderInStockDetails';
+  } else if (product.category === CHEVRONS) {
+    content = 'PlacingOrderForChevron';
   } else {
     content = 'PlacingOrderDetails';
   }

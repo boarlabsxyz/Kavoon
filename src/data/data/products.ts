@@ -8,6 +8,7 @@ import {
   PRODUCT_KIT,
   CUSTOMER_PARAMETERS,
   IN_STOCK,
+  CHEVRONS,
 } from 'src/data/constants';
 import { Cordura, Xpac } from './fabrics/fabrics';
 
@@ -926,6 +927,206 @@ const barrelBagWithEmbroideryYellow = () => ({
   createdAt: '2024-07-11',
 });
 
+const donutChevron = () => ({
+  id: 'donut',
+  name: 'ChevronDonut',
+  volume: null,
+  size: '7.5/7',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronDonutDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 160,
+    EUR: 4,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2024-03-20',
+});
+
+const ghostChevron = () => ({
+  id: 'ghost',
+  name: 'ChevronGhost',
+  volume: null,
+  size: '8/6.5',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronGhostDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 90,
+    EUR: 2,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
+const heartChevron = () => ({
+  id: 'heart',
+  name: 'ChevronHeart',
+  volume: null,
+  size: '7/6',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronHeartDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 120,
+    EUR: 3,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
+const coffeeChevron = () => ({
+  id: 'coffee',
+  name: 'ChevronCoffee',
+  volume: null,
+  size: '3/6.5',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronCoffeeDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 90,
+    EUR: 3,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
+const letsgoChevron = () => ({
+  id: 'letsgo',
+  name: 'ChevronLetsGo',
+  volume: null,
+  size: '3/6.5',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronLetsGoDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 90,
+    EUR: 3,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
+const sliceChevron = () => ({
+  id: 'slice',
+  name: 'ChevronSlice',
+  volume: null,
+  size: '4.5/4.5',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronSliceDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 70,
+    EUR: 2,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
+const stravaChevron = () => ({
+  id: 'strava',
+  name: 'ChevronStrava',
+  volume: null,
+  size: '3/6.5',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronStravaDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 90,
+    EUR: 3,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
+const veloCatChevron = () => ({
+  id: 'velo-cat',
+  name: 'ChevronVelocats',
+  volume: null,
+  size: '8/7',
+  weight: null,
+  material: null,
+  description: {
+    short: 'ChevronVelocatsDescription',
+    main: 'ChevronUsage',
+    conclusion: null,
+  },
+  gallery: 1,
+  price: {
+    UAH: 130,
+    EUR: 4,
+  },
+  fabrics: null,
+  embedVideo: null,
+  category: CHEVRONS,
+  subcategory: null,
+  productKit: null,
+  createdAt: '2025-03-20',
+});
+
 const Products: () => Product[] = () => [
   bikeWallet(),
   organizer(),
@@ -957,6 +1158,14 @@ const Products: () => Product[] = () => [
   halfFrameBagXpacYellowBlue(),
   // barrelBagWithEmbroideryBlue(),
   barrelBagWithEmbroideryYellow(),
+  donutChevron(),
+  ghostChevron(),
+  heartChevron(),
+  coffeeChevron(),
+  letsgoChevron(),
+  sliceChevron(),
+  stravaChevron(),
+  veloCatChevron(),
 ];
 
 export {
@@ -990,6 +1199,14 @@ export {
   halfFrameBagXpacYellowBlue,
   // barrelBagWithEmbroideryBlue,
   barrelBagWithEmbroideryYellow,
+  donutChevron,
+  ghostChevron,
+  heartChevron,
+  coffeeChevron,
+  letsgoChevron,
+  sliceChevron,
+  stravaChevron,
+  veloCatChevron,
 };
 
 export default Products;
