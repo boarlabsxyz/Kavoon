@@ -1,11 +1,27 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { render } from '@testing-library/react';
-import ChevronsPage from '../page';
+import ChevronsPage from './page';
 import { Language } from 'src/types/language';
+import { CHEVRONS } from 'src/data/constants';
+
+// Mock Next.js metadata
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/test-path',
+}));
 
 // Mock the components
 jest.mock('src/components/categoryPage/categoryProductsSection', () => ({
   __esModule: true,
-  default: () => <div data-testid="category-products-section" />,
+  default: ({ categoryId, lang }: { categoryId: string; lang: Language }) => (
+    <div
+      data-testid="category-products-section"
+      data-category={categoryId}
+      data-lang={lang}
+    />
+  ),
 }));
 
 jest.mock('src/components/common/reviewsSection', () => ({
@@ -13,26 +29,25 @@ jest.mock('src/components/common/reviewsSection', () => ({
   default: () => <div data-testid="reviews-section" />,
 }));
 
-// Create a test component that only includes the rendering part
-const TestChevronsPage = ({ lang }: { lang: Language }) => {
-  return (
-    <main style={{ marginBottom: '40px' }}>
-      <div data-testid="category-products-section" />
-      <div data-testid="reviews-section" />
-    </main>
-  );
-};
-
 describe('ChevronsPage', () => {
-  it('should render category products section and reviews section', () => {
-    const { getByTestId } = render(<TestChevronsPage lang="en" />);
+  const renderPage = (lang: Language = 'en') => {
+    return render(<ChevronsPage params={{ lang }} />);
+  };
 
-    expect(getByTestId('category-products-section')).toBeInTheDocument();
-    expect(getByTestId('reviews-section')).toBeInTheDocument();
+  it('should render category products section and reviews section', () => {
+    const { getByTestId } = renderPage();
+
+    const categorySection = getByTestId('category-products-section');
+    const reviewsSection = getByTestId('reviews-section');
+
+    expect(categorySection).toBeInTheDocument();
+    expect(reviewsSection).toBeInTheDocument();
+    expect(categorySection).toHaveAttribute('data-category', CHEVRONS);
+    expect(categorySection).toHaveAttribute('data-lang', 'en');
   });
 
   it('should have correct margin bottom style', () => {
-    const { container } = render(<TestChevronsPage lang="en" />);
+    const { container } = renderPage();
 
     const mainElement = container.querySelector('main');
     expect(mainElement).toHaveStyle({ marginBottom: '40px' });
