@@ -81,4 +81,46 @@ describe('Products', () => {
       expect(product.description).toHaveProperty('conclusion');
     });
   });
+
+  it('should have Chevrons products with valid structure', () => {
+    const products = Products();
+    const chevronProducts = products.filter((p) => p.category === CHEVRONS);
+
+    // Ensure there are Chevron products
+    expect(chevronProducts.length).toBeGreaterThan(0);
+
+    // Check Chevron-specific properties
+    chevronProducts.forEach((product) => {
+      // Basic properties
+      expect(product).toHaveProperty('id');
+      expect(product).toHaveProperty('name');
+      expect(product).toHaveProperty('price');
+      expect(product).toHaveProperty('gallery');
+      expect(product).toHaveProperty('createdAt');
+      expect(product).toHaveProperty('description');
+
+      // Chevron-specific properties
+      expect(product).toHaveProperty('size');
+      expect(product).toHaveProperty('weight');
+      expect(product).toHaveProperty('material');
+
+      // Price structure
+      expect(product.price).toHaveProperty('UAH');
+      expect(product.price).toHaveProperty('EUR');
+
+      // Description structure
+      expect(product.description).toHaveProperty('short');
+      expect(product.description).toHaveProperty('main');
+      expect(product.description).toHaveProperty('conclusion');
+
+      // Category should be CHEVRONS
+      expect(product.category).toBe(CHEVRONS);
+
+      // Subcategory should be null for Chevrons
+      expect(product.subcategory).toBeNull();
+
+      // ProductKit should be null for Chevrons
+      expect(product.productKit).toBeNull();
+    });
+  });
 });
