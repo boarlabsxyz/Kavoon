@@ -4,9 +4,11 @@ import {
   ALL_PRODUCTS,
   BAG_ACCESSORIES,
   BICYCLE_EQUIPMENT,
+  CHEVRONS,
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
 } from 'src/data/constants';
 import { SortingDirection } from 'src/types/sorting';
+import toKebabCase from 'src/helpers/toKebabCase';
 
 describe('filterShopVM', () => {
   const mockProducts: ProductListItemVM[] = [
@@ -32,6 +34,17 @@ describe('filterShopVM', () => {
       mainPropertyValue: '20L',
       unitNameOfMainProperty: 'L',
     }),
+    new ProductListItemVM({
+      id: 'chevron-1',
+      name: 'Chevron 1',
+      category: CHEVRONS,
+      subcategory: null,
+      price: { UAH: 150, EUR: 4 },
+      createdAt: '2023-01-03',
+      mainPropertyName: 'Size',
+      mainPropertyValue: '8/7',
+      unitNameOfMainProperty: 'cm',
+    }),
   ];
 
   it('should filter products by category', (done) => {
@@ -53,7 +66,7 @@ describe('filterShopVM', () => {
 
     filterByCategoryAndSubcategory(ALL_PRODUCTS, null, 'name', 'asc').subscribe(
       (filteredProducts) => {
-        expect(filteredProducts).toHaveLength(2);
+        expect(filteredProducts).toHaveLength(3);
         done();
       }
     );
@@ -103,6 +116,22 @@ describe('filterShopVM', () => {
     ).subscribe((filteredProducts) => {
       expect(filteredProducts[0].id).toBe('product-2');
       expect(filteredProducts[1].id).toBe('product-1');
+      expect(filteredProducts[2].id).toBe('chevron-1');
+      done();
+    });
+  });
+
+  it('should filter products by Chevrons category', (done) => {
+    const { filterAndLimitByCategory } = filterShopVM({
+      productVMs: mockProducts,
+    });
+
+    filterAndLimitByCategory(CHEVRONS).subscribe((filteredProducts) => {
+      expect(filteredProducts).toHaveLength(1);
+      expect(filteredProducts[0].id).toBe('chevron-1');
+      expect(toKebabCase(filteredProducts[0].category)).toBe(
+        toKebabCase(CHEVRONS)
+      );
       done();
     });
   });
