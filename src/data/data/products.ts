@@ -725,7 +725,7 @@ const handlebarMount = () => ({
   price: { UAH: 800, EUR: 25 },
   fabrics: null,
   embedVideo: { id: 'ylSSGONW8Hc', title: 'HandlebarMountVideoTitle' },
-  category: BICYCLE_EQUIPMENT,
+  category: BAG_ACCESSORIES,
   subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts,
   productKit: null,
   createdAt: '2023-12-22',
