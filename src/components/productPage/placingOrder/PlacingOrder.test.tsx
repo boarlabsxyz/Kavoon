@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
-import PlacingOrder from '../PlacingOrder';
-import { Language } from 'src/types/language';
+import PlacingOrder from './PlacingOrder';
 import Product from 'src/types/product';
 import {
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
