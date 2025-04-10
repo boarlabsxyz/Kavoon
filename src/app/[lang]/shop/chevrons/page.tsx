@@ -29,7 +29,7 @@ export async function generateMetadata({
   };
 }
 
-function ChevronsPage({ params: { lang } }: CategoryPageProps) {
+function ChevronsPage({ params: { lang } }: Readonly<CategoryPageProps>) {
   return (
     <main style={{ marginBottom: '40px' }}>
       <CategoryProductsSection categoryId={CHEVRONS} lang={lang} />

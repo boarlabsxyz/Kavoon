@@ -40,22 +40,20 @@ describe('Products', () => {
     const product = products.find((p) => p.price);
 
     if (product) {
-      const price = product.price as Price;
+      const price = product.price;
 
       if ('UAH' in price) {
         // Currencies type
-        const currencies = price as Currencies;
-        expect(typeof currencies.UAH).toBe('number');
-        expect(typeof currencies.EUR).toBe('number');
+        expect(typeof price.UAH).toBe('number');
+        expect(typeof price.EUR).toBe('number');
       } else {
         // FabricPrice type
-        const fabricPrice = price as FabricPrice;
-        expect(fabricPrice).toHaveProperty('cordura');
-        expect(fabricPrice).toHaveProperty('xpac');
-        expect(typeof fabricPrice.cordura.UAH).toBe('number');
-        expect(typeof fabricPrice.cordura.EUR).toBe('number');
-        expect(typeof fabricPrice.xpac.UAH).toBe('number');
-        expect(typeof fabricPrice.xpac.EUR).toBe('number');
+        expect(price).toHaveProperty('cordura');
+        expect(price).toHaveProperty('xpac');
+        expect(typeof price.cordura.UAH).toBe('number');
+        expect(typeof price.cordura.EUR).toBe('number');
+        expect(typeof price.xpac.UAH).toBe('number');
+        expect(typeof price.xpac.EUR).toBe('number');
       }
     }
   });
@@ -107,7 +105,7 @@ describe('Products', () => {
     const products = Products();
     const product = products.find((p) => p.embedVideo);
 
-    if (product && product.embedVideo) {
+    if (product?.embedVideo) {
       expect(product.embedVideo).toHaveProperty('id');
       expect(product.embedVideo).toHaveProperty('title');
     }
@@ -117,7 +115,7 @@ describe('Products', () => {
     const products = Products();
     const product = products.find((p) => p.productKit);
 
-    if (product && product.productKit) {
+    if (product?.productKit) {
       expect(product.productKit).toHaveProperty('id');
       expect(product.productKit).toHaveProperty('name');
       expect(product.productKit).toHaveProperty('imgPath');

@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-function ChevronsPageLayout({ children }: Props) {
+function ChevronsPageLayout({ children }: Readonly<Props>) {
   return <>{children}</>;
 }
 

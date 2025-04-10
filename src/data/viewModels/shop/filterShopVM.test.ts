@@ -7,7 +7,6 @@ import {
   CHEVRONS,
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
 } from 'src/data/constants';
-import { SortingDirection } from 'src/types/sorting';
 import toKebabCase from 'src/helpers/toKebabCase';
 
 describe('filterShopVM', () => {

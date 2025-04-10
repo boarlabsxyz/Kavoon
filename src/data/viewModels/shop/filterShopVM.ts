@@ -7,6 +7,22 @@ import { Category, Subcategory, ALL_PRODUCTS } from 'src/data/constants';
 import sortProducts from 'src/helpers/sortProducts';
 import { SortingDirection } from 'src/types/sorting';
 
+const filterProductsByCategory = (
+  products: ProductListItemVM[],
+  category: Category
+) =>
+  products.filter(
+    (product) => toKebabCase(product.category) === toKebabCase(category)
+  );
+
+const filterProductsBySubcategory = (
+  products: ProductListItemVM[],
+  subcategories: Subcategory[] | null
+) =>
+  subcategories
+    ? products.filter((product) => subcategories.includes(product.subcategory))
+    : products;
+
 const filterShopVM = ({
   productVMs: productList,
 }: {
@@ -17,13 +33,7 @@ const filterShopVM = ({
   const filterByCategory = (filterValue: Category) => {
     return combineLatest([of(filterValue), productData]).pipe(
       switchMap(([category, products]) =>
-        of(products).pipe(
-          map((data) =>
-            data.filter(
-              (bag) => toKebabCase(bag.category) === toKebabCase(category)
-            )
-          )
-        )
+        of(filterProductsByCategory(products, category))
       )
     );
   };
@@ -35,28 +45,24 @@ const filterShopVM = ({
     sortDirection: SortingDirection = 'desc'
   ) =>
     combineLatest([of(categoryValue), productData]).pipe(
-      switchMap(([category, products]) =>
-        of(products).pipe(
-          map((data) => {
-            if (toKebabCase(category) === toKebabCase(ALL_PRODUCTS)) {
-              return data;
-            }
-            return data.filter(
-              (bag) => toKebabCase(bag.category) === toKebabCase(category)
-            );
-          }),
-          map((filteredByCategory) =>
-            subcategories
-              ? filteredByCategory.filter((bag) =>
-                  subcategories.includes(bag.subcategory)
-                )
-              : filteredByCategory
-          ),
-          map((filteredAndSubcategories) =>
-            sortProducts(filteredAndSubcategories, sortField, sortDirection)
-          )
-        )
-      )
+      switchMap(([category, products]) => {
+        const filteredByCategory =
+          toKebabCase(category) === toKebabCase(ALL_PRODUCTS)
+            ? products
+            : filterProductsByCategory(products, category);
+
+        const filteredBySubcategory = filterProductsBySubcategory(
+          filteredByCategory,
+          subcategories
+        );
+        const sortedProducts = sortProducts(
+          filteredBySubcategory,
+          sortField,
+          sortDirection
+        );
+
+        return of(sortedProducts);
+      })
     );
 
   const filterAndLimitByCategory = (filterValue: Category, limit = 4) =>
