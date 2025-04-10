@@ -7,7 +7,9 @@ type Props = {
 };
 
 function PlacingOrderDetails({ text }: Props) {
-  const details: string[] = text.split('\n');
+  const details: string[] = text
+    .split('\n')
+    .filter((item) => item.trim() !== '');
 
   return (
     <ol className={st.detailsList}>

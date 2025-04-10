@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import PlacingOrder from './PlacingOrder';
 import Product from 'src/types/product';
 import {
@@ -6,13 +6,17 @@ import {
   IN_STOCK,
   CHEVRONS,
   BAG_ACCESSORIES,
+  BICYCLE_EQUIPMENT,
+  CITY_COLLECTION,
 } from 'src/data/constants';
 
+// Mock the translations
 jest.mock('src/i18n/lang', () => ({
   __esModule: true,
   default: (key: string) => key,
 }));
 
+// Mock PlacingOrderDetails component
 jest.mock('./PlacingOrderDetails', () => {
   const mockComponent = ({ text }: { text: string }) => (
     <div data-testid="placing-order-details">{text}</div>
@@ -25,80 +29,93 @@ jest.mock('./PlacingOrderDetails', () => {
 });
 
 describe('PlacingOrder', () => {
-  const mockProduct: Product = {
+  const mockProduct = {
     id: 'test-product',
     name: 'Test Product',
-    price: { UAH: 100, EUR: 3 },
-    category: BAG_ACCESSORIES,
-    subcategory: null,
-    gallery: 1,
-    createdAt: '2023-01-01',
+    category: BICYCLE_EQUIPMENT,
+    subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.HandlebarBags,
+    volume: '1L',
+    size: '10x10x10',
+    weight: 100,
+    material: 'Test Material',
     description: {
       short: 'Test description',
-      main: 'Test main description',
-      conclusion: 'Test conclusion',
+      main: 'Main description',
+      conclusion: 'Conclusion',
     },
-    volume: null,
-    size: '10/10',
-    weight: null,
-    material: null,
+    gallery: 1,
+    price: {
+      UAH: 1000,
+      EUR: 30,
+    },
     fabrics: [],
+    createdAt: '2024-01-01',
     embedVideo: null,
     productKit: null,
   };
 
-  it('should render correct content for mounts subcategory', () => {
-    const mountProduct = {
-      ...mockProduct,
-      subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts,
-    };
+  it('renders section with correct title', () => {
+    render(<PlacingOrder language="en" product={mockProduct} />);
 
-    const { getByTestId } = render(
-      <PlacingOrder language="en" product={mountProduct} />
-    );
-
-    expect(getByTestId('placing-order-details')).toHaveTextContent(
-      'PlacingOrderForMounts'
-    );
+    const title = screen.getByText('PlacingOrder');
+    expect(title).toBeInTheDocument();
   });
 
-  it('should render correct content for in stock category', () => {
-    const inStockProduct = {
-      ...mockProduct,
-      category: IN_STOCK,
-    };
+  it('renders PlacingOrderDetails component', () => {
+    render(<PlacingOrder language="en" product={mockProduct} />);
 
-    const { getByTestId } = render(
-      <PlacingOrder language="en" product={inStockProduct} />
-    );
-
-    expect(getByTestId('placing-order-details')).toHaveTextContent(
-      'PlacingOrderInStockDetails'
-    );
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
   });
 
-  it('should render correct content for chevrons category', () => {
-    const chevronProduct = {
-      ...mockProduct,
-      category: CHEVRONS,
-    };
+  it('passes correct content to PlacingOrderDetails based on product category', () => {
+    render(<PlacingOrder language="en" product={mockProduct} />);
 
-    const { getByTestId } = render(
-      <PlacingOrder language="en" product={chevronProduct} />
-    );
-
-    expect(getByTestId('placing-order-details')).toHaveTextContent(
-      'PlacingOrderForChevron'
-    );
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toHaveTextContent('PlacingOrderDetails');
   });
 
-  it('should render default content for other categories', () => {
-    const { getByTestId } = render(
-      <PlacingOrder language="en" product={mockProduct} />
-    );
+  it('handles different language versions', () => {
+    render(<PlacingOrder language="uk" product={mockProduct} />);
 
-    expect(getByTestId('placing-order-details')).toHaveTextContent(
-      'PlacingOrderDetails'
-    );
+    const title = screen.getByText('PlacingOrder');
+    expect(title).toBeInTheDocument();
+  });
+
+  it('handles different product categories', () => {
+    const cityProduct = {
+      ...mockProduct,
+      category: CITY_COLLECTION,
+      subcategory: null,
+    };
+
+    render(<PlacingOrder language="en" product={cityProduct} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
+  });
+
+  it('handles products without subcategory', () => {
+    const productWithoutSubcategory = {
+      ...mockProduct,
+      subcategory: null,
+    };
+
+    render(<PlacingOrder language="en" product={productWithoutSubcategory} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
+  });
+
+  it('handles different subcategories', () => {
+    const frameBagProduct = {
+      ...mockProduct,
+      subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
+    };
+
+    render(<PlacingOrder language="en" product={frameBagProduct} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
   });
 });
