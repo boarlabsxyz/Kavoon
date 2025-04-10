@@ -18,6 +18,7 @@ import {
   ALL_PRODUCTS,
   Subcategory,
   INITIAL_SORTING_OPTION,
+  CHEVRONS,
 } from 'src/data/constants';
 import { Language } from 'src/types/language';
 import { SortingDirection } from 'src/types/sorting';
@@ -82,7 +83,8 @@ function FilteringAndSortingSection({ lang, categoryId }: Props) {
   const isFilterApplicableForCategory =
     categoryId === toKebabCase(BICYCLE_EQUIPMENT) ||
     categoryId === toKebabCase(IN_STOCK) ||
-    categoryId === toKebabCase(ALL_PRODUCTS);
+    categoryId === toKebabCase(ALL_PRODUCTS) ||
+    categoryId === toKebabCase(CHEVRONS);
   return (
     <>
       <div className={st.wrapper}>

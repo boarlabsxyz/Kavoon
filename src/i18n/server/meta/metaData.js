@@ -392,6 +392,142 @@ const metaData = {
         'Mocowanie na kierownicę ma prostą konstrukcję i przejrzystą funkcjonalność. Można go łatwo zamontować na rowerze',
     },
   },
+  donut: {
+    uk: {
+      title: 'Шеврон "Пончик"',
+      description:
+        'Кавунський пончик, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
+    },
+    en: {
+      title: 'Chevron "Donut"',
+      description:
+        'The watermelon donut is a tribute and a reminder of the sunny and juicy south of our country.',
+    },
+    pl: {
+      title: 'Naszywka "Pączek"',
+      description:
+        'Arbuzowy pączek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+    },
+  },
+  ghost: {
+    uk: {
+      title: 'Шеврон "Привид"',
+      description:
+        'Привид вишитий на світловідбиваючий тканині, тому буде вірним супутником в темну пору доби.',
+    },
+    en: {
+      title: 'Chevron "Ghost"',
+      description:
+        'The ghost is embroidered on reflective fabric, making it a reliable companion in the dark.',
+    },
+    pl: {
+      title: 'Naszywka "Duch"',
+      description:
+        'Duch jest haftowany na odblaskowej tkaninie, dzięki czemu będzie niezawodnym towarzyszem po zmroku.',
+    },
+  },
+  heart: {
+    uk: {
+      title: 'Шеврон "Сердечко"',
+      description:
+        'Кавунське сердечко, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
+    },
+    en: {
+      title: 'Chevron "Heart"',
+      description:
+        'The watermelon heart is a tribute and a reminder of the sunny and juicy south of our country.',
+    },
+    pl: {
+      title: 'Naszywka "Serduszko"',
+      description:
+        'Arbuzowe serduszko to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+    },
+  },
+  slice: {
+    uk: {
+      title: 'Шеврон "Скибка"',
+      description:
+        'Кавунська скибка, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
+    },
+    en: {
+      title: 'Chevron "Slice"',
+      description:
+        'The watermelon slice is a tribute and a reminder of the sunny and juicy south of our country.',
+    },
+    pl: {
+      title: 'Naszywka "Kawałek"',
+      description:
+        'Arbuzowy kawałek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+    },
+  },
+  coffee: {
+    uk: {
+      title: 'Шеврон "Кава"',
+      description:
+        'Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Let\'s Go".',
+    },
+    en: {
+      title: 'Chevron "Coffee"',
+      description:
+        'This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" chevrons.',
+    },
+    pl: {
+      title: 'Naszywka "Kawa"',
+      description:
+        'Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Let\'s Go".',
+    },
+  },
+  'velo-cat': {
+    uk: {
+      title: 'Шеврон "Велокотики"',
+      description:
+        'Шеврон розроблено для велосипедистів, які боронять нашу землю від російської навали.',
+    },
+    en: {
+      title: 'Chevron "Velocats"',
+      description:
+        'This chevron is designed for cyclists who defend our land against the Russian invasion.',
+    },
+    pl: {
+      title: 'Naszywka "Rowerowe Koty"',
+      description:
+        'Ta naszywka została zaprojektowana dla rowerzystów, którzy bronią naszej ziemi przed rosyjską inwazją.',
+    },
+  },
+  strava: {
+    uk: {
+      title: 'Шеврон "Strava"',
+      description:
+        'Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Кава" та "Let\'s Go".',
+    },
+    en: {
+      title: 'Chevron "Strava"',
+      description:
+        'This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" chevrons.',
+    },
+    pl: {
+      title: 'Naszywka "Strava"',
+      description:
+        'Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Kawa" i "Let\'s Go".',
+    },
+  },
+  letsgo: {
+    uk: {
+      title: 'Шеврон "Let\'s Go"',
+      description:
+        'Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Кава".',
+    },
+    en: {
+      title: 'Chevron "Let\'s Go"',
+      description:
+        'This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Coffee" chevrons.',
+    },
+    pl: {
+      title: 'Naszywka "Let\'s Go"',
+      description:
+        'Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Kawa"',
+    },
+  },
   'hamster-cordura-navyblue-foxes': commonTranslations.hamster,
   'hamster-cordura-black-embroidery': commonTranslations.hamster,
   'half-frame-bag-xpac-orange': commonTranslations.halfFrameBag,

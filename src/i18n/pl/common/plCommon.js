@@ -220,7 +220,8 @@ const Language = {
   AllProducts: 'Wszystkie towary',
   BicycleEquipment: 'Sprzęt rowerowy',
   CityCollection: 'Kolekcja miejska',
-  BagAccessories: 'Akcesoria do toreb',
+  BagAccessories: 'Akcesoria i uchwyty',
+  Chevrons: 'Szewrony',
   InStock: 'Na stanie',
 
   HandlebarBags: 'Torby na kierownicę',

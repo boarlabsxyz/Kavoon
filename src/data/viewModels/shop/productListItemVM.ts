@@ -1,5 +1,7 @@
 import {
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
+  IN_STOCK,
+  CHEVRONS,
   Category,
   Subcategory,
 } from 'src/data/constants';
@@ -68,7 +70,8 @@ export default class ProductListItemVM {
     this.href = `/${'shop'}/${toKebabCase(category)}/${id}`;
     this.allowColorOptionBlock =
       subcategory !== SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts &&
-      category !== 'InStock';
+      category !== IN_STOCK &&
+      category !== CHEVRONS;
     this.category = category;
     this.subcategory = subcategory;
     this.hasTopBadge = productIDCollectionForTopSalesBadge.includes(id);
