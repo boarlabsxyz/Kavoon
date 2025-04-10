@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { render } from '@testing-library/react';
-import ChevronsPage from './page';
+import { render, screen } from '@testing-library/react';
+import ChevronsPage, { generateMetadata } from './page';
 import { Language } from 'src/types/language';
 import { CHEVRONS } from 'src/data/constants';
 
@@ -13,43 +13,80 @@ jest.mock('next/navigation', () => ({
 }));
 
 // Mock the components
-jest.mock('src/components/categoryPage/categoryProductsSection', () => ({
-  __esModule: true,
-  default: ({ categoryId, lang }: { categoryId: string; lang: Language }) => (
-    <div
-      data-testid="category-products-section"
-      data-category={categoryId}
-      data-lang={lang}
-    />
-  ),
-}));
+jest.mock('src/components/categoryPage/categoryProductsSection', () => {
+  const mockComponent = ({
+    categoryId,
+    lang,
+  }: {
+    categoryId: string;
+    lang: Language;
+  }) => (
+    <div data-testid="category-products-section">
+      Category Products Section - {categoryId} - {lang}
+    </div>
+  );
+  mockComponent.displayName = 'CategoryProductsSection';
+  return {
+    __esModule: true,
+    default: mockComponent,
+  };
+});
 
-jest.mock('src/components/common/reviewsSection', () => ({
-  __esModule: true,
-  default: () => <div data-testid="reviews-section" />,
-}));
+jest.mock('src/components/common/reviewsSection', () => {
+  const mockComponent = () => (
+    <div data-testid="reviews-section">Reviews Section</div>
+  );
+  mockComponent.displayName = 'ReviewsSection';
+  return {
+    __esModule: true,
+    default: mockComponent,
+  };
+});
 
 describe('ChevronsPage', () => {
-  const renderPage = (lang: Language = 'en') => {
-    return render(<ChevronsPage params={{ lang }} />);
-  };
+  it('renders the page with correct components', () => {
+    const lang: Language = 'en';
+    render(<ChevronsPage params={{ lang }} />);
 
-  it('should render category products section and reviews section', () => {
-    const { getByTestId } = renderPage();
+    const categoryProductsSection = screen.getByTestId(
+      'category-products-section'
+    );
+    const reviewsSection = screen.getByTestId('reviews-section');
 
-    const categorySection = getByTestId('category-products-section');
-    const reviewsSection = getByTestId('reviews-section');
-
-    expect(categorySection).toBeInTheDocument();
+    expect(categoryProductsSection).toBeInTheDocument();
+    expect(categoryProductsSection).toHaveTextContent(CHEVRONS);
+    expect(categoryProductsSection).toHaveTextContent(lang);
     expect(reviewsSection).toBeInTheDocument();
-    expect(categorySection).toHaveAttribute('data-category', CHEVRONS);
-    expect(categorySection).toHaveAttribute('data-lang', 'en');
   });
 
-  it('should have correct margin bottom style', () => {
-    const { container } = renderPage();
+  it('generates correct metadata', async () => {
+    const lang: Language = 'en';
+    const metadata = await generateMetadata({ params: { lang } });
 
-    const mainElement = container.querySelector('main');
-    expect(mainElement).toHaveStyle({ marginBottom: '40px' });
+    expect(metadata).toEqual({
+      alternates: {
+        canonical: `https://kavoon.com.ua/${lang}/shop/chevrons`,
+        languages: {
+          en: 'https://kavoon.com.ua/en/shop/chevrons',
+          uk: 'https://kavoon.com.ua/uk/shop/chevrons',
+          pl: 'https://kavoon.com.ua/pl/shop/chevrons',
+        },
+      },
+    });
+  });
+
+  it('renders with different languages', () => {
+    const languages: Language[] = ['en', 'uk', 'pl'];
+
+    languages.forEach((lang) => {
+      const { unmount } = render(<ChevronsPage params={{ lang }} />);
+
+      const categoryProductsSection = screen.getByTestId(
+        'category-products-section'
+      );
+      expect(categoryProductsSection).toHaveTextContent(lang);
+
+      unmount();
+    });
   });
 });

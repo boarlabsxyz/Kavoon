@@ -1,19 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import PlacingOrder from './PlacingOrder';
-import Product from 'src/types/product';
-import {
-  SUBCATEGORIES_BICYCLE_EQUIPMENT,
-  IN_STOCK,
-  CHEVRONS,
-  BAG_ACCESSORIES,
-  BICYCLE_EQUIPMENT,
-  CITY_COLLECTION,
-} from 'src/data/constants';
-
 // Mock the translations
 jest.mock('src/i18n/lang', () => ({
   __esModule: true,
-  default: (key: string) => key,
+  default: jest.fn().mockImplementation((key: string) => key),
 }));
 
 // Mock PlacingOrderDetails component
@@ -28,8 +16,24 @@ jest.mock('./PlacingOrderDetails', () => {
   };
 });
 
+import { render, screen } from '@testing-library/react';
+import PlacingOrder from './PlacingOrder';
+import Product from 'src/types/product';
+import {
+  SUBCATEGORIES_BICYCLE_EQUIPMENT,
+  IN_STOCK,
+  CHEVRONS,
+  BAG_ACCESSORIES,
+  BICYCLE_EQUIPMENT,
+  CITY_COLLECTION,
+} from 'src/data/constants';
+
 describe('PlacingOrder', () => {
-  const mockProduct = {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const mockProduct: Product = {
     id: 'test-product',
     name: 'Test Product',
     category: BICYCLE_EQUIPMENT,
@@ -83,7 +87,7 @@ describe('PlacingOrder', () => {
   });
 
   it('handles different product categories', () => {
-    const cityProduct = {
+    const cityProduct: Product = {
       ...mockProduct,
       category: CITY_COLLECTION,
       subcategory: null,
@@ -96,7 +100,7 @@ describe('PlacingOrder', () => {
   });
 
   it('handles products without subcategory', () => {
-    const productWithoutSubcategory = {
+    const productWithoutSubcategory: Product = {
       ...mockProduct,
       subcategory: null,
     };
@@ -108,7 +112,7 @@ describe('PlacingOrder', () => {
   });
 
   it('handles different subcategories', () => {
-    const frameBagProduct = {
+    const frameBagProduct: Product = {
       ...mockProduct,
       subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.FrameBag,
     };
@@ -117,5 +121,78 @@ describe('PlacingOrder', () => {
 
     const detailsComponent = screen.getByTestId('placing-order-details');
     expect(detailsComponent).toBeInTheDocument();
+  });
+
+  it('handles chevrons category correctly', () => {
+    const chevronProduct: Product = {
+      ...mockProduct,
+      category: CHEVRONS,
+      subcategory: null,
+    };
+
+    render(<PlacingOrder language="en" product={chevronProduct} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
+    expect(detailsComponent).toHaveTextContent('PlacingOrderForChevron');
+  });
+
+  it('handles in stock category correctly', () => {
+    const inStockProduct: Product = {
+      ...mockProduct,
+      category: IN_STOCK,
+      subcategory: null,
+    };
+
+    render(<PlacingOrder language="en" product={inStockProduct} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
+    expect(detailsComponent).toHaveTextContent('PlacingOrderInStockDetails');
+  });
+
+  it('handles mounts subcategory correctly', () => {
+    const mountProduct: Product = {
+      ...mockProduct,
+      subcategory: SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts,
+    };
+
+    render(<PlacingOrder language="en" product={mountProduct} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
+    expect(detailsComponent).toHaveTextContent('PlacingOrderForMounts');
+  });
+
+  it('handles bag accessories category correctly', () => {
+    const bagAccessoriesProduct: Product = {
+      ...mockProduct,
+      category: BAG_ACCESSORIES,
+      subcategory: null,
+    };
+
+    render(<PlacingOrder language="en" product={bagAccessoriesProduct} />);
+
+    const detailsComponent = screen.getByTestId('placing-order-details');
+    expect(detailsComponent).toBeInTheDocument();
+    expect(detailsComponent).toHaveTextContent('PlacingOrderDetails');
+  });
+
+  it('applies correct CSS classes', () => {
+    render(<PlacingOrder language="en" product={mockProduct} />);
+
+    const section = screen.getByTestId('placing-order-section');
+    const title = screen.getByText('PlacingOrder');
+
+    expect(section).toHaveClass('section');
+    expect(title).toHaveClass('title');
+  });
+
+  it('passes correct language to translations', () => {
+    render(<PlacingOrder language="uk" product={mockProduct} />);
+
+    const langMock = require('src/i18n/lang').default;
+    expect(langMock).toHaveBeenCalledWith('PlacingOrder', 'uk');
+    expect(langMock).toHaveBeenCalledWith('PlacingOrderDetails', 'uk');
   });
 });
