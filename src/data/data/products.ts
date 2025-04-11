@@ -931,7 +931,7 @@ const donutChevron = () => ({
   id: 'donut',
   name: 'ChevronDonut',
   volume: null,
-  size: '7.5/7',
+  size: '7 x 7.5',
   weight: null,
   material: null,
   description: {
@@ -939,7 +939,7 @@ const donutChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 3,
   price: {
     UAH: 160,
     EUR: 4,
@@ -956,7 +956,7 @@ const ghostChevron = () => ({
   id: 'ghost',
   name: 'ChevronGhost',
   volume: null,
-  size: '8/6.5',
+  size: '6.5 x 8',
   weight: null,
   material: null,
   description: {
@@ -964,7 +964,7 @@ const ghostChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 5,
   price: {
     UAH: 90,
     EUR: 2,
@@ -981,7 +981,7 @@ const heartChevron = () => ({
   id: 'heart',
   name: 'ChevronHeart',
   volume: null,
-  size: '7/6',
+  size: '6 x 7',
   weight: null,
   material: null,
   description: {
@@ -989,7 +989,7 @@ const heartChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 3,
   price: {
     UAH: 120,
     EUR: 3,
@@ -1006,7 +1006,7 @@ const coffeeChevron = () => ({
   id: 'coffee',
   name: 'ChevronCoffee',
   volume: null,
-  size: '3/6.5',
+  size: '6.5 x 3',
   weight: null,
   material: null,
   description: {
@@ -1014,7 +1014,7 @@ const coffeeChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 4,
   price: {
     UAH: 90,
     EUR: 3,
@@ -1031,7 +1031,7 @@ const letsgoChevron = () => ({
   id: 'letsgo',
   name: 'ChevronLetsGo',
   volume: null,
-  size: '3/6.5',
+  size: '6.5 x 3',
   weight: null,
   material: null,
   description: {
@@ -1039,7 +1039,7 @@ const letsgoChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 4,
   price: {
     UAH: 90,
     EUR: 3,
@@ -1056,7 +1056,7 @@ const sliceChevron = () => ({
   id: 'slice',
   name: 'ChevronSlice',
   volume: null,
-  size: '4.5/4.5',
+  size: '4.5 x 4.5',
   weight: null,
   material: null,
   description: {
@@ -1064,7 +1064,7 @@ const sliceChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 3,
   price: {
     UAH: 70,
     EUR: 2,
@@ -1081,7 +1081,7 @@ const stravaChevron = () => ({
   id: 'strava',
   name: 'ChevronStrava',
   volume: null,
-  size: '3/6.5',
+  size: '6.5 x 3',
   weight: null,
   material: null,
   description: {
@@ -1089,7 +1089,7 @@ const stravaChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 4,
   price: {
     UAH: 90,
     EUR: 3,
@@ -1106,7 +1106,7 @@ const veloCatChevron = () => ({
   id: 'velo-cat',
   name: 'ChevronVelocats',
   volume: null,
-  size: '8/7',
+  size: '7 x 8',
   weight: null,
   material: null,
   description: {
@@ -1114,7 +1114,7 @@ const veloCatChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
-  gallery: 1,
+  gallery: 3,
   price: {
     UAH: 130,
     EUR: 4,
