@@ -5,7 +5,6 @@ import {
   CITY_COLLECTION,
   CHEVRONS,
 } from 'src/data/constants';
-import { Price, Currencies, FabricPrice } from 'src/types/product';
 
 describe('Products', () => {
   it('returns an array of products', () => {
