@@ -25,6 +25,6 @@ export default class InfoSectionVM {
     this.material = product.material;
     this.description = product.description.main;
     this.conclusion = product.description.conclusion;
-    this.mounts = product.mounts;
+    this.mounts = product.mounts || '';
   }
 }
