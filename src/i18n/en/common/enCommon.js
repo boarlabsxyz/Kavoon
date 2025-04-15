@@ -72,7 +72,7 @@ const Language = {
   InfoBeforeSelecting:
     'We sew each bag individually. The bag can be one color, several colors or with a print.\nWe select the design of the bag together with you.',
   MountsManufacturerInfo:
-    'The mount has a simple design and clear functionality.\nIt is easily mounted on a bicycle.\nPay attention! Mounts are suitable only for Kavoonbags (not suitable for bags from other manufacturers)',
+    'The mount has a simple design and clear functionality.\nIt is easily mounted on a bicycle.\n\u00A0\nPay attention! Mounts are suitable only for Kavoonbags (not suitable for bags from other manufacturers)',
 
   // Choose Fabric modal
   ChooseFabric: 'Choose the fabric (type and color)',

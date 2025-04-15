@@ -65,7 +65,12 @@ type Product = {
   sizeOfTheClosedBag?: boolean;
   weight: Weight;
   material: string;
-  description: { short: string; main: string; conclusion: string };
+  description: {
+    short: string;
+    main: string;
+    conclusion: string;
+  };
+  mounts?: string;
   gallery: number;
   price: Price;
   fabrics: ProductFabricData[] | Fabric;

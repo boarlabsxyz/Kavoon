@@ -15,6 +15,8 @@ export default class InfoSectionVM {
 
   conclusion: string;
 
+  mounts: string;
+
   constructor(product: Product) {
     this.volume = product.volume;
     this.size = product.size;
@@ -23,5 +25,6 @@ export default class InfoSectionVM {
     this.material = product.material;
     this.description = product.description.main;
     this.conclusion = product.description.conclusion;
+    this.mounts = product.mounts;
   }
 }

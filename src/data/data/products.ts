@@ -16,7 +16,7 @@ const bikeWallet = () => ({
   id: 'bike-wallet',
   name: 'BikeWallet',
   volume: null,
-  size: `13/8`,
+  size: `13 x 8`,
   weight: null,
   material: null,
   description: {
@@ -44,7 +44,7 @@ const organizer = () => ({
   id: 'organizer',
   name: 'Organizer',
   volume: null,
-  size: `18/12/5`,
+  size: `18 x 12 x 5`,
   weight: null,
   material: null,
   description: {
@@ -69,7 +69,7 @@ const backpackForCity = () => ({
   id: 'backpack-for-city',
   name: 'BackpackForCity',
   volume: null,
-  size: '40/25/12',
+  size: '40 x 25 x 12',
   sizeOfTheClosedBag: true,
   weight: null,
   material: null,
@@ -95,7 +95,7 @@ const hamster = () => ({
   id: 'hamster',
   name: 'Hamster',
   volume: '1',
-  size: `22/9/10`,
+  size: `22 x 9 x 10`,
   weight: [
     {
       fabric: 'Cordura',
@@ -129,7 +129,7 @@ const barrelBagWithoutValve = () => ({
   id: 'barrel-bag-without-valve',
   name: 'BarrelBagWithoutValve',
   volume: '3',
-  size: `14/25`,
+  size: `14 x 25`,
   weight: [
     {
       fabric: 'Cordura',
@@ -163,7 +163,7 @@ const seatBag3L = () => ({
   id: 'seat-bag-3l',
   name: 'SeatBag3l',
   volume: '3',
-  size: `11/12/30`,
+  size: `11 x 12 x 30`,
   weight: [
     {
       fabric: 'Cordura',
@@ -237,7 +237,7 @@ const triangularBicycleFirstAidKitFrame = () => ({
   id: 'triangular-bicycle-first-aid-kit-frame',
   name: 'TriangularBicycleFirstAidKitFrame',
   volume: '0.5',
-  size: `18/15/6`,
+  size: `18 x 15 x 6`,
   weight: [
     {
       fabric: 'Cordura',
@@ -271,7 +271,7 @@ const smallBagTubeOnBar = () => ({
   id: 'small-bag-tube-on-bar',
   name: 'SmallBagTubeOnBar',
   volume: '4',
-  size: `24/21/14`,
+  size: `24 x 21 x 14`,
   weight: [
     {
       fabric: 'Cordura',
@@ -305,7 +305,7 @@ const bananaOnBar = () => ({
   id: 'banana-on-bar',
   name: 'BananaOnBar',
   volume: '4',
-  size: `17/33/14`,
+  size: `17 x 33 x 14`,
   weight: [
     {
       fabric: 'Cordura',
@@ -339,7 +339,7 @@ const seatBag5L = () => ({
   id: 'seat-bag-5l',
   name: 'SeatBag5l',
   volume: '5',
-  size: `16/17/38`,
+  size: `16 x 17 x 38`,
   weight: [
     {
       fabric: 'Cordura',
@@ -407,7 +407,7 @@ const barrelBagWithValve = () => ({
   id: 'barrel-bag-with-valve',
   name: 'BarrelBagWithValve',
   volume: '3',
-  size: `14/25`,
+  size: `14 x 25`,
   weight: [
     {
       fabric: 'Cordura',
@@ -477,7 +477,7 @@ const ovalBarrelbag = () => ({
   id: 'oval-barrelbag',
   name: 'OvalBarrelbag',
   volume: '3.5',
-  size: `19/14/25`,
+  size: `19 x 14 x 25`,
   weight: [
     {
       fabric: 'Cordura',
@@ -511,7 +511,7 @@ const smallToolSeatbag = () => ({
   id: 'small-tool-seatbag',
   name: 'SmallToolSeatbag',
   volume: '0.8',
-  size: `21/5-7/11`,
+  size: `21 x 5-7 x 11`,
   weight: null,
   material: null,
   description: {
@@ -536,7 +536,7 @@ const barrelBagMini = () => ({
   id: 'barrel-bag-mini',
   name: 'BarrelBagMini',
   volume: '0.75',
-  size: '19.5/8',
+  size: '19.5 x 8',
   weight: [
     {
       fabric: 'Cordura',
@@ -570,7 +570,7 @@ const tacticalStembag = () => ({
   id: 'tactical-stembag',
   name: 'TacticalStembag',
   volume: '1.0',
-  size: '22/9/10',
+  size: '22 x 9 x 10',
   weight: [
     {
       fabric: 'Cordura',
@@ -629,7 +629,7 @@ const barrelbagWithVelcro = () => ({
   id: 'barrelbag-with-velcro',
   name: 'BarrelbagWithVelcro',
   volume: '3',
-  size: '14/25',
+  size: '14 x 25',
   weight: [
     {
       fabric: 'Cordura',
@@ -663,7 +663,7 @@ const phonePouch = () => ({
   id: 'phone-pouch',
   name: 'PhonePouch',
   volume: null,
-  size: '17/8',
+  size: '17 x 8',
   weight: null,
   material: null,
   description: {
@@ -688,7 +688,7 @@ const universalBagForCity = () => ({
   id: 'universal-bag-for-city',
   name: 'UniversalBagForCity',
   volume: '1',
-  size: '12/9/20',
+  size: '12 x 9 x 20',
   weight: null,
   material: null,
   description: {
@@ -735,7 +735,7 @@ const handlebarMount = () => ({
 //   id: 'hamster-xpac-without-pockets',
 //   name: 'Hamster',
 //   volume: '1',
-//   size: `22/9/10`,
+//   size: `22 x 9 x 10`,
 //   weight: [
 //     {
 //       fabric: 'Xpac',
@@ -763,7 +763,7 @@ const hamsterCorduraNavyBlueFoxes = () => ({
   id: 'hamster-cordura-navyblue-foxes',
   name: 'Hamster',
   volume: '1',
-  size: `22/9/10`,
+  size: `22 x 9 x 10`,
   weight: [
     {
       fabric: 'Cordura',
@@ -791,7 +791,7 @@ const hamsterCorduraBlackEmbroidery = () => ({
   id: 'hamster-cordura-black-embroidery',
   name: 'Hamster',
   volume: '0.7',
-  size: `16/9/10`,
+  size: `16 x 9 x 10`,
   weight: [
     {
       fabric: 'Cordura',
@@ -819,7 +819,7 @@ const halfFrameBagXpacOrange = () => ({
   id: 'half-frame-bag-xpac-orange',
   name: 'HalfFrameBag',
   volume: '~ 1',
-  size: `10/30/6`,
+  size: `10 x 30 x 6`,
   weight: [
     {
       fabric: 'Xpac',
@@ -847,7 +847,7 @@ const halfFrameBagXpacYellowBlue = () => ({
   id: 'half-frame-bag-xpac-yellow-blue',
   name: 'HalfFrameBag',
   volume: '~ 1',
-  size: `10/30/6`,
+  size: `10 x 30 x 6`,
   weight: [
     {
       fabric: 'Xpac',
@@ -875,7 +875,7 @@ const halfFrameBagXpacYellowBlue = () => ({
 //   id: 'barrel-bag-with-embroidery-blue',
 //   name: 'BarrelBagWithEmbroidery',
 //   volume: '3',
-//   size: `14/25`,
+//   size: `14 x 25`,
 //   weight: [
 //     {
 //       fabric: 'Cordura',
@@ -903,7 +903,7 @@ const barrelBagWithEmbroideryYellow = () => ({
   id: 'barrel-bag-with-embroidery-yellow',
   name: 'BarrelBagWithEmbroidery',
   volume: '3',
-  size: `14/25`,
+  size: `14 x 25`,
   weight: [
     {
       fabric: 'Cordura',
@@ -939,6 +939,7 @@ const donutChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 3,
   price: {
     UAH: 160,
@@ -964,6 +965,7 @@ const ghostChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 5,
   price: {
     UAH: 90,
@@ -989,6 +991,7 @@ const heartChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 3,
   price: {
     UAH: 120,
@@ -1014,6 +1017,7 @@ const coffeeChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 4,
   price: {
     UAH: 90,
@@ -1039,6 +1043,7 @@ const letsgoChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 4,
   price: {
     UAH: 90,
@@ -1064,6 +1069,7 @@ const sliceChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 3,
   price: {
     UAH: 70,
@@ -1089,6 +1095,7 @@ const stravaChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 4,
   price: {
     UAH: 90,
@@ -1114,6 +1121,7 @@ const veloCatChevron = () => ({
     main: 'ChevronUsage',
     conclusion: null,
   },
+  mounts: 'ChevronMountType',
   gallery: 3,
   price: {
     UAH: 130,
