@@ -1,10 +1,8 @@
-// Mock the translations
 jest.mock('src/i18n/lang', () => ({
   __esModule: true,
   default: jest.fn().mockImplementation((key: string) => key),
 }));
 
-// Mock PlacingOrderDetails component
 jest.mock('./PlacingOrderDetails', () => {
   const mockComponent = ({ text }: { text: string }) => (
     <div data-testid="placing-order-details">{text}</div>
