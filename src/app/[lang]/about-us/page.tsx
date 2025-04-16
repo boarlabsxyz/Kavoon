@@ -33,7 +33,18 @@ async function AboutUsPage({ params: { lang } }: Props) {
     const i18n = (await getDictionary(lang, 'aboutUs')) as I18N;
     return <AboutUs dictionary={i18n} />;
   } catch (error) {
-    return <div>Error loading About Us page.</div>;
+    console.error('Failed to load About Us page:', error);
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[50vh] p-4">
+        <h2 className="text-xl font-semibold mb-2">
+          Error loading About Us page
+        </h2>
+        <p className="text-gray-600">
+          Please try refreshing the page or contact support if the problem
+          persists.
+        </p>
+      </div>
+    );
   }
 }
 

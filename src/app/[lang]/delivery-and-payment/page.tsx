@@ -32,7 +32,18 @@ async function DeliveryAndPaymentPage({ params: { lang } }: Props) {
     const i18n = (await getDictionary(lang, 'deliveryAndPayment')) as I18N;
     return <DeliveryAndPayment dictionary={i18n} />;
   } catch (error) {
-    return <div>Error loading Delivery and Payment page.</div>;
+    console.error('Failed to load Delivery and Payment page:', error);
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[50vh] p-4">
+        <h2 className="text-xl font-semibold mb-2">
+          Error loading Delivery and Payment page
+        </h2>
+        <p className="text-gray-600">
+          Please try refreshing the page or contact support if the problem
+          persists.
+        </p>
+      </div>
+    );
   }
 }
 
