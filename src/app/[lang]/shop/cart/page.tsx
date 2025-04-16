@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import brandingConst from 'src/data/brandingConst';
 import { Language } from 'src/types/language';
 
 const StatusSection = dynamic(
@@ -20,17 +21,17 @@ type Props = {
 };
 
 export function generateMetadata({ params }: Props): Metadata {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const { lang } = params;
   const path = '/shop/cart';
 
   return {
     alternates: {
-      canonical: `${baseUrl}/${lang}${path}`,
+      canonical: `${siteUrl}/${lang}${path}`,
       languages: {
-        en: `${baseUrl}/en${path}`,
-        uk: `${baseUrl}/uk${path}`,
-        pl: `${baseUrl}/pl${path}`,
+        en: `${siteUrl}/en${path}`,
+        uk: `${siteUrl}/uk${path}`,
+        pl: `${siteUrl}/pl${path}`,
       },
     },
   };

@@ -4,6 +4,7 @@ import CategoryProductsSection from 'src/components/categoryPage/categoryProduct
 import ReviewsSection from 'src/components/common/reviewsSection';
 
 import { Metadata } from 'next';
+import brandingConst from 'src/data/brandingConst';
 
 type CategoryPageProps = {
   params: { categoryId: Category; lang: Language };
@@ -12,19 +13,19 @@ type CategoryPageProps = {
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const { lang, categoryId } = params;
 
   const categoryPath = categoryId ? `/shop/${categoryId}` : 'shop';
 
   return {
     alternates: {
-      canonical: `${baseUrl}/${lang}${categoryPath}`,
+      canonical: `${siteUrl}/${lang}${categoryPath}`,
 
       languages: {
-        en: `${baseUrl}/en${categoryPath}`,
-        uk: `${baseUrl}/uk${categoryPath}`,
-        pl: `${baseUrl}/pl${categoryPath}`,
+        en: `${siteUrl}/en${categoryPath}`,
+        uk: `${siteUrl}/uk${categoryPath}`,
+        pl: `${siteUrl}/pl${categoryPath}`,
       },
     },
   };

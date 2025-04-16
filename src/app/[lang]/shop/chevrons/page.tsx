@@ -2,6 +2,7 @@ import { Language } from 'src/types/language';
 import CategoryProductsSection from 'src/components/categoryPage/categoryProductsSection';
 import ReviewsSection from 'src/components/common/reviewsSection';
 import { CHEVRONS } from 'src/data/constants';
+import brandingConst from 'src/data/brandingConst';
 
 import { Metadata } from 'next';
 
@@ -12,18 +13,18 @@ type CategoryPageProps = {
 export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const { lang } = params;
 
   const categoryPath = '/shop/chevrons';
 
   return {
     alternates: {
-      canonical: `${baseUrl}/${lang}${categoryPath}`,
+      canonical: `${siteUrl}/${lang}${categoryPath}`,
       languages: {
-        en: `${baseUrl}/en${categoryPath}`,
-        uk: `${baseUrl}/uk${categoryPath}`,
-        pl: `${baseUrl}/pl${categoryPath}`,
+        en: `${siteUrl}/en${categoryPath}`,
+        uk: `${siteUrl}/uk${categoryPath}`,
+        pl: `${siteUrl}/pl${categoryPath}`,
       },
     },
   };
