@@ -71,7 +71,7 @@ const Language = {
   InfoBeforeSelecting:
     'Każdą torbę szyjemy indywidualnie. Torba może być jednokolorowa, wielokolorowa lub z nadrukiem.\nProjekt torby wybieramy wspólnie z Tobą',
   MountsManufacturerInfo:
-    'Mocowanie na kierownicę ma prostą konstrukcję i przejrzystą funkcjonalność.\nMożna go łatwo zamontować na rowerze.\nZwróć uwagę! Mocowanie pasują wyłącznie do toreb Kavoon (nie nadają się do toreb innych producentów)',
+    'Mocowanie na kierownicę ma prostą konstrukcję i przejrzystą funkcjonalność.\nMożna go łatwo zamontować na rowerze.\n\u00A0\nZwróć uwagę! Mocowanie pasują wyłącznie do toreb Kavoon (nie nadają się do toreb innych producentów)',
 
   // Choose Fabric modal
   ChooseFabric: 'Wybrać tkaninę (rodzaj i kolor)',
@@ -220,7 +220,8 @@ const Language = {
   AllProducts: 'Wszystkie towary',
   BicycleEquipment: 'Sprzęt rowerowy',
   CityCollection: 'Kolekcja miejska',
-  BagAccessories: 'Akcesoria do toreb',
+  BagAccessories: 'Akcesoria i uchwyty',
+  Chevrons: 'Szewrony',
   InStock: 'Na stanie',
 
   HandlebarBags: 'Torby na kierownicę',

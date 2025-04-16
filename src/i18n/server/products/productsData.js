@@ -465,9 +465,9 @@ const productsData = {
     pl: 'Naszywka "Let\'s Go"',
   },
   ChevronLetsGoDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Кава".',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Coffee" chevrons.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Kawa"',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Кава".',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Coffee" chevrons.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Kawa"',
   },
   ChevronStrava: {
     uk: 'Шеврон "Strava"',
@@ -475,9 +475,9 @@ const productsData = {
     pl: 'Naszywka "Strava"',
   },
   ChevronStravaDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Кава" та "Let\'s Go".',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" chevrons.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Kawa" i "Let\'s Go".',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Кава" та "Let\'s Go".',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" chevrons.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Kawa" i "Let\'s Go".',
   },
   ChevronVelocats: {
     uk: 'Шеврон "Велокотики"',
@@ -485,9 +485,9 @@ const productsData = {
     pl: 'Naszywka "Rowerowe Koty"',
   },
   ChevronVelocatsDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Шеврон розроблено для велосипедистів, які боронять нашу землю від російської навали.',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is designed for cyclists who defend our land against the Russian invasion.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka została zaprojektowana dla rowerzystów, którzy bronią naszej ziemi przed rosyjską inwazją.',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Шеврон розроблено для велосипедистів, які боронять нашу землю від російської навали.',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* This chevron is designed for cyclists who defend our land against the Russian invasion.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Ta naszywka została zaprojektowana dla rowerzystów, którzy bronią naszej ziemi przed rosyjską inwazją.',
   },
   ChevronCoffee: {
     uk: 'Шеврон "Кава"',
@@ -495,9 +495,9 @@ const productsData = {
     pl: 'Naszywka "Kawa"',
   },
   ChevronCoffeeDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Let\'s Go".',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" chevrons.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Let\'s Go".',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Let\'s Go".',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" chevrons.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Ta naszywka jest częścią serii "Rowerowa". Świetnie komponuje się z naszywkami "Strava" i "Let\'s Go".',
   },
   ChevronDonut: {
     uk: 'Шеврон "Пончик"',
@@ -505,9 +505,9 @@ const productsData = {
     pl: 'Naszywka "Pączek"',
   },
   ChevronDonutDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Кавунський пончик, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon donut is a tribute and a reminder of the sunny and juicy south of our country.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowy pączek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Кавунський пончик, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* The watermelon donut is a tribute and a reminder of the sunny and juicy south of our country.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Arbuzowy pączek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
   },
   ChevronGhost: {
     uk: 'Шеврон "Привид"',
@@ -515,9 +515,9 @@ const productsData = {
     pl: 'Naszywka "Duch"',
   },
   ChevronGhostDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Привид вишитий на світловідбиваючий тканині, тому буде вірним супутником в темну пору доби.',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The ghost is embroidered on reflective fabric, making it a reliable companion in the dark.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Duch jest haftowany na odblaskowej tkaninie, dzięki czemu będzie niezawodnym towarzyszem po zmroku.',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Привид вишитий на світловідбиваючий тканині, тому буде вірним супутником в темну пору доби.',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* The ghost is embroidered on reflective fabric, making it a reliable companion in the dark.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Duch jest haftowany na odblaskowej tkaninie, dzięki czemu będzie niezawodnym towarzyszem po zmroku.',
   },
   ChevronHeart: {
     uk: 'Шеврон "Сердечко"',
@@ -525,9 +525,9 @@ const productsData = {
     pl: 'Naszywka "Serduszko"',
   },
   ChevronHeartDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Кавунське сердечко, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon heart is a tribute and a reminder of the sunny and juicy south of our country.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowe serduszko to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Кавунське сердечко, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* The watermelon heart is a tribute and a reminder of the sunny and juicy south of our country.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Arbuzowe serduszko to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
   },
   ChevronSlice: {
     uk: 'Шеврон "Скибка"',
@@ -535,9 +535,19 @@ const productsData = {
     pl: 'Naszywka "Kawałek"',
   },
   ChevronSliceDescription: {
-    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\n*Кавунська скибка, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
-    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\n*The watermelon slice is a tribute and a reminder of the sunny and juicy south of our country.',
-    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\n*Arbuzowy kawałek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+    uk: 'Шеврон – це яскравий спосіб персоналізації та кастомізації будь якої (за наявності велкро) сумки, рюкзака або аксесуара з наших велосипедних або міських колекцій. Потіште себе подарунком та замовляйте для друзів або рідних.\n\u00A0\n* Кавунська скибка, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
+    en: 'A chevron is a great way to personalize and customize any bag, backpack, or accessory with Velcro from our cycling or urban collections. Treat yourself to a gift or order one for your friends or family.\n\u00A0\n* The watermelon slice is a tribute and a reminder of the sunny and juicy south of our country.',
+    pl: 'Naszywka to świetny sposób na personalizację i customizację każdej torby, plecaka lub akcesorium z rzepem (Velcro) z naszej kolekcji rowerowej lub miejskiej. Spraw sobie prezent lub zamów dla przyjaciół czy rodziny.\n\u00A0\n* Arbuzowy kawałek to hołd i przypomnienie o słonecznym i soczystym południu naszego kraju.',
+  },
+  ChevronMountType: {
+    uk: 'велкро',
+    en: 'velcro',
+    pl: 'rzep (velcro)',
+  },
+  ChevronUsage: {
+    uk: 'кріпиться на одяг, сумки, рюкзаки або спорядження',
+    en: 'can be attached to clothing, bags, backpacks, or gear',
+    pl: 'można przymocować do ubrań, toreb, plecaków lub sprzętu',
   },
   Cup: {
     uk: 'Чашка складна WILDO x4',

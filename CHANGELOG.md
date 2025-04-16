@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.5.0] - Unreleased
+## [1.7.0] - Unreleased
+
+### Added
+- a new section "Chevrons" and filled it with new products ([255](https://github.com/boarlabsxyz/Kavoon/pull/255))
+
+## [1.6.0] - 2025-03-14
+
+### Added
+- product descriptions with translation for Chevrons section to the code database ([253](https://github.com/boarlabsxyz/Kavoon/pull/253))
+
+## [1.5.0] - 2025-03-14
 
 ### Added
 - canonical URLs to website pages ([241](https://github.com/boarlabsxyz/Kavoon/pull/241))

@@ -1,33 +1,41 @@
+import { FC } from 'react';
 import PlacingOrderDetails from './PlacingOrderDetails';
-
+import {
+  SUBCATEGORIES_BICYCLE_EQUIPMENT,
+  IN_STOCK,
+  CHEVRONS,
+  BICYCLE_EQUIPMENT,
+} from 'src/data/constants';
 import Product from 'src/types/product';
-import { SUBCATEGORIES_BICYCLE_EQUIPMENT, IN_STOCK } from 'src/data/constants';
 import lang from 'src/i18n/lang';
+import styles from './PlacingOrder.module.css';
 import { Language } from 'src/types/language';
-
-import st from './PlacingOrder.module.css';
 
 type Props = {
   language: Language;
   product: Product;
 };
 
-function PlacingOrder({ language, product }: Props) {
-  let content;
-  if (product.subcategory === SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts) {
-    content = 'PlacingOrderForMounts';
+const PlacingOrder: FC<Props> = ({ language, product }) => {
+  let content = 'PlacingOrderDetails';
+
+  if (product.category === CHEVRONS) {
+    content = 'PlacingOrderForChevron';
   } else if (product.category === IN_STOCK) {
     content = 'PlacingOrderInStockDetails';
-  } else {
-    content = 'PlacingOrderDetails';
+  } else if (
+    product.category === BICYCLE_EQUIPMENT &&
+    product.subcategory === SUBCATEGORIES_BICYCLE_EQUIPMENT.Mounts
+  ) {
+    content = 'PlacingOrderForMounts';
   }
 
   return (
-    <section className={st.section}>
-      <h2 className={st.title}>{lang('PlacingOrder', language)}</h2>
+    <section className={styles.section} data-testid="placing-order-section">
+      <h2 className={styles.title}>{lang('PlacingOrder', language)}</h2>
       <PlacingOrderDetails text={lang(content, language)} />
     </section>
   );
-}
+};
 
 export default PlacingOrder;

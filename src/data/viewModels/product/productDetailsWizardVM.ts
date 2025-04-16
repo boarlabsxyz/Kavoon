@@ -7,6 +7,7 @@ import {
   SUBCATEGORIES_BICYCLE_EQUIPMENT,
   IN_STOCK,
   CUSTOMER_PARAMETERS,
+  CHEVRONS,
 } from 'src/data/constants';
 import Product, { ProductFabricData, FabricPrice } from 'src/types/product';
 import productDetailsWizardTitleVM from './productDetailsWizardTitleVM';
@@ -15,6 +16,7 @@ import productDetailsWizardPickerVM from './productDetailsWizardPickerVM';
 import productDetailsKitVM from './productDetailsKitVM';
 import mountProductDetailsWizardVM from './mountProductDetailsWizardVM';
 import productInStockDetailsWizardVM from './productInStockDetailsWizardVM';
+import chevronProductDetailsWizardVM from './chevronProductDetailsWizardVM';
 
 function productDetailsWizardVM(productId: string, products: Product[] = []) {
   const product = products.find(({ id }) => id === productId);
@@ -28,6 +30,10 @@ function productDetailsWizardVM(productId: string, products: Product[] = []) {
 
   if (product.category === IN_STOCK) {
     return productInStockDetailsWizardVM(product, products);
+  }
+
+  if (product.category === CHEVRONS) {
+    return chevronProductDetailsWizardVM(product);
   }
 
   const price = product.price as FabricPrice;

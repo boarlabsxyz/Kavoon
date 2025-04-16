@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 
 import { Language } from 'src/types/language';
 import { getPostsNames } from 'src/services/blog';
+import brandingConst from 'src/data/brandingConst';
 
 export const dynamicParams = false;
 
@@ -24,16 +25,16 @@ type Params = {
 };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const { lang, slug } = params;
 
   return {
     alternates: {
-      canonical: `${baseUrl}/${lang}/blog/${slug}`,
+      canonical: `${siteUrl}/${lang}/blog/${slug}`,
       languages: {
-        en: `${baseUrl}/en/blog/${slug}`,
-        uk: `${baseUrl}/uk/blog/${slug}`,
-        pl: `${baseUrl}/pl/blog/${slug}`,
+        en: `${siteUrl}/en/blog/${slug}`,
+        uk: `${siteUrl}/uk/blog/${slug}`,
+        pl: `${siteUrl}/pl/blog/${slug}`,
       },
     },
   };

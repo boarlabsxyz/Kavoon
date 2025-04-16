@@ -5,23 +5,24 @@ import BlogIndexPage from 'src/components/blog/blogIndexPage';
 
 import { Language } from 'src/types/language';
 import { getPosts } from 'src/services/blog';
+import brandingConst from 'src/data/brandingConst';
 
 type Props = {
   params: { lang: Language };
 };
 
 export function generateMetadata({ params }: Props): Metadata {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const { lang } = params;
   const path = '/blog';
 
   return {
     alternates: {
-      canonical: `${baseUrl}/${lang}${path}`,
+      canonical: `${siteUrl}/${lang}${path}`,
       languages: {
-        en: `${baseUrl}/en${path}`,
-        uk: `${baseUrl}/uk${path}`,
-        pl: `${baseUrl}/pl${path}`,
+        en: `${siteUrl}/en${path}`,
+        uk: `${siteUrl}/uk${path}`,
+        pl: `${siteUrl}/pl${path}`,
       },
     },
   };

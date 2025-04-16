@@ -14,6 +14,11 @@ jest.mock('src/i18n/getDictionary', () => jest.fn());
 describe('AboutUsPage Component (Server-side)', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it('renders AboutUs component when dictionary loads successfully', async () => {
@@ -46,7 +51,10 @@ describe('AboutUsPage Component (Server-side)', () => {
       );
     });
 
-    expect(html).toContain('Error loading About Us page.');
+    expect(html).toContain('Error loading About Us page');
+    expect(html).toContain(
+      'Please try refreshing the page or contact support if the problem persists'
+    );
   });
 });
 

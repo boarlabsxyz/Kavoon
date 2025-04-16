@@ -83,6 +83,10 @@ export const makeFieldsForInfoSection = (language: Language): Field[] => {
       name: lang('Description', language),
       field: 'description',
     },
+    {
+      name: lang('Mounts', language),
+      field: 'mounts',
+    },
   ];
 
   return fields;

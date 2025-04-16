@@ -15,6 +15,7 @@ import LocalStorageProvider from 'src/services/localStorageProvider';
 
 import 'modern-normalize/modern-normalize.css';
 import 'src/app/global.css';
+import brandingConst from 'src/data/brandingConst';
 
 type Props = {
   children: React.ReactNode;
@@ -29,16 +30,16 @@ const montserrat = Montserrat({
 });
 
 export function generateMetadata({ params }: Props): Metadata {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const { lang } = params;
 
   return {
     alternates: {
-      canonical: `${baseUrl}/${lang}`,
+      canonical: `${siteUrl}/${lang}`,
       languages: {
-        en: `${baseUrl}/en`,
-        uk: `${baseUrl}/uk`,
-        pl: `${baseUrl}/pl`,
+        en: `${siteUrl}/en`,
+        uk: `${siteUrl}/uk`,
+        pl: `${siteUrl}/pl`,
       },
     },
   };
