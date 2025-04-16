@@ -9,9 +9,10 @@ import {
 import Product from 'src/types/product';
 import lang from 'src/i18n/lang';
 import styles from './PlacingOrder.module.css';
+import { Language } from 'src/types/language';
 
 type Props = {
-  language: string;
+  language: Language;
   product: Product;
 };
 
