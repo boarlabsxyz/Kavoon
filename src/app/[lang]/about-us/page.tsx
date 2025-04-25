@@ -1,4 +1,4 @@
-import AboutUs from 'src/components/aboutUsPage/aboutUs/AboutUs';
+import AboutUs from 'src/components/aboutUsPage/aboutUs';
 import { Metadata } from 'next';
 
 import getDictionary from 'src/i18n/getDictionary';
