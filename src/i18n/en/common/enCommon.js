@@ -221,7 +221,7 @@ const Language = {
   BicycleEquipment: 'Bicycle equipment',
   CityCollection: 'City collection',
   BagAccessories: 'Accessories and mounts',
-  Chevrons: 'Chevrons',
+  Chevrons: 'Patches',
   InStock: 'In stock',
 
   HandlebarBags: 'Handlebar bags',
