@@ -22,7 +22,6 @@ function InfoSection({ productId, language }: Props) {
   const embedVideo = product.embedVideo;
 
   const vm = new InfoSectionVM(product);
-
   return (
     <section className={st.section}>
       <Container>

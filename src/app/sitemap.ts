@@ -4,9 +4,10 @@ import { getAllProducts } from 'src/helpers/getProducts';
 import { languages } from 'src/data/routes';
 import { getPosts } from 'src/services/blog';
 import toKebabCase from 'src/helpers/toKebabCase';
+import brandingConst from 'src/data/brandingConst';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://kavoon.com.ua';
+  const { siteUrl } = brandingConst;
   const postsFolderPath = path.resolve('src/data/articles/blog');
 
   const routes: string[] = [
@@ -14,11 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/about-us',
     '/delivery-and-payment',
     '/policy',
+    '/shop/cart',
   ];
 
   const staticRoutesSitemap = routes.flatMap((route) =>
     languages.map(({ locale }) => ({
-      url: `${baseUrl}/${locale}${route}`,
+      url: `${siteUrl}/${locale}${route}`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: route === '' ? 1 : 0.8,
@@ -26,10 +28,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: Object.fromEntries(
           languages.map(({ locale }) => [
             locale,
-            `${baseUrl}/${locale}${route}`,
+            `${siteUrl}/${locale}${route}`,
           ])
         ),
-        canonical: `${baseUrl}/${locale}${route}`,
+        canonical: `${siteUrl}/${locale}${route}`,
       },
     }))
   );
@@ -42,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const categoriesSitemap = allCategories.flatMap((category) =>
     languages.map(({ locale }) => ({
-      url: `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
+      url: `${siteUrl}/${locale}/shop/${toKebabCase(category)}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
@@ -50,10 +52,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: Object.fromEntries(
           languages.map(({ locale }) => [
             locale,
-            `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
+            `${siteUrl}/${locale}/shop/${toKebabCase(category)}`,
           ])
         ),
-        canonical: `${baseUrl}/${locale}/shop/${toKebabCase(category)}`,
+        canonical: `${siteUrl}/${locale}/shop/${toKebabCase(category)}`,
       },
     }))
   );
@@ -61,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const productsSitemap = products.flatMap((product) =>
     languages.map(({ locale }) => {
       const categorySlug = toKebabCase(product.category);
-      const productUrl = `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`;
+      const productUrl = `${siteUrl}/${locale}/shop/${categorySlug}/${product.id}`;
 
       return {
         url: productUrl,
@@ -72,10 +74,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           languages: Object.fromEntries(
             languages.map(({ locale }) => [
               locale,
-              `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
+              `${siteUrl}/${locale}/shop/${categorySlug}/${product.id}`,
             ])
           ),
-          canonical: `${baseUrl}/${locale}/shop/${categorySlug}/${product.id}`,
+          canonical: `${siteUrl}/${locale}/shop/${categorySlug}/${product.id}`,
         },
       };
     })
@@ -89,7 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const postsSitemap = posts
     .flatMap((post) =>
       languages.map(({ locale }) => ({
-        url: `${baseUrl}/${locale}/blog/${post.slug}`,
+        url: `${siteUrl}/${locale}/blog/${post.slug}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.8,
@@ -97,10 +99,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           languages: Object.fromEntries(
             languages.map(({ locale }) => [
               locale,
-              `${baseUrl}/${locale}/blog/${post.slug}`,
+              `${siteUrl}/${locale}/blog/${post.slug}`,
             ])
           ),
-          canonical: `${baseUrl}/${locale}/blog/${post.slug}`,
+          canonical: `${siteUrl}/${locale}/blog/${post.slug}`,
         },
       }))
     )

@@ -15,6 +15,11 @@ describe('DeliveryAndPaymentPage', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   test('fetches dictionary and renders DeliveryAndPayment component', async () => {
@@ -41,7 +46,12 @@ describe('DeliveryAndPaymentPage', () => {
     );
 
     expect(
-      await findByText('Error loading Delivery and Payment page.')
+      await findByText('Error loading Delivery and Payment page')
+    ).toBeInTheDocument();
+    expect(
+      await findByText(
+        'Please try refreshing the page or contact support if the problem persists.'
+      )
     ).toBeInTheDocument();
   });
 

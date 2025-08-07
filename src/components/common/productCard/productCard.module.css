@@ -63,6 +63,7 @@
   width: 100%;
   flex-grow: 1;
   padding: 16px;
+  gap: 8px;
 }
 
 .title,

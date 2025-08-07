@@ -71,7 +71,7 @@ const Language = {
   InfoBeforeSelecting:
     'Każdą torbę szyjemy indywidualnie. Torba może być jednokolorowa, wielokolorowa lub z nadrukiem.\nProjekt torby wybieramy wspólnie z Tobą',
   MountsManufacturerInfo:
-    'Mocowanie na kierownicę ma prostą konstrukcję i przejrzystą funkcjonalność.\nMożna go łatwo zamontować na rowerze.\nZwróć uwagę! Mocowanie pasują wyłącznie do toreb Kavoon (nie nadają się do toreb innych producentów)',
+    'Mocowanie na kierownicę ma prostą konstrukcję i przejrzystą funkcjonalność.\nMożna go łatwo zamontować na rowerze.\n\u00A0\nZwróć uwagę! Mocowanie pasują wyłącznie do toreb Kavoon (nie nadają się do toreb innych producentów)',
 
   // Choose Fabric modal
   ChooseFabric: 'Wybrać tkaninę (rodzaj i kolor)',
@@ -202,6 +202,8 @@ const Language = {
     'Dodaj produkt do koszyka i zamów\nPo złóżeniu zamówienia, nasz menedżer skontaktuje się z Tobą w celu wyjaśnienia szczegółów zamówienia i pomoże Ci wybrać metodę płatności i dostawy\nGotowe! W razie wątpliwości, służymy pomocą',
   PlacingOrderForMounts:
     'Sprawdź dostępne opcje toreb na kierownicę\nWybierz odpowiednią i funkcjonalną torbę\nW karcie produktu zaznacz pole „Dodaj do zestawu”\nDodaj produkt do koszyka\nMocowanie zostanie automatycznie dodany do Twojego koszyka\nZłożyc zamówienie\nPo złożeniu zamówienia nasz menadżer skontaktuje się z Państwem w celu wyjaśnienia szczegółów zamówienia oraz pomoże w wyborze dogodnej metody płatności i dostawy\nPodczas rozmowy z menadżerem będziesz mógł szczegółowo omówić model swojej torby (umiejscowienie wybranych kolorów, nadruków itp.) oraz czy mocowanie będzie odpowiedni dla Twojego roweru\nJeśli zdecydujesz się zamówić mocowania osobno oznacza to, że masz już naszą torbę na kierownicę) Dlatego też bezpośrednio przy składaniu zamówienia menadżer dowie się czy torba na mocowania jest dostosowana\nZrobione! W razie wątpliwości służymy pomocą',
+  PlacingOrderForChevron:
+    'Jeśli odpowiadają Ci rozmiar i kolory (jak na zdjęciu), możesz złożyć zamówienie. Po jego wysłaniu skontaktuje się z Tobą nasz menedżer, aby potwierdzić szczegóły i przesłać dane do płatności\nNa naszej stronie znajdziesz przykłady dostępnych wzorów. Każda naszywka jest haftowana indywidualnie, więc jej wykonanie zajmuje 2-3 dni robocze od momentu opłacenia zamówienia\nJeśli chcesz zmienić kolory lub rozmiar, wpisz swoje preferencje w komentarzu do zamówienia. Menedżer omówi z Tobą proponowane zmiany w wybranym przez Ciebie komunikatorze\nJeśli chcesz zmienić tylko kolor, cena pozostaje bez zmian. W przypadku korekty rozmiaru cena ustalana jest indywidualnie\nNie jesteś pewien wyboru? Napisz do naszego czatu wsparcia – z przyjemnością Ci pomożemy!\nGotowe! W razie wątpliwości jesteśmy tutaj, aby Ci pomóc',
 
   CustomSewing:
     'Indywidualne szycie toreb. Wspólnie z Kavoon stwórz\nswoją wyjątkową torbę rowerową na niezapomniane wycieczki!',
@@ -218,7 +220,8 @@ const Language = {
   AllProducts: 'Wszystkie towary',
   BicycleEquipment: 'Sprzęt rowerowy',
   CityCollection: 'Kolekcja miejska',
-  BagAccessories: 'Akcesoria do toreb',
+  BagAccessories: 'Akcesoria i uchwyty',
+  Chevrons: 'Szewrony',
   InStock: 'Na stanie',
 
   HandlebarBags: 'Torby na kierownicę',

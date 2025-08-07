@@ -10,8 +10,9 @@ type Props = {
 const pages = [
   { target: 'shop/all-products', label: 'AllProducts' },
   { target: 'shop/bicycle-equipment', label: 'BicycleEquipment' },
-  { target: 'shop/bag-accessories', label: 'BagAccessories' },
   { target: 'shop/city-collection', label: 'CityCollection' },
+  { target: 'shop/bag-accessories', label: 'BagAccessories' },
+  { target: 'shop/chevrons', label: 'Chevrons' },
   { target: 'shop/in-stock', label: 'InStock' },
 ];
 

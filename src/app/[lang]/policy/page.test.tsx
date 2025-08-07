@@ -16,6 +16,11 @@ describe('PolicyPage', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   test('fetches dictionary and renders Policy component', async () => {
@@ -41,7 +46,12 @@ describe('PolicyPage', () => {
       await PolicyPage({ params: { lang: mockLang } })
     );
 
-    expect(await findByText('Error loading policy page.')).toBeInTheDocument();
+    expect(await findByText('Error loading Policy page')).toBeInTheDocument();
+    expect(
+      await findByText(
+        'Please try refreshing the page or contact support if the problem persists.'
+      )
+    ).toBeInTheDocument();
   });
 
   test('generateMetadata returns correct metadata', async () => {

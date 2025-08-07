@@ -11,7 +11,7 @@ describe('Product Page Tests', () => {
 
       cy.scrollTo(0, 600, { duration: 1000 });
       cy.get('[data-cy="product-title"]')
-        .contains('Сумка на кермо для снеків "Хом\'як"')
+        .contains('Сумка на кермо для снеків "Хомʼяк"')
         .click();
       cy.url().should('include', '/shop/bicycle-equipment/hamster');
       cy.get('[data-cy="product-page"]').should('be.visible');
