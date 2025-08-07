@@ -1,7 +1,8 @@
 /**
  * @type {import('next').NextConfig}
  */
-import { withSentryConfig } from '@sentry/nextjs';
+// import { withSentryConfig } from '@sentry/nextjs';
+// import { config } from 'next/dist/build/templates/pages';
 
 const nextConfig = {
   images: {
@@ -28,8 +29,9 @@ const nextConfig = {
   },
 };
 
-const sentryWebpackPluginOptions = {
-  silent: true, // Suppresses all logs
-};
+// const sentryWebpackPluginOptions = {
+//   silent: true, // Suppresses all logs
+// };
 
-export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+export default nextConfig;
+//export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
