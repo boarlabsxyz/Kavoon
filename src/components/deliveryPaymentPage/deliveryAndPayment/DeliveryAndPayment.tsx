@@ -44,15 +44,7 @@ const DeliveryAndPayment: FC<Props> = ({ dictionary }) => {
             <CustomImage
               src="/img/blog/delivery-and-payment/nova-poshta-ua-logo.svg"
               alt="Nova Poshta logo"
-              width={103}
-              height={40}
-            />
-          </div>
-          <div className={styles.paymentOption}>
-            <CustomImage
-              src="/img/blog/delivery-and-payment/ukrposhta-ua-logo.svg"
-              alt="Ukrposhta logo"
-              width={150}
+              width={115}
               height={40}
             />
           </div>
@@ -65,14 +57,6 @@ const DeliveryAndPayment: FC<Props> = ({ dictionary }) => {
               src="/img/blog/delivery-and-payment/nova-poshta-en-logo.svg"
               alt="Nova Poshta International logo"
               width={115}
-              height={40}
-            />
-          </div>
-          <div className={styles.paymentOption}>
-            <CustomImage
-              src="/img/blog/delivery-and-payment/ukrposhta-en-logo.svg"
-              alt="Ukrposhta International logo"
-              width={157}
               height={40}
             />
           </div>
