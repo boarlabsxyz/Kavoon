@@ -919,6 +919,11 @@ const productsData = {
     en: 'Feathers',
     pl: 'Pióra',
   },
+  foxes: {
+    uk: 'Лисички',
+    en: 'Foxes',
+    pl: 'Lisy',
+  },
   raccoons: {
     uk: 'Єноти',
     en: 'Raccoons',
@@ -938,6 +943,11 @@ const productsData = {
     uk: 'Лілії',
     en: 'Lilies',
     pl: 'Lilie',
+  },
+  leafs_on_blue: {
+    uk: 'Листя на темному',
+    en: 'Leaves on dark',
+    pl: 'Liście na ciemnym',
   },
   ChooseZip: {
     uk: 'Обрати загальний вхід в сумку',
