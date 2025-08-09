@@ -189,7 +189,7 @@ const Language = {
 
   Delivery: 'Dostawa',
   DeliveryDetails:
-    'Dostawa na terenie Ukrainy realizowana jest przez Nova Poshta\nMiędzynarodowe przesyłki realizowane są przez Nova Poshta, Ukrposhta, Meest',
+    'Dostawa na terenie Ukrainy realizowana jest przez Nova Poshta\nMiędzynarodowe przesyłki realizowane są przez Nova Poshta i Meest',
   Payment: 'Płatność',
   PaymentDetails:
     'Zamówienia przyjmujemy za pełną przedpłatą\nPrzy zamówieniu za granicę łączna kwota uwzględnia cenę za dostawę na granicy',

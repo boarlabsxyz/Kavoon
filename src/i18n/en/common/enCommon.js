@@ -189,7 +189,7 @@ const Language = {
 
   Delivery: 'Delivery',
   DeliveryDetails:
-    'Delivery within Ukraine is made through Nova Pochta\nWorldwide delivery could be accomplished by Nova Poshta, Ukrposhta, Meest',
+    'Delivery within Ukraine is made through Nova Pochta\nWorldwide delivery could be accomplished by Nova Poshtaa and Meest',
   Payment: 'Payment',
   PaymentDetails:
     'We accept a purchase with a full prepayment\nWhen ordering abroad, the total amount takes into account the price for delivery at the border',

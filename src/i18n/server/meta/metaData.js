@@ -394,12 +394,12 @@ const metaData = {
   },
   donut: {
     uk: {
-      title: 'Шеврон "Пончик"',
+      title: 'Патч "Пончик"',
       description:
         'Кавунський пончик, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
     },
     en: {
-      title: 'Chevron "Donut"',
+      title: 'Patch "Donut"',
       description:
         'The watermelon donut is a tribute and a reminder of the sunny and juicy south of our country.',
     },
@@ -411,12 +411,12 @@ const metaData = {
   },
   ghost: {
     uk: {
-      title: 'Шеврон "Привид"',
+      title: 'Патч "Привид"',
       description:
         'Привид вишитий на світловідбиваючий тканині, тому буде вірним супутником в темну пору доби.',
     },
     en: {
-      title: 'Chevron "Ghost"',
+      title: 'Patch "Ghost"',
       description:
         'The ghost is embroidered on reflective fabric, making it a reliable companion in the dark.',
     },
@@ -428,12 +428,12 @@ const metaData = {
   },
   heart: {
     uk: {
-      title: 'Шеврон "Сердечко"',
+      title: 'Патч "Сердечко"',
       description:
         'Кавунське сердечко, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
     },
     en: {
-      title: 'Chevron "Heart"',
+      title: 'Patch "Heart"',
       description:
         'The watermelon heart is a tribute and a reminder of the sunny and juicy south of our country.',
     },
@@ -445,12 +445,12 @@ const metaData = {
   },
   slice: {
     uk: {
-      title: 'Шеврон "Скибка"',
+      title: 'Патч "Скибка"',
       description:
         'Кавунська скибка, то як згадка та нагадування про сонячний і соковитий південь нашої країни.',
     },
     en: {
-      title: 'Chevron "Slice"',
+      title: 'Patch "Slice"',
       description:
         'The watermelon slice is a tribute and a reminder of the sunny and juicy south of our country.',
     },
@@ -462,14 +462,14 @@ const metaData = {
   },
   coffee: {
     uk: {
-      title: 'Шеврон "Кава"',
+      title: 'Патч "Кава"',
       description:
-        'Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Let\'s Go".',
+        'Цей патч один з серії "Вело". Буде гарно пасувати до патчів "Strava" та "Let\'s Go".',
     },
     en: {
-      title: 'Chevron "Coffee"',
+      title: 'Patch "Coffee"',
       description:
-        'This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" chevrons.',
+        'This patch is part of the "Cycling" series. It pairs well with the "Strava" and "Let\'s Go" patches.',
     },
     pl: {
       title: 'Naszywka "Kawa"',
@@ -479,14 +479,14 @@ const metaData = {
   },
   'velo-cat': {
     uk: {
-      title: 'Шеврон "Велокотики"',
+      title: 'Патч "Велокотики"',
       description:
-        'Шеврон розроблено для велосипедистів, які боронять нашу землю від російської навали.',
+        'Патч розроблено для велосипедистів, які боронять нашу землю від російської навали.',
     },
     en: {
-      title: 'Chevron "Velocats"',
+      title: 'Patch "Velocats"',
       description:
-        'This chevron is designed for cyclists who defend our land against the Russian invasion.',
+        'This patch is designed for cyclists who defend our land against the Russian invasion.',
     },
     pl: {
       title: 'Naszywka "Rowerowe Koty"',
@@ -496,14 +496,14 @@ const metaData = {
   },
   strava: {
     uk: {
-      title: 'Шеврон "Strava"',
+      title: 'Патч "Strava"',
       description:
-        'Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Кава" та "Let\'s Go".',
+        'Цей патч один з серії "Вело". Буде гарно пасувати до патчів "Кава" та "Let\'s Go".',
     },
     en: {
-      title: 'Chevron "Strava"',
+      title: 'Patch "Strava"',
       description:
-        'This chevron is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" chevrons.',
+        'This Patch is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" patches.',
     },
     pl: {
       title: 'Naszywka "Strava"',
@@ -513,14 +513,14 @@ const metaData = {
   },
   letsgo: {
     uk: {
-      title: 'Шеврон "Let\'s Go"',
+      title: 'Патч "Let\'s Go"',
       description:
-        'Цей шеврон один з серії "Вело". Буде гарно пасувати до шевронів "Strava" та "Кава".',
+        'Цей патч один з серії "Вело". Буде гарно пасувати до патчів "Strava" та "Кава".',
     },
     en: {
-      title: 'Chevron "Let\'s Go"',
+      title: 'Patch "Let\'s Go"',
       description:
-        'This chevron is part of the "Cycling" series. It pairs well with the "Strava" and "Coffee" chevrons.',
+        'This patch is part of the "Cycling" series. It pairs well with the "Strava" and "Coffee" patches.',
     },
     pl: {
       title: 'Naszywka "Let\'s Go"',
