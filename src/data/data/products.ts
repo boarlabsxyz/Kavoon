@@ -180,7 +180,7 @@ const seatBag3L = () => ({
     main: 'SeatBag3lDescription',
     conclusion: 'SeatBag3lConclusion',
   },
-  gallery: 5,
+  gallery: 4,
   price: {
     cordura: { UAH: 1850, EUR: 50 },
     xpac: { UAH: 2100, EUR: 58 },
