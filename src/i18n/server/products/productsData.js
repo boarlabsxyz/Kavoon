@@ -314,21 +314,6 @@ const productsData = {
     en: 'This is a city backpack - convenient for everyday use. Suitable for 1-2 day hikes. In addition, you can order a belt for fixation during hikes and small pouches as an additional volume.',
     pl: 'Ten miejski plecak jest wygodny w codziennym użytkowaniu. Nadaje się na 1-2 dniowe wędrówki. Dodatkowo można zamówić pasek do mocowania plecaka podczas wędrówki oraz małe torebki jako dodatkowa objętność.',
   },
-  SmallToolSeatbag: {
-    uk: 'Підсідельна сумка для інструментів',
-    en: 'Seat Bag small tool',
-    pl: 'Torba podsiodłowa na narzędzia',
-  },
-  SmallToolSeatbagDescription: {
-    uk: '\n- всередині одне суцільне відділення з плоскою кишенькою на блискавці, гумками-тримачами та додатковою плоскою кишенькою\n- кріпиться за допомогою липучок\n- ззовні є гумка для додаткового кріплення речей\n- ззовні є стропа, щоб кріпити ліхтарик\n- оздоблена світловідбивною стрічкою\n- має жорсткий каркас, не деформується',
-    en: '\n- there is one internal space inside with a flat zipped pocket, elastic bands and an additional flat pocket\n- fastened with Velcro (Molle system)\n- rubber band on the outside, as an additional place to attach things\n- there is a strap on the outside to attach the flashlight\n- decorated with reflective tape\n- contains a rigid framework, does not deform',
-    pl: '\n- wewnątrz znajduje się  jedna wspólna komora komora z płaską kieszenią zapinaną na zamek, gumkami i dodatkową płaską kieszenią\n- mocowana jest na rzep\n- posiada gumkę do dodatkowego mocowania rzeczy od zewnątrz\n- na zewnątrz znajduje się pasek do mocowania dodatkowych rzeczy\n- na zewnątrz znajduje się pasek do mocowania latarki\n- cozdobiona taśmą odblaskową\n- ma sztywny karkas, nie odkształca się',
-  },
-  SmallToolSeatbagConclusion: {
-    uk: 'Маленька сумка, яка вміщує речі першої потреби у подорожі. Підходить для подорожей на невеликі відстані (по місту, за місто), для бреветів.',
-    en: 'A small bag that holds the essentials for travel. Suitable for short distances (in the city, out of town), for brevets.',
-    pl: 'Mała torba, która może pomieścić rzeczy niezbędne podczas podróży. Nadaje się do podróży na małe odległości (w mieście, poza miastem), do berevet-ów.',
-  },
   BarrelBagMini: {
     uk: 'Сумка на кермо "Бочонок міні"',
     en: 'Handlebar bag "Barrelbag mini"',
@@ -398,21 +383,6 @@ const productsData = {
     uk: 'Органайзер із маленькими кишеньками та гумками-тримачами. Підходить як для порядку речей у великих сумках, так і для особистих речей вдома. Ззовні із зворотної сторони три ряди стропи із системою Molle. Засув із водонепроникної блискавки. Всередині у лівому відділенні плоска кишенька на замок та ще одна плоска кишеня; у правому відділені дві плоскі кишені та два ряди гумок-тримачів. ',
     en: 'Organizer with small pockets and rubber bands. It is suitable both for organizing things in large bags and for personal things at home. On the reverse side there are three rows of lanyards with the Molle system on the outside. Waterproof zipper closure. Inside the left compartment is a flat pocket with a zipper and another flat pocket. On the right, there are two flat pockets and two rows of rubber bands.',
     pl: 'Organizer z małymi kieszonkami i gumkami. Nadaje się zarówno do uporządkowania rzeczy w dużych torbach, jak i rzeczy osobistych w domu. Na zewnątrz, na rewersie trzy rzędy zawiesi z systemem Molle. Wodoodporne zamknięcie na zamek błyskawiczny. Wewnątrz lewej komory znajduje się płaska kieszeń zamykana na zamek oraz druga płaska kieszeń; po prawej stronie oddzielone dwie płaskie kieszonki oraz dwa rzędy gumek.',
-  },
-  TacticalStembag: {
-    uk: 'Сумка на кермо "Хомʼяк - підсумок"',
-    en: 'Tactical stembag',
-    pl: 'Torba na kierownice na przekąski "Chomik-Ładownica"',
-  },
-  TacticalStembagDescription: {
-    uk: '\n- всередині загальне відділення\n- універсальне кріплення:\n- на систему Molle (наприклад, на рюкзак)\n- на 2 липучки і затяжку (на велосипед)\n- є отвір для виводу вологи\n- зовнішня кишенька з гумкою для телефона\n- зовнішня кишенька з карабіном для ключів, клапаном (що її закриває) та липучкою для патчів\n- додаткові Molle для кріплення (наприклад, ліхтарик або колонка)\n- "однорука" система, щоб відкрити та закрити сумку',
-    en: '\n- there is one internal space inside\n- universal mounting:\n   - on the Molle system (for example, on a backpack)\n   - on 2 Velcro and a lacing (on a bicycle)\n- there is a hole for moisture removal inside\n- there is an external pocket with an elastic band for a phone\n- there is an external pocket with a carabiner for keys, a flap (that closes it) and a velcro for patches\n- additional Molle system for mounting (for example, a flashlight or column)\n- "one-armed" system to open and close the bag',
-    pl: '\n- wewnątrz znajduje się dział ogólny\n- uniwersalne mocowanie:\n   - na systemie Molle (np. na plecaku)\n   - na dwa rzepy oraz za pomocą ściągacza (do roweru)\n- jest otwór na wilgoć\n- kieszeń zewnętrzna z gumką na telefon\n- kieszeń zewnętrzna z karabińczykiem na klucze, klapą (zamykającą ją) oraz rzepem na szewrony\n- dodatkowe Molle do montażu (np. latarki lub głośnika)\n- "jednoręki" system do otwierania i zamykania torby',
-  },
-  TacticalStembagConclusion: {
-    uk: 'Універсальна сумка, яку можна кріпити до різних поверхонь із системою Molle. Її можна використовувати у походах, якщо закріпити на рюкзак чи пояс або у велопоїздках. Завдяки основним кишеням ззовні є достатньо вільного місця всередині сумки.',
-    en: 'A versatile bag that can be attached to various surfaces with the Molle system. It can be used on hikes, if attached to a backpack or belt, or on bicycle trips. Thanks to the main pockets on the outside, there is enough free space inside the bag.',
-    pl: 'Uniwersalna torba, którą można przymocować do różnych powierzchni za pomocą systemu Molle. Może być używany podczas wędrówek, jeśli jest przymocowany do plecaka lub paska, lub podczas wycieczek rowerowych. Dzięki głównym kieszeniom na zewnątrz, wewnątrz torby jest wystarczająco dużo wolnego miejsca.',
   },
   PhonePouch: {
     uk: 'Підсумок для телефона',
