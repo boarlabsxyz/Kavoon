@@ -292,38 +292,6 @@ const metaData = {
         'Model torby na kierownicę o zwiększonej objętości. Nadaje się do jazdy na rowerze i pieszych wędrówek. Na dowolne dystanse',
     },
   },
-  'small-tool-seatbag': {
-    uk: {
-      title: 'Підсідельна сумка для інструментів',
-      description: 'Маленька сумка, яка вміщує речі першої потреби у подорожі',
-    },
-    en: {
-      title: 'Seat Bag small tool',
-      description: 'A small bag that holds the essentials for travel',
-    },
-    pl: {
-      title: 'Torba podsiodłowa na narzędzia',
-      description:
-        'Mała torba, która może pomieścić rzeczy niezbędne podczas podróży',
-    },
-  },
-  'tactical-stembag': {
-    uk: {
-      title: 'Сумка на кермо "Хомяк - підсумок"',
-      description:
-        'Універсальна сумка, із системою Molle. Її Можна використовувати у походах або у велопоїздках',
-    },
-    en: {
-      title: 'Tactical stembag',
-      description:
-        'Universal bag with Molle system. It can be used on hikes or bike rides',
-    },
-    pl: {
-      title: 'Torba na kierownice na przekąski "Chomik-Ładownica"',
-      description:
-        'Uniwersalna torba z systemem Molle. Można go używać podczas pieszych wędrówek lub przejażdżek rowerowych',
-    },
-  },
   'loop-handlebar-bag': {
     uk: {
       title: 'Сумка для турингового керма',
