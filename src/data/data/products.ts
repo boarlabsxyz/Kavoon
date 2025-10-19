@@ -114,8 +114,8 @@ const hamster = () => ({
   },
   gallery: 10,
   price: {
-    cordura: { UAH: 1100, EUR: 30 },
-    xpac: { UAH: 1250, EUR: 35 },
+    cordura: { UAH: 1250, EUR: 33 },
+    xpac: { UAH: 1400, EUR: 38 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: { id: 'K5kL6kvoW-E', title: 'HamsterVideoTitle' },
@@ -148,8 +148,8 @@ const barrelBagWithoutValve = () => ({
   },
   gallery: 7,
   price: {
-    cordura: { UAH: 1900, EUR: 52 },
-    xpac: { UAH: 2100, EUR: 58 },
+    cordura: { UAH: 2200, EUR: 57 },
+    xpac: { UAH: 2500, EUR: 65 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -182,8 +182,8 @@ const seatBag3L = () => ({
   },
   gallery: 4,
   price: {
-    cordura: { UAH: 1850, EUR: 50 },
-    xpac: { UAH: 2100, EUR: 58 },
+    cordura: { UAH: 2100, EUR: 53 },
+    xpac: { UAH: 2350, EUR: 60 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -208,8 +208,8 @@ const halfFrameBag = () => ({
 
   gallery: 5,
   price: {
-    cordura: { UAH: 2000, EUR: 55 },
-    xpac: { UAH: 2300, EUR: 64 },
+    cordura: { UAH: 2300, EUR: 60 },
+    xpac: { UAH: 2600, EUR: 68 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   customSizeParameters: [
@@ -256,8 +256,8 @@ const triangularBicycleFirstAidKitFrame = () => ({
   },
   gallery: 8,
   price: {
-    cordura: { UAH: 1050, EUR: 28 },
-    xpac: { UAH: 1200, EUR: 33 },
+    cordura: { UAH: 1300, EUR: 32 },
+    xpac: { UAH: 1450, EUR: 38 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -290,8 +290,8 @@ const smallBagTubeOnBar = () => ({
   },
   gallery: 9,
   price: {
-    cordura: { UAH: 2200, EUR: 61 },
-    xpac: { UAH: 2500, EUR: 70 },
+    cordura: { UAH: 2500, EUR: 66 },
+    xpac: { UAH: 2800, EUR: 75 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -324,8 +324,8 @@ const bananaOnBar = () => ({
   },
   gallery: 8,
   price: {
-    cordura: { UAH: 2400, EUR: 67 },
-    xpac: { UAH: 2600, EUR: 73 },
+    cordura: { UAH: 2700, EUR: 72 },
+    xpac: { UAH: 2900, EUR: 78 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -358,8 +358,8 @@ const seatBag5L = () => ({
   },
   gallery: 11,
   price: {
-    cordura: { UAH: 2500, EUR: 70 },
-    xpac: { UAH: 2950, EUR: 80 },
+    cordura: { UAH: 2800, EUR: 75 },
+    xpac: { UAH: 3400, EUR: 85 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -384,8 +384,8 @@ const innerFrameBag = () => ({
   },
   gallery: 3,
   price: {
-    cordura: { UAH: 2700, EUR: 76 },
-    xpac: { UAH: 3200, EUR: 85 },
+    cordura: { UAH: 3200, EUR: 82 },
+    xpac: { UAH: 3700, EUR: 90 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   customSizeParameters: [
@@ -426,8 +426,8 @@ const barrelBagWithValve = () => ({
   },
   gallery: 6,
   price: {
-    cordura: { UAH: 2300, EUR: 64 },
-    xpac: { UAH: 2600, EUR: 73 },
+    cordura: { UAH: 2500, EUR: 68 },
+    xpac: { UAH: 2800, EUR: 75 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -462,8 +462,8 @@ const fuelBag = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 1200, EUR: 33 },
-    xpac: { UAH: 1350, EUR: 38 },
+    cordura: { UAH: 1500, EUR: 38 },
+    xpac: { UAH: 1650, EUR: 43 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -496,8 +496,8 @@ const ovalBarrelbag = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 2100, EUR: 58 },
-    xpac: { UAH: 2400, EUR: 67 },
+    cordura: { UAH: 2400, EUR: 63 },
+    xpac: { UAH: 2700, EUR: 72 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -614,8 +614,8 @@ const loopHandlebarBag = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 2300, EUR: 64 },
-    xpac: { UAH: 2600, EUR: 73 },
+    cordura: { UAH: 2500, EUR: 68 },
+    xpac: { UAH: 2800, EUR: 77 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -648,8 +648,8 @@ const barrelbagWithVelcro = () => ({
   },
   gallery: 5,
   price: {
-    cordura: { UAH: 2000, EUR: 55 },
-    xpac: { UAH: 2300, EUR: 64 },
+    cordura: { UAH: 2300, EUR: 60 },
+    xpac: { UAH: 2600, EUR: 69 },
   },
   fabrics: [{ fabric: Cordura }, { fabric: Xpac }],
   embedVideo: null,
@@ -722,7 +722,7 @@ const handlebarMount = () => ({
     conclusion: null,
   },
   gallery: 5,
-  price: { UAH: 800, EUR: 25 },
+  price: { UAH: 900, EUR: 28 },
   fabrics: null,
   embedVideo: { id: 'ylSSGONW8Hc', title: 'HandlebarMountVideoTitle' },
   category: BAG_ACCESSORIES,
