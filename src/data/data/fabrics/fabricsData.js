@@ -57,6 +57,8 @@ const fabricPrints = [
   'cats',
   'green_rhombus',
   'lilies',
+  'foxes',
+  'leafs_on_blue',
 ];
 
 const fabricColors = {

@@ -314,21 +314,6 @@ const productsData = {
     en: 'This is a city backpack - convenient for everyday use. Suitable for 1-2 day hikes. In addition, you can order a belt for fixation during hikes and small pouches as an additional volume.',
     pl: 'Ten miejski plecak jest wygodny w codziennym użytkowaniu. Nadaje się na 1-2 dniowe wędrówki. Dodatkowo można zamówić pasek do mocowania plecaka podczas wędrówki oraz małe torebki jako dodatkowa objętność.',
   },
-  SmallToolSeatbag: {
-    uk: 'Підсідельна сумка для інструментів',
-    en: 'Seat Bag small tool',
-    pl: 'Torba podsiodłowa na narzędzia',
-  },
-  SmallToolSeatbagDescription: {
-    uk: '\n- всередині одне суцільне відділення з плоскою кишенькою на блискавці, гумками-тримачами та додатковою плоскою кишенькою\n- кріпиться за допомогою липучок\n- ззовні є гумка для додаткового кріплення речей\n- ззовні є стропа, щоб кріпити ліхтарик\n- оздоблена світловідбивною стрічкою\n- має жорсткий каркас, не деформується',
-    en: '\n- there is one internal space inside with a flat zipped pocket, elastic bands and an additional flat pocket\n- fastened with Velcro (Molle system)\n- rubber band on the outside, as an additional place to attach things\n- there is a strap on the outside to attach the flashlight\n- decorated with reflective tape\n- contains a rigid framework, does not deform',
-    pl: '\n- wewnątrz znajduje się  jedna wspólna komora komora z płaską kieszenią zapinaną na zamek, gumkami i dodatkową płaską kieszenią\n- mocowana jest na rzep\n- posiada gumkę do dodatkowego mocowania rzeczy od zewnątrz\n- na zewnątrz znajduje się pasek do mocowania dodatkowych rzeczy\n- na zewnątrz znajduje się pasek do mocowania latarki\n- cozdobiona taśmą odblaskową\n- ma sztywny karkas, nie odkształca się',
-  },
-  SmallToolSeatbagConclusion: {
-    uk: 'Маленька сумка, яка вміщує речі першої потреби у подорожі. Підходить для подорожей на невеликі відстані (по місту, за місто), для бреветів.',
-    en: 'A small bag that holds the essentials for travel. Suitable for short distances (in the city, out of town), for brevets.',
-    pl: 'Mała torba, która może pomieścić rzeczy niezbędne podczas podróży. Nadaje się do podróży na małe odległości (w mieście, poza miastem), do berevet-ów.',
-  },
   BarrelBagMini: {
     uk: 'Сумка на кермо "Бочонок міні"',
     en: 'Handlebar bag "Barrelbag mini"',
@@ -919,6 +904,11 @@ const productsData = {
     en: 'Feathers',
     pl: 'Pióra',
   },
+  foxes: {
+    uk: 'Лисички',
+    en: 'Foxes',
+    pl: 'Lisy',
+  },
   raccoons: {
     uk: 'Єноти',
     en: 'Raccoons',
@@ -938,6 +928,11 @@ const productsData = {
     uk: 'Лілії',
     en: 'Lilies',
     pl: 'Lilie',
+  },
+  leafs_on_blue: {
+    uk: 'Листя на темному',
+    en: 'Leaves on dark',
+    pl: 'Liście na ciemnym',
   },
   ChooseZip: {
     uk: 'Обрати загальний вхід в сумку',
