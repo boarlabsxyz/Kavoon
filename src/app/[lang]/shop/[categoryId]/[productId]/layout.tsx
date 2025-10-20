@@ -21,6 +21,11 @@ type ProductPageLayoutProps = {
 
 type Props = {
   params: { lang: Language; productId: string };
+  additionalThings: React.ReactNode;
+  info: React.ReactNode;
+  reviews: React.ReactNode;
+  seeMore: React.ReactNode;
+  gallery: React.ReactNode;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
