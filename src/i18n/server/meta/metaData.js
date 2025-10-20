@@ -381,7 +381,7 @@ const metaData = {
     uk: {
       title: 'Патч "Привид"',
       description:
-        'Привид вишитий на світловідбиваючий тканині, тому буде вірним супутником в темну пору доби.',
+        'Привид вишитий на світловідбивній тканині, тому буде вірним супутником в темну пору доби.',
     },
     en: {
       title: 'Patch "Ghost"',
@@ -471,7 +471,7 @@ const metaData = {
     en: {
       title: 'Patch "Strava"',
       description:
-        'This Patch is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" patches.',
+        'This patch is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" patches.',
     },
     pl: {
       title: 'Naszywka "Strava"',
