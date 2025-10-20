@@ -10,17 +10,12 @@ import getDictionary from 'src/i18n/getDictionary';
 import { Language } from 'src/types/language';
 import { I18N, metaI18N } from 'src/types/i18n.type';
 
-type ProductPageLayoutProps = {
-  children: React.ReactNode;
-  additionalThings: React.ReactNode;
-  info: React.ReactNode;
-  reviews: React.ReactNode;
-  seeMore: React.ReactNode;
-  gallery: React.ReactNode;
-};
-
 type Props = {
   params: { lang: Language; productId: string };
+};
+
+type ProductPageLayoutProps = {
+  children: React.ReactNode;
   additionalThings: React.ReactNode;
   info: React.ReactNode;
   reviews: React.ReactNode;
