@@ -471,11 +471,7 @@ const metaData = {
     en: {
       title: 'Patch "Strava"',
       description:
-<<<<<<< HEAD
         'This patch is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" patches.',
-=======
-        'This Patch is part of the "Cycling" series. It pairs well with the "Coffee" and "Let\'s Go" patches.',
->>>>>>> main
     },
     pl: {
       title: 'Naszywka "Strava"',
