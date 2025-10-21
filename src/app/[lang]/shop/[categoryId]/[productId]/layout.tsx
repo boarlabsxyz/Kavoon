@@ -10,6 +10,10 @@ import getDictionary from 'src/i18n/getDictionary';
 import { Language } from 'src/types/language';
 import { I18N, metaI18N } from 'src/types/i18n.type';
 
+type Props = {
+  params: { lang: Language; productId: string };
+};
+
 type ProductPageLayoutProps = {
   children: React.ReactNode;
   additionalThings: React.ReactNode;
@@ -17,10 +21,6 @@ type ProductPageLayoutProps = {
   reviews: React.ReactNode;
   seeMore: React.ReactNode;
   gallery: React.ReactNode;
-};
-
-type Props = {
-  params: { lang: Language; productId: string };
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
