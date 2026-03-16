@@ -53,7 +53,6 @@ const fabricPrints = [
   'creative',
   'ornament',
   'feathers',
-  'raccoons',
   'cats',
   'green_rhombus',
   'lilies',
