@@ -13,6 +13,8 @@ describe('Home Page Tests', () => {
         cy.wrap($card)
           .find('img')
           .should('be.visible')
+          // next/image clears its blur placeholder only after the image decodes
+          .and('have.css', 'background-image', 'none')
           .and('have.prop', 'naturalWidth')
           .should('be.greaterThan', 0);
       });

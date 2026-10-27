@@ -21,6 +21,8 @@ describe('Product Page Tests', () => {
         cy.wrap($img)
           .find('img')
           .should('be.visible')
+          // next/image clears its blur placeholder only after the image decodes
+          .and('have.css', 'background-image', 'none')
           .and('have.prop', 'naturalWidth')
           .should('be.greaterThan', 0);
       });
