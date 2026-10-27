@@ -1158,7 +1158,7 @@ const Products: () => Product[] = () => [
   universalBagForCity(),
   handlebarMount(),
   // hamsterXpacWithoutPockets(),
-  hamsterCorduraBlackEmbroidery(),
+  // hamsterCorduraBlackEmbroidery(),
   halfFrameBagXpacOrange(),
   halfFrameBagXpacYellowBlue(),
   // barrelBagWithEmbroideryBlue(),
