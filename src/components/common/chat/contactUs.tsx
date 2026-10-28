@@ -9,7 +9,9 @@ type Props = {
 
 function ContactUs({ language }: Props) {
   return (
-    <p className={st.notificationText}>{translate('LeaveMessage', language)}</p>
+    <p className={st.notificationText} data-cy="contact-us-bubble">
+      {translate('LeaveMessage', language)}
+    </p>
   );
 }
 

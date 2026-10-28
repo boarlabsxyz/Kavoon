@@ -25,5 +25,17 @@ addMatchImageSnapshotCommand({
   failureThresholdType: 'percent',
 });
 
+// The chat "contact us" bubble is shown for the first 5 seconds after page load,
+// so wait for it to disappear to keep snapshots stable.
+Cypress.Commands.overwrite(
+  'matchImageSnapshot',
+  (originalFn, subject, ...args) => {
+    cy.get('[data-cy="contact-us-bubble"]', { timeout: 10000 }).should(
+      'not.exist'
+    );
+    return originalFn(subject, ...args);
+  }
+);
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
